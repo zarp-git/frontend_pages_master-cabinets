@@ -78,7 +78,7 @@ export function AboutPageView() {
           {/* Hero Image Banner (Node 48:8849) */}
           <div className="relative w-full h-[320px] sm:h-[420px] md:h-[546px] rounded-[24px] overflow-hidden bg-stone-100 shadow-md">
             <Image
-              src="/images/hero/image2.webp"
+              src="/images/projects/cabinetry_kitchen_finished_01.png"
               alt="Master Cabinets Workshop and Studio"
               fill
               priority
