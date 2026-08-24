@@ -5,52 +5,89 @@ import SectionHeading from "@/presentation/components/molecules/mc/SectionHeadin
 /**
  * GallerySection - Figma node 48:9792 (GALLERY).
  *
- * The kit's 8-column x 2-row bento (186px cells, 192px rows, 12px gaps) runs as
- * a continuous marquee instead of a static overflow: the grid is rendered twice
- * and the marquee-left keyframe travels -50%, so the second copy lands exactly
- * where the first began and the loop is seamless. Cells shrink on phones so the
- * collage keeps its shape at every width.
+ * The kit's bento rhythm - tall / small / wide / small / tall over two rows -
+ * runs twice across 16 columns, so fourteen projects ride the marquee instead
+ * of the original seven. The grid is then rendered twice more and the
+ * marquee-left keyframe travels -50%, so the second copy lands exactly where
+ * the first began and the loop is seamless.
  *
  * Hovering pauses it, and prefers-reduced-motion turns the rail back into a
  * plain horizontal scroller.
  */
 
 const TILES = [
+  // ---- block A (columns 1-8) ----
   {
     src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
     alt: "Luxury kitchen remodel with custom cabinetry - Master Cabinets",
-    // col 1-2, row 1-2
-    area: "col-start-1 col-end-3 row-start-1 row-end-3",
+    area: "[grid-column:1/3] [grid-row:1/3]",
   },
   {
     src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
     alt: "Modern custom kitchen cabinetry - Master Cabinets",
-    area: "col-start-3 col-end-4 row-start-1 row-end-2",
+    area: "[grid-column:3/4] [grid-row:1/2]",
   },
   {
     src: "/images/projects/dark-wood-flooring-installation.jpg",
     alt: "Dark wood flooring installation - Master Cabinets",
-    area: "col-start-4 col-end-6 row-start-1 row-end-2",
+    area: "[grid-column:4/6] [grid-row:1/2]",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_02.jpg",
     alt: "Master bathroom remodel with custom vanity - Master Cabinets",
-    area: "col-start-6 col-end-7 row-start-1 row-end-2",
+    area: "[grid-column:6/7] [grid-row:1/2]",
   },
   {
     src: "/images/projects/painting_flooring_hallway_finished_01.jpg",
     alt: "Interior hallway painting and flooring - Master Cabinets",
-    area: "col-start-7 col-end-9 row-start-1 row-end-3",
+    area: "[grid-column:7/9] [grid-row:1/3]",
   },
   {
     src: "/images/projects/gray-custom-kitchen-cabinetry.jpg",
     alt: "Gray custom kitchen cabinetry - Master Cabinets",
-    area: "col-start-3 col-end-5 row-start-2 row-end-3",
+    area: "[grid-column:3/5] [grid-row:2/3]",
   },
   {
     src: "/images/projects/remodeling_living-room_finished_01.jpg",
     alt: "Living room remodel with built-in storage - Master Cabinets",
-    area: "col-start-5 col-end-7 row-start-2 row-end-3",
+    area: "[grid-column:5/7] [grid-row:2/3]",
+  },
+
+  // ---- block B (columns 9-16) ----
+  {
+    src: "/images/projects/custom-walk-in-closet-installation.jpg",
+    alt: "Custom walk-in closet installation - Master Cabinets",
+    area: "[grid-column:9/11] [grid-row:1/3]",
+  },
+  {
+    src: "/images/projects/bathroom_remodel_finished_03.jpg",
+    alt: "Spa-style bathroom suite - Master Cabinets",
+    area: "[grid-column:11/12] [grid-row:1/2]",
+  },
+  {
+    src: "/images/projects/custom-black-kitchen-cabinets.jpg",
+    alt: "Black cabinetry with granite island - Master Cabinets",
+    area: "[grid-column:12/14] [grid-row:1/2]",
+  },
+  {
+    src: "/images/projects/custom-laundry-room-cabinetry.jpg",
+    alt: "Custom laundry room cabinetry - Master Cabinets",
+    area: "[grid-column:14/15] [grid-row:1/2]",
+  },
+  {
+    src: "/images/projects/custom-outdoor-kitchen-cabinetry.jpg",
+    alt: "Custom outdoor kitchen cabinetry - Master Cabinets",
+    area: "[grid-column:15/17] [grid-row:1/3]",
+  },
+  {
+    src: "/images/projects/white-kitchen-remodeling-project.jpg",
+    alt: "White kitchen remodel with accent wall - Master Cabinets",
+    area: "[grid-column:11/13] [grid-row:2/3]",
+  },
+  {
+    src: "/images/projects/custom-built-in-entertainment-center.jpg",
+    alt: "Built-in entertainment center - Master Cabinets",
+    area: "[grid-column:13/15] [grid-row:2/3]",
   },
 ] as const;
 
@@ -60,7 +97,7 @@ function BentoCopy({ duplicate = false }: { duplicate?: boolean }) {
     <div
       // The trailing margin matches the internal gap, so one copy advances by
       // exactly its own width plus one gap - which is what -50% resolves to.
-      className="mr-3 grid shrink-0 gap-3 [grid-template-columns:repeat(8,116px)] [grid-template-rows:repeat(2,120px)] sm:[grid-template-columns:repeat(8,150px)] sm:[grid-template-rows:repeat(2,155px)] lg:[grid-template-columns:repeat(8,186px)] lg:[grid-template-rows:repeat(2,192px)]"
+      className="mr-3 grid shrink-0 gap-3 [grid-template-columns:repeat(16,116px)] [grid-template-rows:repeat(2,120px)] sm:[grid-template-columns:repeat(16,150px)] sm:[grid-template-rows:repeat(2,155px)] lg:[grid-template-columns:repeat(16,186px)] lg:[grid-template-rows:repeat(2,192px)]"
       aria-hidden={duplicate}
     >
       {TILES.map((tile) => (
@@ -100,7 +137,7 @@ export default function GallerySection() {
       </div>
 
       <div className="group mt-8 overflow-hidden motion-reduce:overflow-x-auto">
-        <div className="flex w-max animate-marquee-left [animation-duration:70s] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+        <div className="flex w-max animate-marquee-left [animation-duration:120s] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
           <BentoCopy />
           <BentoCopy duplicate />
         </div>

@@ -19,32 +19,54 @@ export const GALLERY_CATEGORIES: GalleryCategoryTab[] = [
 const P = "/images/projects";
 
 // ---------------------------------------------------------------------------
-// Gallery items - real Master Cabinets project photography
+// Gallery items - real Master Cabinets project photography.
+//
+// Every finished-project photo in public/images/projects is surfaced here. The
+// seven in-progress frames (demolition, subfloor prep, ceiling protection) are
+// deliberately left out: this page is "See The BEST of Our Work", and several
+// of them have crew members in frame.
 // ---------------------------------------------------------------------------
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: "g-01", title: "Bathroom Remodeling",              src: `${P}/bathroom_remodel_finished_01.jpg`,          category: "bathrooms",     badge: "Remodeling",      location: "Bonita Springs, FL", featured: true },
-  { id: "g-02", title: "Flooring Renovation",              src: `${P}/dark-wood-flooring-installation.jpg`,       category: "home-remodel",  badge: "Flooring",        location: "Estero, FL" },
-  { id: "g-03", title: "Interior Hallway Renovation",      src: `${P}/painting_flooring_hallway_finished_01.jpg`, category: "home-remodel",  badge: "Home Remodeling", location: "Miami, FL" },
-  { id: "g-04", title: "Custom Walk-In Closet",            src: `${P}/custom-walk-in-closet-installation.jpg`,    category: "living-spaces", badge: "Living Spaces",   location: "Sarasota, FL" },
-  { id: "g-05", title: "Spa-Style Bathroom Suite",         src: `${P}/bathroom_remodel_finished_03.jpg`,         category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
-  { id: "g-06", title: "Luxury Kitchen Remodel",           src: `${P}/luxury-kitchen-remodel-custom-cabinets.jpg`,category: "kitchens",      badge: "Kitchens",        location: "Naples, FL", featured: true },
-  { id: "g-07", title: "Custom Outdoor Kitchen",           src: `${P}/custom-outdoor-kitchen-cabinetry.jpg`,      category: "other",         badge: "Outdoor Living",  location: "Naples, FL" },
-  { id: "g-08", title: "Modern Custom Kitchen Cabinetry",  src: `${P}/modern-custom-kitchen-cabinetry.jpg`,       category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
-  { id: "g-09", title: "Custom Built-In Entertainment Center", src: `${P}/custom-built-in-entertainment-center.jpg`, category: "carpentry", badge: "Carpentry",       location: "Naples, FL" },
-  { id: "g-10", title: "Master Bathroom Vanity",           src: `${P}/bathroom_remodel_finished_02.jpg`,          category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
-  { id: "g-11", title: "Tiled Shower & Tub Surround",      src: `${P}/bathroom_remodel_finished_04.jpg`,          category: "tiling",        badge: "Tiling",          location: "Naples, FL" },
-  { id: "g-12", title: "Living Room Remodel",              src: `${P}/remodeling_living-room_finished_01.jpg`,    category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
-  { id: "g-13", title: "Custom Kitchen Cabinetry Remodel", src: `${P}/custom-kitchen-cabinetry-remodel.jpg`,      category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
-  { id: "g-14", title: "Full Kitchen Remodel",             src: `${P}/full-kitchen-remodel-custom-cabinetry.jpg`, category: "kitchens",      badge: "Kitchens",        location: "Marco Island, FL" },
-  { id: "g-15", title: "Custom White Kitchen Cabinetry",   src: `${P}/custom-white-kitchen-cabinetry.jpg`,        category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
-  { id: "g-16", title: "Gray Custom Kitchen Cabinetry",    src: `${P}/gray-custom-kitchen-cabinetry.jpg`,         category: "kitchens",      badge: "Kitchens",        location: "Bonita Springs, FL" },
-  { id: "g-17", title: "Flooring & Staircase Remodeling",  src: `${P}/flooring-and-staircase-remodeling.jpg`,     category: "home-remodel",  badge: "Flooring",        location: "Fort Myers, FL" },
-  { id: "g-18", title: "Residential Flooring Installation",src: `${P}/residential-flooring-installation.jpg`,     category: "home-remodel",  badge: "Flooring",        location: "Marco Island, FL" },
-  { id: "g-19", title: "Bedroom Closet Remodel",           src: `${P}/bedroom_closet_remodel_01.jpg`,            category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
-  { id: "g-20", title: "Custom Outdoor Living Remodel",    src: `${P}/custom-outdoor-living-remodel.jpg`,         category: "other",         badge: "Outdoor Living",  location: "Fort Myers, FL" },
-  { id: "g-21", title: "Custom Laundry Room Cabinetry",    src: `${P}/custom-laundry-room-cabinetry.jpg`,         category: "carpentry",     badge: "Carpentry",       location: "Naples, FL" },
-  { id: "g-22", title: "Custom Storage & Wine Cabinetry",  src: `${P}/custom-storage-and-wine-cabinetry.jpg`,     category: "carpentry",     badge: "Carpentry",       location: "Fort Myers, FL" },
+  { id: "g-01", title: "Bathroom Remodeling",               src: `${P}/bathroom_remodel_finished_01.jpg`,           category: "bathrooms",     badge: "Remodeling",      location: "Bonita Springs, FL", featured: true },
+  { id: "g-02", title: "Flooring Renovation",               src: `${P}/dark-wood-flooring-installation.jpg`,        category: "home-remodel",  badge: "Flooring",        location: "Estero, FL" },
+  { id: "g-03", title: "Interior Hallway Renovation",       src: `${P}/painting_flooring_hallway_finished_01.jpg`,  category: "home-remodel",  badge: "Home Remodeling", location: "Miami, FL" },
+  { id: "g-04", title: "Custom Walk-In Closet",             src: `${P}/custom-walk-in-closet-installation.jpg`,     category: "living-spaces", badge: "Living Spaces",   location: "Sarasota, FL" },
+  { id: "g-05", title: "Spa-Style Bathroom Suite",          src: `${P}/bathroom_remodel_finished_03.jpg`,          category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
+  { id: "g-06", title: "Luxury Kitchen Remodel",            src: `${P}/luxury-kitchen-remodel-custom-cabinets.jpg`, category: "kitchens",      badge: "Kitchens",        location: "Naples, FL", featured: true },
+  { id: "g-07", title: "Custom Outdoor Kitchen",            src: `${P}/custom-outdoor-kitchen-cabinetry.jpg`,       category: "other",         badge: "Outdoor Living",  location: "Naples, FL" },
+  { id: "g-08", title: "Modern Custom Kitchen Cabinetry",   src: `${P}/modern-custom-kitchen-cabinetry.jpg`,        category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
+  { id: "g-09", title: "Built-In Entertainment Center",     src: `${P}/custom-built-in-entertainment-center.jpg`,   category: "carpentry",     badge: "Carpentry",       location: "Naples, FL" },
+  { id: "g-10", title: "Master Bathroom Vanity",            src: `${P}/bathroom_remodel_finished_02.jpg`,           category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
+  { id: "g-11", title: "Tiled Shower & Tub Surround",       src: `${P}/bathroom_remodel_finished_04.jpg`,           category: "tiling",        badge: "Tiling",          location: "Naples, FL" },
+  { id: "g-12", title: "Living Room Remodel",               src: `${P}/remodeling_living-room_finished_01.jpg`,     category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
+  { id: "g-13", title: "Custom Kitchen Cabinetry Remodel",  src: `${P}/custom-kitchen-cabinetry-remodel.jpg`,       category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
+  { id: "g-14", title: "Full Kitchen Remodel",              src: `${P}/full-kitchen-remodel-custom-cabinetry.jpg`,  category: "kitchens",      badge: "Kitchens",        location: "Marco Island, FL" },
+  { id: "g-15", title: "Custom White Kitchen Cabinetry",    src: `${P}/custom-white-kitchen-cabinetry.jpg`,         category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-16", title: "Gray Custom Kitchen Cabinetry",     src: `${P}/gray-custom-kitchen-cabinetry.jpg`,          category: "kitchens",      badge: "Kitchens",        location: "Bonita Springs, FL" },
+  { id: "g-17", title: "Flooring & Staircase Remodeling",   src: `${P}/flooring-and-staircase-remodeling.jpg`,      category: "home-remodel",  badge: "Flooring",        location: "Fort Myers, FL" },
+  { id: "g-18", title: "Residential Flooring Installation", src: `${P}/residential-flooring-installation.jpg`,      category: "home-remodel",  badge: "Flooring",        location: "Marco Island, FL" },
+  { id: "g-19", title: "Bedroom Closet Remodel",            src: `${P}/bedroom_closet_remodel_01.jpg`,             category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
+  { id: "g-20", title: "Custom Outdoor Living Remodel",     src: `${P}/custom-outdoor-living-remodel.jpg`,          category: "other",         badge: "Outdoor Living",  location: "Fort Myers, FL" },
+  { id: "g-21", title: "Custom Laundry Room Cabinetry",     src: `${P}/custom-laundry-room-cabinetry.jpg`,          category: "carpentry",     badge: "Carpentry",       location: "Naples, FL" },
+  { id: "g-22", title: "Custom Storage & Wine Cabinetry",   src: `${P}/custom-storage-and-wine-cabinetry.jpg`,      category: "carpentry",     badge: "Carpentry",       location: "Fort Myers, FL" },
+
+  // --- Finished projects that were sitting unused in the image library ---
+  { id: "g-23", title: "White Shaker Kitchen",              src: `${P}/cabinetry_kitchen_finished_03.png`,          category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-24", title: "Hex-Tile Kitchen Remodel",          src: `${P}/cabinetry_kitchen_render_01.jpg`,            category: "kitchens",      badge: "Kitchens",        location: "Bonita Springs, FL" },
+  { id: "g-25", title: "Two-Tone Kitchen with Stone Tops",  src: `${P}/cabinetry_kitchen_render_02.jpg`,            category: "kitchens",      badge: "Kitchens",        location: "Estero, FL" },
+  { id: "g-26", title: "Open-Plan Kitchen & Island",        src: `${P}/cabinetry_kitchen_render_03.jpg`,            category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-27", title: "Black Cabinetry & Granite Island",  src: `${P}/custom-black-kitchen-cabinets.jpg`,          category: "kitchens",      badge: "Cabinetry",       location: "Miami, FL" },
+  { id: "g-28", title: "Gray Cabinetry & Plank Flooring",   src: `${P}/custom-gray-cabinetry-and-flooring.jpg`,     category: "home-remodel",  badge: "Home Remodeling", location: "Fort Myers, FL" },
+  { id: "g-29", title: "Kitchen Cabinet Installation",      src: `${P}/custom-kitchen-cabinet-installation.jpg`,    category: "kitchens",      badge: "Cabinetry",       location: "Naples, FL" },
+  { id: "g-30", title: "Kitchen Remodel with Tall Storage", src: `${P}/custom-kitchen-remodel-and-storage.jpg`,     category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-31", title: "Hallway Closets & Flooring",        src: `${P}/flooring_closets_hallway_01.jpg`,            category: "living-spaces", badge: "Living Spaces",   location: "Lehigh Acres, FL" },
+  { id: "g-32", title: "Kitchen Remodel & Custom Cabinets", src: `${P}/kitchen-remodeling-custom-cabinets.jpg`,     category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-33", title: "White Cabinets & Dark Countertops", src: `${P}/white-custom-kitchen-cabinets.jpg`,          category: "kitchens",      badge: "Cabinetry",       location: "Parkland, FL" },
+  { id: "g-34", title: "White Kitchen Cabinetry Remodel",   src: `${P}/white-kitchen-cabinetry-remodel.jpg`,        category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-35", title: "Kitchen with Accent Wall",          src: `${P}/white-kitchen-remodeling-project.jpg`,       category: "kitchens",      badge: "Kitchens",        location: "Southwest Ranches, FL" },
+  { id: "g-36", title: "Custom Cabinetry Kitchen",          src: `${P}/cabinetry_kitchen_finished_01.png`,          category: "kitchens",      badge: "Cabinetry",       location: "Naples, FL" },
+  { id: "g-37", title: "Cabinetry & Vanity Suite",          src: `${P}/cabinetry_kitchen_finished_02.jpg`,          category: "kitchens",      badge: "Cabinetry",       location: "Bonita Springs, FL" },
 ];
 
 // ---------------------------------------------------------------------------
