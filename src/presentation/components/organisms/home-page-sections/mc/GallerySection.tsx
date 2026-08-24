@@ -7,7 +7,6 @@ import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButt
  * On mobile: single-column card stack.
  */
 
-// Tile config: {src, alt, className for grid placement}
 const TILES = [
   {
     src: "/images/gallery/gallery-1.webp",
@@ -46,16 +45,19 @@ const TILES = [
   },
 ] as const;
 
-// Placeholder tile component for missing images
 function GalleryTile({
   src,
   alt,
+  className,
 }: {
   src: string;
   alt: string;
+  className?: string;
 }) {
   return (
-    <div className="relative w-full rounded-[20px] overflow-hidden bg-[#E5DECD] h-[250px]">
+    <div
+      className={`relative w-full rounded-[20px] overflow-hidden bg-[#E5DECD] ${className || ""}`}
+    >
       <Image
         src={src}
         alt={alt}
@@ -76,10 +78,14 @@ export default function GallerySection() {
       <div className="max-w-[1440px] mx-auto flex flex-col gap-8">
         {/* Section header */}
         <div className="flex flex-col gap-4">
-          <h2 className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[61.8px] font-medium text-[#111827]">
+          <h2
+            className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[61.8px] font-medium text-[#111827]"
+          >
             Featured Work Gallery
           </h2>
-          <p className="max-w-[720px] font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]">
+          <p
+            className="max-w-[720px] font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]"
+          >
             A curated selection of our finest craftsmanship across different
             residential spaces — the meticulous detail in our materials and joinery.
           </p>
@@ -104,7 +110,7 @@ export default function GallerySection() {
             <Image src="/images/gallery/gallery-5.webp" alt="Wood grain cabinetry detail — Master Cabinets" fill className="object-cover" sizes="179px" />
           </div>
           {/* Tile 7: tall right portrait (spans 2 rows) — absolute last col */}
-          <div className="row-span-2 col-start-5 row-start-1 relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
+          <div className="row-span-2 relative rounded-[20px] overflow-hidden bg-[#E5DECD] col-start-5 row-start-1 row-end-3">
             <Image src="/images/gallery/gallery-7.webp" alt="Luxury master bathroom — Master Cabinets" fill className="object-cover" sizes="377px" />
           </div>
           {/* Tile 3: center bottom */}
@@ -120,7 +126,7 @@ export default function GallerySection() {
         {/* Mobile: single column stacked */}
         <div className="lg:hidden flex flex-col gap-4">
           {TILES.map((tile) => (
-            <GalleryTile key={tile.src} src={tile.src} alt={tile.alt} />
+            <GalleryTile key={tile.src} src={tile.src} alt={tile.alt} className="h-[250px]" />
           ))}
         </div>
 
