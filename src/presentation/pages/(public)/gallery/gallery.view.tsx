@@ -71,7 +71,7 @@ export function GalleryPageView() {
 function GalleryHero() {
   return (
     <PageHero
-      image="/images/hero/zarp-logomark-black.png"
+      image="/images/projects/gray-custom-kitchen-cabinetry.jpg"
       imageAlt="Project gallery"
       eyebrow="[Gallery eyebrow — e.g. 'Our Work Speaks for Itself']"
       heading="Project Gallery"
@@ -331,7 +331,7 @@ function GalleryCta() {
         <div className="relative rounded-2xl overflow-hidden">
           {/* Background */}
           <Image
-            src="/images/hero/zarp-logomark-black.png"
+            src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
             alt=""
             fill
             sizes="100vw"

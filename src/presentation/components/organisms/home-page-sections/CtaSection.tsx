@@ -22,7 +22,7 @@ export function CtaSection() {
           >
             {/* Background texture layer */}
             <Image
-              src="/images/hero/zarp-logomark-black.png"
+              src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
               alt=""
               fill
               sizes="100vw"
