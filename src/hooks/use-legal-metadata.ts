@@ -1,0 +1,37 @@
+import { Metadata } from "next";
+import { LegalPageMetadata } from "@/types/legal-metadata";
+import { COMPANY_NAME } from "@/constants/business-info";
+
+export const useLegalMetadata = (config: LegalPageMetadata): Metadata => {
+  return {
+    title: config.title,
+    description: config.description,
+    keywords: config.keywords,
+    openGraph: {
+      title: config.title,
+      description: config.description,
+      type: "website",
+      locale: "en_US",
+      siteName: COMPANY_NAME,
+    },
+    twitter: {
+      card: "summary",
+      title: config.title,
+      description: config.description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    alternates: {
+      canonical: config.canonical,
+    },
+  };
+};
