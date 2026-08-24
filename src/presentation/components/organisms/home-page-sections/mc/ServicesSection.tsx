@@ -81,7 +81,7 @@ export default function ServicesSection() {
             className="relative hidden lg:flex items-end shrink-0 overflow-hidden w-[634px] h-[660px] rounded-[24px] bg-[#E5DECD]"
           >
             <Image
-              src="/images/services/service-cabinetry.webp"
+              src="/images/projects/cabinetry_kitchen_finished_02.jpg"
               alt={`${SERVICES[activeIndex].label} — Master Cabinets`}
               fill
               className="object-cover"
