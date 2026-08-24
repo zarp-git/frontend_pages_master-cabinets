@@ -4,12 +4,12 @@ import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 /**
  * HeroSection — Figma node 17:1784
  * 2-column split: left copy/trust badges, right glassmorphism quote card.
- * Background: #3F2F22 with hero image fill + dark overlay.
+ * Background: #403023 with hero image fill + dark overlay.
  */
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#3F2F22]"
+      className="relative w-full overflow-hidden bg-[#403023]"
     >
       {/* Hero background image */}
       <Image
@@ -23,7 +23,7 @@ export default function HeroSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#3F2F22]/60" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[#403023]/60" aria-hidden="true" />
 
       {/* Content */}
       <div
@@ -67,7 +67,7 @@ export default function HeroSection() {
               <div key={badge} className="flex items-center gap-2">
                 {/* Green check circle */}
                 <span
-                  className="flex items-center justify-center shrink-0 w-[19px] h-[19px] rounded-full bg-[#3F2F22]"
+                  className="flex items-center justify-center shrink-0 w-[19px] h-[19px] rounded-full bg-[#036841]"
                   aria-hidden="true"
                 >
                   <svg
