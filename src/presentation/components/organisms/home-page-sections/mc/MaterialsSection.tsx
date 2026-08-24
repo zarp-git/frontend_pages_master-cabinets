@@ -28,7 +28,7 @@ export default function MaterialsSection() {
       className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="Material craft and architectural details"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 xl:flex-row xl:gap-8">
+      <div className="mx-auto flex max-w-[1440px] flex-col-reverse items-start gap-8 xl:flex-row xl:gap-8">
         {/* Left: copy + detail card */}
         <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[725px]">
           <SectionHeading
@@ -40,7 +40,7 @@ export default function MaterialsSection() {
           />
 
           <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]">
-            <div className="grid grid-cols-2 rounded-[26px] bg-white shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
+            <div className="grid grid-cols-1 rounded-[26px] bg-white shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:grid-cols-2">
               {DETAIL_ITEMS.map((item) => (
                 <div
                   key={item.num}
@@ -52,7 +52,7 @@ export default function MaterialsSection() {
                   >
                     {item.num}
                   </span>
-                  <span className="min-w-0 truncate font-sans text-[14px] text-[#403023] sm:text-[16px]">
+                  <span className="min-w-0 font-sans text-[15px] text-[#403023] sm:text-[16px]">
                     {item.label}
                   </span>
                 </div>
@@ -63,15 +63,17 @@ export default function MaterialsSection() {
           <ActionButtonGroup />
         </div>
 
-        {/* Right: showcase image */}
-        <div className="hidden w-full rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] xl:block xl:w-[555px] xl:shrink-0">
-          <div className="relative h-[604px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
+        {/* Showcase image. Rendered second so the desktop row reads
+            copy-then-photo, while flex-col-reverse lifts it above the copy
+            once the row stacks. */}
+        <div className="w-full rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] xl:w-[555px] xl:shrink-0">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:aspect-[16/10] xl:aspect-auto xl:h-[604px]">
             <Image
               src="/images/projects/various-wood-colors-options.png"
               alt="Wood species and finish samples - Master Cabinets"
               fill
               className="object-cover"
-              sizes="543px"
+              sizes="(min-width: 1280px) 543px, 100vw"
             />
           </div>
         </div>

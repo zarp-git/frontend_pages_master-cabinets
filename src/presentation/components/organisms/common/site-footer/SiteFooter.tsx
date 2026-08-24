@@ -83,7 +83,7 @@ export default function SiteFooter() {
         </Link>
 
         {/* Columns */}
-        <div className="grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-14 sm:gap-x-8 lg:grid-cols-4">
           {/* Navigation */}
           <nav aria-label="Footer navigation" className="flex flex-col">
             <ColumnLabel>Navigation</ColumnLabel>
@@ -105,7 +105,7 @@ export default function SiteFooter() {
           <div className="flex flex-col">
             <ColumnLabel>Contact</ColumnLabel>
 
-            <div className="flex items-center gap-6 pt-8">
+            <div className="flex flex-wrap items-center gap-4 pt-8 sm:gap-6">
               {SOCIALS.map((social) => (
                 <a
                   key={social.label}
@@ -130,7 +130,7 @@ export default function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="font-sans text-[14px] leading-5 tracking-[0.3px] text-[#403023] transition-opacity hover:opacity-70"
+                  className="break-words font-sans text-[13px] leading-5 tracking-[0.3px] text-[#403023] transition-opacity hover:opacity-70 sm:text-[14px]"
                 >
                   {EMAIL}
                 </a>
@@ -167,12 +167,13 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          {/* Licence + blurb */}
+          {/* Licence + blurb. Sits beside Service Areas so the four columns
+              close a clean 2x2 on phones instead of leaving a dead half-row. */}
           <div className="flex flex-col gap-5">
             <span className="inline-flex w-fit items-center rounded-full bg-black/[0.04] px-4 py-2 font-sans text-[12px] leading-4 tracking-[0.3px] text-[#403023] shadow-[0_0_0_rgba(0,0,0,0.05)]">
               Licensed &amp; Insured
             </span>
-            <p className="font-sans text-[16px] leading-[26px] text-[#666666]">
+            <p className="font-sans text-[14px] leading-[22px] text-[#666666] sm:text-[16px] sm:leading-[26px]">
               Full home remodeling, architectural cabinetry, and custom
               interiors. Everything filtered into one expert team.
             </p>

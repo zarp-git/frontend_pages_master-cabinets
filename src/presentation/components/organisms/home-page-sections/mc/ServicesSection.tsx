@@ -31,7 +31,7 @@ export default function ServicesSection() {
       aria-label="Our services"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8">
-        <div className="flex flex-col items-start gap-8 xl:flex-row xl:items-center">
+        <div className="flex flex-col-reverse items-start gap-8 xl:flex-row xl:items-center">
           {/* Left: heading + service pills */}
           <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[646px]">
             <SectionHeading
@@ -82,7 +82,8 @@ export default function ServicesSection() {
             </HScroll>
           </div>
 
-          {/* Right: image panel - visible at every width */}
+          {/* Image panel - visible at every width, and lifted above the
+              pills by flex-col-reverse once the row stacks. */}
           <div className="relative aspect-[4/3] w-full min-w-0 shrink-0 overflow-hidden rounded-[26px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:aspect-[16/10] xl:aspect-auto xl:h-[660px] xl:w-[634px]">
             <Image
               key={active.image}
