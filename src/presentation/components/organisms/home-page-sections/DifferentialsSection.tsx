@@ -38,7 +38,7 @@ const TABS: TabData[] = [
       "[Subtitle for category 1 — describe the value proposition for this service type.]",
     others: {
       title: "[Competitors / Others label — e.g. 'Other Providers']",
-      image: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+      image: "/images/hero/image1.jpg",
       features: [
         {
           title: "[Competitor drawback 1 — e.g. 'Cracks Easily']",
@@ -60,7 +60,7 @@ const TABS: TabData[] = [
     },
     ours: {
       title: "[Your company label — e.g. 'Our Work']",
-      image: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
+      image: "/images/hero/image2.jpg",
       features: [
         {
           title: "[Your advantage 1 — e.g. 'No Cracking']",
@@ -87,7 +87,7 @@ const TABS: TabData[] = [
       "[Subtitle for category 2 — describe the value proposition for this service type.]",
     others: {
       title: "[Competitors / Others label]",
-      image: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
+      image: "/images/hero/image3.jpg",
       features: [
         {
           title: "[Competitor drawback 1]",
@@ -109,7 +109,7 @@ const TABS: TabData[] = [
     },
     ours: {
       title: "[Your company label]",
-      image: "/images/projects/custom-white-kitchen-cabinetry.jpg",
+      image: "/images/hero/image4.jpg",
       features: [
         {
           title: "[Your advantage 1]",
@@ -136,7 +136,7 @@ const TABS: TabData[] = [
       "[Subtitle for category 3.]",
     others: {
       title: "[Competitors / Others label]",
-      image: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+      image: "/images/hero/image5.jpg",
       features: [
         { title: "[Drawback 1]", description: "[Brief description.]" },
         { title: "[Drawback 2]", description: "[Brief description.]" },
@@ -146,7 +146,7 @@ const TABS: TabData[] = [
     },
     ours: {
       title: "[Your company label]",
-      image: "/images/projects/bathroom_remodel_finished_01.jpg",
+      image: "/images/hero/image6.jpg",
       features: [
         { title: "[Advantage 1]", description: "[Brief description.]" },
         { title: "[Advantage 2]", description: "[Brief description.]" },
@@ -161,7 +161,7 @@ const TABS: TabData[] = [
       "[Subtitle for category 4.]",
     others: {
       title: "[Competitors / Others label]",
-      image: "/images/projects/dark-wood-flooring-installation.jpg",
+      image: "/images/hero/image7.jpg",
       features: [
         { title: "[Drawback 1]", description: "[Brief description.]" },
         { title: "[Drawback 2]", description: "[Brief description.]" },
@@ -171,7 +171,7 @@ const TABS: TabData[] = [
     },
     ours: {
       title: "[Your company label]",
-      image: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+      image: "/images/hero/image1.jpg",
       features: [
         { title: "[Advantage 1]", description: "[Brief description.]" },
         { title: "[Advantage 2]", description: "[Brief description.]" },
@@ -186,7 +186,7 @@ const TABS: TabData[] = [
       "[Subtitle for category 5.]",
     others: {
       title: "[Competitors / Others label]",
-      image: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
+      image: "/images/hero/image2.jpg",
       features: [
         { title: "[Drawback 1]", description: "[Brief description.]" },
         { title: "[Drawback 2]", description: "[Brief description.]" },
@@ -196,7 +196,7 @@ const TABS: TabData[] = [
     },
     ours: {
       title: "[Your company label]",
-      image: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
+      image: "/images/hero/image3.jpg",
       features: [
         { title: "[Advantage 1]", description: "[Brief description.]" },
         { title: "[Advantage 2]", description: "[Brief description.]" },

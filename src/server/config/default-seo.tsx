@@ -16,7 +16,7 @@ export default {
 		siteName: COMPANY_NAME,
 		images: [
 			{
-				url: `${SITE_URL}/images/projects/cabinetry_kitchen_finished_01.png`,
+				url: `${SITE_URL}/images/hero/image1.webp`,
 				width: 1200,
 				height: 630,
 				alt: `${COMPANY_NAME} — Custom Cabinetry & Home Remodeling in South Florida`,
@@ -29,7 +29,7 @@ export default {
 		description:
 			"Remodeling, Cabinetry, and Everything Between. Licensed & insured home remodeling in Naples, Fort Myers, Bonita Springs & South Florida.",
 		images: [
-			`${SITE_URL}/images/projects/cabinetry_kitchen_finished_01.png`,
+			`${SITE_URL}/images/hero/image1.webp`,
 		],
 	},
 	// NOTE: alternates.canonical intentionally omitted here.

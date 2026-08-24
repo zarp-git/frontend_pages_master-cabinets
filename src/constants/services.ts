@@ -48,7 +48,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Home Remodeling",
     breadcrumbLabel: "Home Remodeling",
     heroSubtitle: "Complete Home Transformation",
-    heroImage: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+    heroImage: "/images/hero/image1.webp",
     content: {
       heading: "Full-Scale Home Remodeling Tailored to Your Vision",
       paragraphs: [
@@ -59,9 +59,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
-      "/images/projects/custom-white-kitchen-cabinetry.jpg",
-      "/images/projects/dark-wood-flooring-installation.jpg",
+      "/images/hero/image1.webp",
+      "/images/hero/image4.webp",
+      "/images/hero/image7.webp",
     ],
     faqs: [
       {
@@ -96,7 +96,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Custom Cabinetry",
     breadcrumbLabel: "Custom Cabinetry",
     heroSubtitle: "Handcrafted to Fit Your Space",
-    heroImage: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
+    heroImage: "/images/hero/image2.webp",
     content: {
       heading: "Custom Cabinet Design and Installation in South Florida",
       paragraphs: [
@@ -107,9 +107,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-      "/images/projects/modern-custom-kitchen-cabinetry.jpg",
-      "/images/projects/bathroom_remodel_finished_01.jpg",
+      "/images/hero/image2.webp",
+      "/images/hero/image5.webp",
+      "/images/hero/image6.webp",
     ],
     faqs: [
       {
@@ -144,7 +144,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Walk-In Closets & Storage",
     breadcrumbLabel: "Walk-In Closets & Storage",
     heroSubtitle: "Organized Spaces, Built for Life",
-    heroImage: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
+    heroImage: "/images/hero/image3.webp",
     content: {
       heading: "Custom Walk-In Closets and Storage Solutions",
       paragraphs: [
@@ -155,9 +155,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
-      "/images/projects/bathroom_remodel_finished_01.jpg",
-      "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+      "/images/hero/image3.webp",
+      "/images/hero/image6.webp",
+      "/images/hero/image1.webp",
     ],
     faqs: [
       {
@@ -192,7 +192,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Bathrooms & Vanities",
     breadcrumbLabel: "Bathrooms & Vanities",
     heroSubtitle: "Spa-Quality Bathroom Renovations",
-    heroImage: "/images/projects/custom-white-kitchen-cabinetry.jpg",
+    heroImage: "/images/hero/image4.webp",
     content: {
       heading: "Custom Bathroom Remodeling and Vanity Installation",
       paragraphs: [
@@ -203,9 +203,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/custom-white-kitchen-cabinetry.jpg",
-      "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-      "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+      "/images/hero/image4.webp",
+      "/images/hero/image2.webp",
+      "/images/hero/image5.webp",
     ],
     faqs: [
       {
@@ -240,7 +240,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Flooring",
     breadcrumbLabel: "Flooring",
     heroSubtitle: "Premium Flooring Installation",
-    heroImage: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+    heroImage: "/images/hero/image5.webp",
     content: {
       heading: "Professional Flooring Installation Across South Florida",
       paragraphs: [
@@ -251,9 +251,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/modern-custom-kitchen-cabinetry.jpg",
-      "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
-      "/images/projects/dark-wood-flooring-installation.jpg",
+      "/images/hero/image5.webp",
+      "/images/hero/image3.webp",
+      "/images/hero/image7.webp",
     ],
     faqs: [
       {
@@ -288,7 +288,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Interior & Exterior Painting",
     breadcrumbLabel: "Interior & Exterior Painting",
     heroSubtitle: "Flawless Finish, Every Time",
-    heroImage: "/images/projects/bathroom_remodel_finished_01.jpg",
+    heroImage: "/images/hero/image6.webp",
     content: {
       heading: "Professional Interior and Exterior Painting Services",
       paragraphs: [
@@ -299,9 +299,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/bathroom_remodel_finished_01.jpg",
-      "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
-      "/images/projects/custom-white-kitchen-cabinetry.jpg",
+      "/images/hero/image6.webp",
+      "/images/hero/image1.webp",
+      "/images/hero/image4.webp",
     ],
     faqs: [
       {
@@ -336,7 +336,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Custom Outdoor Living",
     breadcrumbLabel: "Custom Outdoor Living",
     heroSubtitle: "Outdoor Spaces Built to Impress",
-    heroImage: "/images/projects/dark-wood-flooring-installation.jpg",
+    heroImage: "/images/hero/image7.webp",
     content: {
       heading: "Custom Outdoor Living Spaces Designed for Florida Life",
       paragraphs: [
@@ -347,9 +347,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/dark-wood-flooring-installation.jpg",
-      "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-      "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+      "/images/hero/image7.webp",
+      "/images/hero/image2.webp",
+      "/images/hero/image5.webp",
     ],
     faqs: [
       {
@@ -384,7 +384,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Electrical & Structural Work",
     breadcrumbLabel: "Electrical & Structural Work",
     heroSubtitle: "Safe, Code-Compliant Work",
-    heroImage: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+    heroImage: "/images/hero/image1.webp",
     content: {
       heading: "Licensed Electrical and Structural Work for Your Renovation",
       paragraphs: [
@@ -395,9 +395,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
-      "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
-      "/images/projects/bathroom_remodel_finished_01.jpg",
+      "/images/hero/image1.webp",
+      "/images/hero/image3.webp",
+      "/images/hero/image6.webp",
     ],
     faqs: [
       {
@@ -432,7 +432,7 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "Architectural Millwork",
     breadcrumbLabel: "Architectural Millwork",
     heroSubtitle: "Crafted Architectural Details",
-    heroImage: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
+    heroImage: "/images/hero/image2.webp",
     content: {
       heading: "Custom Architectural Millwork That Elevates Every Space",
       paragraphs: [
@@ -443,9 +443,9 @@ export const SERVICES_DATA: ServiceData[] = [
       ],
     },
     galleryImages: [
-      "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-      "/images/projects/custom-white-kitchen-cabinetry.jpg",
-      "/images/projects/dark-wood-flooring-installation.jpg",
+      "/images/hero/image2.webp",
+      "/images/hero/image4.webp",
+      "/images/hero/image7.webp",
     ],
     faqs: [
       {

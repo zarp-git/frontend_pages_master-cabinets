@@ -19,7 +19,7 @@ export default function IntroSection() {
             <NextImage
               data-layer="intro-image"
               className="object-cover"
-              src="/images/projects/dark-wood-flooring-installation.jpg"
+              src="/images/hero/image7.jpg"
               alt="[Describe the image — e.g. a completed project example]"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

@@ -52,6 +52,7 @@
   --color-mc-taupe: var(--mc-taupe);
   --color-mc-orange: var(--mc-orange);
   --color-mc-orange-hover: var(--mc-orange-hover);
+  --color-mc-green: var(--mc-green);
   --color-mc-chalk: var(--mc-chalk);
   --color-mc-cool-grey: var(--mc-cool-grey);
   --color-mc-near-black: var(--mc-near-black);
@@ -89,10 +90,11 @@
 
   /* ── MC Design System Tokens (Helena Figma spec 20260824) ── */
   /* Colors */
-  --mc-espresso: #3F2F22;
-  --mc-taupe: #958272;
-  --mc-orange: #F7AF14;
+  --mc-espresso: #403023;
+  --mc-taupe: #968272;
+  --mc-orange: #FF4C00;
   --mc-orange-hover: #E04300;
+  --mc-green: #036841;
   --mc-near-black: #111827;
   --mc-black: #000000;
   --mc-body: #4B5563;
