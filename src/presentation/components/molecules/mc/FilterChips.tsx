@@ -14,7 +14,7 @@ interface FilterChipsProps<T extends string> {
  * FilterChips — Figma filter row on Gallery (60:12187) and Reviews (60:18380).
  *
  * pad 8/20 · radius full · Clash Display Medium 13/20 · centred.
- * Active: #042619 fill + matching border + white text.
+ * Active: #403023 espresso fill + matching border + white text.
  * Idle:   white fill + #E5DECD border + #5B4F45 text.
  */
 export default function FilterChips<T extends string>({
@@ -48,7 +48,7 @@ export default function FilterChips<T extends string>({
             className={cn(
               "shrink-0 snap-start whitespace-nowrap rounded-full border px-5 py-2 font-clash text-[13px] font-medium leading-5 transition-colors",
               isActive
-                ? "border-[#042619] bg-[#042619] text-white"
+                ? "border-[#403023] bg-[#403023] text-white"
                 : "border-[#E5DECD] bg-white text-[#5B4F45] hover:border-[#958272]",
             )}
           >

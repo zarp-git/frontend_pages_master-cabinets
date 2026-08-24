@@ -626,7 +626,7 @@ export const LeadCollectModal = () => {
                       </span>
                       <div
                         className={`w-full h-1.5 rounded-[10px] transition-colors ${
-                          isActive ? "bg-zinc-800" : isCompleted ? "bg-green-500" : "bg-gray-200"
+                          isActive ? "bg-[#403023]" : isCompleted ? "bg-[#968272]" : "bg-[#E5DECD]"
                         }`}
                       />
                     </div>
