@@ -5,11 +5,10 @@
 /** The project categories available for filtering. */
 export type GalleryCategory =
   | "all"
-  | "category-1"
-  | "category-2"
-  | "category-3"
-  | "category-4"
-  | "category-5";
+  | "kitchen"
+  | "bathroom"
+  | "flooring"
+  | "outdoor";
 
 /** A single gallery image item. */
 export interface GalleryItem {
