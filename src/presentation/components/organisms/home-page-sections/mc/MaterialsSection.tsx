@@ -40,11 +40,11 @@ export default function MaterialsSection() {
           />
 
           <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]">
-            <div className="grid grid-cols-1 rounded-[26px] bg-white shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:grid-cols-2">
+            <div className="grid grid-cols-2 rounded-[26px] bg-white shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
               {DETAIL_ITEMS.map((item) => (
                 <div
                   key={item.num}
-                  className="flex h-14 items-center gap-4 px-6"
+                  className="flex h-14 items-center gap-3 px-4 sm:gap-4 sm:px-6"
                 >
                   <span
                     className="w-6 shrink-0 font-serif italic text-[14px] text-[#958272]"
@@ -52,7 +52,7 @@ export default function MaterialsSection() {
                   >
                     {item.num}
                   </span>
-                  <span className="font-sans text-[16px] text-[#403023]">
+                  <span className="min-w-0 truncate font-sans text-[14px] text-[#403023] sm:text-[16px]">
                     {item.label}
                   </span>
                 </div>

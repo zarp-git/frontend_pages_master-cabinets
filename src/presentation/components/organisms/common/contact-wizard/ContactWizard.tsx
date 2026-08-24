@@ -299,7 +299,7 @@ export function ContactWizard({
 
             <div className="flex flex-col gap-1.5">
               <FieldLabel>Preferred contact method</FieldLabel>
-              <div className="flex flex-wrap gap-2">
+              <div className="-mx-1 flex snap-x gap-2 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
                 {PREFERENCES.map((p) => (
                   <ChoiceChip
                     key={p.value}
@@ -330,7 +330,7 @@ export function ContactWizard({
                   (pick as many as apply)
                 </span>
               </FieldLabel>
-              <div className="flex flex-wrap gap-2">
+              <div className="-mx-1 flex snap-x gap-2 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
                 {SERVICE_CHOICE_LABELS.map((label) => (
                   <ChoiceChip
                     key={label}
@@ -373,7 +373,7 @@ export function ContactWizard({
 
             <div className="flex flex-col gap-1.5">
               <FieldLabel>When would you like to start?</FieldLabel>
-              <div className="flex flex-wrap gap-2">
+              <div className="-mx-1 flex snap-x gap-2 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
                 {TIMELINES.map((t) => (
                   <ChoiceChip
                     key={t.value}
@@ -423,7 +423,7 @@ export function ContactWizard({
                 Estimated budget{" "}
                 <span className="font-normal text-[#8A7D6F]">(optional)</span>
               </FieldLabel>
-              <div className="flex flex-wrap gap-2">
+              <div className="-mx-1 flex snap-x gap-2 overflow-x-auto px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
                 {BUDGETS.map((b) => (
                   <ChoiceChip
                     key={b.value}
@@ -645,7 +645,7 @@ function ChoiceChip({
       type="button"
       onClick={onClick}
       className={cn(
-        "rounded-full border px-4 py-2 font-clash text-[13px] font-medium leading-5 transition-colors",
+        "shrink-0 snap-start whitespace-nowrap rounded-full border px-4 py-2 font-clash text-[13px] font-medium leading-5 transition-colors",
         selected
           ? "border-[#403023] bg-[#403023] text-white"
           : "border-[#E5DECD] bg-white text-[#5B4F45] hover:border-[#958272]",

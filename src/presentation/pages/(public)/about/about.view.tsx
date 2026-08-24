@@ -13,6 +13,7 @@ import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButt
 import GallerySection from "@/presentation/components/organisms/home-page-sections/mc/GallerySection";
 import FAQSection from "@/presentation/components/organisms/home-page-sections/mc/FAQSection";
 import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
+import HScroll from "@/presentation/components/atoms/ui/HScroll";
 
 const PRINCIPLES = [
   {
@@ -141,11 +142,16 @@ export function AboutPageView() {
           />
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <HScroll
+          ariaLabel="Principles behind every project"
+          gapClassName="gap-8"
+          className="mt-8"
+          expandedClassName="md:mx-0 md:grid md:grid-cols-2 md:snap-none md:overflow-visible md:px-0 lg:grid-cols-3"
+        >
           {PRINCIPLES.map(({ index, title, body, Icon }) => (
             <div
               key={index}
-              className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]"
+              className="w-[84%] shrink-0 snap-start rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:w-auto md:shrink"
             >
               <div className="flex h-full flex-col rounded-[26px] bg-white p-10 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
                 <div className="flex items-center justify-between">
@@ -172,7 +178,7 @@ export function AboutPageView() {
               </div>
             </div>
           ))}
-        </div>
+        </HScroll>
 
         <div className="mt-8 flex justify-center">
           <ActionButtonGroup className="justify-center" />

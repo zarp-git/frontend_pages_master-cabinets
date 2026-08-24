@@ -6,6 +6,7 @@ import {
 } from "@remixicon/react";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
+import HScroll from "@/presentation/components/atoms/ui/HScroll";
 
 const VALUE_BLOCKS = [
   {
@@ -92,13 +93,17 @@ export default function AboutTeamSection() {
             subtitle="Renovations shouldn't mean managing five different contractors, confusing timelines, and miscommunication."
           />
 
-          <div className="flex flex-col gap-4">
+          <HScroll
+            ariaLabel="What sets us apart"
+            gapClassName="gap-4"
+            expandedClassName="sm:mx-0 sm:flex-col sm:snap-none sm:overflow-visible sm:px-0"
+          >
             {VALUE_BLOCKS.map(({ index, title, body, Icon }) => (
               <div
                 key={index}
-                className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]"
+                className="w-[88%] shrink-0 snap-start rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)] sm:w-auto sm:shrink"
               >
-                <div className="flex items-start gap-5 rounded-[26px] bg-white p-7 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
+                <div className="flex h-full items-start gap-4 rounded-[26px] bg-white p-5 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:gap-5 sm:p-7">
                   <span
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/[0.04]"
                     aria-hidden="true"
@@ -108,7 +113,7 @@ export default function AboutTeamSection() {
 
                   <div className="flex flex-1 flex-col gap-2">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="font-clash text-[16px] font-medium text-[#403023]">
+                      <span className="font-clash text-[15px] font-medium leading-snug text-[#403023] sm:text-[16px]">
                         {title}
                       </span>
                       <span
@@ -125,7 +130,7 @@ export default function AboutTeamSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </HScroll>
 
           <ActionButtonGroup />
         </div>

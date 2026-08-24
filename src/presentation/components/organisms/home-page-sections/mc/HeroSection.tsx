@@ -32,6 +32,10 @@ const HERO_IMAGES = [
   },
 ] as const;
 
+/** One clamp and one ratio, so all three headline lines scale together. */
+const HEADLINE_LINE =
+  "font-clash text-[clamp(34px,5.12vw,73.66px)] font-medium leading-[1.06] tracking-[-0.02em] text-white";
+
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -90,42 +94,28 @@ export default function HeroSection() {
 
       {/* Content */}
       <div
-        className="relative z-10 max-w-[1440px] mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 pt-[120px] px-8 pb-8"
+        className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-start gap-8 px-4 pb-10 pt-[104px] sm:px-8 sm:pb-12 sm:pt-[120px] lg:flex-row lg:items-center lg:gap-12 lg:pb-8"
       >
         {/* ── Left column: Copy ── */}
-        <div className="flex-1 flex flex-col gap-6 max-w-[863px]">
+        <div className="flex w-full min-w-0 max-w-[863px] flex-1 flex-col gap-5 sm:gap-6">
           {/* H1 Display Headline Stack — Figma node 17:1787 */}
           <h1 className="flex flex-col" aria-label="Remodeling, Cabinetry, and Everything Between">
-            <span
-              className="text-white tracking-[-1.47px] font-clash text-[clamp(36px,5.12vw,73.66px)] leading-[70px] font-medium"
-            >
-              Remodeling,
-            </span>
-            <span
-              className="text-white tracking-[-1.47px] font-clash text-[clamp(36px,5.12vw,73.66px)] leading-[70px] font-medium"
-            >
-              Cabinetry, and
-            </span>
-            <em
-              className="font-serif text-[clamp(36px,5.12vw,73.66px)] leading-[1.2] font-normal italic tracking-[-1.47px] text-white"
-            >
+            <span className={HEADLINE_LINE}>Remodeling,</span>
+            <span className={HEADLINE_LINE}>Cabinetry, and</span>
+            <em className={`${HEADLINE_LINE} font-serif italic`}>
               Everything Between
             </em>
           </h1>
 
           {/* Subtext — Figma node 17:1802 */}
-          <p
-            className="max-w-[512px] font-sans text-[18px] leading-[29.2px] font-normal text-[#E5E7EB]"
-          >
+          <p className="max-w-[512px] font-sans text-[16px] font-normal leading-[1.62] text-[#E5E7EB] sm:text-[18px]">
             Kitchens, closets, bathrooms, flooring, painting, electrical, outdoor
             living. Our licensed team handles your entire remodel, from the interior
             of the house to the outside.
           </p>
 
           {/* Trust Badges Row — Figma node 48:5423 */}
-          <div
-            className="flex flex-wrap items-center gap-5"
-          >
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             {["Licensed", "Insured", "Locally trusted"].map((badge) => (
               <div key={badge} className="flex items-center gap-2">
                 {/* Green check circle */}
@@ -146,9 +136,7 @@ export default function HeroSection() {
                     <polyline points="2 6 5 9 10 3" />
                   </svg>
                 </span>
-                <span
-                  className="text-white font-clash text-[14.4px] font-medium"
-                >
+                <span className="whitespace-nowrap font-clash text-[13px] font-medium text-white sm:text-[14.4px]">
                   {badge}
                 </span>
               </div>
@@ -157,15 +145,13 @@ export default function HeroSection() {
         </div>
 
         {/* ── Right column: Glass Quote Form ── */}
-        <div
-          className="w-full lg:shrink-0 max-w-[437px]"
-        >
+        <div className="w-full min-w-0 max-w-[437px] lg:shrink-0">
           <QuoteForm variant="glass" showTitle={false} />
         </div>
       </div>
 
       {/* Bottom spacing */}
-      <div className="relative z-10 h-8" aria-hidden="true" />
+      <div className="relative z-10 h-4 sm:h-8" aria-hidden="true" />
     </section>
   );
 }
