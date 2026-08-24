@@ -59,7 +59,7 @@ function TrustCheck() {
 
 /** One clamp and one ratio, so all three headline lines scale together. */
 const HEADLINE_LINE =
-  "font-clash text-[clamp(34px,5.12vw,73.66px)] font-medium leading-[1.06] tracking-[-0.02em] text-white";
+  "font-clash text-[clamp(34px,5.12vw,73.66px)] font-medium leading-[1.06] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(24,16,10,0.55)]";
 
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
@@ -133,7 +133,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtext - Figma node 17:1802 */}
-          <p className="max-w-[512px] font-sans text-[16px] font-normal leading-[1.62] text-[#E5E7EB] sm:text-[18px]">
+          <p className="max-w-[512px] font-sans text-[16px] font-normal leading-[1.62] text-white sm:text-[18px] [text-shadow:0_2px_18px_rgba(24,16,10,0.55)]">
             Kitchens, closets, bathrooms, flooring, painting, electrical, outdoor
             living. Our licensed team handles your entire remodel, from the interior
             of the house to the outside.
@@ -153,7 +153,7 @@ export default function HeroSection() {
                   aria-hidden={i >= TRUST_BADGES.length}
                 >
                   <TrustCheck />
-                  <span className="whitespace-nowrap font-clash text-[13px] font-medium text-white">
+                  <span className="whitespace-nowrap font-clash text-[13px] font-medium text-white [text-shadow:0_2px_18px_rgba(24,16,10,0.55)]">
                     {badge}
                   </span>
                 </li>
@@ -165,7 +165,7 @@ export default function HeroSection() {
             {TRUST_BADGES.map((badge) => (
               <div key={badge} className="flex items-center gap-2">
                 <TrustCheck />
-                <span className="whitespace-nowrap font-clash text-[14.4px] font-medium text-white">
+                <span className="whitespace-nowrap font-clash text-[14.4px] font-medium text-white [text-shadow:0_2px_18px_rgba(24,16,10,0.55)]">
                   {badge}
                 </span>
               </div>
