@@ -17,7 +17,6 @@ import {
   FOOTER_COMPANY_INFO,
   FOOTER_LOCATIONS,
   FOOTER_COMPANY_LINKS,
-  FOOTER_SERVICES,
   FOOTER_LEGAL_LINKS,
 } from "@/constants/footer";
 import { SOCIAL_LINKS } from "@/constants";
