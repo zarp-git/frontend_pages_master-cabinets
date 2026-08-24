@@ -15,6 +15,7 @@ import { Button } from "@/presentation/components/atoms/ui/button";
 import CurrentYear from "@/presentation/components/atoms/CurrentYear";
 import {
   FOOTER_COMPANY_INFO,
+  FOOTER_LOCATIONS,
   FOOTER_COMPANY_LINKS,
   FOOTER_SERVICES,
   FOOTER_LEGAL_LINKS,
@@ -184,10 +185,17 @@ export default function Footer({ variant = "default" }: FooterProps) {
               aria-label="Footer Directory"
               className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 lg:gap-16"
             >
-              {/* Company Links */}
+              {/* Company */}
               <FooterLinkColumn
                 title="COMPANY"
                 links={FOOTER_COMPANY_LINKS}
+                onLinkClick={openMaintenanceModal}
+              />
+
+              {/* Locations */}
+              <FooterLinkColumn
+                title="LOCATIONS"
+                links={FOOTER_LOCATIONS}
                 onLinkClick={openMaintenanceModal}
               />
 
