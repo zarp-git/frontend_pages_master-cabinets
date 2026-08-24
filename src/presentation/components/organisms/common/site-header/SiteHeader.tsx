@@ -65,7 +65,7 @@ export default function SiteHeader({
             <span
               className={cn(
                 "flex items-center justify-center w-6 h-6 rounded-sm text-xs font-bold leading-none font-clash",
-                isDark ? "bg-white text-[#403023]" : "bg-[#403023] text-white"
+                isDark ? "bg-white text-[#3F2F22]" : "bg-[#3F2F22] text-white"
               )}
               aria-hidden="true"
             >
@@ -107,7 +107,7 @@ export default function SiteHeader({
             <Link
               href={`tel:${PHONE.href.replace("tel:", "")}`}
               className={cn(
-                "hidden lg:flex items-center gap-3 rounded-[999px] transition-opacity hover:opacity-80 bg-[#403023] font-sans",
+                "hidden lg:flex items-center gap-3 rounded-[999px] transition-opacity hover:opacity-80 bg-[#3F2F22] font-sans",
                 "px-4 py-1.5",
               )}
             >
@@ -167,7 +167,7 @@ export default function SiteHeader({
               onClick={() => setMenuOpen(false)}
               className={cn(
                 "text-[#111827] text-base py-2 border-b border-[#F3F4F6] tracking-[0.05em] uppercase font-sans",
-                activeHref === link.href ? "font-semibold text-[#403023]" : "font-normal",
+                activeHref === link.href ? "font-semibold text-[#3F2F22]" : "font-normal",
               )}
             >
               {link.label}
@@ -175,7 +175,7 @@ export default function SiteHeader({
           ))}
           <Link
             href={`tel:${PHONE.href.replace("tel:", "")}`}
-            className="flex items-center justify-center gap-2 mt-2 w-full rounded-[999px] py-3 bg-[#403023] text-white font-sans text-[14px]"
+            className="flex items-center justify-center gap-2 mt-2 w-full rounded-[999px] py-3 bg-[#3F2F22] text-white font-sans text-[14px]"
             onClick={() => setMenuOpen(false)}
           >
             <RiPhoneLine className="w-4 h-4" aria-hidden="true" />

@@ -151,7 +151,7 @@ export default function QuoteForm({
 
       {submitted ? (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#036841]">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#3F2F22]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
               stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
               className="w-6 h-6">
@@ -196,7 +196,7 @@ export default function QuoteForm({
             disabled={isPending}
             className={cn(
               "w-full h-[50px] rounded-[20px] text-white font-semibold tracking-[0.05em] transition-colors duration-200 disabled:opacity-70 font-sans text-[11px] leading-[16.5px]",
-              isPending ? "bg-stone-600" : "bg-[#403023] hover:bg-[#FF4C00]"
+              isPending ? "bg-stone-600" : "bg-[#3F2F22] hover:bg-[#FF4C00]"
             )}
           >
             {isPending ? "SUBMITTING..." : "SUBMIT FOR A FREE QUOTE"}

@@ -15,7 +15,7 @@ interface FAQAccordionItemProps {
 
 /**
  * FAQAccordionItem — Figma node 48:5492 / 17:3154
- * #403023 dark toggle button, Times New Roman index, Clash Display question.
+ * #3F2F22 dark toggle button, Times New Roman index, Clash Display question.
  * Full-width collapsible with smooth height transition.
  */
 export default function FAQAccordionItem({
@@ -56,7 +56,7 @@ export default function FAQAccordionItem({
 
         {/* Right: circular toggle button */}
         <span
-          className="flex items-center justify-center shrink-0 w-10 h-10 rounded-full transition-transform duration-300 bg-[#403023]"
+          className="flex items-center justify-center shrink-0 w-10 h-10 rounded-full transition-transform duration-300 bg-[#3F2F22]"
           aria-hidden="true"
         >
           <svg

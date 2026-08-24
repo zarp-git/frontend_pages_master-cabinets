@@ -76,7 +76,7 @@ export default function ActionButtonGroup({
       >
         {/* Leading icon badge */}
         <span
-          className="flex items-center justify-center w-8 h-8 rounded-full bg-[#403023] shrink-0"
+          className="flex items-center justify-center w-8 h-8 rounded-full bg-[#3F2F22] shrink-0"
           aria-hidden="true"
         >
           <RiPhoneLine className="w-4 h-4 text-white" />

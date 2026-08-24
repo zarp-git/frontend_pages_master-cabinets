@@ -45,7 +45,7 @@ function AuthorInitials({ name }: { name: string }) {
     .toUpperCase();
   return (
     <div
-      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-semibold text-sm bg-[#403023] font-sans"
+      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-semibold text-sm bg-[#3F2F22] font-sans"
       aria-hidden="true"
     >
       {initials}
