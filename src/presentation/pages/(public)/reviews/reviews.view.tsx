@@ -102,7 +102,7 @@ export function ReviewsPageView() {
           <h1 className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#111827]">
             Designed With Care.
           </h1>
-          <span className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#968272]">
+          <span className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#958272]">
             Remembered for the Experience.
           </span>
         </div>
@@ -119,7 +119,7 @@ export function ReviewsPageView() {
                 className={cn(
                   "px-4 sm:px-5 py-2 rounded-[999px] font-clash font-medium text-[13px] leading-[19.5px] transition-all duration-200",
                   isActive
-                    ? "bg-[#403023] text-white shadow-sm"
+                    ? "bg-[#3F2F22] text-white shadow-sm"
                     : "bg-[#F3F4F6] text-[#4B5563] hover:bg-[#E5E7EB] hover:text-[#111827]"
                 )}
               >

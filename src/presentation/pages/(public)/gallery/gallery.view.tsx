@@ -165,7 +165,6 @@ function GalleryCard({
   item: GalleryItem;
   onClick: () => void;
 }) {
-  const isPlaceholder = item.src.includes("zarp-logomark-black");
   const height = item.featured ? 500 : 400;
 
   return (
@@ -174,23 +173,14 @@ function GalleryCard({
       onClick={onClick}
       className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
-      <div
-        className={cn(
-          isPlaceholder && "bg-gray-700 flex items-center justify-center",
-          isPlaceholder && (item.featured ? "h-[500px]" : "h-[400px]")
-        )}
-      >
+      <div>
         <Image
           src={item.src}
           alt={item.title}
           width={600}
           height={height}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={
-            isPlaceholder
-              ? "w-32 h-auto object-contain opacity-30"
-              : "w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-          }
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
