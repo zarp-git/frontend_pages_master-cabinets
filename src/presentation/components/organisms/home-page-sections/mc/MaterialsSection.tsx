@@ -56,7 +56,7 @@ export default function MaterialsSection() {
           {/* Right: Showcase image */}
           <div className="relative shrink-0 hidden lg:block rounded-[24px] overflow-hidden bg-[#E5DECD] w-[543px] h-[604px]">
             <Image
-              src="/images/materials/wood-grain-detail.webp"
+              src="/images/projects/various-wood-colors-options.png"
               alt="Wood grain and cabinet joinery close-up — Master Cabinets"
               fill
               className="object-cover"
