@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { RiArrowRightUpLine, RiPhoneLine } from "@remixicon/react";
 import { cn } from "@/lib/utils";
-import { PHONE, PHONE_SECONDARY } from "@/constants/business-info";
+import { PHONE_SECONDARY } from "@/constants/business-info";
 
 interface ActionButtonGroupProps {
   /** CTA label. Defaults to "Get Our Free Quote" */
@@ -21,7 +21,7 @@ interface ActionButtonGroupProps {
 /**
  * ActionButtonGroup — Figma node 48:8504 (BUTTONS)
  * Primary #FF4C00 pill CTA + secondary grey phone pill.
- * Used as the repeating section CTA across every homepage section.
+ * ZERO inline styles.
  */
 export default function ActionButtonGroup({
   ctaLabel = "Get Our Free Quote",
@@ -43,23 +43,15 @@ export default function ActionButtonGroup({
       <Link
         href={ctaHref}
         className={cn(
-          "group inline-flex items-center justify-between gap-2 rounded-[999px] transition-all duration-200",
+          "group inline-flex items-center justify-between gap-3 rounded-[999px] transition-all duration-200",
           "bg-[#FF4C00] border border-black text-white",
-          "pl-5 pr-2 py-2",
+          "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px] font-sans",
           "hover:bg-[#E04300] hover:scale-[1.02]",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
           stackOnMobile ? "w-full sm:w-auto" : "",
         )}
-        style={{
-          minWidth: "160px",
-          minHeight: "48px",
-          fontFamily: "'Segoe UI', system-ui, sans-serif",
-        }}
       >
-        <span
-          className="text-white font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap"
-          style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-        >
+        <span className="text-white font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap font-sans">
           {ctaLabel}
         </span>
         {/* Trailing arrow badge */}
@@ -76,15 +68,11 @@ export default function ActionButtonGroup({
         href={phoneHref}
         className={cn(
           "inline-flex items-center gap-3 rounded-[999px] transition-all duration-200",
-          "bg-[#F3F4F6] border border-[#E5DECD]",
-          "pl-5 pr-2 py-2",
+          "bg-[#F3F4F6] border border-[#E5DECD] font-sans",
+          "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px]",
           "hover:bg-[#E5E7EB] hover:border-[#DEDBD8]",
           stackOnMobile ? "w-full sm:w-auto justify-center sm:justify-start" : "",
         )}
-        style={{
-          minWidth: "160px",
-          minHeight: "48px",
-        }}
       >
         {/* Leading icon badge */}
         <span
@@ -93,10 +81,7 @@ export default function ActionButtonGroup({
         >
           <RiPhoneLine className="w-4 h-4 text-white" />
         </span>
-        <span
-          className="text-[#111827] font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap"
-          style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-        >
+        <span className="text-[#111827] font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap font-sans">
           {phoneDisplay}
         </span>
       </Link>

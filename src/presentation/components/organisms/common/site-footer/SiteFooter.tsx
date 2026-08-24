@@ -32,49 +32,23 @@ const SERVICE_AREAS = {
  */
 export default function SiteFooter() {
   return (
-    <footer
-      className="w-full"
-      style={{ background: "#968272" }}
-    >
-      <div
-        className="max-w-[1440px] mx-auto"
-        style={{ padding: "96px 64px 48px 64px" }}
-      >
+    <footer className="w-full bg-[#968272]">
+      <div className="max-w-[1440px] mx-auto pt-24 px-8 sm:px-16 pb-12">
         {/* ── Giant Brand Banner ── */}
         <div className="flex flex-col gap-1 mb-12">
-          <h2
-            className="text-white leading-[1.5] tracking-tight"
-            style={{
-              fontFamily: "var(--font-clash, sans-serif)",
-              fontSize: "clamp(48px, 8.3vw, 119.6px)",
-              fontWeight: 500,
-              lineHeight: "1.5",
-            }}
-          >
+          <h2 className="text-white tracking-tight font-clash text-[clamp(48px,8.3vw,119.6px)] font-medium leading-[1.5]">
             {COMPANY_NAME}
           </h2>
-          <span
-            className="text-white text-[12px]"
-            style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-          >
+          <span className="text-white text-[12px] font-sans">
             Licensed &amp; Insured
           </span>
         </div>
 
         {/* ── 4-Column Navigation Grid ── */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12"
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.2)",
-            paddingTop: "48px",
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-white/20 pt-12">
           {/* Col 1: Brand summary */}
           <div className="flex flex-col gap-4">
-            <p
-              className="text-white text-[16px] leading-[26px] font-normal"
-              style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-            >
+            <p className="text-white text-[16px] leading-[26px] font-normal font-sans">
               Full home remodeling, architectural cabinetry, and custom interiors.
               Everything filtered into one expert team.
             </p>
@@ -82,13 +56,7 @@ export default function SiteFooter() {
 
           {/* Col 2: Navigation */}
           <div className="flex flex-col gap-4">
-            <h3
-              className="text-[10px] uppercase tracking-wider"
-              style={{
-                fontFamily: "'Segoe UI', system-ui, sans-serif",
-                color: "rgba(255,255,255,0.7)",
-              }}
-            >
+            <h3 className="text-[10px] uppercase tracking-wider font-sans text-white/70">
               Navigation
             </h3>
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
@@ -96,8 +64,7 @@ export default function SiteFooter() {
                 <Link
                   key={link.href + link.label}
                   href={link.href}
-                  className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity"
-                  style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+                  className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity font-sans"
                 >
                   {link.label}
                 </Link>
@@ -107,34 +74,23 @@ export default function SiteFooter() {
 
           {/* Col 3: Contact */}
           <div className="flex flex-col gap-4">
-            <h3
-              className="text-[10px] uppercase tracking-wider"
-              style={{
-                fontFamily: "'Segoe UI', system-ui, sans-serif",
-                color: "rgba(255,255,255,0.7)",
-              }}
-            >
+            <h3 className="text-[10px] uppercase tracking-wider font-sans text-white/70">
               Contact
             </h3>
             <div className="flex flex-col gap-2">
               <a
                 href={`mailto:${EMAIL}`}
-                className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity"
-                style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+                className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity font-sans"
               >
                 {EMAIL}
               </a>
               <a
                 href={PHONE.href}
-                className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity"
-                style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+                className="text-white text-[14px] leading-[20px] hover:opacity-75 transition-opacity font-sans"
               >
                 {PHONE.display.replace("+1 ", "")}
               </a>
-              <span
-                className="text-white text-[12px]"
-                style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-              >
+              <span className="text-white text-[12px] font-sans">
                 {BUSINESS_HOURS.footerDisplay}
               </span>
 
@@ -144,8 +100,7 @@ export default function SiteFooter() {
                   href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-[12px] hover:opacity-75 transition-opacity"
-                  style={{ fontFamily: "Raleway, system-ui, sans-serif" }}
+                  className="text-white text-[12px] hover:opacity-75 transition-opacity font-['Raleway',system-ui,sans-serif]"
                 >
                   Facebook
                 </a>
@@ -153,8 +108,7 @@ export default function SiteFooter() {
                   href={SOCIAL_LINKS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-[12px] hover:opacity-75 transition-opacity"
-                  style={{ fontFamily: "Raleway, system-ui, sans-serif" }}
+                  className="text-white text-[12px] hover:opacity-75 transition-opacity font-['Raleway',system-ui,sans-serif]"
                 >
                   Instagram
                 </a>
@@ -164,34 +118,16 @@ export default function SiteFooter() {
 
           {/* Col 4: Service Areas */}
           <div className="flex flex-col gap-4">
-            <h3
-              className="text-[10px] uppercase tracking-wider"
-              style={{
-                fontFamily: "'Segoe UI', system-ui, sans-serif",
-                color: "rgba(255,255,255,0.7)",
-              }}
-            >
+            <h3 className="text-[10px] uppercase tracking-wider font-sans text-white/70">
               Service Areas
             </h3>
             <div className="flex flex-col gap-3">
               {SERVICE_AREAS.counties.map((county) => (
                 <div key={county.name} className="flex flex-col gap-0.5">
-                  <span
-                    className="text-white font-bold text-[14px]"
-                    style={{
-                      fontFamily: "'Segoe UI', system-ui, sans-serif",
-                      fontWeight: 700,
-                    }}
-                  >
+                  <span className="text-white font-bold text-[14px] font-sans">
                     {county.name}
                   </span>
-                  <span
-                    className="text-[12px] leading-[19.5px]"
-                    style={{
-                      fontFamily: "'Segoe UI', system-ui, sans-serif",
-                      color: "rgba(255,255,255,0.85)",
-                    }}
-                  >
+                  <span className="text-[12px] leading-[19.5px] font-sans text-white/85">
                     {county.cities}
                   </span>
                 </div>
@@ -201,28 +137,20 @@ export default function SiteFooter() {
         </div>
 
         {/* ── Legal Bar ── */}
-        <div
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-12"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.15)", marginTop: "48px" }}
-        >
-          <p
-            className="text-white text-[10px]"
-            style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
-          >
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-12 border-t border-white/15 mt-12">
+          <p className="text-white text-[10px] font-sans">
             &copy; <CurrentYear /> {COMPANY_NAME} LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/privacy-policy"
-              className="text-white text-[10px] hover:opacity-75 transition-opacity"
-              style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+              className="text-white text-[10px] hover:opacity-75 transition-opacity font-sans"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-use"
-              className="text-white text-[10px] hover:opacity-75 transition-opacity"
-              style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+              className="text-white text-[10px] hover:opacity-75 transition-opacity font-sans"
             >
               Terms of Service
             </Link>

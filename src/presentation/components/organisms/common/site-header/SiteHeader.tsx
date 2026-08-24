@@ -48,17 +48,13 @@ export default function SiteHeader({
       {/* ── Header bar ── */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20",
           isDark
             ? "bg-transparent"
             : "bg-white/95 backdrop-blur-md shadow-sm",
         )}
-        style={{ height: "80px" }}
       >
-        <div
-          className="max-w-[1440px] mx-auto flex items-center justify-between"
-          style={{ padding: "24px 32px 0px 32px", height: "80px" }}
-        >
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between pt-6 px-8 pb-0 h-20">
           {/* Logo */}
           <Link
             href="/"
@@ -67,22 +63,19 @@ export default function SiteHeader({
           >
             {/* Geometric monogram mark */}
             <span
-              className="flex items-center justify-center w-6 h-6 rounded-sm text-white text-xs font-bold leading-none"
-              style={{
-                background: isDark ? "#FFFFFF" : "#403023",
-                fontFamily: "var(--font-clash, sans-serif)",
-              }}
+              className={cn(
+                "flex items-center justify-center w-6 h-6 rounded-sm text-xs font-bold leading-none font-clash",
+                isDark ? "bg-white text-[#403023]" : "bg-[#403023] text-white"
+              )}
               aria-hidden="true"
             >
               M
             </span>
             <span
-              className="font-clash text-[27px] leading-[40.5px] font-medium"
-              style={{
-                color: isDark ? "#FFFFFF" : "#111827",
-                fontFamily: "var(--font-clash, sans-serif)",
-                fontWeight: 500,
-              }}
+              className={cn(
+                "font-clash text-[27px] leading-[40.5px] font-medium",
+                isDark ? "text-white" : "text-[#111827]"
+              )}
             >
               {COMPANY_NAME}
             </span>
@@ -98,11 +91,10 @@ export default function SiteHeader({
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "font-segoe text-[11px] leading-[16.5px] tracking-[0.05em] uppercase transition-opacity hover:opacity-70",
+                  "font-sans text-[11px] leading-[16.5px] tracking-[0.05em] uppercase transition-opacity hover:opacity-70",
                   activeHref === link.href ? "font-semibold" : "font-normal",
                   isDark ? "text-white" : "text-[#4B5563]",
                 )}
-                style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
               >
                 {link.label}
               </Link>
@@ -115,23 +107,15 @@ export default function SiteHeader({
             <Link
               href={`tel:${PHONE.href.replace("tel:", "")}`}
               className={cn(
-                "hidden lg:flex items-center gap-3 rounded-[999px] transition-opacity hover:opacity-80",
+                "hidden lg:flex items-center gap-3 rounded-[999px] transition-opacity hover:opacity-80 bg-[#403023] font-sans",
                 "px-4 py-1.5",
               )}
-              style={{
-                background: "#403023",
-                fontFamily: "'Segoe UI', system-ui, sans-serif",
-              }}
             >
               <RiPhoneLine
-                className="shrink-0"
-                style={{ width: 16, height: 16, color: "#FFFFFF" }}
+                className="shrink-0 w-4 h-4 text-white"
                 aria-hidden="true"
               />
-              <span
-                className="text-white leading-[16.5px]"
-                style={{ fontSize: "11px", fontWeight: 400 }}
-              >
+              <span className="text-white leading-[16.5px] text-[11px] font-normal">
                 {PHONE.display.replace("+1 ", "")}
               </span>
             </Link>
@@ -144,13 +128,11 @@ export default function SiteHeader({
             >
               {menuOpen ? (
                 <RiCloseLine
-                  className="w-6 h-6"
-                  style={{ color: isDark ? "#FFFFFF" : "#111827" }}
+                  className={cn("w-6 h-6", isDark ? "text-white" : "text-[#111827]")}
                 />
               ) : (
                 <RiMenu3Line
-                  className="w-6 h-6"
-                  style={{ color: isDark ? "#FFFFFF" : "#111827" }}
+                  className={cn("w-6 h-6", isDark ? "text-white" : "text-[#111827]")}
                 />
               )}
             </button>
@@ -184,19 +166,16 @@ export default function SiteHeader({
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={cn(
-                "text-[#111827] text-base py-2 border-b border-[#F3F4F6] tracking-[0.05em] uppercase",
-                "font-segoe",
+                "text-[#111827] text-base py-2 border-b border-[#F3F4F6] tracking-[0.05em] uppercase font-sans",
                 activeHref === link.href ? "font-semibold text-[#403023]" : "font-normal",
               )}
-              style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
             >
               {link.label}
             </Link>
           ))}
           <Link
             href={`tel:${PHONE.href.replace("tel:", "")}`}
-            className="flex items-center justify-center gap-2 mt-2 w-full rounded-[999px] py-3 bg-[#403023] text-white"
-            style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", fontSize: "14px" }}
+            className="flex items-center justify-center gap-2 mt-2 w-full rounded-[999px] py-3 bg-[#403023] text-white font-sans text-[14px]"
             onClick={() => setMenuOpen(false)}
           >
             <RiPhoneLine className="w-4 h-4" aria-hidden="true" />

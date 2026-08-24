@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { cn } from "@/lib/utils";
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -97,32 +98,18 @@ export function CustomCursor() {
   return (
     <div 
       ref={cursorRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: `${cursorSize}px`,
-        height: `${cursorSize}px`,
-        pointerEvents: 'none',
-        zIndex: 9999,
-        willChange: 'transform, width, height',
-        transform: 'translate3d(-100px, -100px, 0)',
-        transition: 'width 0.25s cubic-bezier(0.4, 0, 0.2, 1), height 0.25s cubic-bezier(0.4, 0, 0.2, 1)'
-      }}
+      className={cn(
+        "fixed top-0 left-0 pointer-events-none z-[9999] [will-change:transform,width,height] -translate-x-[100px] -translate-y-[100px] transition-[width,height] duration-250 ease-[cubic-bezier(0.4,0,0.2,1)]",
+        isHovering ? "w-10 h-10" : "w-2.5 h-2.5"
+      )}
     >
       <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          border: isHovering ? 'none' : '2px solid rgba(0, 0, 0, 0.3)',
-          borderRadius: '50%',
-          background: isHovering 
-            ? 'rgba(255, 255, 255, 0.5)' 
-            : 'rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'invert(100%)',
-          transition: 'background 0.25s ease, border 0.25s ease, box-shadow 0.25s ease',
-          boxShadow: isHovering ? '0 0 0 1px rgba(255, 255, 255, 0.3)' : 'none'
-        }}
+        className={cn(
+          "absolute inset-0 rounded-full [backdrop-filter:invert(100%)] transition-[background-color,border-color,box-shadow] duration-250 ease-out",
+          isHovering
+            ? "border-none bg-white/50 shadow-[0_0_0_1px_rgba(255,255,255,0.3)]"
+            : "border-2 border-black/30 bg-white/10 shadow-none"
+        )}
       />
     </div>
   );

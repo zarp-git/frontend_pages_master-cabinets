@@ -175,8 +175,10 @@ function GalleryCard({
       className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       <div
-        className={isPlaceholder ? "bg-gray-700 flex items-center justify-center" : ""}
-        style={{ height: isPlaceholder ? height : undefined }}
+        className={cn(
+          isPlaceholder && "bg-gray-700 flex items-center justify-center",
+          isPlaceholder && (item.featured ? "h-[500px]" : "h-[400px]")
+        )}
       >
         <Image
           src={item.src}

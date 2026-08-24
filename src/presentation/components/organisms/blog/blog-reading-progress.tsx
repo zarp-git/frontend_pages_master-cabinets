@@ -22,8 +22,10 @@ export function BlogReadingProgress() {
   return (
     <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
       <div
-        className="h-full bg-primary transition-all duration-150"
-        style={{ width: `${progress}%` }}
+        ref={(el) => {
+          if (el) el.style.setProperty("--progress-width", `${progress}%`);
+        }}
+        className="h-full bg-primary transition-all duration-150 w-[var(--progress-width)]"
       />
     </div>
   );

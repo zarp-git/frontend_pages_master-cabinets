@@ -45,8 +45,7 @@ function AuthorInitials({ name }: { name: string }) {
     .toUpperCase();
   return (
     <div
-      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-semibold text-sm"
-      style={{ background: "#403023", fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-semibold text-sm bg-[#403023] font-sans"
       aria-hidden="true"
     >
       {initials}
@@ -70,15 +69,9 @@ export default function ReviewCard({
   return (
     <article
       className={cn(
-        "flex flex-col gap-3 bg-white rounded-[24px] p-6",
+        "flex flex-col gap-3 bg-white rounded-[24px] p-6 border border-[#EFEFEF] shadow-[0px_4px_20px_rgba(0,0,0,0.04)] w-full max-w-[385px]",
         className,
       )}
-      style={{
-        border: "1px solid #EFEFEF",
-        boxShadow: "0px 4px 20px rgba(0,0,0,0.04)",
-        width: "100%",
-        maxWidth: "385px",
-      }}
     >
       {/* Header: avatar + name + stars */}
       <div className="flex items-center gap-3">
@@ -95,8 +88,7 @@ export default function ReviewCard({
         )}
         <div className="flex flex-col gap-1">
           <span
-            className="text-[#111827] font-bold text-[20px] leading-[17px]"
-            style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", fontWeight: 700 }}
+            className="text-[#111827] font-bold text-[20px] leading-[17px] font-sans"
           >
             {authorName}
           </span>
@@ -106,26 +98,22 @@ export default function ReviewCard({
 
       {/* Quote body */}
       <p
-        className="text-[#4B5563] text-[15px] leading-[22.5px] font-normal flex-1"
-        style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+        className="text-[#4B5563] text-[15px] leading-[22.5px] font-normal flex-1 font-sans"
       >
         &ldquo;{quote}&rdquo;
       </p>
 
       {/* Footer tag row */}
       <div
-        className="flex items-center justify-between pt-3"
-        style={{ borderTop: "1px solid #F3F4F6" }}
+        className="flex items-center justify-between pt-3 border-t border-[#F3F4F6]"
       >
         <span
-          className="text-[#968272] font-bold text-[13px] uppercase"
-          style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", fontWeight: 700 }}
+          className="text-[#968272] font-bold text-[13px] uppercase font-sans"
         >
           {serviceTag}
         </span>
         <span
-          className="text-[#968272] font-bold text-[13px] uppercase"
-          style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", fontWeight: 700 }}
+          className="text-[#968272] font-bold text-[13px] uppercase font-sans"
         >
           {locationTag}
         </span>

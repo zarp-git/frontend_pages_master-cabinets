@@ -138,44 +138,30 @@ export default function QuoteForm({
     <div
       className={cn(
         "rounded-[20px] p-3 sm:p-5",
-        isGlass ? "mc-glass" : "bg-[#F3F4F6]",
+        isGlass ? "mc-glass" : "bg-[#F3F4F6] border border-white",
         className,
       )}
-      style={
-        !isGlass
-          ? { border: "1px solid #FFFFFF" }
-          : undefined
-      }
     >
       {/* Optional title */}
       {showTitle && (
-        <h3
-          className="text-[#111827] font-medium text-[24px] leading-[25px] mb-4"
-          style={{ fontFamily: "var(--font-clash, sans-serif)" }}
-        >
+        <h3 className="text-[#111827] font-medium text-[24px] leading-[25px] mb-4 font-clash">
           GET YOUR HOME REMODEL QUOTE
         </h3>
       )}
 
       {submitted ? (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div
-            className="w-12 h-12 rounded-full flex items-center justify-center"
-            style={{ background: "#036841" }}
-          >
+          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#036841]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
               stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
               className="w-6 h-6">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <p
-            className="text-[#111827] font-semibold text-lg"
-            style={{ fontFamily: "var(--font-clash, sans-serif)" }}
-          >
+          <p className="text-[#111827] font-semibold text-lg font-clash">
             Quote request sent!
           </p>
-          <p className="text-[#4B5563] text-sm" style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+          <p className="text-[#4B5563] text-sm font-sans">
             We&apos;ll reach out within 24 hours.
           </p>
         </div>
@@ -184,16 +170,9 @@ export default function QuoteForm({
           {FIELDS.map((field) => (
             <label key={field.key} className="sr-only-label">
               <span className="sr-only">{field.placeholder}</span>
-              <div
-                className="flex items-center gap-2.5 bg-white rounded-[20px] px-4 transition-all"
-                style={{
-                  height: "50px",
-                  border: "0.8px solid #DEDBD8",
-                }}
-              >
+              <div className="flex items-center gap-2.5 bg-white rounded-[20px] px-4 transition-all h-[50px] border border-[#DEDBD8]">
                 <span
-                  className="shrink-0"
-                  style={{ color: "#786F6C", width: 16, height: 16, display: "flex" }}
+                  className="shrink-0 text-[#786F6C] w-4 h-4 flex items-center justify-center"
                   aria-hidden="true"
                 >
                   {field.icon}
@@ -205,13 +184,7 @@ export default function QuoteForm({
                   value={form[field.key]}
                   onChange={(e) => handleChange(field.key, e.target.value)}
                   required
-                  className="w-full bg-transparent outline-none border-none text-[#111827] placeholder:text-[#786F6C]"
-                  style={{
-                    fontFamily: "var(--font-clash, sans-serif)",
-                    fontSize: "12.8px",
-                    lineHeight: "15.7px",
-                    fontWeight: 500,
-                  }}
+                  className="w-full bg-transparent outline-none border-none text-[#111827] placeholder:text-[#786F6C] font-clash text-[12.8px] leading-[15.7px] font-medium"
                 />
               </div>
             </label>
@@ -221,21 +194,10 @@ export default function QuoteForm({
           <button
             type="submit"
             disabled={isPending}
-            className="w-full rounded-[20px] text-white font-semibold tracking-[0.05em] transition-colors duration-200 disabled:opacity-70"
-            style={{
-              height: "50px",
-              background: isPending ? "#555" : "#403023",
-              fontFamily: "'Segoe UI', system-ui, sans-serif",
-              fontSize: "11px",
-              lineHeight: "16.5px",
-              fontWeight: 600,
-            }}
-            onMouseEnter={(e) => {
-              if (!isPending) (e.currentTarget as HTMLButtonElement).style.background = "#FF4C00";
-            }}
-            onMouseLeave={(e) => {
-              if (!isPending) (e.currentTarget as HTMLButtonElement).style.background = "#403023";
-            }}
+            className={cn(
+              "w-full h-[50px] rounded-[20px] text-white font-semibold tracking-[0.05em] transition-colors duration-200 disabled:opacity-70 font-sans text-[11px] leading-[16.5px]",
+              isPending ? "bg-stone-600" : "bg-[#403023] hover:bg-[#FF4C00]"
+            )}
           >
             {isPending ? "SUBMITTING..." : "SUBMIT FOR A FREE QUOTE"}
           </button>
