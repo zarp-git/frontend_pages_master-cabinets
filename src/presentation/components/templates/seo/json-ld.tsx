@@ -97,46 +97,6 @@ export const OrganizationJsonLd = () => {
   return <JsonLd data={organizationData} id="organization-json-ld" />;
 };
 
-// Service/product structured data - replace with your main service details
-export const ProductJsonLd = () => {
-  const productData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${COMPANY_NAME} | [Main service title]`,
-    description: "[Description of the services offered and service area.]",
-    url: SITE_URL,
-    serviceType: "[Service type - e.g. Home Improvement]",
-    areaServed: {
-      "@type": "[Area type - e.g. State, City, Country]",
-      name: "[Area name - e.g. Florida, New York, etc.]",
-    },
-    provider: {
-      "@type": "LocalBusiness",
-      name: COMPANY_NAME,
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "[Average rating - e.g. 4.9]",
-      ratingCount: "[Number of reviews - e.g. 150]",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "[Service catalog name]",
-      itemListElement: [
-        // Replace with your actual service names
-        "[Service 1]",
-        "[Service 2]",
-        "[Service 3]",
-        "[Service 4]",
-      ],
-    },
-  };
-
-  return <JsonLd data={productData} id="product-json-ld" />;
-};
-
 // Breadcrumb structured data - dynamically built from breadcrumb items
 export const BreadcrumbJsonLd = ({
   items,
@@ -157,48 +117,3 @@ export const BreadcrumbJsonLd = ({
   return <JsonLd data={breadcrumbData} id="breadcrumb-json-ld" />;
 };
 
-// Review/testimonials structured data - replace with your own ratings and reviews
-export const ReviewJsonLd = () => {
-  const reviewData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${COMPANY_NAME} - [Main service title]`,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "[Average rating - e.g. 4.9]",
-      ratingCount: "[Number of reviews - e.g. 150]",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: [
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "[Reviewer name 1]",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        reviewBody: "[Customer review text - describe the service experience.]",
-      },
-      {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: "[Reviewer name 2]",
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-        },
-        reviewBody: "[Customer review text - describe the service experience.]",
-      },
-    ],
-  };
-
-  return <JsonLd data={reviewData} id="review-json-ld" />;
-};

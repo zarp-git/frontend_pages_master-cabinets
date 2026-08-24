@@ -16,7 +16,7 @@ export const SITE_URL = (
   // Falls back to the real domain, not localhost: without the env var every
   // canonical, OG url and sitemap entry would otherwise ship pointing at
   // localhost (or at the throwaway *.vercel.app deployment host).
-  "https://mastercabinets.net"
+  "https://www.mastercabinets.net"
 ).replace(/\/$/, "");
 
 /** Legal / display company name */
@@ -33,17 +33,15 @@ export const COMPANY_TAGLINE =
 // ---------------------------------------------------------------------------
 // NAP (Name, Address, Phone)
 // ---------------------------------------------------------------------------
-// The client briefing does not supply a street address - Master Cabinets works
-// as a service-area business across South West Florida. Until a real address is
-// confirmed, `street` stays empty and is omitted from the schema below rather
-// than shipping a placeholder that Google would index.
+// Confirmed against the client's Google Business Profile
+// (CID 7209192084505606319). The previous ZIP, 34102, was a template guess.
 export const ADDRESS = {
   label: "Master Cabinets LLC",
-  street: "",
-  fullStreet: "Naples, FL 34102, US",
+  street: "6289 Janes Ln",
+  fullStreet: "6289 Janes Ln, Naples, FL 34109, US",
   city: "Naples",
   region: "FL",
-  postalCode: "34102",
+  postalCode: "34109",
   country: "US",
 } as const;
 
