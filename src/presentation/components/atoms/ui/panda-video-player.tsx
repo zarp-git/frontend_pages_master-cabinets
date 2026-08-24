@@ -161,10 +161,10 @@ export function PandaVideoPlayer({
         ref={videoRef}
         src={src}
         poster={poster}
-        className="w-full h-full cursor-pointer video-player"
-        style={{
-          objectFit: isFullscreen ? "contain" : "cover",
-        }}
+        className={cn(
+          "w-full h-full cursor-pointer video-player",
+          isFullscreen ? "object-contain" : "object-cover"
+        )}
         autoPlay={autoPlay}
         loop={loop}
         muted={isMuted}

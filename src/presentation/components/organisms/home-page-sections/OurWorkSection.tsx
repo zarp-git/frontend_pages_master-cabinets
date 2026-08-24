@@ -9,13 +9,13 @@ import { CtaButton } from "@/presentation/components/molecules/common/CtaButton"
 // Team/work photos — replace with your own project or team photos
 // ---------------------------------------------------------------------------
 const TEAM_PHOTOS = [
-  { src: "/images/hero/image1.jpg", alt: "[Describe project photo 1]" },
-  { src: "/images/hero/image2.jpg", alt: "[Describe project photo 2]" },
-  { src: "/images/hero/image3.jpg", alt: "[Describe project photo 3]" },
-  { src: "/images/hero/image4.jpg", alt: "[Describe project photo 4]" },
-  { src: "/images/hero/image5.jpg", alt: "[Describe project photo 5]" },
-  { src: "/images/hero/image6.jpg", alt: "[Describe project photo 6]" },
-  { src: "/images/hero/image7.jpg", alt: "[Describe project photo 7]" },
+  { src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg", alt: "[Describe project photo 1]" },
+  { src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg", alt: "[Describe project photo 2]" },
+  { src: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg", alt: "[Describe project photo 3]" },
+  { src: "/images/projects/custom-white-kitchen-cabinetry.jpg", alt: "[Describe project photo 4]" },
+  { src: "/images/projects/modern-custom-kitchen-cabinetry.jpg", alt: "[Describe project photo 5]" },
+  { src: "/images/projects/bathroom_remodel_finished_01.jpg", alt: "[Describe project photo 6]" },
+  { src: "/images/projects/dark-wood-flooring-installation.jpg", alt: "[Describe project photo 7]" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -32,8 +32,7 @@ function PhotoMarquee({ photos }: { photos: typeof TEAM_PHOTOS }) {
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-20 lg:w-32 bg-gradient-to-l from-white to-transparent" />
 
       <div
-        className="flex gap-4 sm:gap-5 w-max animate-marquee-left"
-        style={{ animationDuration: "50s" }}
+        className="flex gap-4 sm:gap-5 w-max animate-marquee-left [animation-duration:50s]"
       >
         {duplicated.map((photo, idx) => (
           <div

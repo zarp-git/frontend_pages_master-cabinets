@@ -76,7 +76,7 @@ function ServiceHero({ service }: { service: ServiceData }) {
       size="xl"
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Services", href: "/services" },
+        { label: "Services" },
         { label: service.breadcrumbLabel },
       ]}
       cta={
@@ -435,7 +435,7 @@ function ServiceFaqSection({ service }: { service: ServiceData }) {
             {/* Feature image */}
             <div className="relative aspect-4/3 rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/hero/zarp-logomark-black.png"
+                src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
                 alt={`${service.title} showcase`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"
@@ -491,7 +491,7 @@ function ServiceCta({ serviceTitle }: { serviceTitle: string }) {
         <div className="relative rounded-2xl overflow-hidden">
           {/* Background */}
           <Image
-            src="/images/hero/zarp-logomark-black.png"
+            src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
             alt=""
             fill
             sizes="100vw"

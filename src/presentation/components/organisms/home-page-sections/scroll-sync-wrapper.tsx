@@ -57,11 +57,7 @@ export function ScrollSyncWrapper({
 		<div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,330px)] gap-8 py-16 relative">
 			<aside
 				ref={navRef}
-				className="w-full lg:sticky lg:top-5 flex flex-col gap-4 py-4 order-2 lg:order-2 lg:max-h-[calc(100vh-40px)] lg:overflow-y-auto scrollbar-none lg:align-start lg:self-start lg:z-10"
-				style={{
-					scrollbarWidth: "none",
-					msOverflowStyle: "none",
-				}}
+				className="w-full lg:sticky lg:top-5 flex flex-col gap-4 py-4 order-2 lg:order-2 lg:max-h-[calc(100vh-40px)] lg:overflow-y-auto scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] lg:align-start lg:self-start lg:z-10"
 			>
 				<style jsx global>{`
 					aside::-webkit-scrollbar {

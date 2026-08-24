@@ -18,15 +18,11 @@ export function CtaSection() {
         <div className="relative">
           {/* ── Dark card with texture ── */}
           <div
-            className="relative rounded-3xl px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-14 md:py-16 lg:py-20 flex flex-col justify-center items-center sm:items-start gap-6 sm:gap-8 overflow-hidden border border-zinc-500/20"
-            style={{
-              boxShadow:
-                "0px 4px 9px 0px rgba(0,0,0,0.05), 0px 17px 17px 0px rgba(0,0,0,0.04), 0px 37px 22px 0px rgba(0,0,0,0.03), 0px 67px 27px 0px rgba(0,0,0,0.01)",
-            }}
+            className="relative rounded-3xl px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-14 md:py-16 lg:py-20 flex flex-col justify-center items-center sm:items-start gap-6 sm:gap-8 overflow-hidden border border-zinc-500/20 shadow-[0px_4px_9px_0px_rgba(0,0,0,0.05),0px_17px_17px_0px_rgba(0,0,0,0.04),0px_37px_22px_0px_rgba(0,0,0,0.03),0px_67px_27px_0px_rgba(0,0,0,0.01)]"
           >
             {/* Background texture layer */}
             <Image
-              src="/images/hero/zarp-logomark-black.png"
+              src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
               alt=""
               fill
               sizes="100vw"

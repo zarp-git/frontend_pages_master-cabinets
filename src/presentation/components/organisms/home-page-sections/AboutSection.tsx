@@ -23,21 +23,15 @@ export default function AboutSection() {
             <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] lg:aspect-[6/3] drop-shadow-xl">
               {/* Accent Background/Border Layer — use brand primary color */}
               <div
-                className="absolute inset-0 bg-primary rounded-l-3xl"
-                style={{
-                  clipPath: "polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%)",
-                }}
+                className="absolute inset-0 bg-primary rounded-l-3xl [clip-path:polygon(0_0,90%_0,100%_50%,90%_100%,0_100%)]"
               ></div>
 
               {/* Image Layer — replace src with a relevant about/team image */}
               <div
-                className="absolute inset-0 right-2 bg-gray-200 rounded-l-3xl overflow-hidden"
-                style={{
-                  clipPath: "polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%)",
-                }}
+                className="absolute inset-0 right-2 bg-gray-200 rounded-l-3xl overflow-hidden [clip-path:polygon(0_0,90%_0,100%_50%,90%_100%,0_100%)]"
               >
                 <Image
-                  src="/images/hero/image1.jpg"
+                  src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
                   alt="[Describe the image — e.g. the team at work]"
                   fill
                   className="object-cover"
@@ -85,23 +79,15 @@ export default function AboutSection() {
             <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] lg:aspect-[6/3] drop-shadow-xl">
               {/* Accent — use brand primary color */}
               <div
-                className="absolute inset-0 bg-primary rounded-r-3xl"
-                style={{
-                  clipPath:
-                    "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0% 50%)",
-                }}
+                className="absolute inset-0 bg-primary rounded-r-3xl [clip-path:polygon(10%_0,100%_0,100%_100%,10%_100%,0%_50%)]"
               ></div>
 
               {/* Image — replace src with a relevant local/expertise image */}
               <div
-                className="absolute inset-0 left-2 bg-gray-200 rounded-r-3xl overflow-hidden"
-                style={{
-                  clipPath:
-                    "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0% 50%)",
-                }}
+                className="absolute inset-0 left-2 bg-gray-200 rounded-r-3xl overflow-hidden [clip-path:polygon(10%_0,100%_0,100%_100%,10%_100%,0%_50%)]"
               >
                 <Image
-                  src="/images/hero/image4.jpg"
+                  src="/images/projects/custom-white-kitchen-cabinetry.jpg"
                   alt="[Describe the image — e.g. company expertise]"
                   fill
                   className="object-cover"

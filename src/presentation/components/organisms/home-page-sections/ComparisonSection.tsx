@@ -47,8 +47,8 @@ export const ComparisonSection = () => {
           {/* Slider */}
           <div className="relative w-full">
             <ComparisonSlider
-              beforeImage="/images/hero/zarp-logomark-black.png"
-              afterImage="/images/hero/zarp-logomark-black.png"
+              beforeImage="/images/projects/gray-custom-kitchen-cabinetry.jpg"
+              afterImage="/images/projects/gray-custom-kitchen-cabinetry.jpg"
               beforeLabel="Before"
               afterLabel="After"
               className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[420px] rounded-xl"

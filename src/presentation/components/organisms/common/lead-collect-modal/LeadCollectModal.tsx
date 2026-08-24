@@ -625,10 +625,9 @@ export const LeadCollectModal = () => {
                         {label}
                       </span>
                       <div
-                        className={`h-1.5 rounded-[10px] transition-colors ${
+                        className={`w-full h-1.5 rounded-[10px] transition-colors ${
                           isActive ? "bg-zinc-800" : isCompleted ? "bg-green-500" : "bg-gray-200"
                         }`}
-                        style={{ width: '100%' }}
                       />
                     </div>
                   );
@@ -639,7 +638,7 @@ export const LeadCollectModal = () => {
             {/* Mockup Image */}
             <div className="w-full flex-1 relative rounded-[10px] overflow-hidden min-h-[260px] md:min-h-[380px]">
               <Image
-                src="/images/hero/zarp-logomark-black.png"
+                src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
                 alt="Professional installation"
                 fill
                 sizes="(max-width: 768px) 100vw, 418px"

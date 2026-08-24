@@ -6,11 +6,7 @@ import { CtaButton } from "@/presentation/components/molecules/common/CtaButton"
 export default function HeroCarousel() {
   return (
     <section
-      className="relative w-full min-h-svh flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-0 sm:pb-16 md:pb-20"
-      style={{
-        background:
-          "radial-gradient(277.91% 109.76% at 63.33% 38.87%, #FFFDF7 0%, #E8D9C8 100%)",
-      }}
+      className="relative w-full min-h-svh flex flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-0 sm:pb-16 md:pb-20 bg-[radial-gradient(277.91%_109.76%_at_63.33%_38.87%,#FFFDF7_0%,#E8D9C8_100%)]"
     >
       <div className="section-container relative z-10 flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-10 lg:gap-0">
         {/* Text Content */}
@@ -26,20 +22,14 @@ export default function HeroCarousel() {
           </div>
 
           <h1
-            className="text-gray-900 text-center lg:text-left"
-            style={{ fontSize: "clamp(2rem, 5vw, 74px)", fontWeight: 500, lineHeight: 1.1, fontFamily: "'Clash Display', sans-serif" }}
+            className="text-gray-900 text-center lg:text-left text-[clamp(2rem,5vw,74px)] font-medium leading-[1.1] font-['Clash_Display',sans-serif]"
           >
             Remodeling,
             <br />
             Cabinetry, and
             <br />
             <em
-              style={{
-                fontFamily: "Times New Roman, Times, serif",
-                fontStyle: "italic",
-                fontWeight: 400,
-                color: "var(--color-brown-dark, #3F2F22)",
-              }}
+              className="font-serif italic font-normal text-[#3F2F22]"
             >
               Everything Between
             </em>
@@ -70,7 +60,7 @@ export default function HeroCarousel() {
         {/* Hero Image */}
         <div className="flex-1 w-full max-w-lg">
           <Image
-            src="/images/hero/image1.webp"
+            src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
             alt="Master Cabinets — Custom Cabinetry and Home Remodeling in South Florida"
             width={600}
             height={400}

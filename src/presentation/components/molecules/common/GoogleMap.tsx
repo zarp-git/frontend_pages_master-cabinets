@@ -6,7 +6,7 @@ export default function GoogleMap() {
       <iframe
         width="100%"
         height="100%"
-        style={{ border: 0, minHeight: '300px' }}
+        className="w-full h-full min-h-[300px] border-0"
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"

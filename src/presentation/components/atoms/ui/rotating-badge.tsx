@@ -78,8 +78,7 @@ export function RotatingBadge({
                 fill="transparent"
               />
               <text
-                className={cn("text-xs font-medium", textClassName)}
-                style={{ fontSize: "0.65rem" }}
+                className={cn("text-[0.65rem] font-medium", textClassName)}
               >
                 <textPath href="#circlePath">{formattedText}</textPath>
               </text>

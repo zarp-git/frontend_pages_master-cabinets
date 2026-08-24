@@ -103,8 +103,10 @@ export function ComparisonSlider({
 
       {/* Before Image (Clipped) */}
       <div
-        className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        ref={(el) => {
+          if (el) el.style.setProperty("--slider-clip", `${100 - position}%`);
+        }}
+        className="absolute inset-0 pointer-events-none select-none overflow-hidden [clip-path:inset(0_var(--slider-clip)_0_0)]"
       >
         <Image
           src={beforeImage}
@@ -127,18 +129,22 @@ export function ComparisonSlider({
 
       {/* Divider Line */}
       <div
-        className="absolute inset-y-0 w-1 bg-white pointer-events-none"
-        style={{ left: `${position}%`, transform: "translateX(-50%)" }}
+        ref={(el) => {
+          if (el) el.style.setProperty("--slider-pos", `${position}%`);
+        }}
+        className="absolute inset-y-0 w-1 bg-white pointer-events-none left-[var(--slider-pos)] -translate-x-1/2"
       />
 
       {/* Handle */}
       <button
-        ref={handleRef}
+        ref={(el) => {
+          handleRef.current = el;
+          if (el) el.style.setProperty("--slider-pos", `${position}%`);
+        }}
         className={cn(
-          "absolute top-1/2 -translate-y-1/2 w-6 h-10 bg-white rounded-md flex items-center justify-center text-gray-800 z-20 focus:outline-none focus:ring-4 focus:ring-primary/40 transition-[transform] duration-200 hover:scale-110 active:scale-95",
+          "absolute top-1/2 left-[var(--slider-pos)] -translate-x-1/2 -translate-y-1/2 w-6 h-10 bg-white rounded-md flex items-center justify-center text-gray-800 z-20 focus:outline-none focus:ring-4 focus:ring-primary/40 transition-[transform] duration-200 hover:scale-110 active:scale-95",
           isResizing && "scale-110 ring-4 ring-primary/40",
         )}
-        style={{ left: `${position}%`, transform: "translate(-50%, -50%)" }}
         aria-label="Drag to compare images"
       >
         <RiDraggable className="w-5 h-5 text-primary" />

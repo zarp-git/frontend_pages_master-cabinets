@@ -159,10 +159,10 @@ const VideoPlayerComponent = ({
         ref={videoRef}
         src={src}
         poster={poster}
-        className="w-full h-full cursor-pointer"
-        style={{
-          objectFit: isFullscreen ? "contain" : "cover",
-        }}
+        className={cn(
+          "w-full h-full cursor-pointer",
+          isFullscreen ? "object-contain" : "object-cover"
+        )}
         loop={loop}
         muted={isMuted}
         controls={controls && !showMutedIndicator}
@@ -182,10 +182,7 @@ const VideoPlayerComponent = ({
           <button
             onClick={handleVideoClick}
             disabled={isLoading}
-            className="flex flex-col items-center px-6 py-4 bg-black/60 rounded-2xl backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{
-              animation: "gentle-breathe 3s ease-in-out infinite",
-            }}
+            className="flex flex-col items-center px-6 py-4 bg-black/60 rounded-2xl backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed animate-[gentle-breathe_3s_ease-in-out_infinite]"
           >
             <span className="text-white text-sm font-medium font-rubik">
               Click here
