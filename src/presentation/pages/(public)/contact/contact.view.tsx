@@ -39,9 +39,9 @@ export function ContactPageView() {
               next useful step — usually within 1–2 days.
             </p>
 
-            {/* Phone and email sit side by side, including on mobile — the
-                icon chips and type shrink instead of the pair stacking. */}
-            <div className="flex flex-nowrap items-center gap-3 sm:gap-6">
+            {/* Phone and email sit side by side and wrap to their own lines
+                rather than truncating once the column gets narrow. */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 href={PHONE.href}
                 className="inline-flex min-w-0 items-center gap-2 transition-opacity hover:opacity-80 sm:gap-3"
@@ -49,7 +49,7 @@ export function ContactPageView() {
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#403023] sm:h-10 sm:w-10">
                   <RiPhoneLine className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />
                 </span>
-                <span className="truncate font-clash text-[13px] font-medium text-[#403023] sm:text-[16px]">
+                <span className="font-clash text-[14px] font-medium text-[#403023] sm:text-[16px]">
                   {PHONE.display.replace("+1 ", "")}
                 </span>
               </Link>
@@ -61,7 +61,7 @@ export function ContactPageView() {
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#403023] sm:h-10 sm:w-10">
                   <RiMailLine className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />
                 </span>
-                <span className="truncate font-clash text-[13px] font-medium text-[#403023] sm:text-[16px]">
+                <span className="break-all font-clash text-[14px] font-medium text-[#403023] sm:text-[16px]">
                   {EMAIL}
                 </span>
               </Link>

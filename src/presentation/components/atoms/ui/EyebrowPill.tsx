@@ -27,7 +27,7 @@ export default function EyebrowPill({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-3 rounded-full px-3 py-1",
+        "inline-flex w-fit shrink-0 items-center gap-3 self-start rounded-full px-3 py-1",
         isDark
           ? "bg-white/[0.06] shadow-[0_0_0_rgba(255,255,255,0.10)]"
           : "bg-black/[0.04] shadow-[0_0_0_rgba(0,0,0,0.05)]",
