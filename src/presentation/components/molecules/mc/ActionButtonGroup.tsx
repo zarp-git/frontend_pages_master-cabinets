@@ -44,7 +44,7 @@ export default function ActionButtonGroup({
         href={ctaHref}
         className={cn(
           "group inline-flex items-center justify-between gap-3 rounded-[999px] transition-all duration-200",
-          "bg-[#F7AF14] border border-black text-white",
+          "bg-[#FF4C00] border border-[#FF4C00] text-white",
           "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px] font-sans",
           "hover:bg-[#E04300] hover:scale-[1.02]",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",

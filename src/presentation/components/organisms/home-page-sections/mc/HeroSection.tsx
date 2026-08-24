@@ -1,29 +1,85 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 
 /**
  * HeroSection — Figma node 17:1784
  * 2-column split: left copy/trust badges, right glassmorphism quote card.
  * Background: #3F2F22 with hero image fill + dark overlay.
+ * Mobile: background auto-rotates through 3 luxury kitchen photos (4s interval).
  */
+
+const HERO_IMAGES = [
+  {
+    src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+    alt: "Luxury kitchen remodel — Master Cabinets",
+  },
+  {
+    src: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
+    alt: "Full kitchen remodel — Master Cabinets",
+  },
+  {
+    src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+    alt: "Modern custom kitchen cabinetry — Master Cabinets",
+  },
+] as const;
+
 export default function HeroSection() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  // Auto-rotate every 4s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       className="relative w-full overflow-hidden bg-[#3F2F22]"
     >
-      {/* Hero background image */}
-      <Image
-        src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
-        alt=""
-        fill
-        priority
-        className="object-cover opacity-40"
-        sizes="100vw"
-        aria-hidden="true"
-      />
+      {/* Hero background images — crossfade on mobile */}
+      {HERO_IMAGES.map((img, idx) => (
+        <Image
+          key={img.src}
+          src={img.src}
+          alt=""
+          fill
+          priority={idx === 0}
+          className={[
+            "object-cover transition-opacity duration-1000",
+            idx === activeIdx ? "opacity-40" : "opacity-0",
+          ].join(" ")}
+          sizes="100vw"
+          aria-hidden="true"
+        />
+      ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#3F2F22]/60" aria-hidden="true" />
+
+      {/* Dot indicators — mobile only */}
+      <div
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 lg:hidden"
+        aria-hidden="true"
+      >
+        {HERO_IMAGES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveIdx(idx)}
+            className={[
+              "w-2 h-2 rounded-full transition-all duration-300",
+              idx === activeIdx
+                ? "bg-[#F7AF14] w-4"
+                : "bg-white/50",
+            ].join(" ")}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Content */}
       <div

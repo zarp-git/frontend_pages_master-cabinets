@@ -1,21 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/presentation/components/atoms/ui/carousel";
 
 /**
  * GallerySection — Figma node 48:9792 (GALLERY)
  * 7-tile bento masonry grid. Each tile uses next/image with object-fit cover.
- * On mobile: single-column card stack.
+ * On mobile (<768px): horizontal swipeable Embla carousel, snap-center.
+ * On desktop: bento grid.
  */
 
 const TILES = [
   {
-    src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+    src: "/images/projects/cabinetry_kitchen_finished_01.png",
     alt: "Custom kitchen cabinetry — Master Cabinets",
     gridClass: "row-span-2",
   },
   {
-    src: "/images/projects/bathroom_remodel_finished_01.jpg",
-    alt: "Bathroom vanity remodel — Master Cabinets",
+    src: "/images/projects/custom-white-kitchen-cabinetry.jpg",
+    alt: "White kitchen cabinetry remodel — Master Cabinets",
     gridClass: "",
   },
   {
@@ -24,13 +32,13 @@ const TILES = [
     gridClass: "",
   },
   {
-    src: "/images/projects/various-wood-colors-options.png",
-    alt: "Cabinet hardware detail — Master Cabinets",
+    src: "/images/projects/dark-wood-flooring-installation.jpg",
+    alt: "Dark wood flooring installation — Master Cabinets",
     gridClass: "",
   },
   {
-    src: "/images/projects/dark-wood-flooring-installation.jpg",
-    alt: "Wood grain cabinetry detail — Master Cabinets",
+    src: "/images/projects/residential-flooring-installation.jpg",
+    alt: "Residential flooring — Master Cabinets",
     gridClass: "",
   },
   {
@@ -39,35 +47,11 @@ const TILES = [
     gridClass: "col-span-2",
   },
   {
-    src: "/images/projects/bathroom_remodel_finished_03.jpg",
-    alt: "Luxury master bathroom — Master Cabinets",
+    src: "/images/projects/bathroom_remodel_finished_02.jpg",
+    alt: "Luxury master bathroom remodel — Master Cabinets",
     gridClass: "row-span-2",
   },
 ] as const;
-
-function GalleryTile({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`relative w-full rounded-[20px] overflow-hidden bg-[#E5DECD] ${className || ""}`}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, 377px"
-      />
-    </div>
-  );
-}
 
 export default function GallerySection() {
   return (
@@ -95,23 +79,23 @@ export default function GallerySection() {
         <div className="hidden lg:grid gap-4 grid-cols-[377px_377px_179px_179px_377px] grid-rows-[185px_185px]">
           {/* Tile 1: tall left portrait (spans 2 rows) */}
           <div className="row-span-2 relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
-            <Image src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg" alt="Custom kitchen cabinetry — Master Cabinets" fill className="object-cover" sizes="377px" />
+            <Image src="/images/projects/cabinetry_kitchen_finished_01.png" alt="Custom kitchen cabinetry — Master Cabinets" fill className="object-cover" sizes="377px" />
           </div>
           {/* Tile 2: center top */}
           <div className="relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
-            <Image src="/images/projects/bathroom_remodel_finished_01.jpg" alt="Bathroom vanity remodel — Master Cabinets" fill className="object-cover" sizes="377px" />
+            <Image src="/images/projects/custom-white-kitchen-cabinetry.jpg" alt="White kitchen cabinetry remodel — Master Cabinets" fill className="object-cover" sizes="377px" />
           </div>
           {/* Tile 4: right small A */}
           <div className="relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
-            <Image src="/images/projects/various-wood-colors-options.png" alt="Cabinet hardware detail — Master Cabinets" fill className="object-cover" sizes="179px" />
+            <Image src="/images/projects/dark-wood-flooring-installation.jpg" alt="Dark wood flooring installation — Master Cabinets" fill className="object-cover" sizes="179px" />
           </div>
           {/* Tile 5: right small B */}
           <div className="relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
-            <Image src="/images/projects/dark-wood-flooring-installation.jpg" alt="Wood grain cabinetry detail — Master Cabinets" fill className="object-cover" sizes="179px" />
+            <Image src="/images/projects/residential-flooring-installation.jpg" alt="Residential flooring — Master Cabinets" fill className="object-cover" sizes="179px" />
           </div>
           {/* Tile 7: tall right portrait (spans 2 rows) — absolute last col */}
           <div className="row-span-2 relative rounded-[20px] overflow-hidden bg-[#E5DECD] col-start-5 row-start-1 row-end-3">
-            <Image src="/images/projects/bathroom_remodel_finished_03.jpg" alt="Luxury master bathroom — Master Cabinets" fill className="object-cover" sizes="377px" />
+            <Image src="/images/projects/bathroom_remodel_finished_02.jpg" alt="Luxury master bathroom remodel — Master Cabinets" fill className="object-cover" sizes="377px" />
           </div>
           {/* Tile 3: center bottom */}
           <div className="relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
@@ -123,11 +107,35 @@ export default function GallerySection() {
           </div>
         </div>
 
-        {/* Mobile: single column stacked */}
-        <div className="lg:hidden flex flex-col gap-4">
-          {TILES.map((tile) => (
-            <GalleryTile key={tile.src} src={tile.src} alt={tile.alt} className="h-[250px]" />
-          ))}
+        {/* Mobile: horizontal swipeable carousel */}
+        <div className="lg:hidden -mx-8">
+          <Carousel
+            opts={{ align: "start", loop: true, dragFree: false }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4 pl-8">
+              {TILES.map((tile) => (
+                <CarouselItem
+                  key={tile.src}
+                  className="pl-4 basis-[80vw] max-w-[320px]"
+                >
+                  <div className="relative h-[260px] w-full rounded-[20px] overflow-hidden bg-[#E5DECD]">
+                    <Image
+                      src={tile.src}
+                      alt={tile.alt}
+                      fill
+                      className="object-cover"
+                      sizes="80vw"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          {/* Swipe hint */}
+          <p className="text-center text-xs text-[#786F6C] mt-3 font-sans select-none">
+            Swipe to explore →
+          </p>
         </div>
 
         {/* Section CTA */}

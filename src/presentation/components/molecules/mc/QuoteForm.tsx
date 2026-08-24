@@ -196,7 +196,7 @@ export default function QuoteForm({
             disabled={isPending}
             className={cn(
               "w-full h-[50px] rounded-[20px] text-white font-semibold tracking-[0.05em] transition-colors duration-200 disabled:opacity-70 font-sans text-[11px] leading-[16.5px]",
-              isPending ? "bg-stone-600" : "bg-[#3F2F22] hover:bg-[#F7AF14]"
+              isPending ? "bg-stone-600" : "bg-[#FF4C00] hover:bg-[#E04300]"
             )}
           >
             {isPending ? "SUBMITTING..." : "SUBMIT FOR A FREE QUOTE"}
