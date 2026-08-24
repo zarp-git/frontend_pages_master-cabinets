@@ -55,31 +55,19 @@ export default function ServicesSection() {
                 onClick={() => setActiveIndex(i)}
                 className={`flex items-center gap-4 text-left w-full transition-colors h-14 border-b border-[#EFEFEF] ${
                   activeIndex === i
-<<<<<<< Updated upstream
                     ? "bg-[#3F2F22]/[0.04] pl-3 rounded-lg"
-=======
-                    ? "bg-[#403023]/[0.04] pl-3 rounded-lg"
->>>>>>> Stashed changes
                     : "bg-transparent pl-0 rounded-none"
                 }`}
                 aria-pressed={activeIndex === i}
               >
                 <span
-<<<<<<< Updated upstream
                   className="font-serif text-[10.8px] text-[#958272] min-w-[28px]"
-=======
-                  className="font-serif text-[10.8px] text-[#968272] min-w-[28px]"
->>>>>>> Stashed changes
                 >
                   {service.index}
                 </span>
                 <span
                   className={`font-clash text-[18px] leading-[21.6px] font-medium ${
-<<<<<<< Updated upstream
                     activeIndex === i ? "text-[#3F2F22]" : "text-[#111827]"
-=======
-                    activeIndex === i ? "text-[#403023]" : "text-[#111827]"
->>>>>>> Stashed changes
                   }`}
                 >
                   {service.label}
@@ -105,11 +93,7 @@ export default function ServicesSection() {
               aria-hidden="true"
             >
               <span
-<<<<<<< Updated upstream
                 className="px-5 py-2 rounded-full text-white bg-[#3F2F22]/85 backdrop-blur-md font-sans text-[17.3px] font-medium"
-=======
-                className="px-5 py-2 rounded-full text-white bg-[#403023]/85 backdrop-blur-md font-sans text-[17.3px] font-medium"
->>>>>>> Stashed changes
               >
                 {SERVICES[activeIndex].label}
               </span>

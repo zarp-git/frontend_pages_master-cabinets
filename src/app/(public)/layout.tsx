@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Rubik, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "@/app/globals.css";
-import Header from "@/presentation/components/organisms/common/header/Header";
-import Footer from "@/presentation/components/organisms/common/footer/Footer";
+import SiteHeader from "@/presentation/components/organisms/common/site-header/SiteHeader";
+import SiteFooter from "@/presentation/components/organisms/common/site-footer/SiteFooter";
 import { LeadCollectModal } from "@/presentation/components/organisms/common/lead-collect-modal/LeadCollectModal";
 import { ContactModal } from "@/presentation/components/organisms/common/contact-modal/ContactModal";
 import { MaintenanceModal } from "@/presentation/components/organisms/common/MaintenanceModal";
@@ -84,9 +84,9 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <Analytics />
-        <Header />
+        <SiteHeader />
         {children}
-        <Footer />
+        <SiteFooter />
         <LeadCollectModal />
         <ContactModal />
         <MaintenanceModal />

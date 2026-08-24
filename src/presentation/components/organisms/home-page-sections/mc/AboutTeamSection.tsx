@@ -112,11 +112,7 @@ export default function AboutTeamSection() {
                     {block.title}
                   </span>
                   <span
-<<<<<<< Updated upstream
                     className="font-serif text-[18px] text-[#958272]"
-=======
-                    className="font-serif text-[18px] text-[#968272]"
->>>>>>> Stashed changes
                     aria-hidden="true"
                   >
                     {block.index}

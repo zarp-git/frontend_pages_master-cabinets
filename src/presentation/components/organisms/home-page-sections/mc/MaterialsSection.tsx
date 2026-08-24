@@ -42,11 +42,7 @@ export default function MaterialsSection() {
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
               {DETAIL_ITEMS.map((item) => (
                 <div key={item.num} className="flex items-center gap-3">
-<<<<<<< Updated upstream
                   <span className="font-serif text-[14px] text-[#958272] min-w-[24px]">
-=======
-                  <span className="font-serif text-[14px] text-[#968272] min-w-[24px]">
->>>>>>> Stashed changes
                     {item.num}
                   </span>
                   <span className="font-sans text-[16px] text-[#111827]">

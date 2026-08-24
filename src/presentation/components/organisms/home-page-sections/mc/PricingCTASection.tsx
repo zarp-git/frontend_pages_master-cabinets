@@ -59,7 +59,7 @@ export default function PricingCTASection() {
             >
               <div className="flex items-center gap-3">
                 <span
-                  className="font-serif text-[14px] text-[#968272]"
+                  className="font-serif text-[14px] text-[#958272]"
                 >
                   {pillar.number}
                 </span>

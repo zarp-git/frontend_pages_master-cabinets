@@ -36,11 +36,7 @@ const PLACEHOLDER_POSTS = Array.from({ length: 3 }, (_, i) => ({
   date: "[Date — e.g. March 2025]",
   readingTime: "[X min read]",
   category: "[Category — e.g. Tips & Guides]",
-<<<<<<< Updated upstream
   image: "/images/projects/gray-custom-kitchen-cabinetry.jpg",
-=======
-  image: "/images/hero/zarp-logomark-black.png",
->>>>>>> Stashed changes
 }));
 
 // ---------------------------------------------------------------------------

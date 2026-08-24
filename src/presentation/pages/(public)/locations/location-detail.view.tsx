@@ -373,11 +373,7 @@ function LocationCta({ cityName }: { cityName: string }) {
         <div className="relative rounded-2xl overflow-hidden">
           {/* Background */}
           <Image
-<<<<<<< Updated upstream
             src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
-=======
-            src="/images/hero/zarp-logomark-black.png"
->>>>>>> Stashed changes
             alt=""
             fill
             sizes="100vw"

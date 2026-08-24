@@ -71,11 +71,11 @@ export function GalleryPageView() {
 function GalleryHero() {
   return (
     <PageHero
-      image="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
-      imageAlt="Master Cabinets project gallery"
-      eyebrow="Our Work Speaks for Itself"
+      image="/images/projects/gray-custom-kitchen-cabinetry.jpg"
+      imageAlt="Project gallery"
+      eyebrow="[Gallery eyebrow — e.g. 'Our Work Speaks for Itself']"
       heading="Project Gallery"
-      subheading="Explore our completed projects across Naples, Fort Myers, and Marco Island — custom kitchen cabinetry, bathroom remodeling, flooring, closets, and outdoor living."
+      subheading="[Gallery sub-heading — describe the projects shown and what they reflect about the company's quality and commitment.]"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Gallery" },
@@ -165,6 +165,7 @@ function GalleryCard({
   item: GalleryItem;
   onClick: () => void;
 }) {
+  const isPlaceholder = item.src.includes("zarp-logomark-black");
   const height = item.featured ? 500 : 400;
 
   return (
@@ -173,14 +174,23 @@ function GalleryCard({
       onClick={onClick}
       className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
-      <div className="relative">
+      <div
+        className={cn(
+          isPlaceholder && "bg-gray-700 flex items-center justify-center",
+          isPlaceholder && (item.featured ? "h-[500px]" : "h-[400px]")
+        )}
+      >
         <Image
           src={item.src}
           alt={item.title}
           width={600}
           height={height}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+          className={
+            isPlaceholder
+              ? "w-32 h-auto object-contain opacity-30"
+              : "w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+          }
         />
       </div>
 
@@ -321,7 +331,7 @@ function GalleryCta() {
         <div className="relative rounded-2xl overflow-hidden">
           {/* Background */}
           <Image
-            src="/images/projects/full-kitchen-remodel-custom-cabinetry.jpg"
+            src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
             alt=""
             fill
             sizes="100vw"
@@ -332,9 +342,11 @@ function GalleryCta() {
           {/* Content */}
           <div className="relative z-10 px-8 md:px-16 py-16 md:py-20 flex flex-col items-start gap-6">
             <h2 className="text-white text-2xl md:text-3xl font-semibold font-rubik leading-tight md:leading-10 max-w-lg">
-              Like What You See?{" "}
+              {/* Gallery CTA headline — invite the user to start their own project */}
+              [Gallery CTA headline — e.g. "Like What You See?"]{" "}
               <span className="font-normal">
-                Let&apos;s bring your vision to life.
+                {/* Gallery CTA sub-line — reinforce the next step */}
+                [Gallery CTA sub-line — e.g. "Let&apos;s bring your vision to life."]
               </span>
             </h2>
 

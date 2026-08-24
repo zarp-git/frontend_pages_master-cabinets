@@ -39,11 +39,7 @@ export default function FeaturesSection() {
           <h2 className="font-clash text-[clamp(36px,4.4vw,64px)] leading-[72px] font-medium text-[#111827]">
             What Changes When Every
           </h2>
-<<<<<<< Updated upstream
           <span className="font-clash text-[clamp(36px,4.4vw,64px)] leading-[72px] font-medium text-[#958272]">
-=======
-          <span className="font-clash text-[clamp(36px,4.4vw,64px)] leading-[72px] font-medium text-[#968272]">
->>>>>>> Stashed changes
             Detail Has a Purpose
           </span>
         </div>
@@ -53,11 +49,7 @@ export default function FeaturesSection() {
           {FEATURES.map((feature) => (
             <div key={feature.number} className="flex flex-col gap-4">
               <span
-<<<<<<< Updated upstream
                 className="font-serif text-[72px] font-normal text-[#958272] leading-none"
-=======
-                className="font-serif text-[72px] font-normal text-[#968272] leading-none"
->>>>>>> Stashed changes
                 aria-hidden="true"
               >
                 {feature.number}
