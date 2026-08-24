@@ -32,19 +32,19 @@ const SERVICES: ServiceItem[] = [
     title: "[Service 1]",
     description:
       "[Description of service 1 — highlight the main benefit and who it's for.]",
-    image: "/images/hero/image4.jpg",
+    image: "/images/projects/custom-white-kitchen-cabinetry.jpg",
   },
   {
     title: "[Service 2]",
     description:
       "[Description of service 2 — highlight the main benefit and who it's for.]",
-    image: "/images/hero/image5.jpg",
+    image: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
   },
   {
     title: "[Service 3]",
     description:
       "[Description of service 3 — highlight the main benefit and who it's for.]",
-    image: "/images/hero/image6.jpg",
+    image: "/images/projects/bathroom_remodel_finished_01.jpg",
   },
 ];
 

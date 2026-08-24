@@ -6,13 +6,13 @@ import { COMPANY_NAME } from "@/constants/business-info";
 // ---------------------------------------------------------------------------
 
 const HERO_IMGS = [
-  "/images/hero/image1.webp",
-  "/images/hero/image2.webp",
-  "/images/hero/image3.webp",
-  "/images/hero/image4.webp",
-  "/images/hero/image5.webp",
-  "/images/hero/image6.webp",
-  "/images/hero/image7.webp",
+  "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
+  "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
+  "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
+  "/images/projects/custom-white-kitchen-cabinetry.jpg",
+  "/images/projects/modern-custom-kitchen-cabinetry.jpg",
+  "/images/projects/bathroom_remodel_finished_01.jpg",
+  "/images/projects/dark-wood-flooring-installation.jpg",
 ] as const;
 
 /** Block templates — image offset is applied per-location for variety. */
@@ -86,13 +86,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Naples",
     heroHeading: "Cabinet & Remodeling Services in Naples, FL",
     heroSubtitle: "South Florida's Trusted Remodeling Team",
-    heroImage: "/images/hero/image1.webp",
+    heroImage: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
     serviceBlocks: personalizeBlocks("Naples", 0),
     about: {
       heading: "Serving Naples Homeowners With Pride",
       description:
         "Naples is one of Florida's most sought-after communities, known for its beautiful homes, waterfront properties, and high standards of living. Master Cabinets LLC has served Naples homeowners for over 25 years, delivering custom cabinetry, full remodels, and premium finishes that match the quality this community expects. From luxury kitchen renovations in Port Royal to custom closets in Pelican Bay, we bring craftsmanship and professionalism to every project.",
-      image: "/images/hero/image2.webp",
+      image: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
     },
     faqs: [
       {
@@ -148,13 +148,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Bonita Springs",
     heroHeading: "Cabinet & Remodeling Services in Bonita Springs, FL",
     heroSubtitle: "Trusted Local Remodeling Experts",
-    heroImage: "/images/hero/image2.webp",
+    heroImage: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
     serviceBlocks: personalizeBlocks("Bonita Springs", 1),
     about: {
       heading: "Serving Bonita Springs With Quality Craftsmanship",
       description:
         "Bonita Springs blends coastal charm with upscale residential living, and Master Cabinets LLC is proud to serve its homeowners with top-tier remodeling and cabinetry services. From Bonita Bay to Spanish Wells and Pelican Landing, we've helped hundreds of families transform their kitchens, bathrooms, and closets with precision craftsmanship and personal service. Our team is locally based and committed to the community.",
-      image: "/images/hero/image3.webp",
+      image: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
     },
     faqs: [
       {
@@ -203,13 +203,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Fort Myers",
     heroHeading: "Cabinet & Remodeling Services in Fort Myers, FL",
     heroSubtitle: "Quality Remodeling for Fort Myers Homes",
-    heroImage: "/images/hero/image3.webp",
+    heroImage: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
     serviceBlocks: personalizeBlocks("Fort Myers", 2),
     about: {
       heading: "Fort Myers Remodeling You Can Count On",
       description:
         "Fort Myers is one of Southwest Florida's fastest-growing communities, and Master Cabinets LLC has been part of that growth for over 25 years. We work with homeowners across Fort Myers to deliver custom cabinetry, kitchen and bathroom remodels, walk-in closets, flooring, and painting — all under one roof with no subcontractors. From Sanibel Island commuters to Cape Coral residents, we bring quality craftsmanship to every project.",
-      image: "/images/hero/image4.webp",
+      image: "/images/projects/custom-white-kitchen-cabinetry.jpg",
     },
     faqs: [
       {
@@ -265,13 +265,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Estero",
     heroHeading: "Cabinet & Remodeling Services in Estero, FL",
     heroSubtitle: "Precision Remodeling for Estero Residents",
-    heroImage: "/images/hero/image4.webp",
+    heroImage: "/images/projects/custom-white-kitchen-cabinetry.jpg",
     serviceBlocks: personalizeBlocks("Estero", 3),
     about: {
       heading: "Trusted Remodeling Services in Estero, FL",
       description:
         "Estero's beautiful planned communities and newer construction homes deserve remodeling partners who match the quality of the architecture. Master Cabinets LLC works with Estero homeowners in communities like Miromar Lakes, Grandezza, West Bay Club, and Coconut Point to deliver exceptional custom cabinetry, remodeling, and finishes. Our team is thorough, professional, and treats every home with the same care we'd give our own.",
-      image: "/images/hero/image5.webp",
+      image: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
     },
     faqs: [
       {
@@ -319,13 +319,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Marco Island",
     heroHeading: "Cabinet & Remodeling Services in Marco Island, FL",
     heroSubtitle: "Island-Quality Craftsmanship",
-    heroImage: "/images/hero/image5.webp",
+    heroImage: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
     serviceBlocks: personalizeBlocks("Marco Island", 4),
     about: {
       heading: "Premium Remodeling for Marco Island Homes",
       description:
         "Marco Island is one of Florida's most exclusive residential destinations, with waterfront properties, luxury condos, and high-end single-family homes that demand premium workmanship. Master Cabinets LLC delivers exactly that — custom cabinetry, full kitchen and bathroom remodels, walk-in closets, flooring, and architectural millwork crafted to the highest standard. We understand what Marco Island homeowners expect, and we deliver it.",
-      image: "/images/hero/image6.webp",
+      image: "/images/projects/bathroom_remodel_finished_01.jpg",
     },
     faqs: [
       {
@@ -372,13 +372,13 @@ export const LOCATIONS_DATA: LocationData[] = [
     breadcrumbLabel: "Miami",
     heroHeading: "Cabinet & Remodeling Services in Miami, FL",
     heroSubtitle: "Modern Remodeling for Miami Homes",
-    heroImage: "/images/hero/image6.webp",
+    heroImage: "/images/projects/bathroom_remodel_finished_01.jpg",
     serviceBlocks: personalizeBlocks("Miami", 5),
     about: {
       heading: "Quality Remodeling and Cabinetry in Miami, FL",
       description:
         "Miami's diverse architectural styles — from Art Deco South Beach homes to modern Brickell condos and Coral Gables estates — call for a remodeling partner who adapts to each project's unique character. Master Cabinets LLC brings the same 25+ years of craftsmanship we've delivered across South Florida to Miami and surrounding communities including Parkland, Coral Gables, Coconut Grove, and Doral. We handle kitchens, bathrooms, closets, flooring, and full home remodels.",
-      image: "/images/hero/image7.webp",
+      image: "/images/projects/dark-wood-flooring-installation.jpg",
     },
     faqs: [
       {

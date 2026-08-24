@@ -31,7 +31,7 @@ export default function AboutSection() {
                 className="absolute inset-0 right-2 bg-gray-200 rounded-l-3xl overflow-hidden [clip-path:polygon(0_0,90%_0,100%_50%,90%_100%,0_100%)]"
               >
                 <Image
-                  src="/images/hero/image1.jpg"
+                  src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
                   alt="[Describe the image — e.g. the team at work]"
                   fill
                   className="object-cover"
@@ -87,7 +87,7 @@ export default function AboutSection() {
                 className="absolute inset-0 left-2 bg-gray-200 rounded-r-3xl overflow-hidden [clip-path:polygon(10%_0,100%_0,100%_100%,10%_100%,0%_50%)]"
               >
                 <Image
-                  src="/images/hero/image4.jpg"
+                  src="/images/projects/custom-white-kitchen-cabinetry.jpg"
                   alt="[Describe the image — e.g. company expertise]"
                   fill
                   className="object-cover"

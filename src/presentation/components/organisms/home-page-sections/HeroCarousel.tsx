@@ -60,7 +60,7 @@ export default function HeroCarousel() {
         {/* Hero Image */}
         <div className="flex-1 w-full max-w-lg">
           <Image
-            src="/images/hero/image1.webp"
+            src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
             alt="Master Cabinets — Custom Cabinetry and Home Remodeling in South Florida"
             width={600}
             height={400}

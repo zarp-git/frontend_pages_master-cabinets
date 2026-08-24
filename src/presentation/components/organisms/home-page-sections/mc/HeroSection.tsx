@@ -13,7 +13,7 @@ export default function HeroSection() {
     >
       {/* Hero background image */}
       <Image
-        src="/images/hero/image1.webp"
+        src="/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg"
         alt=""
         fill
         priority

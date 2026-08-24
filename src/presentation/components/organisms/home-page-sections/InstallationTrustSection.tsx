@@ -15,7 +15,7 @@ export const InstallationTrustSection = () => {
           {/* Image — replace src with a relevant process/installation image */}
           <div className="relative w-full md:w-1/2 lg:w-[600px] h-48 sm:h-56 md:h-72 lg:h-80 rounded-xl overflow-hidden">
             <Image
-              src="/images/hero/image3.jpg"
+              src="/images/projects/full-kitchen-remodel-custom-cabinetry.jpg"
               alt="[Describe the image — e.g. your service/installation process]"
               fill
               className="object-cover"
