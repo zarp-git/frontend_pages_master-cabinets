@@ -27,7 +27,7 @@ export function ContactPageView() {
         <div className="flex flex-col lg:flex-row gap-10 xl:gap-16 items-start">
           {/* Left: Contact Info */}
           <div className="flex-1 min-w-0 flex flex-col gap-6">
-            <span className="font-serif text-sm text-[#968272] uppercase tracking-wider">
+            <span className="font-serif text-sm text-[#958272] uppercase tracking-wider">
               GET IN TOUCH
             </span>
 
@@ -44,37 +44,37 @@ export function ContactPageView() {
             {/* Contact details cards */}
             <div className="flex flex-col gap-4 pt-4">
               <div className="p-5 rounded-[20px] bg-[#F9FAFB] border border-[#EFEFEF] flex flex-col gap-1">
-                <span className="font-clash font-medium text-xs uppercase text-[#968272]">
+                <span className="font-clash font-medium text-xs uppercase text-[#958272]">
                   Phone Numbers
                 </span>
                 <a
                   href={PHONE.href}
-                  className="font-clash font-medium text-lg text-[#111827] hover:text-[#FF4C00] transition-colors"
+                  className="font-clash font-medium text-lg text-[#111827] hover:text-[#F7AF14] transition-colors"
                 >
                   {PHONE.display} (Primary)
                 </a>
                 <a
                   href={PHONE_SECONDARY.href}
-                  className="font-clash font-medium text-base text-[#4B5563] hover:text-[#FF4C00] transition-colors"
+                  className="font-clash font-medium text-base text-[#4B5563] hover:text-[#F7AF14] transition-colors"
                 >
                   {PHONE_SECONDARY.display} (Direct)
                 </a>
               </div>
 
               <div className="p-5 rounded-[20px] bg-[#F9FAFB] border border-[#EFEFEF] flex flex-col gap-1">
-                <span className="font-clash font-medium text-xs uppercase text-[#968272]">
+                <span className="font-clash font-medium text-xs uppercase text-[#958272]">
                   Email Address
                 </span>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="font-clash font-medium text-base sm:text-lg text-[#111827] hover:text-[#FF4C00] transition-colors"
+                  className="font-clash font-medium text-base sm:text-lg text-[#111827] hover:text-[#F7AF14] transition-colors"
                 >
                   {EMAIL}
                 </a>
               </div>
 
               <div className="p-5 rounded-[20px] bg-[#F9FAFB] border border-[#EFEFEF] flex flex-col gap-1">
-                <span className="font-clash font-medium text-xs uppercase text-[#968272]">
+                <span className="font-clash font-medium text-xs uppercase text-[#958272]">
                   Working Hours &amp; Service Area
                 </span>
                 <p className="font-sans text-sm text-[#111827] font-medium">

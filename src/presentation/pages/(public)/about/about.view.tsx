@@ -116,8 +116,8 @@ export function AboutPageView() {
           {/* Header */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <span className="font-serif text-sm text-[#968272]">02</span>
-              <span className="font-sans text-xs uppercase tracking-wider text-[#968272] font-semibold">
+              <span className="font-serif text-sm text-[#958272]">02</span>
+              <span className="font-sans text-xs uppercase tracking-wider text-[#958272] font-semibold">
                 HOW WE WORK
               </span>
             </div>
@@ -137,7 +137,7 @@ export function AboutPageView() {
                   <h3 className="font-clash font-medium text-xl md:text-2xl text-[#111827]">
                     {principle.title}
                   </h3>
-                  <span className="font-serif text-2xl text-[#968272]">
+                  <span className="font-serif text-2xl text-[#958272]">
                     {principle.number}
                   </span>
                 </div>
@@ -162,8 +162,8 @@ export function AboutPageView() {
           {/* Header */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <span className="font-serif text-sm text-[#968272]">03</span>
-              <span className="font-sans text-xs uppercase tracking-wider text-[#968272] font-semibold">
+              <span className="font-serif text-sm text-[#958272]">03</span>
+              <span className="font-sans text-xs uppercase tracking-wider text-[#958272] font-semibold">
                 THE PROCESS
               </span>
             </div>
@@ -179,7 +179,7 @@ export function AboutPageView() {
                 key={step.step}
                 className="flex flex-col gap-4 p-6 sm:p-8 rounded-[24px] bg-[#F9FAFB] border border-[#EFEFEF]"
               >
-                <span className="font-serif text-5xl md:text-6xl text-[#968272]">
+                <span className="font-serif text-5xl md:text-6xl text-[#958272]">
                   {step.step}
                 </span>
                 <h3 className="font-clash font-medium text-xl md:text-2xl text-[#111827]">

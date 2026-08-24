@@ -90,11 +90,11 @@
 
   /* ── MC Design System Tokens (Helena Figma spec 20260824) ── */
   /* Colors */
-  --mc-espresso: #403023;
-  --mc-taupe: #968272;
-  --mc-orange: #FF4C00;
+  --mc-espresso: #3F2F22;
+  --mc-taupe: #958272;
+  --mc-orange: #F7AF14;
   --mc-orange-hover: #E04300;
-  --mc-green: #036841;
+  --mc-green: #3F2F22;
   --mc-near-black: #111827;
   --mc-black: #000000;
   --mc-body: #4B5563;
