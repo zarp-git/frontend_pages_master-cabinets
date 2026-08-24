@@ -53,7 +53,7 @@ export default function ReviewsSection() {
           <h2 className="font-clash text-[clamp(32px,3.3vw,48px)] leading-none font-medium text-[#111827]">
             Designed With Care.
           </h2>
-          <span className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[1.2] font-medium text-[#968272]">
+          <span className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[1.2] font-medium text-[#958272]">
             Remembered for the Experience.
           </span>
         </div>

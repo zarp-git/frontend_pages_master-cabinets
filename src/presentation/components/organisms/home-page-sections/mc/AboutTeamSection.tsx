@@ -112,7 +112,7 @@ export default function AboutTeamSection() {
                     {block.title}
                   </span>
                   <span
-                    className="font-serif text-[18px] text-[#968272]"
+                    className="font-serif text-[18px] text-[#958272]"
                     aria-hidden="true"
                   >
                     {block.index}

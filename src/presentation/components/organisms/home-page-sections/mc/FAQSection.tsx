@@ -41,13 +41,9 @@ export default function FAQSection() {
     >
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8">
         {/* Left: Warranty trust card */}
-        <div
-          className="flex flex-col gap-6 lg:shrink-0 max-w-[500px]"
-        >
+        <div className="flex flex-col gap-6 lg:shrink-0 max-w-[500px]">
           {/* Eyebrow */}
-          <span
-            className="uppercase tracking-wider font-sans text-[10px] text-[#4B5563]"
-          >
+          <span className="uppercase tracking-wider font-sans text-[10px] text-[#4B5563]">
             Frequently Asked Questions
           </span>
 
@@ -60,23 +56,17 @@ export default function FAQSection() {
               1
             </span>
             <div className="flex flex-col leading-none pb-2">
-              <span
-                className="font-clash text-[clamp(32px,5vw,72px)] font-medium text-[#111827]"
-              >
+              <span className="font-clash text-[clamp(32px,5vw,72px)] font-medium text-[#111827]">
                 Yr
               </span>
-              <span
-                className="font-clash text-[clamp(14px,2vw,28.6px)] font-semibold text-[#111827] tracking-[0.02em]"
-              >
+              <span className="font-clash text-[clamp(14px,2vw,28.6px)] font-semibold text-[#111827] tracking-[0.02em]">
                 WORKMANSHIP
               </span>
             </div>
           </div>
 
           {/* Warranty description */}
-          <p
-            className="font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]"
-          >
+          <p className="font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]">
             When you choose Master Cabinets, you&apos;re protected. Our 1-year warranty
             covers workmanship and installation defects on every remodel and custom
             cabinetry project, giving you real peace of mind.
@@ -88,9 +78,7 @@ export default function FAQSection() {
 
         {/* Right: Accordion */}
         <div className="flex-1 flex flex-col gap-4">
-          <h2
-            className="font-clash text-[clamp(28px,4.2vw,60px)] leading-[61.8px] font-medium text-[#111827]"
-          >
+          <h2 className="font-clash text-[clamp(28px,4.2vw,60px)] leading-[61.8px] font-medium text-[#111827]">
             What Homeowners Usually Ask Us
           </h2>
 

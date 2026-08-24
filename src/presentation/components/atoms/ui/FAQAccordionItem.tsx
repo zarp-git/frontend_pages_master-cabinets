@@ -43,7 +43,7 @@ export default function FAQAccordionItem({
         {/* Left: index + question */}
         <div className="flex flex-col gap-1 pr-4">
           <span
-            className="text-[#968272] text-[16px] font-normal font-serif"
+            className="text-[#958272] text-[16px] font-normal font-serif"
           >
             {displayIndex}
           </span>

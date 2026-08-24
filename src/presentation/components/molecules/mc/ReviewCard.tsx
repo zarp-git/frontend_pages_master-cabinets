@@ -25,7 +25,7 @@ function StarRating({ rating = 5 }: { rating?: number }) {
           key={i}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
-          fill={i < rating ? "#FF4C00" : "#E5E7EB"}
+          fill={i < rating ? "#F7AF14" : "#E5E7EB"}
           className="w-4 h-4"
           aria-hidden="true"
         >
@@ -108,12 +108,12 @@ export default function ReviewCard({
         className="flex items-center justify-between pt-3 border-t border-[#F3F4F6]"
       >
         <span
-          className="text-[#968272] font-bold text-[13px] uppercase font-sans"
+          className="text-[#958272] font-bold text-[13px] uppercase font-sans"
         >
           {serviceTag}
         </span>
         <span
-          className="text-[#968272] font-bold text-[13px] uppercase font-sans"
+          className="text-[#958272] font-bold text-[13px] uppercase font-sans"
         >
           {locationTag}
         </span>

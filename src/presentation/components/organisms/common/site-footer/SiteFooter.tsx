@@ -26,12 +26,12 @@ const SERVICE_AREAS = {
 
 /**
  * SiteFooter — Figma nodes 48:9427 / 48:9596 / 48:10415 / 48:11521 / 60:12255 / 60:18576
- * Full #968272 Warm Earth Taupe background.
+ * Full #958272 Warm Earth Taupe background.
  * Structure: Giant brand banner → 4-col nav grid → legal bar.
  */
 export default function SiteFooter() {
   return (
-    <footer className="w-full bg-[#968272]">
+    <footer className="w-full bg-[#958272]">
       <div className="max-w-[1440px] mx-auto pt-24 px-8 sm:px-16 pb-12">
         {/* ── Giant Brand Banner ── */}
         <div className="flex flex-col gap-1 mb-12">

@@ -20,7 +20,7 @@ interface ActionButtonGroupProps {
 
 /**
  * ActionButtonGroup — Figma node 48:8504 (BUTTONS)
- * Primary #FF4C00 pill CTA + secondary grey phone pill.
+ * Primary #F7AF14 pill CTA + secondary grey phone pill.
  * ZERO inline styles.
  */
 export default function ActionButtonGroup({
@@ -44,7 +44,7 @@ export default function ActionButtonGroup({
         href={ctaHref}
         className={cn(
           "group inline-flex items-center justify-between gap-3 rounded-[999px] transition-all duration-200",
-          "bg-[#FF4C00] border border-black text-white",
+          "bg-[#F7AF14] border border-black text-white",
           "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px] font-sans",
           "hover:bg-[#E04300] hover:scale-[1.02]",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
