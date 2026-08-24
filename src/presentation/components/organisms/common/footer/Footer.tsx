@@ -17,7 +17,6 @@ import {
   FOOTER_COMPANY_INFO,
   FOOTER_LOCATIONS,
   FOOTER_COMPANY_LINKS,
-  FOOTER_SERVICES,
   FOOTER_LEGAL_LINKS,
 } from "@/constants/footer";
 import { SOCIAL_LINKS } from "@/constants";
@@ -196,13 +195,6 @@ export default function Footer({ variant = "default" }: FooterProps) {
               <FooterLinkColumn
                 title="LOCATIONS"
                 links={FOOTER_LOCATIONS}
-                onLinkClick={openMaintenanceModal}
-              />
-
-              {/* Services */}
-              <FooterLinkColumn
-                title="SERVICES"
-                links={FOOTER_SERVICES}
                 onLinkClick={openMaintenanceModal}
               />
 
