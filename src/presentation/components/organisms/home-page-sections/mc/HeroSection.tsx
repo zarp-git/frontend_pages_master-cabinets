@@ -9,7 +9,7 @@ import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 /**
  * HeroSection - Figma node 17:1784
  * 2-column split: left copy/trust badges, right glassmorphism quote card.
- * Background: #3F2F22 with hero image fill + dark overlay.
+ * Background: #403023 with the hero photo behind a single 42% scrim.
  * Mobile: background auto-rotates through 3 luxury kitchen photos (4s interval).
  */
 
@@ -31,6 +31,31 @@ const HERO_IMAGES = [
     alt: "Custom white kitchen cabinetry - Master Cabinets",
   },
 ] as const;
+
+const TRUST_BADGES = ["Licensed", "Insured", "Locally trusted"] as const;
+
+/** The espresso check bubble that precedes each trust badge. */
+function TrustCheck() {
+  return (
+    <span
+      className="flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-[#403023]"
+      aria-hidden="true"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 12 12"
+        fill="none"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-2.5 w-2.5"
+      >
+        <polyline points="2 6 5 9 10 3" />
+      </svg>
+    </span>
+  );
+}
 
 /** One clamp and one ratio, so all three headline lines scale together. */
 const HEADLINE_LINE =
@@ -68,7 +93,7 @@ export default function HeroSection() {
                   alt={img.alt}
                   fill
                   priority={idx === 0}
-                  className="object-cover opacity-40"
+                  className="object-cover"
                   sizes="100vw"
                   aria-hidden="true"
                 />
@@ -83,14 +108,14 @@ export default function HeroSection() {
           alt={HERO_IMAGES[0].alt}
           fill
           priority
-          className="object-cover opacity-40"
+          className="object-cover"
           sizes="100vw"
           aria-hidden="true"
         />
       )}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#3F2F22]/60" aria-hidden="true" />
+      {/* Scrim - one layer at 42% so the photo stays readable behind the copy */}
+      <div className="absolute inset-0 bg-[#403023]/42" aria-hidden="true" />
 
       {/* Content */}
       <div
@@ -114,29 +139,33 @@ export default function HeroSection() {
             of the house to the outside.
           </p>
 
-          {/* Trust Badges Row - Figma node 48:5423 */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-            {["Licensed", "Insured", "Locally trusted"].map((badge) => (
-              <div key={badge} className="flex items-center gap-2">
-                {/* Green check circle */}
-                <span
-                  className="flex items-center justify-center shrink-0 w-[19px] h-[19px] rounded-full bg-[#3F2F22]"
-                  aria-hidden="true"
+          {/* Trust badges - Figma node 48:5423.
+              Phones get a single-line marquee (the JB of SWFL pattern) so the
+              three claims never wrap into a second row; from sm up they sit in
+              a normal wrapped row. The list is duplicated because the
+              marquee-left keyframe travels -50%. */}
+          <div className="overflow-hidden sm:hidden">
+            <ul className="flex w-max animate-marquee-left gap-5 [animation-duration:16s] motion-reduce:animate-none">
+              {[...TRUST_BADGES, ...TRUST_BADGES].map((badge, i) => (
+                <li
+                  key={`${badge}-${i}`}
+                  className="flex shrink-0 items-center gap-2"
+                  aria-hidden={i >= TRUST_BADGES.length}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-2.5 h-2.5"
-                  >
-                    <polyline points="2 6 5 9 10 3" />
-                  </svg>
-                </span>
-                <span className="whitespace-nowrap font-clash text-[13px] font-medium text-white sm:text-[14.4px]">
+                  <TrustCheck />
+                  <span className="whitespace-nowrap font-clash text-[13px] font-medium text-white">
+                    {badge}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden flex-wrap items-center gap-x-5 gap-y-3 sm:flex">
+            {TRUST_BADGES.map((badge) => (
+              <div key={badge} className="flex items-center gap-2">
+                <TrustCheck />
+                <span className="whitespace-nowrap font-clash text-[14.4px] font-medium text-white">
                   {badge}
                 </span>
               </div>
