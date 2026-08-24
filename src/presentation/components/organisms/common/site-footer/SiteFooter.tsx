@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const SERVICE_AREAS = [

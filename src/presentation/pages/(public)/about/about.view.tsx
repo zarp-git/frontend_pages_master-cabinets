@@ -87,7 +87,7 @@ export function AboutPageView() {
     <main className="w-full bg-white">
       {/* 1 — Brand card + intro */}
       <section
-        className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[100px] sm:px-8"
+        className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[92px] sm:pt-[104px] lg:pt-[120px] sm:px-8"
         aria-label="About Master Cabinets"
       >
         <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
@@ -121,7 +121,7 @@ export function AboutPageView() {
             painting, electrical, and outdoor work, coordinated through one
             dedicated point of contact. Licensed &amp; Insured.
           </p>
-          <ActionButtonGroup stackOnMobile={false} className="shrink-0" />
+          <ActionButtonGroup className="sm:shrink-0" />
         </div>
       </section>
 

@@ -50,6 +50,11 @@
   /* ── MC Brand Colors ── */
   --color-mc-espresso: var(--mc-espresso);
   --color-mc-taupe: var(--mc-taupe);
+  --color-mc-cta: var(--mc-cta);
+  --color-mc-cta-hover: var(--mc-cta-hover);
+  --color-mc-gold: var(--mc-gold);
+  --color-mc-espresso-hover: var(--mc-espresso-hover);
+  --color-mc-taupe-hover: var(--mc-taupe-hover);
   --color-mc-orange: var(--mc-orange);
   --color-mc-orange-hover: var(--mc-orange-hover);
   --color-mc-chalk: var(--mc-chalk);
@@ -79,20 +84,28 @@
 
 :root {
   /* ── Legacy MC tokens (kept for backward compat) ── */
-  --color-brown-dark: #3F2F22;
+  --color-brown-dark: #403023;
   --color-gold: #F7AF14;
-  --color-brown-medium: #958272;
+  --color-brown-medium: #968272;
   --color-terracotta: #C8956C;
   --color-bg-primary: #FFFDF7;
   --color-bg-dark: #17110B;
-  --color-bg-footer: #3F2F22;
+  --color-bg-footer: #968272;
 
-  /* ── MC Design System Tokens (Helena Figma spec 20260824) ── */
+  /* ── MC Design System Tokens (Figma design kit) ── */
   /* Colors */
-  --mc-espresso: #3F2F22;
-  --mc-taupe: #958272;
-  --mc-orange: #F7AF14;
-  --mc-orange-hover: #E04300;
+  --mc-espresso: #403023;
+  --mc-espresso-hover: #2C1F14;
+  --mc-taupe: #968272;
+  --mc-taupe-hover: #7F6E5F;
+  /* Every call to action is espresso — the kit has no orange fill. */
+  --mc-cta: #403023;
+  --mc-cta-hover: #2C1F14;
+  /* Gold is reserved for star ratings, never for a button. */
+  --mc-gold: #F7AF14;
+  /* Deprecated aliases — kept so older consumers resolve to espresso, not orange. */
+  --mc-orange: #403023;
+  --mc-orange-hover: #2C1F14;
   --mc-near-black: #111827;
   --mc-black: #000000;
   --mc-body: #4B5563;
@@ -119,11 +132,11 @@
   --card-foreground: #1f2937;
   --popover: #ffffff;
   --popover-foreground: #1f2937;
-  --primary: #111111;
-  /* Brand Black */
+  --primary: #403023;
+  /* MC espresso */
   --primary-foreground: #ffffff;
-  --secondary: #444444;
-  /* Brand Dark Grey */
+  --secondary: #968272;
+  /* MC taupe */
   --secondary-foreground: #ffffff;
   --muted: #f9fafb;
   /* Gray 50 */
@@ -158,9 +171,9 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #111111;
+  --primary: #403023;
   --primary-foreground: #ffffff;
-  --secondary: #444444;
+  --secondary: #968272;
   --secondary-foreground: #ffffff;
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);

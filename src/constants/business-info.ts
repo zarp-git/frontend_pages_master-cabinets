@@ -113,3 +113,20 @@ export const SCHEMA_GEO = {
   latitude: GEO.latitude,
   longitude: GEO.longitude,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Service-area cities - used by the footer copy and the contact wizard dropdown
+// ---------------------------------------------------------------------------
+
+export const SERVICE_CITIES = [
+  "Naples",
+  "Bonita Springs",
+  "Estero",
+  "Marco Island",
+  "Fort Myers",
+  "Lehigh Acres",
+  "Miami",
+  "Parkland",
+  "Southwest Ranches",
+  "Sea Ranch Lakes",
+] as const;

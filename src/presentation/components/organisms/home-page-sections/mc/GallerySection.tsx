@@ -82,7 +82,7 @@ export default function GallerySection() {
 
       {/* Desktop: horizontally scrollable bento collage (1572px of content) */}
       <div className="mx-auto mt-8 hidden w-full max-w-[1440px] lg:block">
-        <div className="overflow-x-auto overflow-y-hidden px-8 pb-3 [scrollbar-width:thin]">
+        <div className="-my-4 snap-x overflow-x-auto overflow-y-hidden scroll-smooth px-8 py-4 [scrollbar-color:#E5DECD_transparent] [scrollbar-width:thin]">
           <div className="grid w-[1572px] gap-3 [grid-template-columns:repeat(8,186px)] [grid-template-rows:repeat(2,192px)]">
             {TILES.map((tile) => (
               <div
@@ -111,7 +111,7 @@ export default function GallerySection() {
           plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4 pl-4">
+          <CarouselContent className="-ml-4 pl-4" viewportClassName="-my-4 py-4">
             {TILES.map((tile) => (
               <CarouselItem
                 key={tile.src}

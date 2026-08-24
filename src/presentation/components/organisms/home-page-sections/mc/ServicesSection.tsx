@@ -6,54 +6,7 @@ import { RiArrowLeftLine, RiArrowRightLine } from "@remixicon/react";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
 import { cn } from "@/lib/utils";
-
-const SERVICES = [
-  {
-    index: "01",
-    label: "Home Remodeling",
-    image: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
-  },
-  {
-    index: "02",
-    label: "Custom Cabinetry",
-    image: "/images/projects/cabinetry_kitchen_finished_02.jpg",
-  },
-  {
-    index: "03",
-    label: "Walk-In Closets & Storage",
-    image: "/images/projects/custom-walk-in-closet-installation.jpg",
-  },
-  {
-    index: "04",
-    label: "Bathrooms & Vanities",
-    image: "/images/projects/bathroom_remodel_finished_02.jpg",
-  },
-  {
-    index: "05",
-    label: "Flooring",
-    image: "/images/projects/dark-wood-flooring-installation.jpg",
-  },
-  {
-    index: "06",
-    label: "Interior & Exterior Painting",
-    image: "/images/projects/painting_hallway_finished_01.jpg",
-  },
-  {
-    index: "07",
-    label: "Custom Outdoor Living",
-    image: "/images/projects/custom-outdoor-living-remodel.jpg",
-  },
-  {
-    index: "08",
-    label: "Electrical & Structural Work",
-    image: "/images/projects/remodeling_living-room_construction_02.jpg",
-  },
-  {
-    index: "09",
-    label: "Architectural Millwork",
-    image: "/images/projects/custom-built-in-entertainment-center.jpg",
-  },
-] as const;
+import { SERVICES_OFFERED as SERVICES } from "@/constants/services-offered";
 
 /**
  * ServicesSection — Figma node 17:2200 (SERVICES).
@@ -76,9 +29,9 @@ export default function ServicesSection() {
       aria-label="Our services"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8">
-        <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center">
+        <div className="flex flex-col items-start gap-8 xl:flex-row xl:items-center">
           {/* Left: heading + service pills */}
-          <div className="flex w-full flex-col gap-8 lg:max-w-[646px]">
+          <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[646px]">
             <SectionHeading
               line1="More Than Cabinets."
               line2="A Complete"
@@ -126,7 +79,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Right: image panel */}
-          <div className="relative hidden w-full shrink-0 overflow-hidden rounded-[26px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] lg:block lg:h-[660px] lg:w-[634px]">
+          <div className="relative hidden w-full shrink-0 overflow-hidden rounded-[26px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] xl:block xl:h-[660px] xl:w-[634px]">
             <Image
               key={active.image}
               src={active.image}

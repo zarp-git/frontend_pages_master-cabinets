@@ -36,7 +36,7 @@ export function ReviewsPageView() {
   const hasMore = filtered.length > visible;
 
   return (
-    <main className="w-full bg-white pt-[104px]">
+    <main className="w-full bg-white pt-[92px] sm:pt-[104px] lg:pt-[120px]">
       <section
         className="mx-auto flex max-w-[1360px] flex-col items-center px-4 pb-20 pt-16 sm:px-8 lg:px-16"
         aria-label="Customer reviews"

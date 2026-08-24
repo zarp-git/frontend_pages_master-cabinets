@@ -28,9 +28,9 @@ export default function MaterialsSection() {
       className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="Material craft and architectural details"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 lg:flex-row lg:gap-8">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 xl:flex-row xl:gap-8">
         {/* Left: copy + detail card */}
-        <div className="flex w-full flex-col gap-8 lg:max-w-[725px]">
+        <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[725px]">
           <SectionHeading
             line1="The Difference Is in"
             line2="What You Notice"
@@ -64,7 +64,7 @@ export default function MaterialsSection() {
         </div>
 
         {/* Right: showcase image */}
-        <div className="hidden w-full shrink-0 rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] lg:block lg:w-[555px]">
+        <div className="hidden w-full rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] xl:block xl:w-[555px] xl:shrink-0">
           <div className="relative h-[604px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
             <Image
               src="/images/projects/various-wood-colors-options.png"

@@ -43,7 +43,7 @@ export function BlogList({ articles }: BlogListProps) {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="w-full px-4 pb-24 pt-[120px] sm:px-8">
+      <div className="w-full px-4 pb-24 pt-[92px] sm:pt-[104px] lg:pt-[120px] sm:px-8">
         <PageHeading
           kicker="Want to perfect your home remodel?"
           display="Get The Best Ideas Here"

@@ -24,16 +24,16 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
   const authorRole = article.author?.biography ?? "Studio Journal";
 
   return (
-    <div className="mx-auto flex w-full max-w-[1236px] flex-col gap-12 lg:flex-row">
+    <div className="mx-auto flex w-full max-w-[1236px] flex-col gap-12 xl:flex-row">
       {/* Article rail */}
-      <article className="flex w-full flex-col gap-12 lg:max-w-[720px]">
+      <article className="flex w-full min-w-0 flex-col gap-12 xl:max-w-[720px]">
         {primaryImage && (
           <div className="relative h-[240px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:h-[392px]">
             <Image
               src={primaryImage.url}
               alt={primaryImage.alt || article.title}
               fill
-              sizes="(min-width: 1024px) 720px, 100vw"
+              sizes="(min-width: 1280px) 720px, 100vw"
               className="object-cover"
               priority
             />
@@ -97,8 +97,8 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
       </article>
 
       {/* Quote card */}
-      <aside className="w-full lg:w-[437px] lg:shrink-0">
-        <div className="lg:sticky lg:top-[120px]">
+      <aside className="w-full min-w-0 xl:w-[437px] xl:shrink-0">
+        <div className="xl:sticky xl:top-[120px]">
           <QuoteForm
             variant="solid"
             showTitle

@@ -18,9 +18,9 @@ export default function FAQSection() {
       className="w-full bg-white px-4 py-8 sm:px-8 lg:px-16"
       aria-label="Frequently asked questions"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-12 lg:flex-row lg:gap-8">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-12 xl:flex-row xl:gap-8">
         {/* Left: warranty trust column */}
-        <div className="flex flex-col items-start gap-8 lg:w-[554px] lg:shrink-0">
+        <div className="flex w-full min-w-0 flex-col items-start gap-8 xl:w-[554px] xl:shrink-0">
           <EyebrowPill>Frequently Asked Questions</EyebrowPill>
 
           <WarrantyBadge />
@@ -35,7 +35,7 @@ export default function FAQSection() {
         </div>
 
         {/* Right: accordion */}
-        <div className="flex flex-1 flex-col gap-8">
+        <div className="flex w-full min-w-0 flex-1 flex-col gap-8">
           <SectionHeading
             line1="What Homeowners"
             accent="Usually Ask Us"

@@ -12,77 +12,70 @@ interface ActionButtonGroupProps {
   phoneDisplay?: string;
   /** href for phone pill */
   phoneHref?: string;
-  /** Stack buttons vertically on mobile (default: true) */
-  stackOnMobile?: boolean;
   /** Additional className for the wrapper */
   className?: string;
 }
 
 /**
- * ActionButtonGroup — Figma node 48:8504 (BUTTONS)
- * Primary #F7AF14 pill CTA + secondary grey phone pill.
- * ZERO inline styles.
+ * ActionButtonGroup — Figma `BUTTONS` component (48:8504 and every instance).
+ *
+ * Primary: #403023 espresso pill · pad 7/7/7/19 · gap 14 · Segoe 13/20 ls 2.1
+ * uppercase white · trailing 34px rgba(255,255,255,.15) chip.
+ * Secondary: #F3F4F6 pill · same metrics · #403023 label · trailing 34px
+ * #E5E7EB chip.
+ *
+ * Mobile: the pair stacks into a full-width column and each pill keeps its
+ * label and chip pushed to opposite edges. From `sm` up it becomes the
+ * side-by-side, content-hugging row the design kit specifies.
  */
 export default function ActionButtonGroup({
   ctaLabel = "Get Our Free Quote",
   ctaHref = "#quote",
   phoneDisplay = PHONE_SECONDARY.display.replace("+1 ", ""),
   phoneHref = PHONE_SECONDARY.href,
-  stackOnMobile = true,
   className,
 }: ActionButtonGroupProps) {
+  const pill = cn(
+    "flex w-full items-center justify-between gap-3 rounded-full",
+    "min-h-[48px] py-[7px] pl-5 pr-[7px] transition-colors duration-200",
+    "sm:inline-flex sm:w-auto sm:max-w-full sm:gap-3.5",
+  );
+  const label =
+    "min-w-0 truncate font-sans text-[12px] uppercase leading-5 tracking-[1.6px] sm:text-[13px] sm:tracking-[2.1px]";
+
   return (
     <div
       className={cn(
-        "flex items-center gap-4",
-        stackOnMobile ? "flex-col sm:flex-row w-full sm:w-auto" : "flex-row",
+        "flex w-full flex-col items-stretch gap-3",
+        "sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-5",
         className,
       )}
     >
-      {/* Primary CTA — orange pill */}
+      {/* Primary — espresso pill */}
       <Link
         href={ctaHref}
-        className={cn(
-          "group inline-flex items-center justify-between gap-3 rounded-[999px] transition-all duration-200",
-          "bg-[#FF4C00] border border-[#FF4C00] text-white",
-          "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px] font-sans",
-          "hover:bg-[#E04300] hover:scale-[1.02]",
-          "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
-          stackOnMobile ? "w-full sm:w-auto" : "",
-        )}
+        className={cn(pill, "bg-[#403023] text-white hover:bg-[#2C1F14]")}
       >
-        <span className="text-white font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap font-sans">
-          {ctaLabel}
-        </span>
-        {/* Trailing arrow badge */}
+        <span className={cn(label, "text-white")}>{ctaLabel}</span>
         <span
-          className="flex items-center justify-center w-8 h-8 rounded-full bg-black shrink-0"
+          className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-white/15"
           aria-hidden="true"
         >
-          <RiArrowRightUpLine className="w-4 h-4 text-white" />
+          <RiArrowRightUpLine className="h-4 w-4 text-white" />
         </span>
       </Link>
 
-      {/* Secondary phone pill */}
+      {/* Secondary — phone pill */}
       <Link
         href={phoneHref}
-        className={cn(
-          "inline-flex items-center gap-3 rounded-[999px] transition-all duration-200",
-          "bg-[#F3F4F6] border border-[#E5DECD] font-sans",
-          "pl-5 pr-2 py-2 min-w-[160px] min-h-[48px]",
-          "hover:bg-[#E5E7EB] hover:border-[#DEDBD8]",
-          stackOnMobile ? "w-full sm:w-auto justify-center sm:justify-start" : "",
-        )}
+        className={cn(pill, "bg-[#F3F4F6] hover:bg-[#E5E7EB]")}
       >
-        {/* Leading icon badge */}
+        <span className={cn(label, "text-[#403023]")}>{phoneDisplay}</span>
         <span
-          className="flex items-center justify-center w-8 h-8 rounded-full bg-[#3F2F22] shrink-0"
+          className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-[#E5E7EB]"
           aria-hidden="true"
         >
-          <RiPhoneLine className="w-4 h-4 text-white" />
-        </span>
-        <span className="text-[#111827] font-normal text-[13.2px] leading-[19.8px] whitespace-nowrap font-sans">
-          {phoneDisplay}
+          <RiPhoneLine className="h-4 w-4 text-[#403023]" />
         </span>
       </Link>
     </div>

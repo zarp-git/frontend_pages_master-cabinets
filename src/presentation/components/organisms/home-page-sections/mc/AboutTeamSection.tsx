@@ -64,27 +64,27 @@ export default function AboutTeamSection() {
       className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="About Master Cabinets"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 lg:flex-row lg:gap-20">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 xl:flex-row xl:gap-20">
         {/* Left: photo mosaic */}
-        <div className="grid w-full shrink-0 grid-cols-2 gap-4 lg:w-[622px]">
+        <div className="grid w-full min-w-0 grid-cols-2 gap-4 xl:w-[622px] xl:shrink-0">
           {MOSAIC.map((img) => (
             <div
               key={img.src}
-              className={`relative h-[160px] overflow-hidden rounded-[21px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] lg:h-[246px] ${img.span}`}
+              className={`relative h-[160px] overflow-hidden rounded-[21px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:h-[220px] xl:h-[246px] ${img.span}`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
                 className="object-cover"
-                sizes="(min-width: 1024px) 622px, 100vw"
+                sizes="(min-width: 1280px) 622px, 100vw"
               />
             </div>
           ))}
         </div>
 
         {/* Right: value proposition */}
-        <div className="flex w-full flex-col gap-8 lg:max-w-[610px]">
+        <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[610px]">
           <SectionHeading
             line1="Made for Your Space."
             line2="Built for"
