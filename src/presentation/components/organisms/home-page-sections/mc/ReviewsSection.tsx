@@ -1,5 +1,10 @@
+"use client";
+
 import ReviewCard from "@/presentation/components/molecules/mc/ReviewCard";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
+import { useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const REVIEWS = [
   {
@@ -42,6 +47,22 @@ const REVIEWS = [
  * Mobile: horizontal swipeable carousel with snap. Desktop: 4-col flex row.
  */
 export default function ReviewsSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024); // Assuming 'lg' breakpoint for this section
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
+    Autoplay({ delay: 3500, stopOnInteraction: true }),
+  ]);
+
   return (
     <section
       className="w-full bg-white px-8 py-7.5"
@@ -58,17 +79,29 @@ export default function ReviewsSection() {
           </span>
         </div>
 
-        {/* Cards — snap scroll on mobile, flex row on desktop */}
-        <div className="flex gap-5 overflow-x-auto pb-2 [scroll-snap-type:x_mandatory] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none]">
-          {REVIEWS.map((review) => (
-            <div
-              key={review.authorName}
-              className="shrink-0 [scroll-snap-align:start] w-[min(385px,85vw)]"
-            >
-              <ReviewCard {...review} className="h-full" />
+        {/* Cards — mobile Embla carousel, desktop 4-col grid */}
+        {isMobile ? (
+          <div className="embla overflow-hidden" ref={emblaRef}>
+            <div className="embla__container flex">
+              {REVIEWS.map((review) => (
+                <div
+                  key={review.authorName}
+                  className="embla__slide flex-[0_0_85vw] max-w-[385px] pl-4"
+                >
+                  <ReviewCard {...review} className="h-full" />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-4 gap-5">
+            {REVIEWS.map((review) => (
+              <div key={review.authorName}>
+                <ReviewCard {...review} className="h-full" />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Section CTA */}
         <ActionButtonGroup />

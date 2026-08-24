@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 
 /**
@@ -24,62 +26,67 @@ const HERO_IMAGES = [
     src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
     alt: "Modern custom kitchen cabinetry — Master Cabinets",
   },
+  {
+    src: "/images/projects/custom-white-kitchen-cabinetry.jpg",
+    alt: "Custom white kitchen cabinetry — Master Cabinets",
+  },
 ] as const;
 
 export default function HeroSection() {
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Auto-rotate every 4s
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024); // Tailwind's 'lg' breakpoint is 1024px
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: true }),
+  ]);
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#3F2F22]"
+      className="relative w-full overflow-visible bg-[#3F2F22]" // Changed to overflow-visible
     >
-      {/* Hero background images — crossfade on mobile */}
-      {HERO_IMAGES.map((img, idx) => (
+      {isMobile ? (
+        // Mobile Embla Carousel
+        <div className="embla absolute inset-0 overflow-hidden" ref={emblaRef}>
+          <div className="embla__container h-full">
+            {HERO_IMAGES.map((img, idx) => (
+              <div className="embla__slide relative h-full w-full flex-[0_0_100%]" key={img.src}>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  priority={idx === 0}
+                  className="object-cover opacity-40"
+                  sizes="100vw"
+                  aria-hidden="true"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        // Desktop single image
         <Image
-          key={img.src}
-          src={img.src}
-          alt=""
+          src={HERO_IMAGES[0].src}
+          alt={HERO_IMAGES[0].alt}
           fill
-          priority={idx === 0}
-          className={[
-            "object-cover transition-opacity duration-1000",
-            idx === activeIdx ? "opacity-40" : "opacity-0",
-          ].join(" ")}
+          priority
+          className="object-cover opacity-40"
           sizes="100vw"
           aria-hidden="true"
         />
-      ))}
+      )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#3F2F22]/60" aria-hidden="true" />
-
-      {/* Dot indicators — mobile only */}
-      <div
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 lg:hidden"
-        aria-hidden="true"
-      >
-        {HERO_IMAGES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveIdx(idx)}
-            className={[
-              "w-2 h-2 rounded-full transition-all duration-300",
-              idx === activeIdx
-                ? "bg-[#F7AF14] w-4"
-                : "bg-white/50",
-            ].join(" ")}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
 
       {/* Content */}
       <div
@@ -157,7 +164,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom spacing so header spacer isn't needed */}
+      {/* Bottom spacing */}
       <div className="relative z-10 h-8" aria-hidden="true" />
     </section>
   );

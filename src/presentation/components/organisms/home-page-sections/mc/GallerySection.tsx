@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import {
   Carousel,
@@ -76,7 +77,7 @@ export default function GallerySection() {
         </div>
 
         {/* Bento grid — desktop 4-col / mobile single col */}
-        <div className="hidden lg:grid gap-4 grid-cols-[377px_377px_179px_179px_377px] grid-rows-[185px_185px]">
+        <div className="hidden md:grid gap-4 grid-cols-[377px_377px_179px_179px_377px] grid-rows-[185px_185px]">
           {/* Tile 1: tall left portrait (spans 2 rows) */}
           <div className="row-span-2 relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
             <Image src="/images/projects/cabinetry_kitchen_finished_01.png" alt="Custom kitchen cabinetry — Master Cabinets" fill className="object-cover" sizes="377px" />
@@ -108,9 +109,10 @@ export default function GallerySection() {
         </div>
 
         {/* Mobile: horizontal swipeable carousel */}
-        <div className="lg:hidden -mx-8">
+        <div className="md:hidden -mx-8">
           <Carousel
-            opts={{ align: "start", loop: true, dragFree: false }}
+            opts={{ align: "center", loop: true, dragFree: false }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
             className="w-full"
           >
             <CarouselContent className="-ml-4 pl-8">
