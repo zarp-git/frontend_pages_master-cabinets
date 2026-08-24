@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
+import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
 
 const DETAIL_ITEMS = [
   { num: "01", label: "Wood species" },
@@ -15,37 +16,43 @@ const DETAIL_ITEMS = [
 ] as const;
 
 /**
- * MaterialsSection — Figma node 17:2537
- * 2-col: left heading + 10-item detail list, right showcase image.
+ * MaterialsSection — Figma node 17:2537.
+ *
+ * Left: 60px heading lockup + a bezelled white card holding the 10 detail rows
+ * in a 2-column grid (356×56 cells, 16/24 padding). Right: 555×616 bezel with a
+ * raised 0 24px 80px shadow around the material close-up.
  */
 export default function MaterialsSection() {
   return (
     <section
-      className="w-full bg-white px-8 sm:px-16 py-12"
+      className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="Material craft and architectural details"
     >
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          {/* Left: Copy + detail list */}
-          <div className="flex-1 flex flex-col gap-6">
-            <div className="flex flex-col gap-4">
-              <h2 className="font-clash text-[clamp(28px,4.2vw,60px)] leading-[61.8px] font-medium text-[#111827]">
-                The Difference Is in What You Notice Up Close
-              </h2>
-              <p className="font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]">
-                The character of a space is shaped by the materials you see, the
-                details you touch, and the decisions most people never notice.
-              </p>
-            </div>
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 lg:flex-row lg:gap-8">
+        {/* Left: copy + detail card */}
+        <div className="flex w-full flex-col gap-8 lg:max-w-[725px]">
+          <SectionHeading
+            line1="The Difference Is in"
+            line2="What You Notice"
+            accent="Up Close"
+            size={60}
+            subtitle="The character of a space is shaped by the materials you see, the details you touch, and the decisions most people never notice."
+          />
 
-            {/* 10-item detail list — 2 column sub-grid */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+          <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]">
+            <div className="grid grid-cols-1 rounded-[26px] bg-white shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:grid-cols-2">
               {DETAIL_ITEMS.map((item) => (
-                <div key={item.num} className="flex items-center gap-3">
-                  <span className="font-serif text-[14px] text-[#958272] min-w-[24px]">
+                <div
+                  key={item.num}
+                  className="flex h-14 items-center gap-4 px-6"
+                >
+                  <span
+                    className="w-6 shrink-0 font-serif italic text-[14px] text-[#958272]"
+                    aria-hidden="true"
+                  >
                     {item.num}
                   </span>
-                  <span className="font-sans text-[16px] text-[#111827]">
+                  <span className="font-sans text-[16px] text-[#403023]">
                     {item.label}
                   </span>
                 </div>
@@ -53,20 +60,21 @@ export default function MaterialsSection() {
             </div>
           </div>
 
-          {/* Right: Showcase image */}
-          <div className="relative shrink-0 hidden lg:block rounded-[24px] overflow-hidden bg-[#E5DECD] w-[543px] h-[604px]">
+          <ActionButtonGroup />
+        </div>
+
+        {/* Right: showcase image */}
+        <div className="hidden w-full shrink-0 rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] lg:block lg:w-[555px]">
+          <div className="relative h-[604px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
             <Image
               src="/images/projects/various-wood-colors-options.png"
-              alt="Wood grain and cabinet joinery close-up — Master Cabinets"
+              alt="Wood species and finish samples — Master Cabinets"
               fill
               className="object-cover"
               sizes="543px"
             />
           </div>
         </div>
-
-        {/* Section CTA */}
-        <ActionButtonGroup />
       </div>
     </section>
   );

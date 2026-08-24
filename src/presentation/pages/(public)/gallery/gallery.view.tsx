@@ -2,26 +2,25 @@
 
 import React, { useState, useMemo, useCallback } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Button } from "@/presentation/components/atoms/ui/button";
 import {
-  RiPhoneLine,
-  RiArrowRightLine,
   RiCloseLine,
   RiArrowLeftSLine,
   RiArrowRightSLine,
   RiMapPinLine,
-  RiZoomInLine,
 } from "@remixicon/react";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES } from "@/constants/gallery";
-import { useLeadModal } from "@/hooks/use-lead-modal";
-import { PageHero } from "@/presentation/components/organisms/common/PageHero";
+import PageHeading from "@/presentation/components/molecules/mc/PageHeading";
+import FilterChips from "@/presentation/components/molecules/mc/FilterChips";
+import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
 import type { GalleryCategory, GalleryItem } from "@/types/gallery.type";
 
-// ===========================================================================
-// Root view
-// ===========================================================================
+/**
+ * GalleryPageView — Figma node 60:12187 (GALLERY).
+ *
+ * Centered page lockup → filter chips → 3-column card grid (356×345 cards,
+ * white, #E5DECD hairline, radius 24, green badge over the image) → the shared
+ * "We Handle Everything" quote block.
+ */
 export function GalleryPageView() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -42,17 +41,43 @@ export function GalleryPageView() {
   }, []);
 
   return (
-    <main>
-      <GalleryHero />
-      <GalleryGrid
-        items={filteredItems}
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
-        onImageClick={openLightbox}
-      />
-      <GalleryCta />
+    <main className="w-full bg-white pt-[104px]">
+      <section
+        className="mx-auto flex max-w-[1360px] flex-col items-center px-4 pb-20 pt-16 sm:px-8"
+        aria-label="Project gallery"
+      >
+        <PageHeading
+          kicker="DON'T JUST TAKE OUR WORD FOR IT"
+          display="See The BEST of Our Work"
+        />
 
-      {/* Lightbox */}
+        <FilterChips
+          options={GALLERY_CATEGORIES}
+          active={activeCategory}
+          onChange={(v) => setActiveCategory(v)}
+          ariaLabel="Filter projects by category"
+          className="mt-12"
+        />
+
+        <div className="mt-8 grid w-full max-w-[1100px] grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredItems.map((item, index) => (
+            <GalleryCard
+              key={item.id}
+              item={item}
+              onClick={() => openLightbox(index)}
+            />
+          ))}
+        </div>
+
+        {filteredItems.length === 0 && (
+          <p className="py-20 text-center font-sans text-lg text-[#666666]">
+            No projects in this category yet.
+          </p>
+        )}
+      </section>
+
+      <PricingCTASection showPillars={false} />
+
       {lightboxIndex !== null && (
         <Lightbox
           items={filteredItems}
@@ -65,99 +90,9 @@ export function GalleryPageView() {
   );
 }
 
-// ===========================================================================
-// 1 -- Hero
-// ===========================================================================
-function GalleryHero() {
-  return (
-    <PageHero
-      image="/images/projects/gray-custom-kitchen-cabinetry.jpg"
-      imageAlt="Project gallery"
-      eyebrow="[Gallery eyebrow — e.g. 'Our Work Speaks for Itself']"
-      heading="Project Gallery"
-      subheading="[Gallery sub-heading — describe the projects shown and what they reflect about the company's quality and commitment.]"
-      breadcrumbs={[
-        { label: "Home", href: "/" },
-        { label: "Gallery" },
-      ]}
-    />
-  );
-}
-
-// ===========================================================================
-// 2 -- Gallery Grid with Filters
-// ===========================================================================
-interface GalleryGridProps {
-  items: GalleryItem[];
-  activeCategory: GalleryCategory;
-  onCategoryChange: (category: GalleryCategory) => void;
-  onImageClick: (index: number) => void;
-}
-
-function GalleryGrid({
-  items,
-  activeCategory,
-  onCategoryChange,
-  onImageClick,
-}: GalleryGridProps) {
-  return (
-    <section id="gallery-grid" className="py-14 lg:py-20 bg-gray-50">
-      <div className="section-container">
-        {/* Category filter tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="flex gap-1 p-1 rounded-xl border border-primary overflow-x-auto scrollbar-hide">
-            {GALLERY_CATEGORIES.map((cat) => (
-              <button
-                key={cat.value}
-                type="button"
-                onClick={() => onCategoryChange(cat.value)}
-                className={cn(
-                  "px-3 py-2 rounded-lg text-xs md:text-sm font-normal font-rubik leading-tight whitespace-nowrap transition-all cursor-pointer",
-                  activeCategory === cat.value
-                    ? "bg-primary text-white shadow-sm"
-                    : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
-                )}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Result count */}
-        <p className="text-gray-500 text-sm font-rubik mb-6">
-          Showing{" "}
-          <span className="font-semibold text-gray-700">{items.length}</span>{" "}
-          {items.length === 1 ? "project" : "projects"}
-        </p>
-
-        {/* Masonry grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          {items.map((item, index) => (
-            <GalleryCard
-              key={item.id}
-              item={item}
-              onClick={() => onImageClick(index)}
-            />
-          ))}
-        </div>
-
-        {/* Empty state */}
-        {items.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-gray-500 text-lg font-rubik">
-              No projects found in this category yet.
-            </p>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-// ===========================================================================
-// 2a -- Gallery Card
-// ===========================================================================
+// ---------------------------------------------------------------------------
+// Card — Figma `Button` 356×345
+// ---------------------------------------------------------------------------
 function GalleryCard({
   item,
   onClick,
@@ -165,49 +100,43 @@ function GalleryCard({
   item: GalleryItem;
   onClick: () => void;
 }) {
-  const height = item.featured ? 500 : 400;
-
   return (
     <button
       type="button"
       onClick={onClick}
-      className="group relative w-full break-inside-avoid rounded-xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="group flex w-full flex-col overflow-hidden rounded-[24px] border border-[#E5DECD] bg-white text-left transition-shadow hover:shadow-[0_9px_22px_rgba(40,31,19,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#958272]"
     >
-      <div>
+      <div className="relative h-[266px] w-full overflow-hidden bg-[#E8DFC8]">
         <Image
           src={item.src}
           alt={item.title}
-          width={600}
-          height={height}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 354px"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-clash text-[11px] font-medium uppercase leading-4 tracking-[0.7px] text-[#036841]">
+          {item.badge}
+        </span>
       </div>
 
-      {/* Hover overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-        <h3 className="text-white text-base font-semibold font-hanken uppercase leading-tight mb-1">
+      <div className="flex flex-col gap-1.5 p-4">
+        <h3 className="font-clash text-[20px] font-medium uppercase leading-5 tracking-[-0.2px] text-[#2C1F14]">
           {item.title}
         </h3>
-        {item.location && (
-          <div className="flex items-center gap-1.5">
-            <RiMapPinLine className="size-3.5 text-secondary" />
-            <span className="text-neutral-300 text-sm font-rubik">
-              {item.location}
-            </span>
-          </div>
-        )}
-        <div className="absolute top-4 right-4 size-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-          <RiZoomInLine className="size-5 text-white" />
-        </div>
+        <span className="flex items-center gap-1.5">
+          <RiMapPinLine className="h-[13px] w-[13px] shrink-0 text-[#8A7D6F]" />
+          <span className="font-clash text-[13px] font-medium leading-5 text-[#8A7D6F]">
+            {item.location}
+          </span>
+        </span>
       </div>
     </button>
   );
 }
 
-// ===========================================================================
-// 3 -- Lightbox
-// ===========================================================================
+// ---------------------------------------------------------------------------
+// Lightbox
+// ---------------------------------------------------------------------------
 interface LightboxProps {
   items: GalleryItem[];
   currentIndex: number;
@@ -235,125 +164,66 @@ function Lightbox({ items, currentIndex, onClose, onChange }: LightboxProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Image lightbox"
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-[60] flex items-center justify-center"
       onKeyDown={handleKeyDown}
       tabIndex={-1}
       ref={(el) => el?.focus()}
     >
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/90 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Close */}
       <button
         type="button"
         onClick={onClose}
         aria-label="Close lightbox"
-        className="absolute top-4 right-4 z-10 size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
+        className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
       >
-        <RiCloseLine className="size-7 text-white" />
+        <RiCloseLine className="h-7 w-7 text-white" />
       </button>
 
-      {/* Navigation arrows */}
       <button
         type="button"
         onClick={prev}
         aria-label="Previous image"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
+        className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
       >
-        <RiArrowLeftSLine className="size-7 text-white" />
+        <RiArrowLeftSLine className="h-7 w-7 text-white" />
       </button>
       <button
         type="button"
         onClick={next}
         aria-label="Next image"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 size-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
+        className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
       >
-        <RiArrowRightSLine className="size-7 text-white" />
+        <RiArrowRightSLine className="h-7 w-7 text-white" />
       </button>
 
-      {/* Image + info */}
-      <div className="relative z-10 max-w-5xl w-full mx-4 flex flex-col items-center gap-4">
-        <div className="relative w-full max-h-[80vh] flex items-center justify-center">
-          <Image
-            src={current.src}
-            alt={current.title}
-            width={1200}
-            height={800}
-            sizes="90vw"
-            className="object-contain max-h-[80vh] w-auto rounded-lg"
-          />
-        </div>
-
-        {/* Caption */}
+      <div className="relative z-10 mx-4 flex w-full max-w-5xl flex-col items-center gap-4">
+        <Image
+          src={current.src}
+          alt={current.title}
+          width={1200}
+          height={800}
+          sizes="90vw"
+          className="max-h-[80vh] w-auto rounded-lg object-contain"
+        />
         <div className="text-center">
-          <h3 className="text-white text-lg font-semibold font-hanken uppercase">
+          <h3 className="font-clash text-lg font-medium uppercase text-white">
             {current.title}
           </h3>
-          {current.location && (
-            <div className="flex items-center justify-center gap-1.5 mt-1">
-              <RiMapPinLine className="size-4 text-secondary" />
-              <span className="text-neutral-400 text-sm font-rubik">
-                {current.location}
-              </span>
-            </div>
-          )}
-          <span className="text-neutral-500 text-sm font-rubik mt-2 block">
+          <span className="mt-1 flex items-center justify-center gap-1.5">
+            <RiMapPinLine className="h-4 w-4 text-[#958272]" />
+            <span className="font-sans text-sm text-neutral-400">
+              {current.location}
+            </span>
+          </span>
+          <span className="mt-2 block font-sans text-sm text-neutral-500">
             {currentIndex + 1} / {items.length}
           </span>
         </div>
       </div>
     </div>
-  );
-}
-
-// ===========================================================================
-// 4 -- CTA Close
-// ===========================================================================
-function GalleryCta() {
-  const { openModal } = useLeadModal();
-
-  return (
-    <section id="gallery-cta" className="py-14 lg:py-20 bg-white">
-      <div className="section-container">
-        <div className="relative rounded-2xl overflow-hidden">
-          {/* Background */}
-          <Image
-            src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover pointer-events-none"
-            aria-hidden="true"
-          />
-
-          {/* Content */}
-          <div className="relative z-10 px-8 md:px-16 py-16 md:py-20 flex flex-col items-start gap-6">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold font-rubik leading-tight md:leading-10 max-w-lg">
-              {/* Gallery CTA headline — invite the user to start their own project */}
-              [Gallery CTA headline — e.g. "Like What You See?"]{" "}
-              <span className="font-normal">
-                {/* Gallery CTA sub-line — reinforce the next step */}
-                [Gallery CTA sub-line — e.g. "Let&apos;s bring your vision to life."]
-              </span>
-            </h2>
-
-            <Button
-              variant="brick-outline"
-              size="lg"
-              className="h-12 px-8 py-4 rounded-lg border-2 border-white bg-transparent text-white hover:bg-white/10 flex items-center gap-4"
-              onClick={openModal}
-            >
-              <span className="uppercase text-base font-medium">
-                book a free consultation
-              </span>
-              <RiPhoneLine className="size-5" />
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }

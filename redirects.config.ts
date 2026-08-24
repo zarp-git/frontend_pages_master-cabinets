@@ -15,11 +15,16 @@ const blogRedirects: Redirect[] = [
 ];
 
 const serviceRedirects: Redirect[] = [
-  // Example: { source: "/old-service-slug", destination: "/services/new-slug", permanent: true },
+  // /services/* was removed from scope (the design kit has no service page).
+  // Anything already crawled should land on the homepage rather than a 404.
+  { source: "/services", destination: "/", permanent: true },
+  { source: "/services/:slug*", destination: "/", permanent: true },
 ];
 
 const locationRedirects: Redirect[] = [
-  // Example: { source: "/service-areas", destination: "/locations/main-city", permanent: true },
+  // /locations/* was removed from scope; service areas now live in the footer.
+  { source: "/locations", destination: "/", permanent: true },
+  { source: "/locations/:slug*", destination: "/", permanent: true },
 ];
 
 const galleryRedirects: Redirect[] = [

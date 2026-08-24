@@ -1,8 +1,14 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import {
+  RiUserStarLine,
+  RiCompasses2Line,
+  RiCheckboxCircleLine,
+  RiHome4Line,
+  RiShieldCheckLine,
+  RiCustomerService2Line,
+} from "@remixicon/react";
+import EyebrowPill from "@/presentation/components/atoms/ui/EyebrowPill";
+import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import GallerySection from "@/presentation/components/organisms/home-page-sections/mc/GallerySection";
 import FAQSection from "@/presentation/components/organisms/home-page-sections/mc/FAQSection";
@@ -10,195 +16,221 @@ import PricingCTASection from "@/presentation/components/organisms/home-page-sec
 
 const PRINCIPLES = [
   {
-    number: "01",
+    index: "01",
     title: "One Point of Contact",
     body: "From the first measurement to the final hinge, one coordinated team is accountable for the entire project.",
+    Icon: RiUserStarLine,
   },
   {
-    number: "02",
+    index: "02",
     title: "Architectural Precision",
     body: "Materials are selected for beauty, then engineered for the exact dimensions and climate of your room.",
+    Icon: RiCompasses2Line,
   },
   {
-    number: "03",
+    index: "03",
     title: "Certainty Before Production",
     body: "We map out and review every key design decision with you before any fabrication begins.",
+    Icon: RiCheckboxCircleLine,
   },
   {
-    number: "04",
+    index: "04",
     title: "Designed Around You",
     body: "We start with how your household actually lives, not with a rendering, so the space works in daily life.",
+    Icon: RiHome4Line,
   },
   {
-    number: "05",
+    index: "05",
     title: "Materials That Last",
     body: "Finishes and construction chosen to age beautifully through South Florida sun and humidity.",
+    Icon: RiShieldCheckLine,
   },
   {
-    number: "06",
+    index: "06",
     title: "Support After Install",
     body: "A one-year installation warranty and dedicated post-sales support keep your space performing.",
+    Icon: RiCustomerService2Line,
   },
 ] as const;
 
 const PROCESS_STEPS = [
   {
-    step: "01",
+    index: "01",
     title: "Consultation",
     body: "We listen to what is not working and how you imagine the finished space — no pressure, no generic sales pitch.",
   },
   {
-    step: "02",
+    index: "02",
     title: "Design & Proposal",
-    body: "We measure carefully, produce clear 3D drawings, and provide a comprehensive proposal with transparent pricing.",
+    body: "We map layouts, materials, hardware, and lighting, then review a detailed proposal so nothing is left to chance.",
   },
   {
-    step: "03",
-    title: "Fabrication & Preparation",
-    body: "Custom cabinets are precision-built in our shop while site prep, electrical, and flooring are coordinated in parallel.",
+    index: "03",
+    title: "Fabrication",
+    body: "Your cabinetry is built to the exact dimensions of your room, coordinated with any structural or finish work.",
   },
   {
-    step: "04",
-    title: "Installation & Handover",
-    body: "Our master installers fit every piece with millimeter precision, complete final adjustments, and review the 1-year warranty with you.",
+    index: "04",
+    title: "Installation & Support",
+    body: "One team installs everything, then stays available with a one-year warranty and post-sales support.",
   },
 ] as const;
 
 /**
- * AboutPageView — Figma node 48:8801 (Page 2: ABOUT US)
- * Hero & Studio Story + Principles + Bento Gallery + Step-by-Step Process + FAQ + CTA.
- * ZERO inline styles.
+ * AboutPageView — Figma node 48:8801 (ABOUT US).
+ *
+ * Brand card → "A Single Team…" lockup → Principles grid (6 bezelled cards) →
+ * the shared Featured Work gallery → the taupe process panel → FAQ → CTA.
  */
 export function AboutPageView() {
   return (
-    <main className="w-full bg-white pt-24 md:pt-28">
-      {/* ── Section 2: Hero & Studio Story (Node 48:8809) ── */}
-      <section className="w-full px-4 sm:px-6 md:px-8 xl:px-16 max-w-[1364px] mx-auto pt-10 md:pt-16 pb-16">
-        <div className="flex flex-col gap-10 md:gap-14">
-          {/* Hero Image Banner (Node 48:8849) */}
-          <div className="relative w-full h-[320px] sm:h-[420px] md:h-[546px] rounded-[24px] overflow-hidden bg-stone-100 shadow-md">
+    <main className="w-full bg-white">
+      {/* 1 — Brand card + intro */}
+      <section
+        className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[100px] sm:px-8"
+        aria-label="About Master Cabinets"
+      >
+        <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+          <div className="flex h-[240px] w-full items-center justify-center rounded-[26px] bg-white px-8 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:h-[340px] lg:h-[455px]">
             <Image
-              src="/images/projects/cabinetry_kitchen_finished_01.png"
-              alt="Master Cabinets Workshop and Studio"
-              fill
+              src="/images/mc-logo.svg"
+              alt="Master Cabinets"
+              width={1180}
+              height={100}
+              className="h-auto w-full max-w-[1030px]"
               priority
-              className="object-cover"
-              sizes="(max-width: 1440px) 100vw, 1288px"
             />
           </div>
+        </div>
 
-          {/* Headline & Narrative Block */}
-          <div className="flex flex-col gap-6 max-w-4xl">
-            <h1 className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[55.3px] leading-tight md:leading-[53.1px] text-[#111827]">
-              A Single Team for the Home You{" "}
-              <span className="font-serif italic font-normal text-[#111827]">
-                Imagine
-              </span>
-            </h1>
+        <div className="pt-10">
+          <EyebrowPill index="01">Who We Are</EyebrowPill>
+        </div>
 
-            <p className="font-sans font-light text-lg sm:text-xl md:text-[24px] leading-relaxed md:leading-[39px] text-[#4B5563]">
-              For more than 25 years, Master Cabinets has helped South Florida
-              homeowners remodel their homes end to end cabinetry, flooring,
-              painting, electrical, and outdoor work, coordinated through one
-              dedicated point of contact. Licensed &amp; Insured.
-            </p>
+        <h1 className="max-w-[1160px] pt-5 font-clash text-[clamp(30px,3.9vw,55px)] font-medium leading-[0.96] tracking-[-1.1px] text-black">
+          A Single Team for the Home You{" "}
+          <span className="font-serif italic font-normal tracking-normal">
+            Imagine
+          </span>
+        </h1>
 
-            <div className="pt-2">
-              <ActionButtonGroup ctaLabel="Get Our Free Quote" />
-            </div>
-          </div>
+        <div className="flex flex-col items-start justify-between gap-8 pt-10 lg:flex-row lg:items-end">
+          <p className="max-w-[742px] font-sans text-[clamp(18px,1.7vw,24px)] font-light leading-[1.63] text-[#666666]">
+            For more than 25 years, Master Cabinets has helped South Florida
+            homeowners remodel their homes end to end — cabinetry, flooring,
+            painting, electrical, and outdoor work, coordinated through one
+            dedicated point of contact. Licensed &amp; Insured.
+          </p>
+          <ActionButtonGroup stackOnMobile={false} className="shrink-0" />
         </div>
       </section>
 
-      {/* ── Section 3: Core Craftsmanship Principles (Node 48:8944) ── */}
-      <section className="w-full px-4 sm:px-6 md:px-8 xl:px-16 max-w-[1364px] mx-auto py-12 md:py-16">
-        <div className="flex flex-col gap-10 md:gap-14">
-          {/* Header */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-sm text-[#958272]">02</span>
-              <span className="font-sans text-xs uppercase tracking-wider text-[#958272] font-semibold">
-                HOW WE WORK
-              </span>
-            </div>
-            <h2 className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#111827]">
-              Principles Behind Every Project
-            </h2>
-          </div>
+      {/* 2 — Principles */}
+      <section
+        className="mx-auto w-full max-w-[1364px] px-4 py-16 sm:px-8"
+        aria-label="How we work"
+      >
+        <div className="flex max-w-[768px] flex-col items-start gap-8">
+          <EyebrowPill index="02">How We Work</EyebrowPill>
+          <SectionHeading
+            line1="Principles Behind"
+            line2="Every"
+            accent="Project"
+            size={60}
+            tone="black"
+          />
+        </div>
 
-          {/* 6 Principle Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {PRINCIPLES.map((principle) => (
-              <div
-                key={principle.number}
-                className="flex flex-col gap-4 p-8 rounded-[24px] bg-[#F9FAFB] border border-[#EFEFEF] hover:border-[#DEDBD8] hover:shadow-sm transition-all duration-300"
-              >
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {PRINCIPLES.map(({ index, title, body, Icon }) => (
+            <div
+              key={index}
+              className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]"
+            >
+              <div className="flex h-full flex-col rounded-[26px] bg-white p-10 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-clash font-medium text-xl md:text-2xl text-[#111827]">
-                    {principle.title}
-                  </h3>
-                  <span className="font-serif text-2xl text-[#958272]">
-                    {principle.number}
+                  <span
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-black/[0.04] shadow-[0_0_0_rgba(0,0,0,0.05)]"
+                    aria-hidden="true"
+                  >
+                    <Icon className="h-[19px] w-[19px] text-[#403023]" />
+                  </span>
+                  <span
+                    className="font-serif italic text-[24px] leading-8 text-black/20"
+                    aria-hidden="true"
+                  >
+                    {index}
                   </span>
                 </div>
-                <p className="font-sans font-normal text-sm sm:text-base leading-[26px] text-[#4B5563]">
-                  {principle.body}
+
+                <h3 className="pt-8 font-clash text-[24px] font-medium leading-8 tracking-[-0.5px] text-black">
+                  {title}
+                </h3>
+                <p className="pt-4 font-sans text-[16px] leading-[1.62] text-[#666666]">
+                  {body}
                 </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
-          {/* Section CTA */}
-          <ActionButtonGroup />
+        <div className="mt-8 flex justify-center">
+          <ActionButtonGroup className="justify-center" />
         </div>
       </section>
 
-      {/* ── Section 4: Featured Gallery Section (Node 48:9893) ── */}
+      {/* 3 — Featured work (shared with the homepage) */}
       <GallerySection />
 
-      {/* ── Section 5: The Step-by-Step Remodeling Process (Node 48:9093) ── */}
-      <section className="w-full px-4 sm:px-6 md:px-8 xl:px-16 max-w-[1364px] mx-auto py-12 md:py-16">
-        <div className="flex flex-col gap-10 md:gap-14">
-          {/* Header */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-sm text-[#958272]">03</span>
-              <span className="font-sans text-xs uppercase tracking-wider text-[#958272] font-semibold">
-                THE PROCESS
-              </span>
-            </div>
-            <h2 className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[60.6px] text-[#111827]">
-              From First Call to Final Installation
-            </h2>
-          </div>
+      {/* 4 — Process */}
+      <section
+        className="mx-auto w-full max-w-[1364px] px-4 py-12 sm:px-8"
+        aria-label="Our process"
+      >
+        <div className="rounded-[32px] bg-white/[0.06] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+          <div className="rounded-[26px] bg-[#968272] px-6 py-12 shadow-[0_1px_1px_rgba(255,255,255,0.15)] sm:px-10 lg:p-16">
+            <EyebrowPill index="03" tone="dark">
+              The Process
+            </EyebrowPill>
 
-          {/* 4 Process Steps */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {PROCESS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="flex flex-col gap-4 p-6 sm:p-8 rounded-[24px] bg-[#F9FAFB] border border-[#EFEFEF]"
-              >
-                <span className="font-serif text-5xl md:text-6xl text-[#958272]">
-                  {step.step}
-                </span>
-                <h3 className="font-clash font-medium text-xl md:text-2xl text-[#111827]">
-                  {step.title}
-                </h3>
-                <p className="font-sans font-normal text-sm sm:text-base leading-relaxed text-[#4B5563]">
-                  {step.body}
-                </p>
-              </div>
-            ))}
+            <SectionHeading
+              line1="From First Call to"
+              accent="Final Installation"
+              size={60}
+              tone="white"
+              className="max-w-[896px] pt-8"
+            />
+
+            <ol className="flex flex-col gap-3 pt-12 lg:pt-24">
+              {PROCESS_STEPS.map((step) => (
+                <li
+                  key={step.index}
+                  className="grid grid-cols-1 items-start gap-4 rounded-[28px] py-6 lg:grid-cols-[120px_360px_1fr] lg:gap-8"
+                >
+                  <span
+                    className="font-serif italic text-[48px] leading-none text-white/15 lg:text-[72px]"
+                    aria-hidden="true"
+                  >
+                    {step.index}
+                  </span>
+                  <h3 className="font-clash text-[clamp(22px,2.2vw,30px)] font-medium leading-9 tracking-[-0.6px] text-white">
+                    {step.title}
+                  </h3>
+                  <p className="max-w-[528px] font-sans text-[18px] leading-[1.62] text-white/65">
+                    {step.body}
+                  </p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
-      {/* ── Section 6: FAQ Section (Node 48:10021) ── */}
+      {/* 5 — FAQ + CTA */}
       <FAQSection />
-
-      {/* ── Section 7: Consultation CTA (Node 48:9957) ── */}
       <PricingCTASection />
     </main>
   );
 }
+
+export default AboutPageView;

@@ -107,7 +107,7 @@ export default function HeroSection() {
               Cabinetry, and
             </span>
             <em
-              className="font-serif not-italic text-[clamp(36px,5.12vw,73.66px)] leading-[88.4px] font-normal italic tracking-[-1.47px] text-white"
+              className="font-serif text-[clamp(36px,5.12vw,73.66px)] leading-[1.2] font-normal italic tracking-[-1.47px] text-white"
             >
               Everything Between
             </em>

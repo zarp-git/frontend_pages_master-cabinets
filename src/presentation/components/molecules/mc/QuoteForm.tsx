@@ -8,6 +8,8 @@ interface QuoteFormProps {
   variant?: "glass" | "solid";
   /** Optional title shown above form */
   showTitle?: boolean;
+  /** Heading text when showTitle is set. Defaults to the Figma copy. */
+  title?: string;
   className?: string;
   onSuccess?: () => void;
 }
@@ -94,6 +96,7 @@ const FIELDS = [
 export default function QuoteForm({
   variant = "glass",
   showTitle = false,
+  title = "Get your home remodel quote",
   className,
   onSuccess,
 }: QuoteFormProps) {
@@ -144,8 +147,8 @@ export default function QuoteForm({
     >
       {/* Optional title */}
       {showTitle && (
-        <h3 className="text-[#111827] font-medium text-[24px] leading-[25px] mb-4 font-clash">
-          GET YOUR HOME REMODEL QUOTE
+        <h3 className="mb-4 font-clash text-[24px] font-medium uppercase leading-[25px] tracking-[-0.5px] text-black">
+          {title}
         </h3>
       )}
 
@@ -167,28 +170,45 @@ export default function QuoteForm({
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
-          {FIELDS.map((field) => (
-            <label key={field.key} className="sr-only-label">
-              <span className="sr-only">{field.placeholder}</span>
-              <div className="flex items-center gap-2.5 bg-white rounded-[20px] px-4 transition-all h-[50px] border border-[#DEDBD8]">
-                <span
-                  className="shrink-0 text-[#786F6C] w-4 h-4 flex items-center justify-center"
-                  aria-hidden="true"
+          {FIELDS.map((field) => {
+            const isMessage = field.key === "message";
+            return (
+              <label key={field.key} className="sr-only-label">
+                <span className="sr-only">{field.placeholder}</span>
+                <div
+                  className={cn(
+                    "flex gap-2.5 rounded-[20px] border border-[#DEDBD8] bg-white px-4 transition-all",
+                    isMessage ? "h-[93px] items-start py-4" : "h-[50px] items-center",
+                  )}
                 >
-                  {field.icon}
-                </span>
-                <input
-                  type={field.type}
-                  autoComplete={field.autoComplete}
-                  placeholder={field.placeholder}
-                  value={form[field.key]}
-                  onChange={(e) => handleChange(field.key, e.target.value)}
-                  required
-                  className="w-full bg-transparent outline-none border-none text-[#111827] placeholder:text-[#786F6C] font-clash text-[12.8px] leading-[15.7px] font-medium"
-                />
-              </div>
-            </label>
-          ))}
+                  <span
+                    className="flex h-4 w-4 shrink-0 items-center justify-center text-[#786F6C]"
+                    aria-hidden="true"
+                  >
+                    {field.icon}
+                  </span>
+                  {isMessage ? (
+                    <textarea
+                      placeholder={field.placeholder}
+                      value={form[field.key]}
+                      onChange={(e) => handleChange(field.key, e.target.value)}
+                      className="h-full w-full resize-none border-none bg-transparent font-clash text-[12.8px] font-medium leading-[15.7px] text-[#111827] outline-none placeholder:text-[#786F6C]"
+                    />
+                  ) : (
+                    <input
+                      type={field.type}
+                      autoComplete={field.autoComplete}
+                      placeholder={field.placeholder}
+                      value={form[field.key]}
+                      onChange={(e) => handleChange(field.key, e.target.value)}
+                      required
+                      className="w-full border-none bg-transparent font-clash text-[12.8px] font-medium leading-[15.7px] text-[#111827] outline-none placeholder:text-[#786F6C]"
+                    />
+                  )}
+                </div>
+              </label>
+            );
+          })}
 
           {/* Submit */}
           <button

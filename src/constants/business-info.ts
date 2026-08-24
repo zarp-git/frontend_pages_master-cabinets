@@ -69,7 +69,7 @@ export const EMAIL = "mastercabinetsllc@gmail.com" as const;
 
 export const BUSINESS_HOURS = {
   display: "Mon-Sun: 8:00 AM - 8:00 PM",
-  footerDisplay: "MON - SUN : 8AM - 8PM",
+  footerDisplay: "Mon - Sun: 8am - 8pm",
   schema: "Mo-Su 08:00-20:00",
   days: [
     "Monday",
