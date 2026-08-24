@@ -52,7 +52,6 @@
   --color-mc-taupe: var(--mc-taupe);
   --color-mc-orange: var(--mc-orange);
   --color-mc-orange-hover: var(--mc-orange-hover);
-  --color-mc-green: var(--mc-green);
   --color-mc-chalk: var(--mc-chalk);
   --color-mc-cool-grey: var(--mc-cool-grey);
   --color-mc-near-black: var(--mc-near-black);
@@ -94,7 +93,6 @@
   --mc-taupe: #958272;
   --mc-orange: #F7AF14;
   --mc-orange-hover: #E04300;
-  --mc-green: #3F2F22;
   --mc-near-black: #111827;
   --mc-black: #000000;
   --mc-body: #4B5563;

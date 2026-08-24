@@ -54,7 +54,7 @@ export function ServiceDetailView({ service }: ServiceDetailViewProps) {
     <main>
       <ServiceHero service={service} />
       <ServiceContentSection service={service} />
-      <ServiceFeaturesSection features={service.features} />
+      <ServiceFeaturesSection features={service.features || []} />
       <ServiceFaqSection service={service} />
       <ServiceCta serviceTitle={service.title} />
     </main>
@@ -123,7 +123,7 @@ function ServiceContentSection({ service }: { service: ServiceData }) {
           <ServiceTextContent service={service} />
 
           {/* Stats inline */}
-          {service.stats.length > 0 && (
+          {service.stats && service.stats.length > 0 && (
             <div className="flex flex-wrap gap-6">
               {service.stats.map((stat) => (
                 <StatCard key={stat.label} stat={stat} />

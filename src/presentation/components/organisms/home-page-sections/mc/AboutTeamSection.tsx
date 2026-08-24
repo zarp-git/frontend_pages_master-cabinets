@@ -21,17 +21,17 @@ const VALUE_BLOCKS = [
 
 const MOSAIC_IMAGES = [
   {
-    src: "/images/about/about-1.webp",
+    src: "/images/projects/cabinetry_kitchen_construction_01.jpg",
     alt: "Craftsman workshop — Master Cabinets",
     className: "w-[303px] h-[246px]",
   },
   {
-    src: "/images/about/about-2.webp",
+    src: "/images/projects/various-wood-colors-options.png",
     alt: "Material selection — Master Cabinets",
     className: "w-[303px] h-[246px]",
   },
   {
-    src: "/images/about/about-3.webp",
+    src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
     alt: "Installed cabinetry showcase — Master Cabinets",
     className: "w-[622px] h-[246px]",
   },
