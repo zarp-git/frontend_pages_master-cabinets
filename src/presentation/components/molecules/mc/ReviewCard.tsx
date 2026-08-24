@@ -9,10 +9,12 @@ interface ReviewCardProps {
   rating?: number;
   /** The review quote body */
   quote: string;
-  /** Service type tag e.g. "KITCHEN REMODELING" */
-  serviceTag: string;
-  /** Location tag e.g. "BONITA, FL" */
-  locationTag: string;
+  /**
+   * Up to two pills. Optional because most real Google reviews name neither a
+   * service nor a city - the card simply drops the row when there is nothing
+   * truthful to put in it.
+   */
+  tags?: readonly string[];
   className?: string;
 }
 
@@ -50,8 +52,7 @@ export default function ReviewCard({
   authorName,
   rating = 5,
   quote,
-  serviceTag,
-  locationTag,
+  tags = [],
   className,
 }: ReviewCardProps) {
   return (
@@ -92,14 +93,18 @@ export default function ReviewCard({
       </p>
 
       {/* Footer tag pills */}
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]">
-          {serviceTag}
-        </span>
-        <span className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]">
-          {locationTag}
-        </span>
-      </div>
+      {tags.length > 0 && (
+        <div className="flex flex-wrap items-center gap-3">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
   );
 }

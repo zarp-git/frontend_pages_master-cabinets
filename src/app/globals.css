@@ -80,6 +80,9 @@
   /* Marquee animations */
   --animate-marquee-left: marquee-left linear infinite;
   --animate-marquee-right: marquee-right linear infinite;
+
+  /* Hero scroll cue - the wheel riding down the mouse body */
+  --animate-scroll-wheel: scroll-wheel 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 :root {
@@ -476,6 +479,24 @@
     transform: translateX(-150%) skewX(-30deg);
     animation: shine 2s ease-in-out infinite;
     z-index: 10;
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(9px);
+    opacity: 0;
   }
 }
 

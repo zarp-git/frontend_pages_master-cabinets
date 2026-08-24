@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
+import ScrollCue from "@/presentation/components/atoms/ui/ScrollCue";
 
 /**
  * HeroSection - Figma node 17:1784
@@ -179,8 +180,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom spacing */}
-      <div className="relative z-10 h-4 sm:h-8" aria-hidden="true" />
+      {/* Scroll cue - Figma node 45:4930, centred at the foot of the hero.
+          Kept in flow rather than absolutely positioned so it can never land on
+          top of the quote form when the columns stack. */}
+      <div className="relative z-10 flex justify-center pb-6 pt-2 sm:pb-8 sm:pt-4">
+        <ScrollCue />
+      </div>
     </section>
   );
 }

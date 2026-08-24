@@ -63,7 +63,7 @@ export function ReviewsPageView() {
         <div className="mt-8 grid w-full max-w-[1232px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((review) => (
             <ReviewCard
-              key={`${review.authorName}-${review.serviceTag}`}
+              key={review.authorName}
               {...review}
               className="h-full max-w-none"
             />
