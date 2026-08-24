@@ -34,11 +34,11 @@ const HERO_IMAGES = [
 
 const TRUST_BADGES = ["Licensed", "Insured", "Locally trusted"] as const;
 
-/** The espresso check bubble that precedes each trust badge. */
+/** The green check bubble that precedes each trust badge. */
 function TrustCheck() {
   return (
     <span
-      className="flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-[#403023]"
+      className="flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-[#036841]"
       aria-hidden="true"
     >
       <svg

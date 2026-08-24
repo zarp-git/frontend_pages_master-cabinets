@@ -1,11 +1,10 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import InitialsAvatar from "@/presentation/components/atoms/ui/InitialsAvatar";
 
 interface ReviewCardProps {
   /** Full name of the reviewer */
   authorName: string;
-  /** Path or URL to the avatar image. Falls back to initials if not provided. */
-  avatarSrc?: string;
   /** Star rating 1–5 */
   rating?: number;
   /** The review quote body */
@@ -39,23 +38,6 @@ function StarRating({ rating = 5 }: { rating?: number }) {
   );
 }
 
-function AuthorInitials({ name }: { name: string }) {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-  return (
-    <div
-      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3F2F22] font-sans text-sm font-semibold text-white"
-      aria-hidden="true"
-    >
-      {initials}
-    </div>
-  );
-}
-
 /**
  * ReviewCard - Figma node 45:4982 (ReviewCard instance).
  *
@@ -66,7 +48,6 @@ function AuthorInitials({ name }: { name: string }) {
  */
 export default function ReviewCard({
   authorName,
-  avatarSrc,
   rating = 5,
   quote,
   serviceTag,
@@ -84,17 +65,7 @@ export default function ReviewCard({
       {/* Header: avatar + name (left) · Google badge (right) */}
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          {avatarSrc ? (
-            <Image
-              src={avatarSrc}
-              alt={`${authorName} avatar`}
-              width={96}
-              height={96}
-              className="h-12 w-12 shrink-0 rounded-full object-cover"
-            />
-          ) : (
-            <AuthorInitials name={authorName} />
-          )}
+          <InitialsAvatar name={authorName} />
           <span className="font-sans text-[20px] font-bold leading-[1.1] text-[#111827]">
             {authorName}
           </span>

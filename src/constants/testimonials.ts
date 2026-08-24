@@ -100,7 +100,6 @@ export type McFilterCategory = (typeof MC_FILTER_CATEGORIES)[number];
 
 export interface McReview {
   authorName: string;
-  avatarSrc?: string;
   rating: number;
   quote: string;
   serviceTag: string;
@@ -111,7 +110,6 @@ export interface McReview {
 export const MC_REVIEWS: McReview[] = [
   {
     authorName: "Emily R.",
-    avatarSrc: "/images/avatars/maria-silva.jpg",
     rating: 5,
     quote:
       "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
@@ -130,7 +128,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Michael A.",
-    avatarSrc: "/images/avatars/carlos-men.jpg",
     rating: 5,
     quote:
       "The custom cabinets made a huge difference in both the appearance and functionality of our home. Master Cabinets listened to what we needed and delivered a solution that feels elegant, practical, and completely tailored to us.",
@@ -140,7 +137,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Sarah T.",
-    avatarSrc: "/images/avatars/avatar-1.jpg",
     rating: 5,
     quote:
       "We hired Master Cabinets for several areas of our home, including the kitchen, bathrooms, and custom storage. Everything feels cohesive, thoughtfully designed, and built to last. We are extremely happy with the final result.",
@@ -150,7 +146,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Chris H.",
-    avatarSrc: "/images/avatars/jorge-santana.jpg",
     rating: 5,
     quote:
       "Great craftsmanship on our custom deck framing. The crew was punctual and cleaned up after themselves every day. Only minor hiccup was a small delay in materials, but the end result was worth the wait.",
@@ -169,7 +164,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Robert C.",
-    avatarSrc: "/images/avatars/avatar-2.jpg",
     rating: 5,
     quote:
       "From the first consultation to the final walkthrough, the team was professional and easy to work with. They remodeled our master bathroom and the craftsmanship on the vanity is next level. Highly recommend.",
@@ -179,7 +173,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Amanda P.",
-    avatarSrc: "/images/avatars/ana-paula.jpg",
     rating: 5,
     quote:
       "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
@@ -189,7 +182,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Iana M.",
-    avatarSrc: "/images/avatars/avatar-3.jpg",
     rating: 5,
     quote:
       "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
@@ -208,7 +200,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Laura B.",
-    avatarSrc: "/images/avatars/avatar-1.jpg",
     rating: 5,
     quote:
       "The tile work in our guest bath is immaculate - perfectly level, tight joints, and they matched the pattern around every corner. Small details, big difference.",
@@ -218,7 +209,6 @@ export const MC_REVIEWS: McReview[] = [
   },
   {
     authorName: "Marcus D.",
-    avatarSrc: "/images/avatars/carlos-men.jpg",
     rating: 5,
     quote:
       "Our outdoor kitchen came out exactly as it was drawn. Materials hold up to the sun and salt air, and the install crew left the site spotless every evening.",
