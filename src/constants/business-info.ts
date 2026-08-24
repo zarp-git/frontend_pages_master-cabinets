@@ -13,8 +13,10 @@
  */
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
-  "http://localhost:3000"
+  // Falls back to the real domain, not localhost: without the env var every
+  // canonical, OG url and sitemap entry would otherwise ship pointing at
+  // localhost (or at the throwaway *.vercel.app deployment host).
+  "https://mastercabinets.net"
 ).replace(/\/$/, "");
 
 /** Legal / display company name */
@@ -45,9 +47,11 @@ export const ADDRESS = {
   country: "US",
 } as const;
 
+// Taken from the client's Google Business Profile (CID 7209192084505606319).
+// The previous pair sat 9.1 km south of the actual listing.
 export const GEO = {
-  latitude: 26.142,
-  longitude: -81.7948,
+  latitude: 26.2225616,
+  longitude: -81.7784059,
 } as const;
 
 export const PHONE = {
