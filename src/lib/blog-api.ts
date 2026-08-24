@@ -7,9 +7,26 @@ import type {
   BlogArticleImageObject,
 } from "@/types/blog.type";
 
-const BLOG_API_BASE_URL =
-  process.env.BLOG_API_BASE_URL || "https://api.example.com";
+import { DEMO_ARTICLES } from "@/constants/blog-demo";
+
+const BLOG_API_BASE_URL = process.env.BLOG_API_BASE_URL || "";
 const BLOG_SECRET = process.env.BLOG_SECRET || "";
+
+/** True when no CMS endpoint is configured — the blog then serves demo content. */
+const USE_DEMO_CONTENT = !BLOG_API_BASE_URL;
+
+function demoPage(page: number, limit: number): PaginatedArticles {
+  const start = (page - 1) * limit;
+  return {
+    data: DEMO_ARTICLES.slice(start, start + limit),
+    meta: {
+      page,
+      limit,
+      total: DEMO_ARTICLES.length,
+      total_pages: Math.max(1, Math.ceil(DEMO_ARTICLES.length / limit)),
+    },
+  };
+}
 
 function normalizeBlogImage(
   image: BlogArticleImage | undefined | null
@@ -71,6 +88,8 @@ export async function getArticles(
   page: number = 1,
   limit: number = 10,
 ): Promise<PaginatedArticles> {
+  if (USE_DEMO_CONTENT) return demoPage(page, limit);
+
   try {
     const url = new URL(`${BLOG_API_BASE_URL}/api/cms/public/articles`);
     url.searchParams.set("page", page.toString());
@@ -101,14 +120,18 @@ export async function getArticles(
       },
     };
   } catch (error) {
-    console.error("[Blog API] Error fetching articles:", error);
-    throw error;
+    console.error("[Blog API] Error fetching articles, serving demo content:", error);
+    return demoPage(page, limit);
   }
 }
 
 export async function getArticleBySlug(
   slug: string,
 ): Promise<BlogArticle | null> {
+  if (USE_DEMO_CONTENT) {
+    return DEMO_ARTICLES.find((a) => a.slug === slug) ?? null;
+  }
+
   try {
     const url = new URL(`${BLOG_API_BASE_URL}/api/cms/public/articles/${slug}`);
 
@@ -130,7 +153,7 @@ export async function getArticleBySlug(
 
     return normalizeBlogArticle(data);
   } catch (error) {
-    console.error("[Blog API] Error fetching article by slug:", error);
-    throw error;
+    console.error("[Blog API] Error fetching article by slug, serving demo content:", error);
+    return DEMO_ARTICLES.find((a) => a.slug === slug) ?? null;
   }
 }

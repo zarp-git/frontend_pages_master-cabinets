@@ -1,133 +1,132 @@
 import Image from "next/image";
+import {
+  RiTeamLine,
+  RiRulerLine,
+  RiCheckboxCircleLine,
+} from "@remixicon/react";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
+import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
 
 const VALUE_BLOCKS = [
   {
     index: "01",
     title: "One Coordinated Team",
     body: "From structural changes to the final cabinet hinge, filter everything through one point of contact.",
+    Icon: RiTeamLine,
   },
   {
     index: "02",
     title: "Architectural Precision",
     body: "Materials selected for beauty, designed specifically for the exact dimensions of your room.",
+    Icon: RiRulerLine,
   },
   {
     index: "03",
     title: "Certainty Before Production",
     body: "See key design decisions mapped out clearly before any fabrication begins.",
+    Icon: RiCheckboxCircleLine,
   },
 ] as const;
 
-const MOSAIC_IMAGES = [
+const MOSAIC = [
   {
-    src: "/images/projects/cabinetry_kitchen_construction_01.jpg",
-    alt: "Craftsman workshop — Master Cabinets",
-    className: "w-[303px] h-[246px]",
+    src: "/images/projects/custom-walk-in-closet-installation.jpg",
+    alt: "Custom walk-in closet installation — Master Cabinets",
+    span: "col-span-1",
   },
   {
-    src: "/images/projects/various-wood-colors-options.png",
-    alt: "Material selection — Master Cabinets",
-    className: "w-[303px] h-[246px]",
+    src: "/images/projects/bathroom_remodel_finished_01.jpg",
+    alt: "Finished bathroom remodel — Master Cabinets",
+    span: "col-span-1",
   },
   {
     src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-    alt: "Installed cabinetry showcase — Master Cabinets",
-    className: "w-[622px] h-[246px]",
+    alt: "Custom kitchen cabinetry remodel — Master Cabinets",
+    span: "col-span-2",
+  },
+  {
+    src: "/images/projects/bathroom_remodel_finished_03.jpg",
+    alt: "Master bathroom with custom vanity — Master Cabinets",
+    span: "col-span-2",
   },
 ] as const;
 
 /**
- * AboutTeamSection — Figma node 17:1855 (Who We Are / Single Team Advantage)
- * 2-col: left photo mosaic, right value proposition copy + 3 value blocks.
+ * AboutTeamSection — Figma node 17:1855 (Who We Are / Single Team Advantage).
+ *
+ * Left: 2×3 photo mosaic (622px, 16px gaps — two 303px tiles on top, two
+ * full-width tiles below). Right: heading lockup, supporting copy and three
+ * bezelled value cards (icon chip · title · Times-italic numeral · body).
  */
 export default function AboutTeamSection() {
   return (
     <section
-      className="w-full bg-white px-8 md:px-16"
+      className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="About Master Cabinets"
     >
-      <div
-        className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-start gap-16 lg:gap-20 py-15"
-      >
-        {/* Left: Photo mosaic */}
-        <div
-          className="shrink-0 hidden lg:flex flex-wrap gap-4 w-[622px]"
-        >
-          {/* Row 1: 2 small images side by side */}
-          <div className="flex gap-4">
-            {MOSAIC_IMAGES.slice(0, 2).map((img) => (
-              <div
-                key={img.src}
-                className={`relative overflow-hidden rounded-[20px] bg-[#E5DECD] ${img.className}`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="303px"
-                />
-              </div>
-            ))}
-          </div>
-          {/* Row 2: wide panorama */}
-          <div
-            className="relative overflow-hidden rounded-[20px] bg-[#E5DECD] w-[622px] h-[246px]"
-          >
-            <Image
-              src={MOSAIC_IMAGES[2].src}
-              alt={MOSAIC_IMAGES[2].alt}
-              fill
-              className="object-cover"
-              sizes="622px"
-            />
-          </div>
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 lg:flex-row lg:gap-20">
+        {/* Left: photo mosaic */}
+        <div className="grid w-full shrink-0 grid-cols-2 gap-4 lg:w-[622px]">
+          {MOSAIC.map((img) => (
+            <div
+              key={img.src}
+              className={`relative h-[160px] overflow-hidden rounded-[21px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] lg:h-[246px] ${img.span}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 622px, 100vw"
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Right: Value proposition */}
-        <div className="flex-1 flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <h2
-              className="font-clash text-[clamp(28px,3.3vw,48px)] leading-[61.8px] font-medium text-[#111827]"
-            >
-              Made for Your Space. Built for Your Life.
-            </h2>
-            <p
-              className="font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]"
-            >
-              Renovations shouldn&apos;t mean managing five different contractors,
-              confusing timelines, and miscommunication.
-            </p>
-          </div>
+        {/* Right: value proposition */}
+        <div className="flex w-full flex-col gap-8 lg:max-w-[610px]">
+          <SectionHeading
+            line1="Made for Your Space."
+            line2="Built for"
+            accent="Your Life."
+            subtitle="Renovations shouldn't mean managing five different contractors, confusing timelines, and miscommunication."
+          />
 
-          {/* 3 value blocks */}
-          <div className="flex flex-col gap-6">
-            {VALUE_BLOCKS.map((block) => (
-              <div key={block.index} className="flex flex-col gap-2">
-                <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-4">
+            {VALUE_BLOCKS.map(({ index, title, body, Icon }) => (
+              <div
+                key={index}
+                className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]"
+              >
+                <div className="flex items-start gap-5 rounded-[26px] bg-white p-7 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
                   <span
-                    className="font-clash text-[16px] font-medium text-[#111827]"
-                  >
-                    {block.title}
-                  </span>
-                  <span
-                    className="font-serif text-[18px] text-[#958272]"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/[0.04]"
                     aria-hidden="true"
                   >
-                    {block.index}
+                    <Icon className="h-[17px] w-[17px] text-[#403023]" />
                   </span>
+
+                  <div className="flex flex-1 flex-col gap-2">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-clash text-[16px] font-medium text-[#403023]">
+                        {title}
+                      </span>
+                      <span
+                        className="font-serif italic text-[18px] text-[#958272]"
+                        aria-hidden="true"
+                      >
+                        {index}
+                      </span>
+                    </div>
+                    <p className="font-sans text-[16px] leading-[1.6] text-[#666666]">
+                      {body}
+                    </p>
+                  </div>
                 </div>
-                <p
-                  className="font-sans text-[16px] leading-[26px] font-normal text-[#4B5563]"
-                >
-                  {block.body}
-                </p>
               </div>
             ))}
           </div>
 
-          {/* CTA */}
           <ActionButtonGroup />
         </div>
       </div>

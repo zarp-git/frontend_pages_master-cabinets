@@ -1,156 +1,92 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { cn } from "@/lib/utils";
+import { useMemo, useState } from "react";
 import ReviewCard from "@/presentation/components/molecules/mc/ReviewCard";
+import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
+import FilterChips from "@/presentation/components/molecules/mc/FilterChips";
+import LoadMoreButton from "@/presentation/components/molecules/mc/LoadMoreButton";
 import FAQSection from "@/presentation/components/organisms/home-page-sections/mc/FAQSection";
 import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
+import {
+  MC_REVIEWS,
+  MC_FILTER_CATEGORIES,
+  type McFilterCategory,
+} from "@/constants/testimonials";
 
-const REVIEWS_CATEGORIES = [
-  { label: "All", value: "all" },
-  { label: "Home remodel", value: "home-remodel" },
-  { label: "Kitchens", value: "kitchens" },
-  { label: "Bathrooms", value: "bathrooms" },
-  { label: "Carpentry", value: "carpentry" },
-  { label: "Living spaces", value: "living-spaces" },
-  { label: "Tiling", value: "tiling" },
-  { label: "Other", value: "other" },
-] as const;
+const PAGE_SIZE = 9;
 
-const CLIENT_REVIEWS = [
-  {
-    id: 1,
-    authorName: "Emily R.",
-    rating: 5,
-    category: "kitchens",
-    serviceTag: "KITCHEN REMODELING",
-    locationTag: "BONITA, FL",
-    quote:
-      "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
-  },
-  {
-    id: 2,
-    authorName: "Daniel M.",
-    rating: 5,
-    category: "bathrooms",
-    serviceTag: "BATHROOM REMODELING",
-    locationTag: "BONITA, FL",
-    quote:
-      "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
-  },
-  {
-    id: 3,
-    authorName: "Michael A.",
-    rating: 5,
-    category: "carpentry",
-    serviceTag: "CABINETRY",
-    locationTag: "BONITA, FL",
-    quote:
-      "The custom cabinets made a huge difference in both the appearance and functionality of our home. Master Cabinets listened to what we needed and delivered a solution that feels elegant, practical, and completely tailored to us.",
-  },
-  {
-    id: 4,
-    authorName: "Sarah T.",
-    rating: 5,
-    category: "bathrooms",
-    serviceTag: "BATHROOM REMODELING",
-    locationTag: "FORT MYERS, FL",
-    quote:
-      "We hired Master Cabinets for several areas of our home, including the kitchen, bathrooms, and custom storage. Everything feels cohesive, thoughtfully designed, and built to last. We are extremely happy with the final result.",
-  },
-  {
-    id: 5,
-    authorName: "David K.",
-    rating: 5,
-    category: "home-remodel",
-    serviceTag: "WHOLE HOME",
-    locationTag: "NAPLES, FL",
-    quote:
-      "Working with one contractor for our flooring, painting, and cabinetry saved us months of headaches. JB and his team delivered top tier craftsmanship on budget.",
-  },
-  {
-    id: 6,
-    authorName: "Jessica L.",
-    rating: 5,
-    category: "carpentry",
-    serviceTag: "CUSTOM CLOSETS",
-    locationTag: "MARCO ISLAND, FL",
-    quote:
-      "The precision on the closet joinery and integrated LED lighting is astonishing. Truly luxury quality.",
-  },
-];
+const CHIP_OPTIONS = MC_FILTER_CATEGORIES.map((c) => ({ label: c, value: c }));
 
 /**
- * ReviewsPageView — Figma node 60:18380 (Page 6: REVIEWS)
- * 2-Line Display Header + Filter Tabs + 3-Column Reviews Grid + FAQ + CTA + Footer.
- * ZERO inline styles.
+ * ReviewsPageView — Figma node 60:18380 (REVIEWS).
+ *
+ * Centered heading lockup → filter chips → 3-column review grid (385px cards,
+ * 16px gutters) → Load More pill → the shared FAQ block → quote CTA.
  */
 export function ReviewsPageView() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [active, setActive] = useState<McFilterCategory>("All");
+  const [visible, setVisible] = useState(PAGE_SIZE);
 
-  const filteredReviews = useMemo(() => {
-    if (activeCategory === "all") return CLIENT_REVIEWS;
-    return CLIENT_REVIEWS.filter((r) => r.category === activeCategory);
-  }, [activeCategory]);
+  const filtered = useMemo(() => {
+    if (active === "All") return MC_REVIEWS;
+    return MC_REVIEWS.filter((r) => r.category === active);
+  }, [active]);
+
+  const shown = filtered.slice(0, visible);
+  const hasMore = filtered.length > visible;
 
   return (
-    <main className="w-full bg-white pt-24 md:pt-28">
-      {/* ── Section 2: Header & Category Filter Tabs (Node 60:18382) ── */}
-      <section className="w-full px-4 sm:px-6 md:px-8 xl:px-16 max-w-[1364px] mx-auto pt-10 md:pt-16 pb-12 flex flex-col items-center text-center">
-        {/* Header Title (2 Lines) */}
-        <div className="flex flex-col gap-1 mb-8 md:mb-12">
-          <h1 className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#111827]">
-            Designed With Care.
-          </h1>
-          <span className="font-clash font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight md:leading-[61.8px] text-[#958272]">
-            Remembered for the Experience.
-          </span>
-        </div>
+    <main className="w-full bg-white pt-[104px]">
+      <section
+        className="mx-auto flex max-w-[1360px] flex-col items-center px-4 pb-20 pt-16 sm:px-8 lg:px-16"
+        aria-label="Customer reviews"
+      >
+        <SectionHeading
+          line1="Designed With Care."
+          line2="Remembered for the"
+          accent="Experience."
+          align="center"
+          tone="black"
+        />
 
-        {/* Filter Tabs Row */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-4xl mx-auto">
-          {REVIEWS_CATEGORIES.map((tab) => {
-            const isActive = activeCategory === tab.value;
-            return (
-              <button
-                key={tab.value}
-                type="button"
-                onClick={() => setActiveCategory(tab.value)}
-                className={cn(
-                  "px-4 sm:px-5 py-2 rounded-[999px] font-clash font-medium text-[13px] leading-[19.5px] transition-all duration-200",
-                  isActive
-                    ? "bg-[#3F2F22] text-white shadow-sm"
-                    : "bg-[#F3F4F6] text-[#4B5563] hover:bg-[#E5E7EB] hover:text-[#111827]"
-                )}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
-      </section>
+        <FilterChips
+          options={CHIP_OPTIONS}
+          active={active}
+          onChange={(v) => {
+            setActive(v);
+            setVisible(PAGE_SIZE);
+          }}
+          ariaLabel="Filter reviews by service"
+          className="mt-8"
+        />
 
-      {/* ── Section 3: Comprehensive Testimonial Card Grid ── */}
-      <section className="w-full px-4 sm:px-6 md:px-8 xl:px-16 max-w-[1364px] mx-auto pb-16 md:pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
-          {filteredReviews.map((review) => (
+        <div className="mt-8 grid w-full max-w-[1232px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {shown.map((review) => (
             <ReviewCard
-              key={review.id}
-              authorName={review.authorName}
-              rating={review.rating}
-              quote={review.quote}
-              serviceTag={review.serviceTag}
-              locationTag={review.locationTag}
+              key={`${review.authorName}-${review.serviceTag}`}
+              {...review}
+              className="h-full max-w-none"
             />
           ))}
         </div>
+
+        {filtered.length === 0 && (
+          <p className="py-20 text-center font-sans text-lg text-[#666666]">
+            No reviews in this category yet.
+          </p>
+        )}
+
+        {hasMore && (
+          <div className="pt-10">
+            <LoadMoreButton onClick={() => setVisible((v) => v + PAGE_SIZE)} />
+          </div>
+        )}
       </section>
 
-      {/* ── Section 4: FAQ Accordion Section (Node 60:19873) ── */}
       <FAQSection />
-
-      {/* ── Section 5: Consultation CTA (Node 60:18575) ── */}
-      <PricingCTASection />
+      <PricingCTASection showPillars={false} />
     </main>
   );
 }
+
+export default ReviewsPageView;

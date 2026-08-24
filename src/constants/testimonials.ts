@@ -79,3 +79,154 @@ export const REVIEWS: Review[] = [
     text: "Our new walk-in closet is a dream. The custom storage solutions they designed make use of every square foot. The team was respectful, punctual, and truly skilled.",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Master Cabinets review cards — Figma nodes 17:2789 (home) / 60:18380 (reviews)
+// ---------------------------------------------------------------------------
+
+/** Filter chips shared by the Reviews and Gallery pages (Figma 60:18380 / 60:12187). */
+export const MC_FILTER_CATEGORIES = [
+  "All",
+  "Home remodel",
+  "Kitchens",
+  "Bathrooms",
+  "Carpentry",
+  "Living spaces",
+  "Tiling",
+  "Other",
+] as const;
+
+export type McFilterCategory = (typeof MC_FILTER_CATEGORIES)[number];
+
+export interface McReview {
+  authorName: string;
+  avatarSrc?: string;
+  rating: number;
+  quote: string;
+  serviceTag: string;
+  locationTag: string;
+  category: Exclude<McFilterCategory, "All">;
+}
+
+export const MC_REVIEWS: McReview[] = [
+  {
+    authorName: "Emily R.",
+    avatarSrc: "/images/avatars/maria-silva.jpg",
+    rating: 5,
+    quote:
+      "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
+    serviceTag: "Kitchen Remodeling",
+    locationTag: "Bonita, FL",
+    category: "Kitchens",
+  },
+  {
+    authorName: "Daniel M.",
+    rating: 5,
+    quote:
+      "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
+    serviceTag: "Bathroom Remodeling",
+    locationTag: "Bonita, FL",
+    category: "Bathrooms",
+  },
+  {
+    authorName: "Michael A.",
+    avatarSrc: "/images/avatars/carlos-men.jpg",
+    rating: 5,
+    quote:
+      "The custom cabinets made a huge difference in both the appearance and functionality of our home. Master Cabinets listened to what we needed and delivered a solution that feels elegant, practical, and completely tailored to us.",
+    serviceTag: "Cabinetry",
+    locationTag: "Bonita, FL",
+    category: "Home remodel",
+  },
+  {
+    authorName: "Sarah T.",
+    avatarSrc: "/images/avatars/avatar-1.jpg",
+    rating: 5,
+    quote:
+      "We hired Master Cabinets for several areas of our home, including the kitchen, bathrooms, and custom storage. Everything feels cohesive, thoughtfully designed, and built to last. We are extremely happy with the final result.",
+    serviceTag: "Bathroom Remodeling",
+    locationTag: "Fort Myers, FL",
+    category: "Bathrooms",
+  },
+  {
+    authorName: "Chris H.",
+    avatarSrc: "/images/avatars/jorge-santana.jpg",
+    rating: 5,
+    quote:
+      "Great craftsmanship on our custom deck framing. The crew was punctual and cleaned up after themselves every day. Only minor hiccup was a small delay in materials, but the end result was worth the wait.",
+    serviceTag: "Carpentry",
+    locationTag: "Miami, FL",
+    category: "Carpentry",
+  },
+  {
+    authorName: "Sofia R.",
+    rating: 5,
+    quote:
+      "We had our closets redone and it completely changed how we use the space. Everything is organized, custom fit, and beautifully built. You can tell these guys take real pride in their work.",
+    serviceTag: "Custom Closets",
+    locationTag: "Bonita, FL",
+    category: "Living spaces",
+  },
+  {
+    authorName: "Robert C.",
+    avatarSrc: "/images/avatars/avatar-2.jpg",
+    rating: 5,
+    quote:
+      "From the first consultation to the final walkthrough, the team was professional and easy to work with. They remodeled our master bathroom and the craftsmanship on the vanity is next level. Highly recommend.",
+    serviceTag: "Bathroom Remodeling",
+    locationTag: "Fort Myers, FL",
+    category: "Bathrooms",
+  },
+  {
+    authorName: "Amanda P.",
+    avatarSrc: "/images/avatars/ana-paula.jpg",
+    rating: 5,
+    quote:
+      "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
+    serviceTag: "Cabinetry",
+    locationTag: "Bonita, FL",
+    category: "Kitchens",
+  },
+  {
+    authorName: "Iana M.",
+    avatarSrc: "/images/avatars/avatar-3.jpg",
+    rating: 5,
+    quote:
+      "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
+    serviceTag: "Bathroom Remodeling",
+    locationTag: "Bonita, FL",
+    category: "Bathrooms",
+  },
+  {
+    authorName: "Peter K.",
+    rating: 5,
+    quote:
+      "They handled flooring, painting, and the built-ins for our living room in one go. One contact for everything meant no finger-pointing and no wasted weeks between trades.",
+    serviceTag: "Home Remodeling",
+    locationTag: "Naples, FL",
+    category: "Home remodel",
+  },
+  {
+    authorName: "Laura B.",
+    avatarSrc: "/images/avatars/avatar-1.jpg",
+    rating: 5,
+    quote:
+      "The tile work in our guest bath is immaculate — perfectly level, tight joints, and they matched the pattern around every corner. Small details, big difference.",
+    serviceTag: "Tiling",
+    locationTag: "Estero, FL",
+    category: "Tiling",
+  },
+  {
+    authorName: "Marcus D.",
+    avatarSrc: "/images/avatars/carlos-men.jpg",
+    rating: 5,
+    quote:
+      "Our outdoor kitchen came out exactly as it was drawn. Materials hold up to the sun and salt air, and the install crew left the site spotless every evening.",
+    serviceTag: "Outdoor Living",
+    locationTag: "Marco Island, FL",
+    category: "Other",
+  },
+];
+
+/** First four cards shown on the homepage rail. */
+export const HOME_REVIEWS = MC_REVIEWS.slice(0, 4);

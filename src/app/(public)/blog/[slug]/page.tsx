@@ -4,6 +4,7 @@ import { getArticleBySlug, getArticles } from "@/lib/blog-api";
 import { ArticleDetail } from "@/presentation/components/organisms/blog/article-detail";
 import { BlogReadingProgress } from "@/presentation/components/organisms/blog/blog-reading-progress";
 import { getBlogExcerpt, getPrimaryBlogImage } from "@/lib/blog-content";
+import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
 import { COMPANY_NAME } from "@/constants/business-info";
 
 interface ArticlePageProps {
@@ -84,10 +85,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="pt-28 pb-16 bg-white min-h-screen">
-        <div className="section-container max-w-7xl mx-auto">
+      <main className="min-h-screen w-full bg-white pb-10 pt-[120px]">
+        <div className="mx-auto w-full max-w-[1364px] px-4 pb-24 sm:px-8 lg:px-16">
           <ArticleDetail article={article} />
         </div>
+        <PricingCTASection showPillars={false} />
       </main>
     </>
   );

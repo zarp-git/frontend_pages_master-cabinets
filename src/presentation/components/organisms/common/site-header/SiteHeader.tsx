@@ -1,191 +1,157 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { RiPhoneLine, RiMenu3Line, RiCloseLine } from "@remixicon/react";
 import { cn } from "@/lib/utils";
-import {
-  COMPANY_NAME,
-  PHONE,
-} from "@/constants/business-info";
+import { PHONE } from "@/constants/business-info";
 
 const NAV_LINKS = [
-  { label: "HOME", href: "/" },
+  { label: "Home", href: "/" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ] as const;
 
-interface SiteHeaderProps {
-  /** Force a light (dark text) variant regardless of scroll. Defaults to transparent/dark overlay on scroll. */
-  variant?: "transparent" | "light";
-  activeHref?: string;
-}
-
 /**
- * SiteHeader — Figma nodes 17:3549 / 48:9373 / 48:10514 / 48:11498 / 60:12252 / 60:18573
- * Transparent overlay on hero, transitions to solid on scroll.
- * Mobile: collapses to hamburger with slide-down drawer.
+ * SiteHeader — Figma `Navigation` component (17:3549 and its per-page instances).
+ *
+ * A floating white pill (1376×56, radius full, 0 24px 80px rgba(0,0,0,.18))
+ * inset 24px from the top and 32px from each side, overlaying the page.
+ * Left: the Master Cabinets lockup. Centre: uppercase Segoe links with 1.8px
+ * tracking — the active one gets a #9CA3AF hairline pill. Right: the taupe
+ * #968272 phone pill with a white/15 icon chip.
  */
-export default function SiteHeader({
-  variant = "transparent",
-  activeHref = "/",
-}: SiteHeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
+export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const isDark = variant === "transparent" && !scrolled;
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
-      {/* ── Header bar ── */}
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20",
-          isDark
-            ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-md shadow-sm",
-        )}
-      >
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between pt-6 px-8 pb-0 h-20">
-          {/* Logo */}
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6">
+        <div
+          className={cn(
+            "pointer-events-auto mx-auto flex h-14 max-w-[1376px] items-center justify-between gap-4",
+            "rounded-full bg-white py-2 pl-5 pr-[11px]",
+            "shadow-[0_24px_80px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]",
+          )}
+        >
+          {/* Logo lockup */}
           <Link
             href="/"
-            className="flex items-center gap-2 shrink-0"
-            aria-label="Master Cabinets Home"
+            className="flex shrink-0 items-center"
+            aria-label="Master Cabinets — home"
           >
-            {/* Geometric monogram mark */}
-            <span
-              className={cn(
-                "flex items-center justify-center w-6 h-6 rounded-sm text-xs font-bold leading-none font-clash",
-                isDark ? "bg-white text-[#3F2F22]" : "bg-[#3F2F22] text-white"
-              )}
-              aria-hidden="true"
-            >
-              M
-            </span>
-            <span
-              className={cn(
-                "font-clash text-[27px] leading-[40.5px] font-medium",
-                isDark ? "text-white" : "text-[#111827]"
-              )}
-            >
-              {COMPANY_NAME}
-            </span>
+            <Image
+              src="/images/mc-logo.svg"
+              alt="Master Cabinets"
+              width={295}
+              height={25}
+              priority
+              className="h-[22px] w-auto sm:h-6"
+            />
           </Link>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop nav */}
           <nav
-            className="hidden lg:flex items-center gap-6 xl:gap-8"
+            className="hidden items-center gap-1 lg:flex"
             aria-label="Primary navigation"
           >
+            {NAV_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-4 py-2 font-sans text-[11px] uppercase leading-4 tracking-[1.8px] transition-colors",
+                    active
+                      ? "border border-[#9CA3AF] font-semibold text-[#111827]"
+                      : "border border-transparent font-normal text-black/55 hover:text-[#403023]",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right: phone pill + hamburger */}
+          <div className="flex shrink-0 items-center gap-2">
+            <Link
+              href={PHONE.href}
+              className="hidden items-center gap-3 rounded-full bg-[#968272] py-1.5 pl-4 pr-1.5 transition-opacity hover:opacity-90 sm:flex"
+            >
+              <span className="font-sans text-[11px] uppercase leading-4 tracking-[1.8px] text-white">
+                {PHONE.display.replace("+1 ", "")}
+              </span>
+              <span
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15"
+                aria-hidden="true"
+              >
+                <RiPhoneLine className="h-4 w-4 text-white" />
+              </span>
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              className="rounded-full p-2 transition-colors hover:bg-black/5 lg:hidden"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? (
+                <RiCloseLine className="h-6 w-6 text-[#403023]" />
+              ) : (
+                <RiMenu3Line className="h-6 w-6 text-[#403023]" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile drawer */}
+        <div
+          className={cn(
+            "pointer-events-auto mx-auto mt-2 max-w-[1376px] overflow-hidden rounded-[26px] bg-white shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition-all duration-300 lg:hidden",
+            menuOpen
+              ? "max-h-[420px] opacity-100"
+              : "pointer-events-none max-h-0 opacity-0",
+          )}
+        >
+          <nav className="flex flex-col gap-1 p-4" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setMenuOpen(false)}
                 className={cn(
-                  "font-sans text-[11px] leading-[16.5px] tracking-[0.05em] uppercase transition-opacity hover:opacity-70",
-                  activeHref === link.href ? "font-semibold" : "font-normal",
-                  isDark ? "text-white" : "text-[#4B5563]",
+                  "rounded-full px-4 py-3 font-sans text-[12px] uppercase tracking-[1.8px]",
+                  isActive(link.href)
+                    ? "bg-black/[0.04] font-semibold text-[#403023]"
+                    : "text-black/55",
                 )}
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
-
-          {/* Right: Phone CTA pill */}
-          <div className="flex items-center gap-3">
-            {/* Desktop phone pill */}
             <Link
-              href={`tel:${PHONE.href.replace("tel:", "")}`}
-              className={cn(
-                "hidden lg:flex items-center gap-3 rounded-[999px] transition-opacity hover:opacity-80 bg-[#3F2F22] font-sans",
-                "px-4 py-1.5",
-              )}
+              href={PHONE.href}
+              onClick={() => setMenuOpen(false)}
+              className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[#968272] py-3 font-sans text-[12px] uppercase tracking-[1.8px] text-white"
             >
-              <RiPhoneLine
-                className="shrink-0 w-4 h-4 text-white"
-                aria-hidden="true"
-              />
-              <span className="text-white leading-[16.5px] text-[11px] font-normal">
-                {PHONE.display.replace("+1 ", "")}
-              </span>
+              <RiPhoneLine className="h-4 w-4" aria-hidden="true" />
+              {PHONE.display.replace("+1 ", "")}
             </Link>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 rounded-lg transition-colors hover:bg-white/10"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            >
-              {menuOpen ? (
-                <RiCloseLine
-                  className={cn("w-6 h-6", isDark ? "text-white" : "text-[#111827]")}
-                />
-              ) : (
-                <RiMenu3Line
-                  className={cn("w-6 h-6", isDark ? "text-white" : "text-[#111827]")}
-                />
-              )}
-            </button>
-          </div>
+          </nav>
         </div>
       </header>
-
-      {/* ── Mobile drawer ── */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 lg:hidden"
-          onClick={() => setMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-      <div
-        className={cn(
-          "fixed top-[80px] left-0 right-0 z-40 lg:hidden transition-all duration-300 bg-white shadow-lg",
-          menuOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none",
-        )}
-      >
-        <nav
-          className="flex flex-col px-6 py-6 gap-4"
-          aria-label="Mobile navigation"
-        >
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={cn(
-                "text-[#111827] text-base py-2 border-b border-[#F3F4F6] tracking-[0.05em] uppercase font-sans",
-                activeHref === link.href ? "font-semibold text-[#3F2F22]" : "font-normal",
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href={`tel:${PHONE.href.replace("tel:", "")}`}
-            className="flex items-center justify-center gap-2 mt-2 w-full rounded-[999px] py-3 bg-[#3F2F22] text-white font-sans text-[14px]"
-            onClick={() => setMenuOpen(false)}
-          >
-            <RiPhoneLine className="w-4 h-4" aria-hidden="true" />
-            {PHONE.display.replace("+1 ", "")}
-          </Link>
-        </nav>
-      </div>
-
-      {/* Header spacer — avoids content hiding under fixed header */}
-      <div className="h-[80px]" aria-hidden="true" />
     </>
   );
 }

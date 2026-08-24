@@ -3,99 +3,111 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 import type { BlogArticleSummary } from "@/types/blog.type";
-import { getBlogReadingTime, getPrimaryBlogImage, cleanMarkdownContent } from "@/lib/blog-content";
-import { formatBlogDate } from "@/lib/blog-date";
+import { getPrimaryBlogImage, cleanMarkdownContent } from "@/lib/blog-content";
 
 interface ArticleDetailProps {
   article: BlogArticleSummary;
 }
 
+/**
+ * ArticleDetail — Figma node 48:10112 (BLOG ARTICLE).
+ *
+ * Two columns with a 48px gutter: a 720px article rail (radius-26 hero image,
+ * Clash 60 title, bezelled author chip, Segoe 20/32 body, Clash 30 headings)
+ * and a 437px sticky quote card in #F3F4F6.
+ */
 export function ArticleDetail({ article }: ArticleDetailProps) {
   const primaryImage = getPrimaryBlogImage(article.images);
+  const authorName = article.author?.full_name ?? "Master Cabinets";
+  const authorRole = article.author?.biography ?? "Studio Journal";
 
   return (
-    <article className="max-w-4xl mx-auto">
-      {/* Header */}
-      <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold font-hanken text-gray-900 mb-4">
-          {article.title}
-        </h1>
-
-        {article.meta_description && (
-          <p className="text-lg text-gray-500 font-rubik leading-relaxed mb-6">
-            {article.meta_description}
-          </p>
-        )}
-
-        <div className="flex items-center gap-4 mb-8">
-          {article.author?.avatar && (
-            <Image
-              src={article.author.avatar.url}
-              alt={article.author.full_name}
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-          )}
-          <div>
-            {article.author && (
-              <p className="font-rubik font-semibold text-gray-900">
-                {article.author.full_name}
-              </p>
-            )}
-            <div className="flex items-center gap-3 text-sm text-gray-500 font-rubik">
-              <span>{formatBlogDate(article.published_at)}</span>
-              <span>•</span>
-              <span>{getBlogReadingTime(article.content)} min read</span>
-            </div>
-          </div>
-        </div>
-
+    <div className="mx-auto flex w-full max-w-[1236px] flex-col gap-12 lg:flex-row">
+      {/* Article rail */}
+      <article className="flex w-full flex-col gap-12 lg:max-w-[720px]">
         {primaryImage && (
-          <div className="relative w-full h-96 rounded-2xl overflow-hidden mb-8">
+          <div className="relative h-[240px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:h-[392px]">
             <Image
               src={primaryImage.url}
               alt={primaryImage.alt || article.title}
               fill
+              sizes="(min-width: 1024px) 720px, 100vw"
               className="object-cover"
               priority
             />
           </div>
         )}
-      </header>
 
-      {/* Content */}
-      <div className="prose prose-lg prose-gray max-w-none blog-content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {cleanMarkdownContent(article.content)}
-        </ReactMarkdown>
-      </div>
+        <div className="flex flex-col">
+          <h1 className="font-clash text-[clamp(32px,4.2vw,60px)] font-medium leading-[1.03] tracking-[-1.2px] text-black">
+            {article.title}
+          </h1>
 
-      {/* Author Bio */}
-      {article.author?.biography && (
-        <div className="mt-12 p-6 bg-gray-50 rounded-2xl">
-          <div className="flex items-start gap-4">
-            {article.author.avatar && (
-              <Image
-                src={article.author.avatar.url}
-                alt={article.author.full_name}
-                width={64}
-                height={64}
-                className="rounded-full"
-              />
-            )}
-            <div>
-              <p className="font-rubik font-semibold text-gray-900 mb-2">
-                About {article.author.full_name}
-              </p>
-              <p className="font-rubik text-gray-600 text-sm">
-                {article.author.biography}
-              </p>
+          {/* Author chip */}
+          <div className="mt-8 w-fit rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]">
+            <div className="flex items-center gap-4 rounded-[26px] bg-white px-5 py-4 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
+              {article.author?.avatar ? (
+                <Image
+                  src={article.author.avatar.url}
+                  alt={authorName}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+              ) : (
+                <span
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-black/[0.04] font-serif italic text-[16px] text-[#403023]"
+                  aria-hidden="true"
+                >
+                  {authorName.charAt(0)}
+                </span>
+              )}
+              <span className="flex flex-col leading-tight">
+                <span className="font-sans text-[15px] text-[#111827]">
+                  {authorName}
+                </span>
+                <span className="font-sans text-[13px] text-[#8A7D6F]">
+                  {authorRole}
+                </span>
+              </span>
             </div>
           </div>
+
+          {/* Body */}
+          <div
+            className={[
+              "mt-10 max-w-none font-sans text-[clamp(16px,1.4vw,20px)] leading-[1.62] text-[#666666]",
+              "[&_p]:mt-6",
+              "[&_h2]:mt-16 [&_h2]:font-clash [&_h2]:text-[clamp(22px,2.2vw,30px)] [&_h2]:font-medium [&_h2]:leading-[1.37] [&_h2]:tracking-[-0.6px] [&_h2]:text-black",
+              "[&_h3]:mt-10 [&_h3]:font-clash [&_h3]:text-[22px] [&_h3]:font-medium [&_h3]:text-black",
+              "[&_h2+p]:mt-6",
+              "[&_ul]:mt-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:mt-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mt-2",
+              "[&_a]:text-[#403023] [&_a]:underline",
+              "[&_img]:mt-8 [&_img]:rounded-[26px]",
+              "[&_blockquote]:mt-8 [&_blockquote]:border-l-2 [&_blockquote]:border-[#958272] [&_blockquote]:pl-6 [&_blockquote]:italic",
+            ].join(" ")}
+          >
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {cleanMarkdownContent(article.content)}
+            </ReactMarkdown>
+          </div>
         </div>
-      )}
-    </article>
+      </article>
+
+      {/* Quote card */}
+      <aside className="w-full lg:w-[437px] lg:shrink-0">
+        <div className="lg:sticky lg:top-[120px]">
+          <QuoteForm
+            variant="solid"
+            showTitle
+            title="Get your home remodel quote"
+          />
+        </div>
+      </aside>
+    </div>
   );
 }
+
+export default ArticleDetail;

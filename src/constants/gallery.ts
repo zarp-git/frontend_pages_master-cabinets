@@ -1,57 +1,50 @@
-import type {
-  GalleryItem,
-  GalleryCategoryTab,
-} from "@/types/gallery.type";
+import type { GalleryItem, GalleryCategoryTab } from "@/types/gallery.type";
 import { COMPANY_NAME } from "@/constants/business-info";
 
 // ---------------------------------------------------------------------------
-// Category filter tabs
+// Category filter chips — Figma node 60:12187
 // ---------------------------------------------------------------------------
 
 export const GALLERY_CATEGORIES: GalleryCategoryTab[] = [
-  { label: "All Projects",         value: "all" },
-  { label: "Kitchen Cabinetry",    value: "category-1" },
-  { label: "Bathroom Remodeling",  value: "category-2" },
-  { label: "Flooring & Closets",   value: "category-3" },
-  { label: "Outdoor Living",       value: "category-4" },
+  { label: "All", value: "all" },
+  { label: "Home remodel", value: "home-remodel" },
+  { label: "Kitchens", value: "kitchens" },
+  { label: "Bathrooms", value: "bathrooms" },
+  { label: "Carpentry", value: "carpentry" },
+  { label: "Living spaces", value: "living-spaces" },
+  { label: "Tiling", value: "tiling" },
+  { label: "Other", value: "other" },
 ];
 
-const CITIES = ["Naples, FL", "Fort Myers, FL", "Marco Island, FL"];
+const P = "/images/projects";
 
 // ---------------------------------------------------------------------------
-// Gallery items — all use real Master Cabinets project photos
+// Gallery items — real Master Cabinets project photography
 // ---------------------------------------------------------------------------
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  // category-1: Kitchen Cabinetry — 6 items
-  { id: "category-1-01", title: "Luxury Kitchen Remodel with Custom Cabinetry",     src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",  category: "category-1", location: CITIES[0], featured: true },
-  { id: "category-1-02", title: "Custom Kitchen Cabinetry Remodel",                 src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",         category: "category-1", location: CITIES[1] },
-  { id: "category-1-03", title: "Full Kitchen Remodel with Custom Cabinetry",       src: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",    category: "category-1", location: CITIES[2] },
-  { id: "category-1-04", title: "Modern Custom Kitchen Cabinetry",                  src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",          category: "category-1", location: CITIES[0] },
-  { id: "category-1-05", title: "Custom White Kitchen Cabinetry",                   src: "/images/projects/custom-white-kitchen-cabinetry.jpg",           category: "category-1", location: CITIES[1] },
-  { id: "category-1-06", title: "Gray Custom Kitchen Cabinetry",                    src: "/images/projects/gray-custom-kitchen-cabinetry.jpg",            category: "category-1", location: CITIES[2] },
-
-  // category-2: Bathroom Remodeling — 6 items
-  { id: "category-2-01", title: "Bathroom Remodel — Finished Results",              src: "/images/projects/bathroom_remodel_finished_01.jpg",            category: "category-2", location: CITIES[0], featured: true },
-  { id: "category-2-02", title: "Bathroom Remodel — Custom Tile and Fixtures",      src: "/images/projects/bathroom_remodel_finished_02.jpg",            category: "category-2", location: CITIES[1] },
-  { id: "category-2-03", title: "Bathroom Remodel — Spa-Style Shower",              src: "/images/projects/bathroom_remodel_finished_03.jpg",            category: "category-2", location: CITIES[2] },
-  { id: "category-2-04", title: "Bathroom Remodel — Full Gut and Renovation",       src: "/images/projects/bathroom_remodel_finished_04.jpg",            category: "category-2", location: CITIES[0] },
-  { id: "category-2-05", title: "Bathroom Demolition and Complete Renovation",      src: "/images/projects/bathroom_demolition_01.jpg",                  category: "category-2", location: CITIES[1] },
-  { id: "category-2-06", title: "Custom Bathroom Cabinetry and Vanity",             src: "/images/projects/cabinetry_kitchen_finished_02.jpg",           category: "category-2", location: CITIES[2] },
-
-  // category-3: Flooring & Closets — 5 items
-  { id: "category-3-01", title: "Dark Wood Flooring Installation",                  src: "/images/projects/dark-wood-flooring-installation.jpg",          category: "category-3", location: CITIES[0], featured: true },
-  { id: "category-3-02", title: "Flooring and Staircase Remodeling",                src: "/images/projects/flooring-and-staircase-remodeling.jpg",        category: "category-3", location: CITIES[1] },
-  { id: "category-3-03", title: "Residential Flooring Installation",                src: "/images/projects/residential-flooring-installation.jpg",        category: "category-3", location: CITIES[2] },
-  { id: "category-3-04", title: "Custom Walk-In Closet Installation",               src: "/images/projects/custom-walk-in-closet-installation.jpg",       category: "category-3", location: CITIES[0] },
-  { id: "category-3-05", title: "Bedroom Closet Remodel",                           src: "/images/projects/bedroom_closet_remodel_01.jpg",                category: "category-3", location: CITIES[1] },
-
-  // category-4: Outdoor Living — 5 items
-  { id: "category-4-01", title: "Custom Outdoor Kitchen Cabinetry",                 src: "/images/projects/custom-outdoor-kitchen-cabinetry.jpg",         category: "category-4", location: CITIES[0], featured: true },
-  { id: "category-4-02", title: "Custom Outdoor Living Remodel",                    src: "/images/projects/custom-outdoor-living-remodel.jpg",            category: "category-4", location: CITIES[1] },
-  { id: "category-4-03", title: "Custom Built-In Entertainment Center",             src: "/images/projects/custom-built-in-entertainment-center.jpg",     category: "category-4", location: CITIES[2] },
-  { id: "category-4-04", title: "Custom Laundry Room Cabinetry",                    src: "/images/projects/custom-laundry-room-cabinetry.jpg",            category: "category-4", location: CITIES[0] },
-  { id: "category-4-05", title: "Custom Storage and Wine Cabinetry",                src: "/images/projects/custom-storage-and-wine-cabinetry.jpg",        category: "category-4", location: CITIES[1] },
+  { id: "g-01", title: "Bathroom Remodeling",              src: `${P}/bathroom_remodel_finished_01.jpg`,          category: "bathrooms",     badge: "Remodeling",      location: "Bonita Springs, FL", featured: true },
+  { id: "g-02", title: "Flooring Renovation",              src: `${P}/dark-wood-flooring-installation.jpg`,       category: "home-remodel",  badge: "Flooring",        location: "Estero, FL" },
+  { id: "g-03", title: "Interior Hallway Renovation",      src: `${P}/painting_flooring_hallway_finished_01.jpg`, category: "home-remodel",  badge: "Home Remodeling", location: "Miami, FL" },
+  { id: "g-04", title: "Custom Walk-In Closet",            src: `${P}/custom-walk-in-closet-installation.jpg`,    category: "living-spaces", badge: "Living Spaces",   location: "Sarasota, FL" },
+  { id: "g-05", title: "Spa-Style Bathroom Suite",         src: `${P}/bathroom_remodel_finished_03.jpg`,         category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
+  { id: "g-06", title: "Luxury Kitchen Remodel",           src: `${P}/luxury-kitchen-remodel-custom-cabinets.jpg`,category: "kitchens",      badge: "Kitchens",        location: "Naples, FL", featured: true },
+  { id: "g-07", title: "Custom Outdoor Kitchen",           src: `${P}/custom-outdoor-kitchen-cabinetry.jpg`,      category: "other",         badge: "Outdoor Living",  location: "Naples, FL" },
+  { id: "g-08", title: "Modern Custom Kitchen Cabinetry",  src: `${P}/modern-custom-kitchen-cabinetry.jpg`,       category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
+  { id: "g-09", title: "Custom Built-In Entertainment Center", src: `${P}/custom-built-in-entertainment-center.jpg`, category: "carpentry", badge: "Carpentry",       location: "Naples, FL" },
+  { id: "g-10", title: "Master Bathroom Vanity",           src: `${P}/bathroom_remodel_finished_02.jpg`,          category: "bathrooms",     badge: "Bathrooms",       location: "Naples, FL" },
+  { id: "g-11", title: "Tiled Shower & Tub Surround",      src: `${P}/bathroom_remodel_finished_04.jpg`,          category: "tiling",        badge: "Tiling",          location: "Naples, FL" },
+  { id: "g-12", title: "Living Room Remodel",              src: `${P}/remodeling_living-room_finished_01.jpg`,    category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
+  { id: "g-13", title: "Custom Kitchen Cabinetry Remodel", src: `${P}/custom-kitchen-cabinetry-remodel.jpg`,      category: "kitchens",      badge: "Kitchens",        location: "Fort Myers, FL" },
+  { id: "g-14", title: "Full Kitchen Remodel",             src: `${P}/full-kitchen-remodel-custom-cabinetry.jpg`, category: "kitchens",      badge: "Kitchens",        location: "Marco Island, FL" },
+  { id: "g-15", title: "Custom White Kitchen Cabinetry",   src: `${P}/custom-white-kitchen-cabinetry.jpg`,        category: "kitchens",      badge: "Kitchens",        location: "Naples, FL" },
+  { id: "g-16", title: "Gray Custom Kitchen Cabinetry",    src: `${P}/gray-custom-kitchen-cabinetry.jpg`,         category: "kitchens",      badge: "Kitchens",        location: "Bonita Springs, FL" },
+  { id: "g-17", title: "Flooring & Staircase Remodeling",  src: `${P}/flooring-and-staircase-remodeling.jpg`,     category: "home-remodel",  badge: "Flooring",        location: "Fort Myers, FL" },
+  { id: "g-18", title: "Residential Flooring Installation",src: `${P}/residential-flooring-installation.jpg`,     category: "home-remodel",  badge: "Flooring",        location: "Marco Island, FL" },
+  { id: "g-19", title: "Bedroom Closet Remodel",           src: `${P}/bedroom_closet_remodel_01.jpg`,            category: "living-spaces", badge: "Living Spaces",   location: "Naples, FL" },
+  { id: "g-20", title: "Custom Outdoor Living Remodel",    src: `${P}/custom-outdoor-living-remodel.jpg`,         category: "other",         badge: "Outdoor Living",  location: "Fort Myers, FL" },
+  { id: "g-21", title: "Custom Laundry Room Cabinetry",    src: `${P}/custom-laundry-room-cabinetry.jpg`,         category: "carpentry",     badge: "Carpentry",       location: "Naples, FL" },
+  { id: "g-22", title: "Custom Storage & Wine Cabinetry",  src: `${P}/custom-storage-and-wine-cabinetry.jpg`,     category: "carpentry",     badge: "Carpentry",       location: "Fort Myers, FL" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -60,5 +53,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 
 export const GALLERY_SEO = {
   metaTitle: `Project Gallery | ${COMPANY_NAME} — Naples, FL`,
-  metaDescription: `Browse our portfolio of custom cabinetry, kitchen remodels, bathroom renovations, flooring installations, and outdoor living projects across Southwest Florida.`,
+  metaDescription:
+    "Browse our portfolio of custom cabinetry, kitchen remodels, bathroom renovations, flooring installations, and outdoor living projects across Southwest Florida.",
 };
