@@ -198,13 +198,6 @@ export default function Footer({ variant = "default" }: FooterProps) {
                 onLinkClick={openMaintenanceModal}
               />
 
-              {/* Services */}
-              <FooterLinkColumn
-                title="SERVICES"
-                links={FOOTER_SERVICES}
-                onLinkClick={openMaintenanceModal}
-              />
-
               {/* Legal */}
               <FooterLinkColumn
                 title="LEGAL"
