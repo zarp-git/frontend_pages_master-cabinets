@@ -98,12 +98,12 @@
   --mc-espresso-hover: #2C1F14;
   --mc-taupe: #968272;
   --mc-taupe-hover: #7F6E5F;
-  /* Every call to action is espresso — the kit has no orange fill. */
+  /* Every call to action is espresso - the kit has no orange fill. */
   --mc-cta: #403023;
   --mc-cta-hover: #2C1F14;
   /* Gold is reserved for star ratings, never for a button. */
   --mc-gold: #F7AF14;
-  /* Deprecated aliases — kept so older consumers resolve to espresso, not orange. */
+  /* Deprecated aliases - kept so older consumers resolve to espresso, not orange. */
   --mc-orange: #403023;
   --mc-orange-hover: #2C1F14;
   --mc-near-black: #111827;

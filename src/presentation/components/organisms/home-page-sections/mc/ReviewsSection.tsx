@@ -12,10 +12,10 @@ import {
 import { HOME_REVIEWS } from "@/constants/testimonials";
 
 /**
- * ReviewsSection — Figma node 17:2789 (REVIEWS).
+ * ReviewsSection - Figma node 17:2789 (REVIEWS).
  *
  * Centered two-line heading with a Times-italic accent, then a 385px card rail
- * that is 1589px wide inside a 1376px container — i.e. it overflows and scrolls
+ * that is 1589px wide inside a 1376px container - i.e. it overflows and scrolls
  * horizontally by design. Mobile uses an autoplaying Embla carousel.
  */
 export default function ReviewsSection() {

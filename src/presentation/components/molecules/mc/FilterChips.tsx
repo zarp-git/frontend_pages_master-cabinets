@@ -11,7 +11,7 @@ interface FilterChipsProps<T extends string> {
 }
 
 /**
- * FilterChips — Figma filter row on Gallery (60:12187) and Reviews (60:18380).
+ * FilterChips - Figma filter row on Gallery (60:12187) and Reviews (60:18380).
  *
  * pad 8/20 · radius full · Clash Display Medium 13/20 · centred.
  * Active: #403023 espresso fill + matching border + white text.

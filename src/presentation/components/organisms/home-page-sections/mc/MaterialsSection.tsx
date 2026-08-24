@@ -16,7 +16,7 @@ const DETAIL_ITEMS = [
 ] as const;
 
 /**
- * MaterialsSection — Figma node 17:2537.
+ * MaterialsSection - Figma node 17:2537.
  *
  * Left: 60px heading lockup + a bezelled white card holding the 10 detail rows
  * in a 2-column grid (356×56 cells, 16/24 padding). Right: 555×616 bezel with a
@@ -68,7 +68,7 @@ export default function MaterialsSection() {
           <div className="relative h-[604px] w-full overflow-hidden rounded-[26px] bg-[#F0F0F0] shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
             <Image
               src="/images/projects/various-wood-colors-options.png"
-              alt="Wood species and finish samples — Master Cabinets"
+              alt="Wood species and finish samples - Master Cabinets"
               fill
               className="object-cover"
               sizes="543px"

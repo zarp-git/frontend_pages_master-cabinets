@@ -31,10 +31,13 @@ export const COMPANY_TAGLINE =
 // ---------------------------------------------------------------------------
 // NAP (Name, Address, Phone)
 // ---------------------------------------------------------------------------
-// TODO: Real street address needed — confirm with client before launch
+// The client briefing does not supply a street address - Master Cabinets works
+// as a service-area business across South West Florida. Until a real address is
+// confirmed, `street` stays empty and is omitted from the schema below rather
+// than shipping a placeholder that Google would index.
 export const ADDRESS = {
   label: "Master Cabinets LLC",
-  street: "TODO: Real address needed",
+  street: "",
   fullStreet: "Naples, FL 34102, US",
   city: "Naples",
   region: "FL",
@@ -58,12 +61,12 @@ export const PHONE = {
   schema: "+1-239-255-2050",
 } as const;
 
-export const PHONE_SECONDARY = {
-  display: "+1 (772) 828-7875",
-  href: "tel:+17728287875",
-  raw: "+17728287875",
-  schema: "+1-772-828-7875",
-} as const;
+/**
+ * The briefing lists a single number, so the secondary pill points at the same
+ * line rather than a second one. Kept as a named export so the call sites do
+ * not have to change if the client supplies a real second number later.
+ */
+export const PHONE_SECONDARY = PHONE;
 
 export const EMAIL = "mastercabinetsllc@gmail.com" as const;
 
@@ -87,11 +90,12 @@ export const BUSINESS_HOURS = {
 // ---------------------------------------------------------------------------
 // Social & Maps
 // ---------------------------------------------------------------------------
+// Only the profiles the client actually confirmed in the briefing. The
+// previous Facebook and WhatsApp entries were placeholders, and the Instagram
+// handle was wrong (mastercabinetsllc vs the real master_cabinets_).
 export const SOCIAL_LINKS = {
-  whatsapp: `https://wa.me/${PHONE.raw}`,
-  instagram: "https://www.instagram.com/mastercabinetsllc/",
-  facebook: "https://www.facebook.com/mastercabinetsllc/",
-  googleMaps: "https://www.google.com/maps",
+  instagram: "https://www.instagram.com/master_cabinets_",
+  googleMaps: "https://maps.app.goo.gl/GAPj9f4XFaRrcZB46",
 } as const;
 
 export const GOOGLE_MAPS_EMBED_URL = "" as const;
@@ -101,7 +105,9 @@ export const GOOGLE_MAPS_EMBED_URL = "" as const;
 // ---------------------------------------------------------------------------
 export const SCHEMA_ADDRESS = {
   "@type": "PostalAddress" as const,
-  streetAddress: ADDRESS.street,
+  // streetAddress is intentionally absent while unknown: PostalAddress is valid
+  // without it, and a placeholder string is worse than no value.
+  ...(ADDRESS.street ? { streetAddress: ADDRESS.street } : {}),
   addressLocality: ADDRESS.city,
   addressRegion: ADDRESS.region,
   postalCode: ADDRESS.postalCode,

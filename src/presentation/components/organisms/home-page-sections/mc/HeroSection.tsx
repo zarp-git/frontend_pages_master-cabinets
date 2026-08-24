@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 
 /**
- * HeroSection — Figma node 17:1784
+ * HeroSection - Figma node 17:1784
  * 2-column split: left copy/trust badges, right glassmorphism quote card.
  * Background: #3F2F22 with hero image fill + dark overlay.
  * Mobile: background auto-rotates through 3 luxury kitchen photos (4s interval).
@@ -16,19 +16,19 @@ import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 const HERO_IMAGES = [
   {
     src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
-    alt: "Luxury kitchen remodel — Master Cabinets",
+    alt: "Luxury kitchen remodel - Master Cabinets",
   },
   {
     src: "/images/projects/full-kitchen-remodel-custom-cabinetry.jpg",
-    alt: "Full kitchen remodel — Master Cabinets",
+    alt: "Full kitchen remodel - Master Cabinets",
   },
   {
     src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
-    alt: "Modern custom kitchen cabinetry — Master Cabinets",
+    alt: "Modern custom kitchen cabinetry - Master Cabinets",
   },
   {
     src: "/images/projects/custom-white-kitchen-cabinetry.jpg",
-    alt: "Custom white kitchen cabinetry — Master Cabinets",
+    alt: "Custom white kitchen cabinetry - Master Cabinets",
   },
 ] as const;
 
@@ -98,7 +98,7 @@ export default function HeroSection() {
       >
         {/* ── Left column: Copy ── */}
         <div className="flex w-full min-w-0 max-w-[863px] flex-1 flex-col gap-5 sm:gap-6">
-          {/* H1 Display Headline Stack — Figma node 17:1787 */}
+          {/* H1 Display Headline Stack - Figma node 17:1787 */}
           <h1 className="flex flex-col" aria-label="Remodeling, Cabinetry, and Everything Between">
             <span className={HEADLINE_LINE}>Remodeling,</span>
             <span className={HEADLINE_LINE}>Cabinetry, and</span>
@@ -107,14 +107,14 @@ export default function HeroSection() {
             </em>
           </h1>
 
-          {/* Subtext — Figma node 17:1802 */}
+          {/* Subtext - Figma node 17:1802 */}
           <p className="max-w-[512px] font-sans text-[16px] font-normal leading-[1.62] text-[#E5E7EB] sm:text-[18px]">
             Kitchens, closets, bathrooms, flooring, painting, electrical, outdoor
             living. Our licensed team handles your entire remodel, from the interior
             of the house to the outside.
           </p>
 
-          {/* Trust Badges Row — Figma node 48:5423 */}
+          {/* Trust Badges Row - Figma node 48:5423 */}
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             {["Licensed", "Insured", "Locally trusted"].map((badge) => (
               <div key={badge} className="flex items-center gap-2">

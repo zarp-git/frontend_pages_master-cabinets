@@ -30,9 +30,7 @@ const SERVICE_CITIES =
 
 const SOCIALS = [
   { href: SOCIAL_LINKS.instagram, src: "/images/brands/instagram-icon.svg", label: "Instagram" },
-  { href: SOCIAL_LINKS.whatsapp, src: "/images/brands/whatsapp-icon.svg", label: "WhatsApp" },
-  { href: SOCIAL_LINKS.facebook, src: "/images/brands/facebook-icon.svg", label: "Facebook" },
-  { href: SOCIAL_LINKS.googleMaps, src: "/images/brands/google-maps-icon.svg", label: "Google Maps" },
+  { href: SOCIAL_LINKS.googleMaps, src: "/images/brands/google-maps-icon.svg", label: "Google Business Profile" },
 ] as const;
 
 const LEGAL_LINKS = [
@@ -40,7 +38,7 @@ const LEGAL_LINKS = [
   { label: "Terms of Service", href: "/terms-of-use" },
 ] as const;
 
-/** Column label pill — Figma `Text` chip, bg rgba(0,0,0,.04), Segoe 10/15 ls 2. */
+/** Column label pill - Figma `Text` chip, bg rgba(0,0,0,.04), Segoe 10/15 ls 2. */
 function ColumnLabel({
   children,
   className,
@@ -63,7 +61,7 @@ function ColumnLabel({
 }
 
 /**
- * SiteFooter — Figma `FOOTER` component (17:1781 and every page instance).
+ * SiteFooter - Figma `FOOTER` component (17:1781 and every page instance).
  *
  * A #968272 taupe band (pad 96/64/48) wrapping a white radius-26 card
  * (pad 80/56). Inside: the espresso logo lockup, a four-column grid with
@@ -74,7 +72,7 @@ export default function SiteFooter() {
     <footer className="w-full bg-[#968272] px-4 pb-12 pt-16 sm:px-8 lg:px-16 lg:pt-24">
       <div className="mx-auto max-w-[1312px] rounded-[26px] bg-white px-6 py-12 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:px-10 lg:px-14 lg:py-20">
         {/* Logo lockup */}
-        <Link href="/" aria-label={`${COMPANY_NAME} — home`} className="block">
+        <Link href="/" aria-label={`${COMPANY_NAME} - home`} className="block">
           <Image
             src="/images/mc-logo.svg"
             alt={COMPANY_NAME}

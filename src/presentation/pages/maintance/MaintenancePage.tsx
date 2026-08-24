@@ -79,7 +79,7 @@ export default function MaintenancePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors duration-200 font-rubik group"
-                aria-label="[Directions to your office — update this aria-label]"
+                aria-label="[Directions to your office - update this aria-label]"
               >
                 <RiMapPinLine
                   className="w-4 h-4 group-hover:scale-110 transition-transform"

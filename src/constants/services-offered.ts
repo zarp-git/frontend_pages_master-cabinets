@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Services offered — single source of truth for the homepage interactive list
+// Services offered - single source of truth for the homepage interactive list
 // and the contact wizard's service chips (Figma node 17:2200).
 // ---------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ export const SERVICES_OFFERED: ServiceOffered[] = [
   { index: "09", label: "Architectural Millwork",      image: `${P}/custom-built-in-entertainment-center.jpg` },
 ];
 
-/** Labels only — used by the contact wizard chips, plus an "Other" escape hatch. */
+/** Labels only - used by the contact wizard chips, plus an "Other" escape hatch. */
 export const SERVICE_CHOICE_LABELS: string[] = [
   ...SERVICES_OFFERED.map((s) => s.label),
   "Other",

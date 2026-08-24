@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   /** First line, rendered entirely in Clash Display. */
   line1: string;
-  /** Second line — the part before the italic accent. */
+  /** Second line - the part before the italic accent. */
   line2?: string;
   /** The trailing words rendered in Times New Roman italic (Figma accent run). */
   accent?: string;
@@ -29,7 +29,7 @@ const SIZE_CLASS: Record<48 | 60 | 64, string> = {
 };
 
 /**
- * SectionHeading — the Master Cabinets heading lockup.
+ * SectionHeading - the Master Cabinets heading lockup.
  *
  * Figma pattern (verified against every section of node 17:1781, 48:8801,
  * 60:12187, 60:18380, 48:11240, 48:10112): Clash Display Medium with a trailing

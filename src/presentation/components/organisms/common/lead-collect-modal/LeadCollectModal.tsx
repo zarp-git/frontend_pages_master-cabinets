@@ -66,27 +66,27 @@ const leadFormSchema = z
     }
   });
 
-// [Lead form service options — replace with the services your business offers]
+// [Lead form service options - replace with the services your business offers]
 const projectTypeOptions = [
   {
     value: "service-1",
     label: "[Service 1]",
-    description: "[Short description of service 1 — highlight the main benefit for the customer.]"
+    description: "[Short description of service 1 - highlight the main benefit for the customer.]"
   },
   {
     value: "service-2",
     label: "[Service 2]",
-    description: "[Short description of service 2 — highlight the main benefit for the customer.]"
+    description: "[Short description of service 2 - highlight the main benefit for the customer.]"
   },
   {
     value: "service-3",
     label: "[Service 3]",
-    description: "[Short description of service 3 — highlight the main benefit for the customer.]"
+    description: "[Short description of service 3 - highlight the main benefit for the customer.]"
   },
   {
     value: "service-4",
     label: "[Service 4]",
-    description: "[Short description of service 4 — highlight the main benefit for the customer.]"
+    description: "[Short description of service 4 - highlight the main benefit for the customer.]"
   },
 ];
 

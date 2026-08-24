@@ -7,7 +7,7 @@ import PricingCTASection from "@/presentation/components/organisms/home-page-sec
 import { PHONE, PHONE_SECONDARY, EMAIL } from "@/constants/business-info";
 
 /**
- * ContactPageView — intro copy and contact details beside the shared 3-step
+ * ContactPageView - intro copy and contact details beside the shared 3-step
  * wizard, following the JB of Southwest Florida contact pattern.
  *
  * The wizard lives in contact-wizard/ so the page and any modal entry point
@@ -22,7 +22,7 @@ export function ContactPageView() {
         aria-label="Contact Master Cabinets"
       >
         <div className="flex flex-col gap-12 xl:flex-row xl:items-start xl:justify-between">
-          {/* Left — intro + contact details */}
+          {/* Left - intro + contact details */}
           <div className="flex w-full min-w-0 flex-col gap-6 xl:max-w-[480px]">
             <EyebrowPill>Contact us</EyebrowPill>
 
@@ -36,7 +36,7 @@ export function ContactPageView() {
             <p className="font-sans text-[clamp(16px,1.4vw,20px)] leading-[1.62] text-[#666666]">
               Tell us about the space, the condition you&apos;re dealing with
               and the result you want. We&apos;ll review it and help define the
-              next useful step — usually within 1–2 days.
+              next useful step - usually within 1–2 days.
             </p>
 
             {/* Phone and email sit side by side and wrap to their own lines
@@ -88,7 +88,7 @@ export function ContactPageView() {
             </p>
           </div>
 
-          {/* Right — wizard card in a bezel */}
+          {/* Right - wizard card in a bezel */}
           <div className="w-full min-w-0 rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] xl:w-[559px] xl:shrink-0">
             <div className="rounded-[26px] bg-white p-6 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:p-8">
               <ContactWizard source="contact-page" />

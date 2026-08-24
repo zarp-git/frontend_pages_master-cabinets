@@ -25,7 +25,7 @@ const FEATURES = [
 ] as const;
 
 /**
- * FeaturesSection — Figma node 17:2464 (FEATURES).
+ * FeaturesSection - Figma node 17:2464 (FEATURES).
  *
  * Outer bezel (pad 60/64, radius 32, 0 24px 80px rgba(0,0,0,.18)) wrapping a
  * #968272 taupe panel (radius 26, pad 64, gap 48). Centered white heading,

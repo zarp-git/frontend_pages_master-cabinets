@@ -59,7 +59,7 @@ export function StatsCard({ className }: StatsCardProps) {
             +{count1}
           </span>
           <span className="text-sm text-[#4B5563] mt-2">
-            {/* Stat 1 label — e.g. "Projects Completed" */}
+            {/* Stat 1 label - e.g. "Projects Completed" */}
             [Stat 1 label]
           </span>
         </div>
@@ -68,7 +68,7 @@ export function StatsCard({ className }: StatsCardProps) {
             +{count2}
           </span>
           <span className="text-sm text-[#4B5563] mt-2">
-            {/* Stat 2 label — e.g. "Happy Clients" */}
+            {/* Stat 2 label - e.g. "Happy Clients" */}
             [Stat 2 label]
           </span>
         </div>
@@ -77,7 +77,7 @@ export function StatsCard({ className }: StatsCardProps) {
             +{formatCount3}
           </span>
           <span className="text-sm text-[#4B5563] mt-2">
-            {/* Stat 3 label — e.g. "Sq Ft Installed" */}
+            {/* Stat 3 label - e.g. "Sq Ft Installed" */}
             [Stat 3 label]
           </span>
         </div>

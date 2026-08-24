@@ -24,7 +24,7 @@ import { submitLeadAction } from "@/server/actions";
 import { cn } from "@/lib/utils";
 
 // ---------------------------------------------------------------------------
-// ContactWizard — the 3-step lead form.
+// ContactWizard - the 3-step lead form.
 //
 // Ported from the JB of Southwest Florida build (the sibling remodeling site)
 // and restyled onto the Master Cabinets kit: Clash Display headings, espresso
@@ -566,10 +566,10 @@ function SuccessState() {
         <RiCheckLine className="h-6 w-6 text-white" />
       </span>
       <h2 className="font-clash text-[clamp(24px,2.5vw,32px)] font-medium leading-tight tracking-[-0.5px] text-[#403023]">
-        Thanks — your request is in.
+        Thanks - your request is in.
       </h2>
       <p className="font-sans text-[16px] leading-[1.62] text-[#666666]">
-        We&apos;ll review the details and reach out with the next useful step —
+        We&apos;ll review the details and reach out with the next useful step - 
         usually within 1–2 days. Prefer to talk now? Call us directly.
       </p>
       <Link

@@ -11,7 +11,7 @@ import {
 } from "@/presentation/components/atoms/ui/carousel";
 
 /**
- * GallerySection — Figma node 48:9792 (GALLERY).
+ * GallerySection - Figma node 48:9792 (GALLERY).
  *
  * 8-column × 2-row bento grid (186px cells, 192px rows, 12px gaps → 1572px wide)
  * inside a 1376px container, so the collage deliberately overflows and scrolls
@@ -22,43 +22,43 @@ import {
 const TILES = [
   {
     src: "/images/projects/luxury-kitchen-remodel-custom-cabinets.jpg",
-    alt: "Luxury kitchen remodel with custom cabinetry — Master Cabinets",
+    alt: "Luxury kitchen remodel with custom cabinetry - Master Cabinets",
     // col 1-2, row 1-2
     area: "lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3",
   },
   {
     src: "/images/projects/modern-custom-kitchen-cabinetry.jpg",
-    alt: "Modern custom kitchen cabinetry — Master Cabinets",
+    alt: "Modern custom kitchen cabinetry - Master Cabinets",
     // col 3, row 1
     area: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
     src: "/images/projects/dark-wood-flooring-installation.jpg",
-    alt: "Dark wood flooring installation — Master Cabinets",
+    alt: "Dark wood flooring installation - Master Cabinets",
     // col 4-5, row 1
     area: "lg:col-start-4 lg:col-end-6 lg:row-start-1 lg:row-end-2",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_02.jpg",
-    alt: "Master bathroom remodel with custom vanity — Master Cabinets",
+    alt: "Master bathroom remodel with custom vanity - Master Cabinets",
     // col 6, row 1
     area: "lg:col-start-6 lg:col-end-7 lg:row-start-1 lg:row-end-2",
   },
   {
     src: "/images/projects/painting_flooring_hallway_finished_01.jpg",
-    alt: "Interior hallway painting and flooring — Master Cabinets",
+    alt: "Interior hallway painting and flooring - Master Cabinets",
     // col 7-8, row 1-2
     area: "lg:col-start-7 lg:col-end-9 lg:row-start-1 lg:row-end-3",
   },
   {
     src: "/images/projects/gray-custom-kitchen-cabinetry.jpg",
-    alt: "Gray custom kitchen cabinetry — Master Cabinets",
+    alt: "Gray custom kitchen cabinetry - Master Cabinets",
     // col 3-4, row 2
     area: "lg:col-start-3 lg:col-end-5 lg:row-start-2 lg:row-end-3",
   },
   {
     src: "/images/projects/remodeling_living-room_finished_01.jpg",
-    alt: "Living room remodel with built-in storage — Master Cabinets",
+    alt: "Living room remodel with built-in storage - Master Cabinets",
     // col 5-6, row 2
     area: "lg:col-start-5 lg:col-end-7 lg:row-start-2 lg:row-end-3",
   },
@@ -76,7 +76,7 @@ export default function GallerySection() {
           accent="Gallery"
           accentInline
           align="center"
-          subtitle="A curated selection of our finest craftsmanship across different residential spaces — the meticulous detail in our materials and joinery."
+          subtitle="A curated selection of our finest craftsmanship across different residential spaces - the meticulous detail in our materials and joinery."
         />
       </div>
 

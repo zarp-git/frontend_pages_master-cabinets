@@ -4,7 +4,7 @@ export default {
 	title: `Custom Cabinets & Home Remodeling in South Florida | ${COMPANY_NAME}`,
 	blog_title: `Blog | ${COMPANY_NAME}`,
 	description:
-		"Master Cabinets LLC — licensed home remodeling, custom cabinetry, bathroom renovations, flooring & outdoor living in Naples, Bonita Springs, Fort Myers & South Florida. 25+ years experience. Free quotes.",
+		"Master Cabinets LLC - licensed home remodeling, custom cabinetry, bathroom renovations, flooring & outdoor living in Naples, Bonita Springs, Fort Myers & South Florida. 25+ years experience. Free quotes.",
 	keywords: "custom cabinets, home remodeling, kitchen renovation, bathroom remodeling, Naples FL, Bonita Springs, Fort Myers, South Florida, walk-in closets, flooring installation",
 	openGraph: {
 		type: "website",
@@ -19,7 +19,7 @@ export default {
 				url: `${SITE_URL}/images/projects/cabinetry_kitchen_finished_01.png`,
 				width: 1200,
 				height: 630,
-				alt: `${COMPANY_NAME} — Custom Cabinetry & Home Remodeling in South Florida`,
+				alt: `${COMPANY_NAME} - Custom Cabinetry & Home Remodeling in South Florida`,
 			},
 		],
 	},
@@ -34,6 +34,6 @@ export default {
 	},
 	// NOTE: alternates.canonical intentionally omitted here.
 	// Setting a global canonical causes every page that spreads this config to emit
-	// canonical="/" — silently marking every route as a duplicate of the homepage.
+	// canonical="/" - silently marking every route as a duplicate of the homepage.
 	// Canonicals must be set per page in each leaf page.tsx via generateMetadata.
 };

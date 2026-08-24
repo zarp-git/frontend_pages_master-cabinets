@@ -26,7 +26,7 @@ export const legalPagesConfig: Record<string, LegalPageConfig> = {
   "terms-of-use": {
     title: "Terms of Use",
     description:
-      "[Terms of Use description — conditions governing the use of the website and the company's services.]",
+      "[Terms of Use description - conditions governing the use of the website and the company's services.]",
     lastUpdated: LAST_UPDATED,
     icon: "FileText",
     metadata: createMetadata(
@@ -43,7 +43,7 @@ export const legalPagesConfig: Record<string, LegalPageConfig> = {
   "privacy-policy": {
     title: "Privacy Policy",
     description:
-      "[Privacy Policy description — how the company collects, uses, and protects personal data.]",
+      "[Privacy Policy description - how the company collects, uses, and protects personal data.]",
     lastUpdated: LAST_UPDATED,
     icon: "Shield",
     metadata: createMetadata(

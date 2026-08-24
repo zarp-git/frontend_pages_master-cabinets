@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface HScrollProps {
   children: React.ReactNode;
   /**
-   * Layout applied once the list stops scrolling — e.g.
+   * Layout applied once the list stops scrolling - e.g.
    * "sm:grid sm:grid-cols-2" or "lg:flex-wrap". Omit to scroll at every width.
    */
   expandedClassName?: string;
@@ -21,7 +21,7 @@ interface HScrollProps {
 }
 
 /**
- * HScroll — the shared horizontal rail used for every list in the kit:
+ * HScroll - the shared horizontal rail used for every list in the kit:
  * service pills, filter chips, value cards, pricing pillars and material rows.
  *
  * Snap scrolling with the scrollbar hidden, edge bleed so items run to the
@@ -29,7 +29,7 @@ interface HScrollProps {
  * shadows are not clipped by the scroll container (the same fix the reviews
  * and gallery rails needed).
  *
- * Items should carry `snap-start` plus their own width — typically
+ * Items should carry `snap-start` plus their own width - typically
  * `w-[78%] shrink-0` on mobile, released at the breakpoint used by
  * `expandedClassName`.
  */

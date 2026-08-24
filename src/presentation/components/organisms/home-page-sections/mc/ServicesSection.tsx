@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 import { SERVICES_OFFERED as SERVICES } from "@/constants/services-offered";
 
 /**
- * ServicesSection — Figma node 17:2200 (SERVICES).
+ * ServicesSection - Figma node 17:2200 (SERVICES).
  *
- * Left column: heading lockup plus the service pills — a snap-scrolling rail on
+ * Left column: heading lockup plus the service pills - a snap-scrolling rail on
  * phones, the kit's two-column bezel grid from `sm` up (300×62 outer, 293×55
  * inner, radius 19/16; the active pill fills #E4E4E4).
  * Right column: the image panel with a #FFFDF7 label pill and prev/next
@@ -82,12 +82,12 @@ export default function ServicesSection() {
             </HScroll>
           </div>
 
-          {/* Right: image panel — visible at every width */}
+          {/* Right: image panel - visible at every width */}
           <div className="relative aspect-[4/3] w-full min-w-0 shrink-0 overflow-hidden rounded-[26px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:aspect-[16/10] xl:aspect-auto xl:h-[660px] xl:w-[634px]">
             <Image
               key={active.image}
               src={active.image}
-              alt={`${active.label} — Master Cabinets`}
+              alt={`${active.label} - Master Cabinets`}
               fill
               className="object-cover"
               sizes="(min-width: 1280px) 634px, 100vw"

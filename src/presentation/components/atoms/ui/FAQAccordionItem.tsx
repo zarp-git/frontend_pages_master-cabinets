@@ -15,7 +15,7 @@ interface FAQAccordionItemProps {
 }
 
 /**
- * FAQAccordionItem — Figma node 48:5492 (faq-item).
+ * FAQAccordionItem - Figma node 48:5492 (faq-item).
  *
  * Bezel: pad 6 · bg rgba(0,0,0,.04) · radius 32.
  * Surface: white · radius 26 · row pad 28/32 · space-between · gap 24.

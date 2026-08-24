@@ -58,7 +58,7 @@ const PROCESS_STEPS = [
   {
     index: "01",
     title: "Consultation",
-    body: "We listen to what is not working and how you imagine the finished space — no pressure, no generic sales pitch.",
+    body: "We listen to what is not working and how you imagine the finished space - no pressure, no generic sales pitch.",
   },
   {
     index: "02",
@@ -78,7 +78,7 @@ const PROCESS_STEPS = [
 ] as const;
 
 /**
- * AboutPageView — Figma node 48:8801 (ABOUT US).
+ * AboutPageView - Figma node 48:8801 (ABOUT US).
  *
  * Brand card → "A Single Team…" lockup → Principles grid (6 bezelled cards) →
  * the shared Featured Work gallery → the taupe process panel → FAQ → CTA.
@@ -86,7 +86,7 @@ const PROCESS_STEPS = [
 export function AboutPageView() {
   return (
     <main className="w-full bg-white">
-      {/* 1 — Brand card + intro */}
+      {/* 1 - Brand card + intro */}
       <section
         className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[92px] sm:pt-[104px] lg:pt-[120px] sm:px-8"
         aria-label="About Master Cabinets"
@@ -118,7 +118,7 @@ export function AboutPageView() {
         <div className="flex flex-col items-start justify-between gap-8 pt-10 lg:flex-row lg:items-end">
           <p className="max-w-[742px] font-sans text-[clamp(18px,1.7vw,24px)] font-light leading-[1.63] text-[#666666]">
             For more than 25 years, Master Cabinets has helped South Florida
-            homeowners remodel their homes end to end — cabinetry, flooring,
+            homeowners remodel their homes end to end - cabinetry, flooring,
             painting, electrical, and outdoor work, coordinated through one
             dedicated point of contact. Licensed &amp; Insured.
           </p>
@@ -126,7 +126,7 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* 2 — Principles */}
+      {/* 2 - Principles */}
       <section
         className="mx-auto w-full max-w-[1364px] px-4 py-16 sm:px-8"
         aria-label="How we work"
@@ -185,10 +185,10 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* 3 — Featured work (shared with the homepage) */}
+      {/* 3 - Featured work (shared with the homepage) */}
       <GallerySection />
 
-      {/* 4 — Process */}
+      {/* 4 - Process */}
       <section
         className="mx-auto w-full max-w-[1364px] px-4 py-12 sm:px-8"
         aria-label="Our process"
@@ -232,7 +232,7 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* 5 — FAQ + CTA */}
+      {/* 5 - FAQ + CTA */}
       <FAQSection />
       <PricingCTASection />
     </main>

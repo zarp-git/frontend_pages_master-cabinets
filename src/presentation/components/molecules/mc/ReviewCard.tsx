@@ -57,7 +57,7 @@ function AuthorInitials({ name }: { name: string }) {
 }
 
 /**
- * ReviewCard — Figma node 45:4982 (ReviewCard instance).
+ * ReviewCard - Figma node 45:4982 (ReviewCard instance).
  *
  * White card · radius 24 · border #EFEFEF · shadow 0 9 22 rgba(40,31,19,.06)
  * pad 24 · gap 12. Header is space-between: avatar + name on the left, a

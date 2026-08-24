@@ -36,7 +36,7 @@ interface FormData {
 
 const INITIAL_FORM: FormData = { name: "", phone: "", space: "", message: "" };
 
-/** Dropdown options for "Space to remodel" — mirrors the JB of SWFL capture form. */
+/** Dropdown options for "Space to remodel" - mirrors the JB of SWFL capture form. */
 const SPACE_OPTIONS = [
   "Kitchen",
   "Bathroom",
@@ -48,13 +48,13 @@ const SPACE_OPTIONS = [
 ] as const;
 
 // The lead endpoint requires a syntactically valid email, but this form only
-// asks for a phone. Send a reserved .invalid address derived from the number —
+// asks for a phone. Send a reserved .invalid address derived from the number - 
 // unique per lead, and obviously not a real inbox.
 const placeholderEmail = (phone: string) =>
   `${phone.replace(/\D/g, "") || "unknown"}@no-email.invalid`;
 
 /**
- * QuoteForm — Figma node 60:12819 / 48:5376, following the JB of Southwest
+ * QuoteForm - Figma node 60:12819 / 48:5376, following the JB of Southwest
  * Florida capture-form pattern: icon-led pill fields, a real `<select>` for the
  * space (custom chevron, `invalid:` styling so the placeholder option matches
  * the other placeholders) and a single espresso submit.
@@ -187,7 +187,7 @@ export default function QuoteForm({
             />
           </label>
 
-          {/* Space to remodel — a real dropdown at every breakpoint.
+          {/* Space to remodel - a real dropdown at every breakpoint.
               `required` + `invalid:` keeps the empty placeholder option in the
               same muted tone as the other placeholders, and the chevron
               replaces the native arrow removed by `appearance-none`. */}

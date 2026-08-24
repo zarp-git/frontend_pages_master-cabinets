@@ -32,30 +32,30 @@ const VALUE_BLOCKS = [
 const MOSAIC = [
   {
     src: "/images/projects/custom-walk-in-closet-installation.jpg",
-    alt: "Custom walk-in closet installation — Master Cabinets",
+    alt: "Custom walk-in closet installation - Master Cabinets",
     span: "col-span-1",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_01.jpg",
-    alt: "Finished bathroom remodel — Master Cabinets",
+    alt: "Finished bathroom remodel - Master Cabinets",
     span: "col-span-1",
   },
   {
     src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-    alt: "Custom kitchen cabinetry remodel — Master Cabinets",
+    alt: "Custom kitchen cabinetry remodel - Master Cabinets",
     span: "col-span-2",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_03.jpg",
-    alt: "Master bathroom with custom vanity — Master Cabinets",
+    alt: "Master bathroom with custom vanity - Master Cabinets",
     span: "col-span-2",
   },
 ] as const;
 
 /**
- * AboutTeamSection — Figma node 17:1855 (Who We Are / Single Team Advantage).
+ * AboutTeamSection - Figma node 17:1855 (Who We Are / Single Team Advantage).
  *
- * Left: 2×3 photo mosaic (622px, 16px gaps — two 303px tiles on top, two
+ * Left: 2×3 photo mosaic (622px, 16px gaps - two 303px tiles on top, two
  * full-width tiles below). Right: heading lockup, supporting copy and three
  * bezelled value cards (icon chip · title · Times-italic numeral · body).
  */

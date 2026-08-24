@@ -59,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Blog posts — fetched from API at revalidation time.
+  // Blog posts - fetched from API at revalidation time.
   let blogPages: MetadataRoute.Sitemap = [];
   try {
     const { data: articles } = await getArticles(1, 200);
@@ -70,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
   } catch {
-    // API unavailable during build — blog entries included on next revalidation
+    // API unavailable during build - blog entries included on next revalidation
   }
 
   return [...staticPages, ...blogPages];

@@ -29,7 +29,7 @@ interface BlogListProps {
 }
 
 /**
- * BlogList — Figma node 48:11240 (BLOG).
+ * BlogList - Figma node 48:11240 (BLOG).
  *
  * Page lockup → a raised bezel featuring the newest post (image left, copy
  * right) → a 3-column grid of #E5DECD-bordered cards → the Load More pill.
@@ -66,7 +66,7 @@ export function BlogList({ articles }: BlogListProps) {
 
       {articles.length === 0 && (
         <p className="py-20 text-center font-sans text-lg text-[#666666]">
-          No articles published yet — check back soon.
+          No articles published yet - check back soon.
         </p>
       )}
     </div>
@@ -74,7 +74,7 @@ export function BlogList({ articles }: BlogListProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Featured card — Figma `Link` > `Bezel` 1300×495
+// Featured card - Figma `Link` > `Bezel` 1300×495
 // ---------------------------------------------------------------------------
 function FeaturedArticle({ article }: { article: BlogArticleSummary }) {
   const image = getPrimaryBlogImage(article.images);
@@ -135,7 +135,7 @@ function FeaturedArticle({ article }: { article: BlogArticleSummary }) {
 }
 
 // ---------------------------------------------------------------------------
-// Grid card — Figma `Link` 411×489
+// Grid card - Figma `Link` 411×489
 // ---------------------------------------------------------------------------
 function ArticleCard({ article }: { article: BlogArticleSummary }) {
   const image = getPrimaryBlogImage(article.images);

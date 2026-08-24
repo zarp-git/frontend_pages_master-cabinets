@@ -1,5 +1,3 @@
-"use client";
-
 import { JsonLd } from "./json-ld";
 import {
   SITE_URL,
@@ -12,13 +10,13 @@ import {
   SOCIAL_LINKS,
 } from "@/constants/business-info";
 
-// Article structured data — replace with content relevant to your business
+// Article structured data - replace with content relevant to your business
 export const ArticleJsonLd = () => {
   const articleData = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `${COMPANY_NAME}: [Main article headline about the company's services]`,
-    description: "[Article description — summarize the main services and service area.]",
+    description: "[Article description - summarize the main services and service area.]",
     image: [
       `${SITE_URL}/images/hero/logo.png`,
     ],
@@ -35,7 +33,7 @@ export const ArticleJsonLd = () => {
         url: `${SITE_URL}/images/hero/logo.png`,
       },
     },
-    // Replace with actual publication dates — do not leave as hardcoded strings
+    // Replace with actual publication dates - do not leave as hardcoded strings
     datePublished: new Date().toISOString().split('T')[0],
     dateModified: new Date().toISOString().split('T')[0],
     mainEntityOfPage: {
@@ -54,15 +52,15 @@ export const ArticleJsonLd = () => {
       "[city/region keyword 2]",
       "[industry keyword]",
     ],
-    articleSection: "[Article section — e.g. 'Home Improvement']",
-    // wordCount omitted — do not hardcode a guess; omit or compute dynamically from real content
+    articleSection: "[Article section - e.g. 'Home Improvement']",
+    // wordCount omitted - do not hardcode a guess; omit or compute dynamically from real content
     inLanguage: "en-US",
   };
 
   return <JsonLd data={articleData} id="article-json-ld" />;
 };
 
-// Local business structured data — Master Cabinets LLC
+// Local business structured data - Master Cabinets LLC
 export const LocalBusinessJsonLd = () => {
   const localBusinessData = {
     "@context": "https://schema.org",
@@ -83,7 +81,6 @@ export const LocalBusinessJsonLd = () => {
     currenciesAccepted: "USD",
     sameAs: [
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.googleMaps,
     ],
     areaServed: [
@@ -195,7 +192,7 @@ export const WebSiteJsonLd = () => {
       "@type": "Organization",
       name: COMPANY_NAME,
     },
-    // NOTE: potentialAction/SearchAction removed — only add back if a real /search route exists.
+    // NOTE: potentialAction/SearchAction removed - only add back if a real /search route exists.
     publisher: {
       "@type": "Organization",
       name: COMPANY_NAME,

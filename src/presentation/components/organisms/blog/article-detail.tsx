@@ -12,7 +12,7 @@ interface ArticleDetailProps {
 }
 
 /**
- * ArticleDetail — Figma node 48:10112 (BLOG ARTICLE).
+ * ArticleDetail - Figma node 48:10112 (BLOG ARTICLE).
  *
  * Two columns with a 48px gutter: a 720px article rail (radius-26 hero image,
  * Clash 60 title, bezelled author chip, Segoe 20/32 body, Clash 30 headings)

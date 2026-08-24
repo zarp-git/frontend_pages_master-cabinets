@@ -6,7 +6,7 @@ import SectionHeading from "@/presentation/components/molecules/mc/SectionHeadin
 import { FAQ_ITEMS } from "@/constants/faq";
 
 /**
- * FAQSection — Figma node 48:9426.
+ * FAQSection - Figma node 48:9426.
  *
  * Left column (554px): eyebrow pill, the taupe warranty crest, supporting copy
  * and the CTA pair. Right column (726px): 60px heading lockup with a Times

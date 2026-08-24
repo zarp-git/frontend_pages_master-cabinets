@@ -18,7 +18,7 @@ const PAGE_SIZE = 9;
 const CHIP_OPTIONS = MC_FILTER_CATEGORIES.map((c) => ({ label: c, value: c }));
 
 /**
- * ReviewsPageView — Figma node 60:18380 (REVIEWS).
+ * ReviewsPageView - Figma node 60:18380 (REVIEWS).
  *
  * Centered heading lockup → filter chips → 3-column review grid (385px cards,
  * 16px gutters) → Load More pill → the shared FAQ block → quote CTA.

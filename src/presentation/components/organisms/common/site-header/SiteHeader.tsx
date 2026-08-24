@@ -18,13 +18,13 @@ const NAV_LINKS = [
 ] as const;
 
 /**
- * SiteHeader — Figma `Navigation` component (17:3549 and its page instances).
+ * SiteHeader - Figma `Navigation` component (17:3549 and its page instances).
  *
  * A floating white pill inset from the top, overlaying the page. Left: the
  * Master Cabinets lockup. Centre: uppercase Segoe links on 1.8px tracking, the
  * active one wearing a #9CA3AF hairline pill. Right: the taupe phone pill.
  *
- * Responsive behaviour keeps the same language at every width — the logo
+ * Responsive behaviour keeps the same language at every width - the logo
  * scales rather than wrapping, the phone CTA never disappears (it collapses to
  * an icon-only chip under `sm`), and the drawer uses the kit's bezel surface so
  * it matches the cards and FAQ rows.
@@ -58,11 +58,11 @@ export default function SiteHeader() {
             : "shadow-[0_24px_80px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]",
         )}
       >
-        {/* Logo lockup — shrinks instead of forcing the pill wider */}
+        {/* Logo lockup - shrinks instead of forcing the pill wider */}
         <Link
           href="/"
           className="flex min-w-0 shrink items-center"
-          aria-label="Master Cabinets — home"
+          aria-label="Master Cabinets - home"
         >
           <Image
             src="/images/mc-logo.svg"
@@ -142,7 +142,7 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile drawer — same bezel surface as the cards and FAQ rows */}
+      {/* Mobile drawer - same bezel surface as the cards and FAQ rows */}
       <div
         className={cn(
           "pointer-events-auto mx-auto mt-2 w-full max-w-[1376px] overflow-hidden rounded-[32px] bg-black/[0.04] shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition-all duration-300 lg:hidden",

@@ -17,7 +17,7 @@ interface ActionButtonGroupProps {
 }
 
 /**
- * ActionButtonGroup — Figma `BUTTONS` component (48:8504 and every instance).
+ * ActionButtonGroup - Figma `BUTTONS` component (48:8504 and every instance).
  *
  * Primary: #403023 espresso pill · pad 7/7/7/19 · gap 14 · Segoe 13/20 ls 2.1
  * uppercase white · trailing 34px rgba(255,255,255,.15) chip.
@@ -51,7 +51,7 @@ export default function ActionButtonGroup({
         className,
       )}
     >
-      {/* Primary — espresso pill */}
+      {/* Primary - espresso pill */}
       <Link
         href={ctaHref}
         className={cn(pill, "bg-[#403023] text-white hover:bg-[#2C1F14]")}
@@ -65,7 +65,7 @@ export default function ActionButtonGroup({
         </span>
       </Link>
 
-      {/* Secondary — phone pill */}
+      {/* Secondary - phone pill */}
       <Link
         href={phoneHref}
         className={cn(pill, "bg-[#F3F4F6] hover:bg-[#E5E7EB]")}

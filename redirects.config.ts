@@ -5,7 +5,7 @@ import type { Redirect } from "next/dist/lib/load-custom-routes";
 //
 // Add entries here when migrating from a previous site (WordPress, Wix, etc.)
 // or when restructuring URLs. Use permanent: true (301) for all production
-// redirects — permanent: false (302) only for temporary maintenance pages.
+// redirects - permanent: false (302) only for temporary maintenance pages.
 //
 // Categories help keep the file scannable and avoid duplicate entries.
 // ---------------------------------------------------------------------------
@@ -32,7 +32,7 @@ const galleryRedirects: Redirect[] = [
 ];
 
 const miscRedirects: Redirect[] = [
-  // Pages with no equivalent — redirect to homepage
+  // Pages with no equivalent - redirect to homepage
   // Example: { source: "/about-us", destination: "/", permanent: true },
   // Example: { source: "/contact-us", destination: "/", permanent: true },
 ];

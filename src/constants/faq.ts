@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// FAQ — Single Source of Truth (Figma nodes 48:9426 / 60:18380 / 48:8801)
+// FAQ - Single Source of Truth (Figma nodes 48:9426 / 60:18380 / 48:8801)
 // ---------------------------------------------------------------------------
 
 export interface FaqItem {
@@ -26,7 +26,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Do you offer free quotes?",
     answer:
-      "Absolutely. We walk the space, scope the work, and give you a real number in writing — no fee, no obligation, and no pressure to move forward. Use the form on this page or call us directly to get started.",
+      "Absolutely. We walk the space, scope the work, and give you a real number in writing - no fee, no obligation, and no pressure to move forward. Use the form on this page or call us directly to get started.",
   },
   {
     question: "Do you provide a warranty?",

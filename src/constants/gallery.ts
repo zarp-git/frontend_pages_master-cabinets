@@ -2,7 +2,7 @@ import type { GalleryItem, GalleryCategoryTab } from "@/types/gallery.type";
 import { COMPANY_NAME } from "@/constants/business-info";
 
 // ---------------------------------------------------------------------------
-// Category filter chips — Figma node 60:12187
+// Category filter chips - Figma node 60:12187
 // ---------------------------------------------------------------------------
 
 export const GALLERY_CATEGORIES: GalleryCategoryTab[] = [
@@ -19,7 +19,7 @@ export const GALLERY_CATEGORIES: GalleryCategoryTab[] = [
 const P = "/images/projects";
 
 // ---------------------------------------------------------------------------
-// Gallery items — real Master Cabinets project photography
+// Gallery items - real Master Cabinets project photography
 // ---------------------------------------------------------------------------
 
 export const GALLERY_ITEMS: GalleryItem[] = [
@@ -52,7 +52,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 // ---------------------------------------------------------------------------
 
 export const GALLERY_SEO = {
-  metaTitle: `Project Gallery | ${COMPANY_NAME} — Naples, FL`,
+  metaTitle: `Project Gallery | ${COMPANY_NAME} - Naples, FL`,
   metaDescription:
     "Browse our portfolio of custom cabinetry, kitchen remodels, bathroom renovations, flooring installations, and outdoor living projects across Southwest Florida.",
 };

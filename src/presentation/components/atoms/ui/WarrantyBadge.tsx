@@ -5,7 +5,7 @@ interface WarrantyBadgeProps {
 }
 
 /**
- * WarrantyBadge — Figma node `5-years-warranty-badge` inside FAQ (48:9426).
+ * WarrantyBadge - Figma node `5-years-warranty-badge` inside FAQ (48:9426).
  *
  * 256×256 taupe (#968272) shield: corner radii 13/13/128/128 so the bottom
  * reads as a half-round crest. "WORKMANSHIP" sits at the top in Clash

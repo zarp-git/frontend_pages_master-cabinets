@@ -30,7 +30,7 @@ interface PricingCTASectionProps {
 }
 
 /**
- * PricingCTASection — Figma node 48:9791 (CTA).
+ * PricingCTASection - Figma node 48:9791 (CTA).
  *
  * Two-column header (eyebrow + heading on the left, supporting copy on the
  * right), optional trio of bezelled pillar cards, and a taupe #968272 quote
@@ -45,7 +45,7 @@ export default function PricingCTASection({
       aria-label="Pricing and free quote"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col">
-        {/* Header — 2 columns */}
+        {/* Header - 2 columns */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-start gap-8">
             <EyebrowPill>Good to know</EyebrowPill>
@@ -58,7 +58,7 @@ export default function PricingCTASection({
           <div className="flex items-end">
             <p className="max-w-[576px] font-sans text-[clamp(16px,1.4vw,20px)] leading-[1.62] text-[#666666]">
               Custom work carries a real cost, and vague answers help nobody.
-              Here is what actually moves the number — and what you get for it,
+              Here is what actually moves the number - and what you get for it,
               before you ever commit to anything.
             </p>
           </div>

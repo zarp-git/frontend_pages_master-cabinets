@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Gallery Page Types — Figma node 60:12187
+// Gallery Page Types - Figma node 60:12187
 // ---------------------------------------------------------------------------
 
 /** The project categories available for filtering (Figma filter chips). */
@@ -17,7 +17,7 @@ export type GalleryCategory =
 export interface GalleryItem {
   /** Unique identifier */
   id: string;
-  /** Display title — rendered uppercase on the card */
+  /** Display title - rendered uppercase on the card */
   title: string;
   /** Image path */
   src: string;

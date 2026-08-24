@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Service Images — Single Source of Truth
+// Service Images - Single Source of Truth
 // ---------------------------------------------------------------------------
 // Replace these arrays with your own project photos when customizing.
 // ---------------------------------------------------------------------------
@@ -12,7 +12,7 @@ export const HERO_CAROUSEL_IMAGES = [
   { src: `${H}/image3.jpg`, label: "[Service 3]", id: 3 },
 ] as const;
 
-// Placeholder arrays — replace with your own categorized images
+// Placeholder arrays - replace with your own categorized images
 export const CATEGORY_1_IMAGES: string[] = [];
 export const CATEGORY_2_IMAGES: string[] = [];
 export const CATEGORY_3_IMAGES: string[] = [];

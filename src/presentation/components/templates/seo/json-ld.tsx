@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import {
   SITE_URL,
   COMPANY_NAME,
@@ -17,17 +14,28 @@ interface JsonLdProps {
   id?: string;
 }
 
+/**
+ * Renders structured data as a native <script> on the server.
+ *
+ * next/script is built for loading and executing JavaScript: with its default
+ * afterInteractive strategy it injects the tag client-side, so the markup was
+ * absent from the SSR HTML that crawlers actually read. Next's own JSON-LD
+ * guide calls a plain <script> the right tool here. `<` is escaped to keep a
+ * string in the data from being able to close the tag.
+ */
 export const JsonLd = ({ data, id = "json-ld" }: JsonLdProps) => {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\u003c"),
+      }}
     />
   );
 };
 
-// FAQ structured data — dynamically built from FAQ items
+// FAQ structured data - dynamically built from FAQ items
 interface FAQJsonLdProps {
   faq: ReadonlyArray<{
     question: string;
@@ -64,7 +72,7 @@ export const FAQJsonLd = ({ faq }: FAQJsonLdProps) => {
   return <JsonLd data={faqStructuredData} id="faq-json-ld" />;
 };
 
-// Organization structured data — replace with your own company details
+// Organization structured data - replace with your own company details
 export const OrganizationJsonLd = () => {
   const organizationData = {
     "@context": "https://schema.org",
@@ -75,7 +83,7 @@ export const OrganizationJsonLd = () => {
     logo: `${SITE_URL}/images/hero/logo.png`,
     sameAs: [
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.googleMaps,
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -89,7 +97,7 @@ export const OrganizationJsonLd = () => {
   return <JsonLd data={organizationData} id="organization-json-ld" />;
 };
 
-// Service/product structured data — replace with your main service details
+// Service/product structured data - replace with your main service details
 export const ProductJsonLd = () => {
   const productData = {
     "@context": "https://schema.org",
@@ -97,10 +105,10 @@ export const ProductJsonLd = () => {
     name: `${COMPANY_NAME} | [Main service title]`,
     description: "[Description of the services offered and service area.]",
     url: SITE_URL,
-    serviceType: "[Service type — e.g. Home Improvement]",
+    serviceType: "[Service type - e.g. Home Improvement]",
     areaServed: {
-      "@type": "[Area type — e.g. State, City, Country]",
-      name: "[Area name — e.g. Florida, New York, etc.]",
+      "@type": "[Area type - e.g. State, City, Country]",
+      name: "[Area name - e.g. Florida, New York, etc.]",
     },
     provider: {
       "@type": "LocalBusiness",
@@ -108,8 +116,8 @@ export const ProductJsonLd = () => {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "[Average rating — e.g. 4.9]",
-      ratingCount: "[Number of reviews — e.g. 150]",
+      ratingValue: "[Average rating - e.g. 4.9]",
+      ratingCount: "[Number of reviews - e.g. 150]",
       bestRating: "5",
       worstRating: "1",
     },
@@ -129,7 +137,7 @@ export const ProductJsonLd = () => {
   return <JsonLd data={productData} id="product-json-ld" />;
 };
 
-// Breadcrumb structured data — dynamically built from breadcrumb items
+// Breadcrumb structured data - dynamically built from breadcrumb items
 export const BreadcrumbJsonLd = ({
   items,
 }: {
@@ -149,7 +157,7 @@ export const BreadcrumbJsonLd = ({
   return <JsonLd data={breadcrumbData} id="breadcrumb-json-ld" />;
 };
 
-// Review/testimonials structured data — replace with your own ratings and reviews
+// Review/testimonials structured data - replace with your own ratings and reviews
 export const ReviewJsonLd = () => {
   const reviewData = {
     "@context": "https://schema.org",
@@ -157,8 +165,8 @@ export const ReviewJsonLd = () => {
     name: `${COMPANY_NAME} - [Main service title]`,
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "[Average rating — e.g. 4.9]",
-      ratingCount: "[Number of reviews — e.g. 150]",
+      ratingValue: "[Average rating - e.g. 4.9]",
+      ratingCount: "[Number of reviews - e.g. 150]",
       bestRating: "5",
       worstRating: "1",
     },
@@ -174,7 +182,7 @@ export const ReviewJsonLd = () => {
           ratingValue: "5",
           bestRating: "5",
         },
-        reviewBody: "[Customer review text — describe the service experience.]",
+        reviewBody: "[Customer review text - describe the service experience.]",
       },
       {
         "@type": "Review",
@@ -187,7 +195,7 @@ export const ReviewJsonLd = () => {
           ratingValue: "5",
           bestRating: "5",
         },
-        reviewBody: "[Customer review text — describe the service experience.]",
+        reviewBody: "[Customer review text - describe the service experience.]",
       },
     ],
   };

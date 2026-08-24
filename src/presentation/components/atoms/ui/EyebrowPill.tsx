@@ -10,7 +10,7 @@ interface EyebrowPillProps {
 }
 
 /**
- * EyebrowPill — Figma `Eyebrow` component.
+ * EyebrowPill - Figma `Eyebrow` component.
  *
  * pad 4/12 · bg rgba(0,0,0,.04) · fully rounded · Segoe UI 10/15 · ls 2 ·
  * #666666 · uppercase. The numbered variant prefixes a Times-italic index and

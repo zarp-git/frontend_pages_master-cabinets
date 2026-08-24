@@ -15,7 +15,7 @@ import PricingCTASection from "@/presentation/components/organisms/home-page-sec
 import type { GalleryCategory, GalleryItem } from "@/types/gallery.type";
 
 /**
- * GalleryPageView — Figma node 60:12187 (GALLERY).
+ * GalleryPageView - Figma node 60:12187 (GALLERY).
  *
  * Centered page lockup → filter chips → 3-column card grid (356×345 cards,
  * white, #E5DECD hairline, radius 24, espresso badge over the image) → the shared
@@ -91,7 +91,7 @@ export function GalleryPageView() {
 }
 
 // ---------------------------------------------------------------------------
-// Card — Figma `Button` 356×345
+// Card - Figma `Button` 356×345
 // ---------------------------------------------------------------------------
 function GalleryCard({
   item,

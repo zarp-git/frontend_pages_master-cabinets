@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/presentation/components/templates/seo/json-l
 export const metadata: Metadata = {
   title: `About Us | 25+ Years of Craftsmanship | ${COMPANY_NAME}`,
   description:
-    "Learn about Master Cabinets LLC — over 25 years helping South Florida homeowners remodel kitchens, bathrooms, and complete interiors with one coordinated team.",
+    "Learn about Master Cabinets LLC - over 25 years helping South Florida homeowners remodel kitchens, bathrooms, and complete interiors with one coordinated team.",
   alternates: {
     canonical: "/about",
   },
