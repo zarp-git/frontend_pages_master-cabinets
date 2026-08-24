@@ -40,7 +40,12 @@ export interface McReview {
    * attribute chip.
    */
   tags: readonly string[];
-  category: Exclude<McFilterCategory, "All">;
+  /**
+   * Every trade the reviewer actually names. Several name more than one,
+   * so this is a list rather than a single bucket - and reviews that name
+   * nothing sit under the client's own umbrella term, Home remodel.
+   */
+  categories: readonly Exclude<McFilterCategory, "All">[];
 }
 
 export const MC_REVIEWS: McReview[] = [
@@ -50,7 +55,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Great company and great quality work! Everything came out exactly how we wanted, and the cabinets look amazing. The team was professional, reliable, and easy to work with. Definitely recommend them to anyone looking for quality cabinet work!",
     tags: ["Custom Cabinetry", "Great price"],
-    category: "Kitchens",
+    categories: ["Kitchens", "Carpentry"],
   },
   {
     authorName: "Ariana Asuaje",
@@ -58,7 +63,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "I've had a great experience with Master Cabinets. Their service is excellent, they're professional and reliable, and they do beautiful work. I highly recommend them for kitchen cabinets, bathroom cabinets, and closets in the Naples area!",
     tags: ["Kitchen & Bath Cabinets", "Naples, FL"],
-    category: "Kitchens",
+    categories: ["Kitchens", "Bathrooms", "Living spaces"],
   },
   {
     authorName: "Leslie Babb",
@@ -66,7 +71,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "We had Master Cabinets redo our floors, painting throughout, trim, refinish kitchen cabinets!! Did a great job throughout!!",
     tags: ["Flooring & Painting", "Reasonable price"],
-    category: "Home remodel",
+    categories: ["Home remodel", "Kitchens", "Carpentry"],
   },
   {
     authorName: "Alexa M.",
@@ -74,7 +79,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Nickolas is amazing. Nickolas helped me with picking out my floors and my cabinets to complement my house. His family business is amazing, everyone is so kind and helpful. Definitely recommend for next house upgrades or projects.",
     tags: ["Flooring & Cabinets", "Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel", "Kitchens"],
   },
   {
     authorName: "Sue B.",
@@ -82,7 +87,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "We had been with three other builders before finding Joanna and Julio from Master Cabinets. As soon as we met them, our gut told us to go with them. From the very beginning, they got back to us immediately with our estimate and plans.",
     tags: ["Full Remodel", "Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Sebastian Esch",
@@ -90,7 +95,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Nick knows what he's doing, he's got great customer service and has knowledge about his business. Give him a try, you won't regret it.",
     tags: [],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Gabriel Lopez",
@@ -98,7 +103,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Amazing company! Great communication throughout the entire process of my project. Thank you so much Master Cabinets!",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Gigii",
@@ -106,7 +111,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "People are very good to work with, had no issues with them and very good pricing as well! Definitely would have them work on my house again.",
     tags: ["Reasonable price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Alex Legra",
@@ -114,7 +119,7 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Nick is a great worker, he worked diligently on my home, and at a below market average price. Would recommend to anyone looking to do some renovations to their home.",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Brian Tellez",
@@ -122,14 +127,14 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Definitely worth the company to touch base with. Fast paced work. Tremendous efficiency. Beautiful work!",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Anthony S.",
     rating: 5,
     quote: "Great team and amazing experience. Their work was phenomenal.",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Jesus Gonzalez",
@@ -137,35 +142,35 @@ export const MC_REVIEWS: McReview[] = [
     quote:
       "Fantastic team. I received amazing service, and I am super satisfied! Highly recommend!!!",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Anthony Trejo",
     rating: 5,
     quote: "Quality work every time. 2nd time using them!!",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Joselin Torres",
     rating: 5,
     quote: "Great service throughout my whole process. Good company.",
     tags: ["Reasonable price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Jaylen Colon",
     rating: 5,
     quote: "Great customer service. Would definitely recommend.",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
   {
     authorName: "Ayden Young",
     rating: 5,
     quote: "Really happy with my experience with Master Cabinets.",
     tags: ["Great price"],
-    category: "Home remodel",
+    categories: ["Home remodel"],
   },
 ];
 

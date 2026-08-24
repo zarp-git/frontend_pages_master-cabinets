@@ -15,7 +15,12 @@ import {
 
 const PAGE_SIZE = 9;
 
-const CHIP_OPTIONS = MC_FILTER_CATEGORIES.map((c) => ({ label: c, value: c }));
+// Only offer a chip that actually returns something. Real reviewers rarely
+// name a trade, so Tiling and Other have nothing behind them - showing them
+// would just be a filter that always comes back empty.
+const CHIP_OPTIONS = MC_FILTER_CATEGORIES.filter(
+  (c) => c === "All" || MC_REVIEWS.some((r) => r.categories.includes(c)),
+).map((c) => ({ label: c, value: c }));
 
 /**
  * ReviewsPageView - Figma node 60:18380 (REVIEWS).
@@ -29,7 +34,7 @@ export function ReviewsPageView() {
 
   const filtered = useMemo(() => {
     if (active === "All") return MC_REVIEWS;
-    return MC_REVIEWS.filter((r) => r.category === active);
+    return MC_REVIEWS.filter((r) => r.categories.includes(active));
   }, [active]);
 
   const shown = filtered.slice(0, visible);
