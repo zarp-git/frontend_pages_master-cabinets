@@ -27,7 +27,7 @@ const hankenGrotesk = Hanken_Grotesk({
 
 const clashDisplay = localFont({
   src: [
-    { path: "../../public/fonts/ClashDisplay-Variable.woff2", weight: "100 900" },
+    { path: "../../../public/fonts/ClashDisplay-Variable.woff2", weight: "100 900" },
   ],
   display: "swap",
   variable: "--font-clash",
