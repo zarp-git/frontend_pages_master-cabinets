@@ -418,7 +418,11 @@ export const ContactModal = () => {
             {/* Mockup Image */}
             <div className="w-full flex-1 relative rounded-[10px] overflow-hidden min-h-[260px] md:min-h-[380px]">
               <Image
+<<<<<<< Updated upstream
                 src="/images/projects/gray-custom-kitchen-cabinetry.jpg"
+=======
+                src="/images/hero/zarp-logomark-black.png"
+>>>>>>> Stashed changes
                 alt="Professional installation"
                 fill
                 sizes="(max-width: 768px) 100vw, 418px"

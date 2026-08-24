@@ -48,6 +48,7 @@ const TILES = [
 function GalleryTile({
   src,
   alt,
+<<<<<<< Updated upstream
   className,
 }: {
   src: string;
@@ -58,6 +59,14 @@ function GalleryTile({
     <div
       className={`relative w-full rounded-[20px] overflow-hidden bg-[#E5DECD] ${className || ""}`}
     >
+=======
+}: {
+  src: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative w-full rounded-[20px] overflow-hidden bg-[#E5DECD] h-[250px]">
+>>>>>>> Stashed changes
       <Image
         src={src}
         alt={alt}
@@ -78,6 +87,7 @@ export default function GallerySection() {
       <div className="max-w-[1440px] mx-auto flex flex-col gap-8">
         {/* Section header */}
         <div className="flex flex-col gap-4">
+<<<<<<< Updated upstream
           <h2
             className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[61.8px] font-medium text-[#111827]"
           >
@@ -86,6 +96,12 @@ export default function GallerySection() {
           <p
             className="max-w-[720px] font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]"
           >
+=======
+          <h2 className="font-clash text-[clamp(32px,3.3vw,48px)] leading-[61.8px] font-medium text-[#111827]">
+            Featured Work Gallery
+          </h2>
+          <p className="max-w-[720px] font-sans text-[20px] leading-[32.5px] font-normal text-[#4B5563]">
+>>>>>>> Stashed changes
             A curated selection of our finest craftsmanship across different
             residential spaces — the meticulous detail in our materials and joinery.
           </p>
@@ -110,7 +126,11 @@ export default function GallerySection() {
             <Image src="/images/gallery/gallery-5.webp" alt="Wood grain cabinetry detail — Master Cabinets" fill className="object-cover" sizes="179px" />
           </div>
           {/* Tile 7: tall right portrait (spans 2 rows) — absolute last col */}
+<<<<<<< Updated upstream
           <div className="row-span-2 relative rounded-[20px] overflow-hidden bg-[#E5DECD] col-start-5 row-start-1 row-end-3">
+=======
+          <div className="row-span-2 col-start-5 row-start-1 relative rounded-[20px] overflow-hidden bg-[#E5DECD]">
+>>>>>>> Stashed changes
             <Image src="/images/gallery/gallery-7.webp" alt="Luxury master bathroom — Master Cabinets" fill className="object-cover" sizes="377px" />
           </div>
           {/* Tile 3: center bottom */}
@@ -126,7 +146,11 @@ export default function GallerySection() {
         {/* Mobile: single column stacked */}
         <div className="lg:hidden flex flex-col gap-4">
           {TILES.map((tile) => (
+<<<<<<< Updated upstream
             <GalleryTile key={tile.src} src={tile.src} alt={tile.alt} className="h-[250px]" />
+=======
+            <GalleryTile key={tile.src} src={tile.src} alt={tile.alt} />
+>>>>>>> Stashed changes
           ))}
         </div>
 

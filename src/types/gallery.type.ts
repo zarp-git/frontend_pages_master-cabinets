@@ -1,29 +1,26 @@
 // ---------------------------------------------------------------------------
-// Gallery Page Types
+// Gallery Page Types — Figma spec 60:12187
 // ---------------------------------------------------------------------------
 
-/** The project categories available for filtering. */
+/** The project categories available for filtering per Figma node 60:12582. */
 export type GalleryCategory =
   | "all"
-  | "category-1"
-  | "category-2"
-  | "category-3"
-  | "category-4"
-  | "category-5";
+  | "home-remodel"
+  | "kitchens"
+  | "bathrooms"
+  | "carpentry"
+  | "living-spaces"
+  | "tiling"
+  | "other";
 
-/** A single gallery image item. */
+/** A single gallery showcase project item. */
 export interface GalleryItem {
-  /** Unique identifier */
   id: string;
-  /** Display title, e.g. "[Project Type] in [City]" */
   title: string;
-  /** Image path */
+  tag: string;
   src: string;
-  /** Category tag */
   category: Exclude<GalleryCategory, "all">;
-  /** Location name, e.g. "[City], [State]" */
-  location?: string;
-  /** Featured images render larger in the masonry layout. */
+  location: string;
   featured?: boolean;
 }
 

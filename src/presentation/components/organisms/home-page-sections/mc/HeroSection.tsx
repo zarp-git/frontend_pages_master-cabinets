@@ -9,7 +9,11 @@ import QuoteForm from "@/presentation/components/molecules/mc/QuoteForm";
 export default function HeroSection() {
   return (
     <section
+<<<<<<< Updated upstream
       className="relative w-full overflow-hidden bg-[#3F2F22]"
+=======
+      className="relative w-full overflow-hidden bg-[#403023]"
+>>>>>>> Stashed changes
     >
       {/* Hero background image */}
       <Image
@@ -67,7 +71,11 @@ export default function HeroSection() {
               <div key={badge} className="flex items-center gap-2">
                 {/* Green check circle */}
                 <span
+<<<<<<< Updated upstream
                   className="flex items-center justify-center shrink-0 w-[19px] h-[19px] rounded-full bg-[#3F2F22]"
+=======
+                  className="flex items-center justify-center shrink-0 w-[19px] h-[19px] rounded-full bg-[#036841]"
+>>>>>>> Stashed changes
                   aria-hidden="true"
                 >
                   <svg
