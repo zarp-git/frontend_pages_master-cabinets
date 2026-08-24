@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-rubik: var(--font-rubik);
   --font-hanken: var(--font-hanken);
+  --font-clash: var(--font-clash);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,13 +47,39 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
+  /* ── MC Brand Colors ── */
+  --color-mc-espresso: var(--mc-espresso);
+  --color-mc-taupe: var(--mc-taupe);
+  --color-mc-orange: var(--mc-orange);
+  --color-mc-orange-hover: var(--mc-orange-hover);
+  --color-mc-green: var(--mc-green);
+  --color-mc-chalk: var(--mc-chalk);
+  --color-mc-cool-grey: var(--mc-cool-grey);
+  --color-mc-near-black: var(--mc-near-black);
+  --color-mc-body: var(--mc-body);
+  --color-mc-slate: var(--mc-slate);
+  --color-mc-light: var(--mc-light);
+  --color-mc-subtle: var(--mc-subtle);
+  --color-mc-border-pill: var(--mc-border-pill);
+  --color-mc-border-card: var(--mc-border-card);
+  --color-mc-border-input: var(--mc-border-input);
+
+  /* ── MC Radius Tokens ── */
+  --radius-mc-pill: 999px;
+  --radius-mc-card: 24px;
+  --radius-mc-inner: 20px;
+  --radius-mc-faq: 32px;
+
+  /* ── MC Shadow Tokens ── */
+  --shadow-mc-card: 0px 4px 20px rgba(0, 0, 0, 0.04);
+
   /* Marquee animations */
   --animate-marquee-left: marquee-left linear infinite;
   --animate-marquee-right: marquee-right linear infinite;
 }
 
 :root {
-  /* Master Cabinets brand design tokens */
+  /* ── Legacy MC tokens (kept for backward compat) ── */
   --color-brown-dark: #3F2F22;
   --color-gold: #F7AF14;
   --color-brown-medium: #958272;
@@ -60,6 +87,31 @@
   --color-bg-primary: #FFFDF7;
   --color-bg-dark: #17110B;
   --color-bg-footer: #3F2F22;
+
+  /* ── MC Design System Tokens (Helena Figma spec 20260824) ── */
+  /* Colors */
+  --mc-espresso: #403023;
+  --mc-taupe: #968272;
+  --mc-orange: #FF4C00;
+  --mc-orange-hover: #E04300;
+  --mc-green: #036841;
+  --mc-near-black: #111827;
+  --mc-black: #000000;
+  --mc-body: #4B5563;
+  --mc-slate: #786F6C;
+  --mc-light: #E5E7EB;
+  --mc-subtle: #DEDBD8;
+  --mc-chalk: #FFFDF7;
+  --mc-cool-grey: #F3F4F6;
+  --mc-white: #FFFFFF;
+  /* Borders */
+  --mc-border-pill: #E5DECD;
+  --mc-border-card: #EFEFEF;
+  --mc-border-input: #DEDBD8;
+  /* Glassmorphism */
+  --mc-glass-bg: rgba(255, 255, 255, 0.20);
+  --mc-glass-border: rgba(255, 255, 255, 1);
+  --mc-glass-blur: blur(20px);
 
   --radius: 0.625rem;
   --background: #ffffff;
@@ -156,8 +208,9 @@
   .h4,
   .h5,
   .h6,
-  .h7 {
-    font-family: var(--font-hanken);
+  .h7,
+  .font-clash {
+    font-family: var(--font-clash, var(--font-hanken));
     font-style: normal;
   }
 
@@ -215,6 +268,47 @@
 
   .section-container {
     @apply w-full mx-auto px-4 md:px-6 lg:px-8 max-w-[1440px];
+  }
+}
+
+/* ── MC Typography Utility Classes ── */
+.font-clash {
+  font-family: var(--font-clash, 'Clash Display', sans-serif) !important;
+}
+
+.font-times {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.font-segoe {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+}
+
+.font-raleway {
+  font-family: Raleway, system-ui, sans-serif !important;
+}
+
+/* ── MC Glassmorphism ── */
+.mc-glass {
+  background: var(--mc-glass-bg);
+  border: 1px solid rgba(255, 255, 255, 1);
+  backdrop-filter: var(--mc-glass-blur);
+  -webkit-backdrop-filter: var(--mc-glass-blur);
+}
+
+/* Glassmorphism fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .mc-glass {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #e5e7eb;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .mc-hover-scale {
+    transition: none !important;
+    transform: none !important;
   }
 }
 
