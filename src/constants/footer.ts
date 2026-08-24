@@ -20,15 +20,6 @@ export const FOOTER_COMPANY_INFO = {
   },
 } as const;
 
-export const FOOTER_LOCATIONS = [
-  { label: "Naples", href: "/locations/naples" },
-  { label: "Bonita Springs", href: "/locations/bonita-springs" },
-  { label: "Fort Myers", href: "/locations/fort-myers" },
-  { label: "Estero", href: "/locations/estero" },
-  { label: "Marco Island", href: "/locations/marco-island" },
-  { label: "Miami", href: "/locations/miami" },
-] as const;
-
 export const FOOTER_COMPANY_LINKS = [
   { label: "About us", href: "/about" },
   { label: "Gallery", href: "/gallery" },

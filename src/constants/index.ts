@@ -1,7 +1,6 @@
 export * from "./faq";
 export * from "./footer";
 export * from "./navigation";
-export * from "./locations";
 export * from "./testimonials";
 export * from "./service-images";
 export * from "./business-info";
