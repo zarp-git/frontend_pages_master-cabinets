@@ -76,7 +76,7 @@ function ServiceHero({ service }: { service: ServiceData }) {
       size="xl"
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Services", href: "/services" },
+        { label: "Services" },
         { label: service.breadcrumbLabel },
       ]}
       cta={
