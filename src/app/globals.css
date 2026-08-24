@@ -52,6 +52,15 @@
 }
 
 :root {
+  /* Master Cabinets brand design tokens */
+  --color-brown-dark: #3F2F22;
+  --color-gold: #F7AF14;
+  --color-brown-medium: #958272;
+  --color-terracotta: #C8956C;
+  --color-bg-primary: #FFFDF7;
+  --color-bg-dark: #17110B;
+  --color-bg-footer: #3F2F22;
+
   --radius: 0.625rem;
   --background: #ffffff;
   --foreground: #1f2937;

@@ -10,49 +10,48 @@ import { FOOTER_COMPANY_INFO } from "@/constants/footer";
 import { FAQJsonLd } from "@/presentation/components/templates/seo/json-ld";
 
 // ---------------------------------------------------------------------------
-// FAQ data — replace with questions and answers relevant to your business.
-// Exported so service/location pages can import and pass their own FAQ arrays.
+// FAQ data — Master Cabinets real FAQ content
 // ---------------------------------------------------------------------------
 export const FAQS = [
   {
-    question: "[FAQ 1 — e.g. What payment options do you accept?]",
+    question: "How long will my project take?",
     answer:
-      "[Answer 1 — describe accepted payment methods, financing options, etc.]",
+      "Project timelines vary based on scope. A vanity replacement or cabinet installation typically takes 1–3 days. A kitchen or bathroom remodel can take 2–4 weeks. A full home renovation may take 6–12 weeks. We provide a detailed project timeline in your written quote before any work begins — and we stick to it.",
   },
   {
-    question: "[FAQ 2 — e.g. How long does a typical project take?]",
+    question: "How long have you been in business?",
     answer:
-      "[Answer 2 — describe typical project duration based on size and complexity.]",
+      "Master Cabinets LLC has been serving South Florida homeowners for over 25 years. Our team brings decades of hands-on experience to every project — from small bathroom updates to complete home transformations. We're locally owned and deeply rooted in the communities we serve.",
   },
   {
-    question: "[FAQ 3 — e.g. Do you offer a warranty on your work?]",
+    question: "Do you handle full home renovations?",
     answer:
-      "[Answer 3 — describe the warranty terms and what it covers.]",
+      "Yes. We handle complete home renovations from start to finish — kitchens, bathrooms, closets, flooring, painting, electrical, structural work, and outdoor living spaces. One team, one point of contact, no subcontractors. We manage the entire project so you don't have to coordinate between multiple trades.",
   },
   {
-    question: "[FAQ 4 — e.g. How long does your service/product last?]",
+    question: "Do you offer free quotes?",
     answer:
-      "[Answer 4 — describe the expected lifespan with proper maintenance.]",
+      "Yes, absolutely. All consultations and estimates are 100% free with no obligation. We'll visit your home, take measurements, discuss your goals, and provide a detailed written quote covering all materials and labor. There are no hidden costs — the price in the quote is the price you pay.",
   },
   {
-    question: "[FAQ 5 — e.g. What makes your service different from competitors?]",
+    question: "Do you provide a warranty?",
     answer:
-      "[Answer 5 — highlight key differentiators: quality, materials, process, etc.]",
+      "Yes. We back every project with a 1-year workmanship warranty that covers installation defects and workmanship issues. If something isn't right after we finish, we'll come back and make it right at no charge. Material warranties vary by product and manufacturer and will be disclosed during the project.",
   },
   {
-    question: "[FAQ 6 — e.g. Is the process disruptive or messy?]",
+    question: "What areas do you serve?",
     answer:
-      "[Answer 6 — describe how you minimize disruption and keep the site clean.]",
+      "We serve Naples, Bonita Springs, Estero, Marco Island, Fort Myers, Lehigh Acres, Miami, Parkland, and surrounding South Florida communities. If you're unsure whether we cover your area, give us a call — we likely do.",
   },
   {
-    question: "[FAQ 7 — e.g. What areas do you serve?]",
+    question: "Are you licensed and insured?",
     answer:
-      "[Answer 7 — list the cities, regions, or service area you cover.]",
+      "Yes. Master Cabinets LLC is fully licensed and insured in the state of Florida. All permits required for your project are managed by our team. We handle the full compliance process so you have complete peace of mind.",
   },
   {
-    question: "[FAQ 8 — e.g. What if I'm not sure what I want?]",
+    question: "What if I'm not sure what I want?",
     answer:
-      "[Answer 8 — describe your consultation process, samples, or design support.]",
+      "That's perfectly fine — it's what our free design consultation is for. We'll bring samples of cabinet doors, countertop materials, flooring, and paint colors to your home. Our team will help you explore your options, understand the cost implications of each, and arrive at a design that fits your style and budget.",
   },
 ];
 
@@ -74,11 +73,11 @@ export default function FaqSection({ faqs = FAQS }: FaqSectionProps) {
       <div className="section-container flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12 lg:gap-16">
         {/* Left Column - Warranty Badge + CTA */}
         <div className="w-full md:w-80 lg:w-138.5 flex flex-col items-center md:items-start gap-6 sm:gap-8 md:shrink-0">
-            {/* Warranty/trust badge — replace with your own badge image or remove */}
+            {/* Warranty/trust badge */}
             <div className="w-48 h-48 md:w-52 md:h-52 lg:w-64 lg:h-64 relative shrink-0 mx-auto md:mx-0">
               <Image
                 src="/images/3-years-warranty-badge.svg"
-                alt="[Warranty or trust badge alt text]"
+                alt="1-Year Workmanship Warranty — Master Cabinets LLC"
                 width={256}
                 height={256}
                 className="w-full h-full object-contain"
@@ -88,12 +87,10 @@ export default function FaqSection({ faqs = FAQS }: FaqSectionProps) {
           {/* Text Content */}
           <div className="flex flex-col gap-3 text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-[28px] lg:text-4xl font-semibold font-hanken text-primary">
-              {/* Heading for the warranty/trust section — e.g. "Your Work Is Secured" */}
-              [WARRANTY / TRUST SECTION HEADING]
+              1-Year Workmanship Warranty
             </h2>
             <p className="text-gray-600 text-base font-normal font-rubik leading-6 max-w-md">
-              {/* Description of the warranty or guarantee offered — what it covers and for how long */}
-              [Description of the warranty or guarantee: what it covers, duration, and what it means for the customer.]
+              Every remodel we complete is covered by our 1-year workmanship warranty — protecting against installation defects on every project we touch. If something isn&apos;t right, we make it right.
             </p>
           </div>
 
@@ -114,7 +111,6 @@ export default function FaqSection({ faqs = FAQS }: FaqSectionProps) {
         {/* Right Column - FAQ Accordion */}
         <div className="w-full md:flex-1 lg:max-w-xl flex flex-col gap-6">
           <h2 className="text-[24px] sm:text-[28px] lg:text-4xl font-semibold font-hanken text-gray-800 uppercase leading-tight sm:leading-10">
-            {/* FAQ section heading */}
             FREQUENTLY ASKED QUESTIONS
           </h2>
 

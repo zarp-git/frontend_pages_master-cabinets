@@ -18,58 +18,59 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 /** Legal / display company name */
-// TODO: Confirm legal entity name with client
 export const COMPANY_NAME = "Master Cabinets" as const;
 
 /** One-liner used in meta descriptions and schema */
-// TODO: Confirm final description with client
 export const COMPANY_DESCRIPTION =
-  "Premium custom cabinet installation and design services for kitchens, bathrooms, and living spaces in South Florida." as const;
+  "Premium custom cabinet installation, remodeling, and design services for kitchens, bathrooms, closets, and living spaces in South Florida." as const;
 
 /** Tagline used in the footer and about sections */
-// TODO: Confirm tagline with client
 export const COMPANY_TAGLINE =
-  "Crafting Beautiful Spaces, One Cabinet at a Time." as const;
+  "Remodeling, Cabinetry, and Everything Between." as const;
 
 // ---------------------------------------------------------------------------
 // NAP (Name, Address, Phone)
 // ---------------------------------------------------------------------------
-// TODO: Verify all address details with client before launch
+// TODO: Real street address needed — confirm with client before launch
 export const ADDRESS = {
-  label: "Master Cabinets HQ",
-  street: "2850 NW 27th Ave",
-  fullStreet: "2850 NW 27th Ave, Miami, FL 33142, US",
-  city: "Miami",
+  label: "Master Cabinets LLC",
+  street: "TODO: Real address needed",
+  fullStreet: "Naples, FL 34102, US",
+  city: "Naples",
   region: "FL",
-  postalCode: "33142",
+  postalCode: "34102",
   country: "US",
 } as const;
 
-// TODO: Verify GPS coordinates with client
 export const GEO = {
-  latitude: 25.7923,
-  longitude: -80.2495,
+  latitude: 26.142,
+  longitude: -81.7948,
 } as const;
 
-// TODO: Replace with real phone number before launch
 export const PHONE = {
   /** Display format for UI */
-  display: "+1 (786) 555-0182",
+  display: "+1 (239) 255-2050",
   /** tel: href format */
-  href: "tel:+17865550182",
+  href: "tel:+12392552050",
   /** Raw digits with country code for WhatsApp, etc. */
-  raw: "+17865550182",
+  raw: "+12392552050",
   /** Schema.org / JSON-LD format */
-  schema: "+1-786-555-0182",
+  schema: "+1-239-255-2050",
 } as const;
 
-// TODO: Replace with real email before launch
-export const EMAIL = "info@mastercabinets.com" as const;
+export const PHONE_SECONDARY = {
+  display: "+1 (772) 828-7875",
+  href: "tel:+17728287875",
+  raw: "+17728287875",
+  schema: "+1-772-828-7875",
+} as const;
+
+export const EMAIL = "mastercabinetsllc@gmail.com" as const;
 
 export const BUSINESS_HOURS = {
-  display: "Mon-Sat: 9:00 AM - 5:00 PM",
-  footerDisplay: "FROM MON TO SAT : 9AM - 5PM",
-  schema: "Mo-Sa 09:00-17:00",
+  display: "Mon-Sun: 8:00 AM - 8:00 PM",
+  footerDisplay: "MON - SUN : 8AM - 8PM",
+  schema: "Mo-Su 08:00-20:00",
   days: [
     "Monday",
     "Tuesday",
@@ -77,19 +78,19 @@ export const BUSINESS_HOURS = {
     "Thursday",
     "Friday",
     "Saturday",
+    "Sunday",
   ] as readonly string[],
-  opens: "09:00",
-  closes: "17:00",
+  opens: "08:00",
+  closes: "20:00",
 } as const;
 
 // ---------------------------------------------------------------------------
 // Social & Maps
 // ---------------------------------------------------------------------------
-// TODO: Update all social links with real handles before launch
 export const SOCIAL_LINKS = {
   whatsapp: `https://wa.me/${PHONE.raw}`,
-  instagram: "https://www.instagram.com/mastercabinets/",
-  facebook: "https://www.facebook.com/mastercabinets/",
+  instagram: "https://www.instagram.com/mastercabinetsllc/",
+  facebook: "https://www.facebook.com/mastercabinetsllc/",
   googleMaps: "https://www.google.com/maps",
 } as const;
 

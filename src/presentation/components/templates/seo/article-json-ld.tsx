@@ -62,67 +62,114 @@ export const ArticleJsonLd = () => {
   return <JsonLd data={articleData} id="article-json-ld" />;
 };
 
-// Local business structured data — replace with your own business details
+// Local business structured data — Master Cabinets LLC
 export const LocalBusinessJsonLd = () => {
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": `${SITE_URL}/#business`,
     name: COMPANY_NAME,
-    // legalName: used when the legal entity name differs from the display name (§18.7)
-    legalName: "[Legal entity name — e.g. 'Acme Corporation LLC']",
-    description: "[Description of the business: type, main services, and service area.]",
+    legalName: "Master Cabinets LLC",
+    description: "Master Cabinets LLC provides custom cabinetry, kitchen and bathroom remodeling, flooring, painting, and full home renovations across Southwest Florida and the Miami area.",
     url: SITE_URL,
     telephone: PHONE.schema,
     email: EMAIL,
     address: SCHEMA_ADDRESS,
     geo: SCHEMA_GEO,
     openingHours: BUSINESS_HOURS.schema,
-    // foundingDate: contributes to entity trust in Knowledge Panel (§18.7)
-    foundingDate: "[Founding year — e.g. '2015']",
-    priceRange: "[Price range — e.g. $$]",
-    paymentAccepted: "[Accepted payment methods]",
-    currenciesAccepted: "[Currency — e.g. USD]",
-    // sameAs: all active social profiles + Google Maps place URL (§18.7)
+    foundingDate: "1999",
+    priceRange: "$$$",
+    paymentAccepted: "Cash, Check, Credit Card, Financing Available",
+    currenciesAccepted: "USD",
     sameAs: [
       SOCIAL_LINKS.instagram,
       SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.googleMaps,
     ],
     areaServed: [
-      // Replace with the cities/regions your business serves — use AREAS_SERVED constant from SSOT
-      { "@type": "City", name: "[City 1]" },
-      { "@type": "City", name: "[City 2]" },
-      { "@type": "City", name: "[City 3]" },
-      { "@type": "City", name: "[City 4]" },
-      { "@type": "City", name: "[City 5]" },
+      { "@type": "City", name: "Naples" },
+      { "@type": "City", name: "Bonita Springs" },
+      { "@type": "City", name: "Fort Myers" },
+      { "@type": "City", name: "Estero" },
+      { "@type": "City", name: "Marco Island" },
+      { "@type": "City", name: "Lehigh Acres" },
+      { "@type": "City", name: "Miami" },
+      { "@type": "City", name: "Parkland" },
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "[Service catalog name — e.g. 'Our Services']",
+      name: "Master Cabinets Services",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "[Service 1 name]",
-            description: "[Service 1 description — what it includes and who it's for.]",
+            name: "Custom Cabinetry",
+            description: "Fully custom cabinet design and fabrication for kitchens, bathrooms, and living spaces throughout Southwest Florida.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "[Service 2 name]",
-            description: "[Service 2 description.]",
+            name: "Kitchen Remodeling",
+            description: "Complete kitchen renovations including custom cabinets, countertops, backsplash, and appliance integration.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "[Service 3 name]",
-            description: "[Service 3 description.]",
+            name: "Bathroom Remodeling",
+            description: "Full bathroom renovations with custom vanities, tile work, fixtures, and custom storage solutions.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Flooring Installation",
+            description: "Professional installation of hardwood, tile, laminate, and luxury vinyl flooring throughout South Florida homes.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Painting & Finishing",
+            description: "Interior and exterior painting services with premium finishes for residential and commercial properties.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Closet & Storage Systems",
+            description: "Custom closet design and built-in storage solutions for bedrooms, garages, and living areas.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Home Renovations",
+            description: "Full home renovation and remodeling services for residential properties in Naples and surrounding areas.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Countertop Installation",
+            description: "Custom countertop fabrication and installation including granite, quartz, marble, and solid surface materials.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Commercial Cabinetry",
+            description: "Custom commercial cabinetry and millwork for offices, retail spaces, and commercial properties across South Florida.",
           },
         },
       ],
@@ -139,10 +186,9 @@ export const WebSiteJsonLd = () => {
     "@type": "WebSite",
     name: COMPANY_NAME,
     // alternateName should be a DIFFERENT name people might search for (e.g. "Orlando Roofing")
-    // Not a copy of name — replace the placeholder below with a real alternate search name
-    alternateName: "[Alternate search name — e.g. 'Your City Service Name']",
+    alternateName: "Master Cabinets LLC",
     url: SITE_URL,
-    description: "[Website description — services offered and service area.]",
+    description: "Custom cabinets, kitchen and bathroom remodeling, flooring, and full home renovations in Southwest Florida.",
     inLanguage: "en-US",
     copyrightYear: new Date().getFullYear(),
     copyrightHolder: {

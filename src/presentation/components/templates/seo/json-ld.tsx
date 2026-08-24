@@ -70,7 +70,7 @@ export const OrganizationJsonLd = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: COMPANY_NAME,
-    description: "[Description of the company: main services and service area.]",
+    description: "Master Cabinets LLC is a South Florida custom cabinetry and home remodeling company serving Naples, Bonita Springs, Fort Myers, and surrounding areas. We specialize in custom cabinets, kitchen and bathroom remodeling, flooring, and full home renovations.",
     url: SITE_URL,
     logo: `${SITE_URL}/images/hero/logo.png`,
     sameAs: [
@@ -81,7 +81,7 @@ export const OrganizationJsonLd = () => {
       "@type": "ContactPoint",
       contactType: "customer service",
       telephone: PHONE.schema,
-      availableLanguage: "[Language — e.g. English]",
+      availableLanguage: "English, Spanish",
     },
     address: SCHEMA_ADDRESS,
   };

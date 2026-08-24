@@ -1,35 +1,35 @@
 import { SITE_URL, COMPANY_NAME } from "@/constants/business-info";
 
 export default {
-	title: `[Main SEO title] | ${COMPANY_NAME}`,
+	title: `Custom Cabinets & Home Remodeling in South Florida | ${COMPANY_NAME}`,
 	blog_title: `Blog | ${COMPANY_NAME}`,
 	description:
-		"[Main SEO description — up to 160 characters about the company's services, service area, and value proposition.]",
-	keywords: "[keyword 1], [keyword 2], [keyword 3], [service area]",
+		"Master Cabinets LLC — licensed home remodeling, custom cabinetry, bathroom renovations, flooring & outdoor living in Naples, Bonita Springs, Fort Myers & South Florida. 25+ years experience. Free quotes.",
+	keywords: "custom cabinets, home remodeling, kitchen renovation, bathroom remodeling, Naples FL, Bonita Springs, Fort Myers, South Florida, walk-in closets, flooring installation",
 	openGraph: {
 		type: "website",
 		locale: "en_US",
 		url: SITE_URL,
-		title: `[Open Graph title] | ${COMPANY_NAME}`,
+		title: `Custom Cabinets & Remodeling in South Florida | ${COMPANY_NAME}`,
 		description:
-			"[Open Graph description — summary of the site for social media sharing.]",
+			"Remodeling, Cabinetry, and Everything Between. Master Cabinets LLC serves Naples, Bonita Springs, Fort Myers & all of South Florida with 25+ years of craftsmanship.",
 		siteName: COMPANY_NAME,
 		images: [
 			{
-				url: `${SITE_URL}/images/hero/logo.png`,
+				url: `${SITE_URL}/images/hero/image1.webp`,
 				width: 1200,
 				height: 630,
-				alt: `${COMPANY_NAME} - [Short description of the hero image]`,
+				alt: `${COMPANY_NAME} — Custom Cabinetry & Home Remodeling in South Florida`,
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: `${COMPANY_NAME} | [Twitter Card title]`,
+		title: `${COMPANY_NAME} | Custom Cabinets & Home Remodeling`,
 		description:
-			"[Twitter Card description — summary of the site for sharing on Twitter/X.]",
+			"Remodeling, Cabinetry, and Everything Between. Licensed & insured home remodeling in Naples, Fort Myers, Bonita Springs & South Florida.",
 		images: [
-			`${SITE_URL}/images/hero/logo.png`,
+			`${SITE_URL}/images/hero/image1.webp`,
 		],
 	},
 	// NOTE: alternates.canonical intentionally omitted here.

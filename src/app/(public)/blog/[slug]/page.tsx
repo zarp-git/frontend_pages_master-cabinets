@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     "@type": "BlogPosting",
     headline: article.title,
     datePublished: article.published_at,
-    dateModified: article.published_at,
+    dateModified: article.updated_at ?? article.published_at,
     author: article.author
       ? {
           "@type": "Person",

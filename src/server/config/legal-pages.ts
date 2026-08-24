@@ -19,7 +19,7 @@ const createMetadata = (
   description,
   keywords: [...COMMON_KEYWORDS, ...keywords],
   lastUpdated: LAST_UPDATED,
-  canonical: `${BASE_URL}/${path}`,
+  canonical: `/${path}`,
 });
 
 export const legalPagesConfig: Record<string, LegalPageConfig> = {

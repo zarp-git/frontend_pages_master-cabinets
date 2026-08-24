@@ -1,5 +1,6 @@
 import type {
   BlogArticleSummary,
+  BlogArticle,
   PaginatedArticles,
   BlogAPIError,
   BlogArticleImage,
@@ -28,7 +29,7 @@ function normalizeBlogImage(
 
 function normalizeBlogArticle(
   article: any
-): BlogArticleSummary {
+): BlogArticle {
   const rawCover = article.coverImage || article.cover_image;
   const normalizedCover = normalizeBlogImage(rawCover);
   const normalizedImages = Array.isArray(article.images)
@@ -39,6 +40,7 @@ function normalizeBlogArticle(
     ? [normalizedCover, ...normalizedImages.filter((img: BlogArticleImageObject) => img.url !== normalizedCover.url)]
     : normalizedImages;
 
+  const now = new Date().toISOString();
   return {
     id: article.id || "",
     title: article.title || "Untitled",
@@ -46,9 +48,12 @@ function normalizeBlogArticle(
     slug: article.slug || "",
     content: article.content || "",
     meta_description: article.metaDescription || article.meta_description || null,
-    published_at: article.publishedAt || article.published_at || new Date().toISOString(),
+    published_at: article.publishedAt || article.published_at || now,
     display_order: article.displayOrder ?? article.display_order ?? 0,
     images: imagesList,
+    status: "published",
+    created_at: article.createdAt || article.created_at || now,
+    updated_at: article.updatedAt || article.updated_at || article.publishedAt || article.published_at || now,
     author: article.author
       ? {
           id: article.author.id || "",
@@ -103,7 +108,7 @@ export async function getArticles(
 
 export async function getArticleBySlug(
   slug: string,
-): Promise<BlogArticleSummary | null> {
+): Promise<BlogArticle | null> {
   try {
     const url = new URL(`${BLOG_API_BASE_URL}/api/cms/public/articles/${slug}`);
 

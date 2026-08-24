@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/presentation/components/atoms/ui/button";
 import { Container } from "@/presentation/components/atoms/ui/container";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Master Cabinets",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

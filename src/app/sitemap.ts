@@ -13,19 +13,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${SITE_BASE}/`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-08-24"),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${SITE_BASE}/blog`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-08-24"),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
       url: `${SITE_BASE}/gallery`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-08-24"),
       changeFrequency: "monthly",
       priority: 0.6,
     },
@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const servicePages: MetadataRoute.Sitemap = SERVICES_DATA.map((service) => ({
     url: `${SITE_BASE}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-08-24"),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
@@ -53,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locationPages: MetadataRoute.Sitemap = LOCATIONS_DATA.map(
     (location) => ({
       url: `${SITE_BASE}/locations/${location.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-08-24"),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     }),

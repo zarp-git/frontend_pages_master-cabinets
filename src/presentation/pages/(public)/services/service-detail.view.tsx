@@ -358,12 +358,10 @@ function ServiceFeaturesSection({ features }: { features: ServiceFeature[] }) {
         {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-2xl lg:text-3xl font-bold font-hanken text-gray-800 uppercase mb-3">
-            {/* Section heading — why choose this company. e.g. "Why Choose [Company Name]" */}
-            Why Choose Us
+            Why Choose Master Cabinets
           </h2>
           <p className="text-gray-600 text-base font-rubik leading-7 max-w-2xl mx-auto">
-            {/* Sub-heading — brief description of the company's approach and commitment */}
-            [Brief description of the company's approach, craftsmanship, and commitment to quality.]
+            With 25+ years of craftsmanship across South Florida, our team delivers quality, transparency, and results you can count on — from design through final installation.
           </p>
         </div>
 

@@ -37,34 +37,35 @@ const clashDisplay = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${COMPANY_NAME} - [Site title and main description]`,
-    template: `%s | ${COMPANY_NAME}`,
+    default: "Master Cabinets - Custom Cabinetry & Home Remodeling in Naples, FL",
+    template: "%s | Master Cabinets",
   },
   description:
-    "[Site meta description — up to 160 characters about the company's services, service area, and value proposition.]",
+    "Master Cabinets LLC offers premium custom cabinetry, kitchen & bathroom remodeling, flooring, and full home renovations in Naples, Bonita Springs, Fort Myers, and South Florida. Free quotes. 25+ years experience.",
+  keywords: ["custom cabinets Naples FL", "kitchen remodeling Naples", "bathroom remodeling South Florida", "cabinet installation Fort Myers", "Master Cabinets LLC"],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: COMPANY_NAME,
-    title: `${COMPANY_NAME} - [Open Graph title]`,
+    siteName: "Master Cabinets",
+    title: "Master Cabinets - Custom Cabinetry & Remodeling in South Florida",
     description:
-      "[Open Graph description — summary of the site for social media sharing.]",
+      "Premium custom cabinets and full home remodeling in Naples, Bonita Springs, Fort Myers, and across South Florida. 25+ years of craftsmanship. Free quotes.",
     images: [
       {
-        url: `${SITE_URL}/images/hero/logo.png`,
+        url: `${SITE_URL}/images/og-default.jpg`,
         width: 1200,
         height: 630,
-        alt: `${COMPANY_NAME} - [Short description of the hero image]`,
+        alt: "Master Cabinets - Custom Cabinetry and Home Remodeling in South Florida",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY_NAME} | [Twitter Card title]`,
+    title: "Master Cabinets | Custom Cabinetry & Home Remodeling",
     description:
-      "[Twitter Card description — summary of the site for sharing on Twitter/X.]",
-    images: [`${SITE_URL}/images/hero/logo.png`],
+      "Premium custom cabinets and full home remodeling in Naples, Bonita Springs, Fort Myers, and across South Florida.",
+    images: [`${SITE_URL}/images/og-default.jpg`],
   },
 };
 

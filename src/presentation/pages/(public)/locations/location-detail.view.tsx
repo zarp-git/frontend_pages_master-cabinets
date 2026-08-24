@@ -61,7 +61,7 @@ function LocationHero({ location }: { location: LocationData }) {
   return (
     <PageHero
       image={location.heroImage}
-      imageAlt={`[Service type] in ${location.title}`}
+      imageAlt={`Cabinet & Remodeling Services in ${location.title}`}
       eyebrow={location.heroSubtitle}
       heading={location.heroHeading}
       size="xl"
@@ -326,7 +326,7 @@ function LocationServedAreasSection({
           </h2>
           <p className="text-gray-600 text-base font-rubik leading-7 max-w-2xl mx-auto">
             {/* Sub-heading — describe the service area coverage and commitment to local communities */}
-            [Description of service area coverage — mention the regions, neighborhoods, or cities served and the company's local commitment.]
+            Master Cabinets LLC serves {cityName} and the surrounding South Florida communities with expert remodeling, custom cabinetry, and home renovation services. Our team is locally based and committed to the areas we serve.
           </p>
         </div>
 
@@ -389,7 +389,7 @@ function LocationCta({ cityName }: { cityName: string }) {
 
             <p className="text-neutral-300 text-base md:text-lg font-rubik leading-7 max-w-xl">
               {/* CTA description — motivational text about the services and invitation to contact */}
-              [CTA description — motivational text about the services offered in this city and an invitation to get in touch.]
+              We're ready to transform your home with expert craftsmanship and transparent pricing. Get your free in-home consultation today — no obligation, no pressure.
             </p>
 
             <Button
