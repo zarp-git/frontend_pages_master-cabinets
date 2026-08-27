@@ -52,7 +52,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 // ---------------------------------------------------------------------------
 
 export const GALLERY_SEO = {
-  metaTitle: `Project Gallery | ${COMPANY_NAME} — Naples, FL`,
+  metaTitle: `Project Gallery | ${COMPANY_NAME} - Naples, FL`,
   metaDescription:
     "Browse our portfolio of custom cabinetry, kitchen remodels, bathroom renovations, flooring installations, and outdoor living projects across Southwest Florida.",
 };

@@ -22,7 +22,7 @@ export const REVIEWS: Review[] = [
     rating: 5,
     serviceTag: "Kitchen Remodeling",
     images: [],
-    text: "Master Cabinets transformed our kitchen completely. The craftsmanship is outstanding — every cabinet fits perfectly and the finish is flawless. Highly recommend!",
+    text: "Master Cabinets transformed our kitchen completely. The craftsmanship is outstanding, every cabinet fits perfectly and the finish is flawless. Highly recommend!",
   },
   {
     id: 2,
@@ -211,7 +211,7 @@ export const MC_REVIEWS: McReview[] = [
     avatarSrc: "/images/avatars/avatar-1.jpg",
     rating: 5,
     quote:
-      "The tile work in our guest bath is immaculate — perfectly level, tight joints, and they matched the pattern around every corner. Small details, big difference.",
+      "The tile work in our guest bath is immaculate: perfectly level, tight joints, and they matched the pattern around every corner. Small details, big difference.",
     serviceTag: "Tiling",
     locationTag: "Estero, FL",
     category: "Tiling",

@@ -114,7 +114,7 @@ function GalleryCard({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 354px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-clash text-[11px] font-medium uppercase leading-4 tracking-[0.7px] text-[#036841]">
+        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-clash text-[11px] font-medium uppercase leading-4 tracking-[0.7px] text-[#403023]">
           {item.badge}
         </span>
       </div>

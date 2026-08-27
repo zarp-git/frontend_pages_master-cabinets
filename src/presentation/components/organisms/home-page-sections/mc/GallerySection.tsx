@@ -132,9 +132,6 @@ export default function GallerySection() {
             ))}
           </CarouselContent>
         </Carousel>
-        <p className="mt-3 select-none text-center font-sans text-xs text-[#786F6C]">
-          Swipe to explore →
-        </p>
       </div>
 
       <div className="mx-auto mt-8 flex max-w-[1440px] justify-center px-4 sm:px-8">

@@ -79,18 +79,18 @@
 
 :root {
   /* ── Legacy MC tokens (kept for backward compat) ── */
-  --color-brown-dark: #3F2F22;
+  --color-brown-dark: #403023;
   --color-gold: #F7AF14;
-  --color-brown-medium: #958272;
+  --color-brown-medium: #968272;
   --color-terracotta: #C8956C;
   --color-bg-primary: #FFFDF7;
   --color-bg-dark: #17110B;
-  --color-bg-footer: #3F2F22;
+  --color-bg-footer: #403023;
 
-  /* ── MC Design System Tokens (Helena Figma spec 20260824) ── */
+  /* ── MC Design System Tokens (Helena Figma spec) ── */
   /* Colors */
-  --mc-espresso: #3F2F22;
-  --mc-taupe: #958272;
+  --mc-espresso: #403023;
+  --mc-taupe: #968272;
   --mc-orange: #F7AF14;
   --mc-orange-hover: #E04300;
   --mc-near-black: #111827;

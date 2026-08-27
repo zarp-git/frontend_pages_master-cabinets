@@ -154,7 +154,7 @@ export default function QuoteForm({
 
       {submitted ? (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#3F2F22]">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#403023]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
               stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
               className="w-6 h-6">

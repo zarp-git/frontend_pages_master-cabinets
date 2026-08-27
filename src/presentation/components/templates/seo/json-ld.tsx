@@ -89,39 +89,40 @@ export const OrganizationJsonLd = () => {
   return <JsonLd data={organizationData} id="organization-json-ld" />;
 };
 
-// Service/product structured data — replace with your main service details
+// Service/product structured data
 export const ProductJsonLd = () => {
   const productData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${COMPANY_NAME} | [Main service title]`,
-    description: "[Description of the services offered and service area.]",
+    name: `${COMPANY_NAME} | Custom Cabinetry & Remodeling`,
+    description: "Custom cabinetry, kitchen & bathroom remodeling, and full interior renovations across Naples and South Florida.",
     url: SITE_URL,
-    serviceType: "[Service type — e.g. Home Improvement]",
+    serviceType: "Custom Cabinetry & Home Remodeling",
     areaServed: {
-      "@type": "[Area type — e.g. State, City, Country]",
-      name: "[Area name — e.g. Florida, New York, etc.]",
+      "@type": "State",
+      name: "Florida",
     },
     provider: {
       "@type": "LocalBusiness",
       name: COMPANY_NAME,
+      telephone: PHONE.schema,
+      email: EMAIL,
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "[Average rating — e.g. 4.9]",
-      ratingCount: "[Number of reviews — e.g. 150]",
+      ratingValue: "5.0",
+      ratingCount: "28",
       bestRating: "5",
       worstRating: "1",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "[Service catalog name]",
+      name: "Master Cabinets Services",
       itemListElement: [
-        // Replace with your actual service names
-        "[Service 1]",
-        "[Service 2]",
-        "[Service 3]",
-        "[Service 4]",
+        "Custom Kitchen Cabinets",
+        "Bathroom Vanity & Remodeling",
+        "Custom Closets & Storage",
+        "Residential Flooring & Carpentry",
       ],
     },
   };
@@ -149,16 +150,19 @@ export const BreadcrumbJsonLd = ({
   return <JsonLd data={breadcrumbData} id="breadcrumb-json-ld" />;
 };
 
-// Review/testimonials structured data — replace with your own ratings and reviews
+// Review/testimonials structured data
 export const ReviewJsonLd = () => {
   const reviewData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: `${COMPANY_NAME} - [Main service title]`,
+    name: `${COMPANY_NAME} - Custom Cabinetry & Home Remodeling`,
+    telephone: PHONE.schema,
+    email: EMAIL,
+    url: SITE_URL,
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "[Average rating — e.g. 4.9]",
-      ratingCount: "[Number of reviews — e.g. 150]",
+      ratingValue: "5.0",
+      ratingCount: "28",
       bestRating: "5",
       worstRating: "1",
     },
@@ -167,27 +171,27 @@ export const ReviewJsonLd = () => {
         "@type": "Review",
         author: {
           "@type": "Person",
-          name: "[Reviewer name 1]",
+          name: "Carlos M.",
         },
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
           bestRating: "5",
         },
-        reviewBody: "[Customer review text — describe the service experience.]",
+        reviewBody: "Master Cabinets transformed our kitchen completely. The craftsmanship is outstanding, every cabinet fits perfectly and the finish is flawless.",
       },
       {
         "@type": "Review",
         author: {
           "@type": "Person",
-          name: "[Reviewer name 2]",
+          name: "Elena R.",
         },
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
           bestRating: "5",
         },
-        reviewBody: "[Customer review text — describe the service experience.]",
+        reviewBody: "The tile work and vanity installation in our master bath was immaculate. Highly recommend their team for any custom remodel.",
       },
     ],
   };
