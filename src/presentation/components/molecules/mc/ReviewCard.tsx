@@ -1,19 +1,20 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import InitialsAvatar from "@/presentation/components/atoms/ui/InitialsAvatar";
 
 interface ReviewCardProps {
   /** Full name of the reviewer */
   authorName: string;
-  /** Path or URL to the avatar image. Falls back to initials if not provided. */
-  avatarSrc?: string;
   /** Star rating 1–5 */
   rating?: number;
   /** The review quote body */
   quote: string;
-  /** Service type tag e.g. "KITCHEN REMODELING" */
-  serviceTag: string;
-  /** Location tag e.g. "BONITA, FL" */
-  locationTag: string;
+  /**
+   * Up to two pills. Optional because most real Google reviews name neither a
+   * service nor a city - the card simply drops the row when there is nothing
+   * truthful to put in it.
+   */
+  tags?: readonly string[];
   className?: string;
 }
 
@@ -39,25 +40,8 @@ function StarRating({ rating = 5 }: { rating?: number }) {
   );
 }
 
-function AuthorInitials({ name }: { name: string }) {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-  return (
-    <div
-      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3F2F22] font-sans text-sm font-semibold text-white"
-      aria-hidden="true"
-    >
-      {initials}
-    </div>
-  );
-}
-
 /**
- * ReviewCard — Figma node 45:4982 (ReviewCard instance).
+ * ReviewCard - Figma node 45:4982 (ReviewCard instance).
  *
  * White card · radius 24 · border #EFEFEF · shadow 0 9 22 rgba(40,31,19,.06)
  * pad 24 · gap 12. Header is space-between: avatar + name on the left, a
@@ -66,11 +50,9 @@ function AuthorInitials({ name }: { name: string }) {
  */
 export default function ReviewCard({
   authorName,
-  avatarSrc,
   rating = 5,
   quote,
-  serviceTag,
-  locationTag,
+  tags = [],
   className,
 }: ReviewCardProps) {
   return (
@@ -84,17 +66,7 @@ export default function ReviewCard({
       {/* Header: avatar + name (left) · Google badge (right) */}
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          {avatarSrc ? (
-            <Image
-              src={avatarSrc}
-              alt={`${authorName} avatar`}
-              width={96}
-              height={96}
-              className="h-12 w-12 shrink-0 rounded-full object-cover"
-            />
-          ) : (
-            <AuthorInitials name={authorName} />
-          )}
+          <InitialsAvatar name={authorName} />
           <span className="font-sans text-[20px] font-bold leading-[1.1] text-[#111827]">
             {authorName}
           </span>
@@ -121,14 +93,18 @@ export default function ReviewCard({
       </p>
 
       {/* Footer tag pills */}
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]">
-          {serviceTag}
-        </span>
-        <span className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]">
-          {locationTag}
-        </span>
-      </div>
+      {tags.length > 0 && (
+        <div className="flex flex-wrap items-center gap-3">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="inline-flex items-center rounded-full bg-[#EFEFEF] px-3 py-1 font-sans text-[13px] font-bold uppercase leading-[20px] text-[#958272]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
   );
 }

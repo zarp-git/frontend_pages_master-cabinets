@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import {
   SITE_URL,
   COMPANY_NAME,
@@ -17,17 +14,28 @@ interface JsonLdProps {
   id?: string;
 }
 
+/**
+ * Renders structured data as a native <script> on the server.
+ *
+ * next/script is built for loading and executing JavaScript: with its default
+ * afterInteractive strategy it injects the tag client-side, so the markup was
+ * absent from the SSR HTML that crawlers actually read. Next's own JSON-LD
+ * guide calls a plain <script> the right tool here. `<` is escaped to keep a
+ * string in the data from being able to close the tag.
+ */
 export const JsonLd = ({ data, id = "json-ld" }: JsonLdProps) => {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\u003c"),
+      }}
     />
   );
 };
 
-// FAQ structured data — dynamically built from FAQ items
+// FAQ structured data - dynamically built from FAQ items
 interface FAQJsonLdProps {
   faq: ReadonlyArray<{
     question: string;
@@ -64,7 +72,7 @@ export const FAQJsonLd = ({ faq }: FAQJsonLdProps) => {
   return <JsonLd data={faqStructuredData} id="faq-json-ld" />;
 };
 
-// Organization structured data — replace with your own company details
+// Organization structured data - replace with your own company details
 export const OrganizationJsonLd = () => {
   const organizationData = {
     "@context": "https://schema.org",
@@ -75,7 +83,7 @@ export const OrganizationJsonLd = () => {
     logo: `${SITE_URL}/images/hero/logo.png`,
     sameAs: [
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.googleMaps,
     ],
     contactPoint: {
       "@type": "ContactPoint",

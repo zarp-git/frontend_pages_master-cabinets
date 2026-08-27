@@ -15,10 +15,15 @@ import {
 
 const PAGE_SIZE = 9;
 
-const CHIP_OPTIONS = MC_FILTER_CATEGORIES.map((c) => ({ label: c, value: c }));
+// Only offer a chip that actually returns something. Real reviewers rarely
+// name a trade, so Tiling and Other have nothing behind them - showing them
+// would just be a filter that always comes back empty.
+const CHIP_OPTIONS = MC_FILTER_CATEGORIES.filter(
+  (c) => c === "All" || MC_REVIEWS.some((r) => r.categories.includes(c)),
+).map((c) => ({ label: c, value: c }));
 
 /**
- * ReviewsPageView — Figma node 60:18380 (REVIEWS).
+ * ReviewsPageView - Figma node 60:18380 (REVIEWS).
  *
  * Centered heading lockup → filter chips → 3-column review grid (385px cards,
  * 16px gutters) → Load More pill → the shared FAQ block → quote CTA.
@@ -29,14 +34,14 @@ export function ReviewsPageView() {
 
   const filtered = useMemo(() => {
     if (active === "All") return MC_REVIEWS;
-    return MC_REVIEWS.filter((r) => r.category === active);
+    return MC_REVIEWS.filter((r) => r.categories.includes(active));
   }, [active]);
 
   const shown = filtered.slice(0, visible);
   const hasMore = filtered.length > visible;
 
   return (
-    <main className="w-full bg-white pt-[104px]">
+    <main className="w-full bg-white pt-[92px] sm:pt-[104px] lg:pt-[120px]">
       <section
         className="mx-auto flex max-w-[1360px] flex-col items-center px-4 pb-20 pt-16 sm:px-8 lg:px-16"
         aria-label="Customer reviews"
@@ -63,7 +68,7 @@ export function ReviewsPageView() {
         <div className="mt-8 grid w-full max-w-[1232px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((review) => (
             <ReviewCard
-              key={`${review.authorName}-${review.serviceTag}`}
+              key={review.authorName}
               {...review}
               className="h-full max-w-none"
             />

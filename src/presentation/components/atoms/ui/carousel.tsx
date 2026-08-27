@@ -132,13 +132,25 @@ function Carousel({
   );
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
+interface CarouselContentProps extends React.ComponentProps<"div"> {
+  /**
+   * Extra classes for the Embla viewport. Embla needs `overflow-hidden` here,
+   * which clips slide shadows - pass e.g. "-my-6 py-6" to give them room.
+   */
+  viewportClassName?: string;
+}
+
+function CarouselContent({
+  className,
+  viewportClassName,
+  ...props
+}: CarouselContentProps) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden"
+      className={cn("overflow-hidden", viewportClassName)}
       data-slot="carousel-content"
     >
       <div

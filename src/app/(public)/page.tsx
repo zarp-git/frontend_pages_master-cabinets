@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Homepage — Figma node 17:1781
+ * Homepage - Figma node 17:1781
  * Implements all 10 sections per Helena's design spec (20260824):
  * Hero → Reviews → Gallery → Services → Features → About → Materials → FAQ → PricingCTA → Footer
  * Footer is rendered by the layout.

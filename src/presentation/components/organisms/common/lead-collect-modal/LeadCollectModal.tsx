@@ -276,7 +276,7 @@ export const LeadCollectModal = () => {
 
                   <a
                     href={PHONE.href}
-                    className="mt-2 w-full md:w-auto h-12 px-8 py-4 bg-[#FF4C00] hover:bg-[#E04300] transition-colors text-white rounded-lg inline-flex justify-center items-center gap-4 text-base font-medium font-rubik uppercase"
+                    className="mt-2 w-full md:w-auto h-12 px-8 py-4 bg-[#403023] hover:bg-[#2C1F14] transition-colors text-white rounded-lg inline-flex justify-center items-center gap-4 text-base font-medium font-rubik uppercase"
                   >
                     CALL US NOW
                     <RiPhoneLine className="size-5" />
@@ -410,7 +410,7 @@ export const LeadCollectModal = () => {
                   <button
                     type="button"
                     onClick={handleStep1Continue}
-                    className="mt-2 self-stretch h-12 px-8 py-4 bg-[#FF4C00] hover:bg-[#E04300] transition-colors text-white border-0 shadow-sm rounded-lg inline-flex justify-center items-center gap-4 w-full outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2"
+                    className="mt-2 self-stretch h-12 px-8 py-4 bg-[#403023] hover:bg-[#2C1F14] transition-colors text-white border-0 shadow-sm rounded-lg inline-flex justify-center items-center gap-4 w-full outline-none focus:ring-2 focus:ring-[#403023] focus:ring-offset-2"
                   >
                     <span className="text-center text-base font-medium font-rubik uppercase">
                       CONTINUE
@@ -581,7 +581,7 @@ export const LeadCollectModal = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 h-12 px-8 py-4 bg-[#FF4C00] hover:bg-[#E04300] transition-colors text-white border-0 shadow-sm rounded-lg inline-flex justify-center items-center gap-4 outline-none focus:ring-2 focus:ring-[#FF4C00] focus:ring-offset-2 disabled:opacity-75"
+                        className="flex-1 h-12 px-8 py-4 bg-[#403023] hover:bg-[#2C1F14] transition-colors text-white border-0 shadow-sm rounded-lg inline-flex justify-center items-center gap-4 outline-none focus:ring-2 focus:ring-[#403023] focus:ring-offset-2 disabled:opacity-75"
                       >
                         {isSubmitting ? (
                           <RiLoader4Line className="size-5 animate-spin" />
@@ -624,7 +624,7 @@ export const LeadCollectModal = () => {
                       </span>
                       <div
                         className={`w-full h-1.5 rounded-[10px] transition-colors ${
-                          isActive ? "bg-zinc-800" : isCompleted ? "bg-green-500" : "bg-gray-200"
+                          isActive ? "bg-[#403023]" : isCompleted ? "bg-[#968272]" : "bg-[#E5DECD]"
                         }`}
                       />
                     </div>

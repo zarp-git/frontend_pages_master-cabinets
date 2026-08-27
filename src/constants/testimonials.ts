@@ -1,87 +1,21 @@
 // ---------------------------------------------------------------------------
-// Testimonials / Reviews — Single Source of Truth
 // ---------------------------------------------------------------------------
-
-export interface Review {
-  id: number;
-  name: string;
-  daysAgo: string;
-  rating: number;
-  serviceTag: string;
-  images: string[];
-  text: string;
-}
-
-const IMG = "/images/testimonials-reviews/review-photos";
-
-export const REVIEWS: Review[] = [
-  {
-    id: 1,
-    name: "Emily R.",
-    daysAgo: "1 month ago",
-    rating: 5,
-    serviceTag: "Kitchen Remodeling",
-    images: [],
-    text: "Master Cabinets transformed our kitchen completely. The craftsmanship is outstanding, every cabinet fits perfectly and the finish is flawless. Highly recommend!",
-  },
-  {
-    id: 2,
-    name: "Daniel M.",
-    daysAgo: "3 months ago",
-    rating: 5,
-    serviceTag: "Bathroom Remodeling",
-    images: [],
-    text: "Excellent work on our master bathroom. The team was professional, clean, and finished ahead of schedule. The custom cabinetry exceeded our expectations.",
-  },
-  {
-    id: 3,
-    name: "Michael A.",
-    daysAgo: "2 months ago",
-    rating: 5,
-    serviceTag: "Custom Cabinetry",
-    images: [],
-    text: "We had our walk-in closet completely redesigned. The attention to detail is remarkable. Every inch of space is now perfectly utilized.",
-  },
-  {
-    id: 4,
-    name: "Sarah T.",
-    daysAgo: "6 weeks ago",
-    rating: 5,
-    serviceTag: "Bathroom Remodeling",
-    images: [],
-    text: "From the initial consultation to the final installation, everything was handled with care. Our bathroom looks like it belongs in a magazine.",
-  },
-  {
-    id: 5,
-    name: "James L.",
-    daysAgo: "4 months ago",
-    rating: 5,
-    serviceTag: "Home Remodeling",
-    images: [],
-    text: "We hired Master Cabinets for a full kitchen and living room remodel. The team was organized, communicated clearly throughout, and delivered results that wowed us. The whole project ran smoothly from start to finish.",
-  },
-  {
-    id: 6,
-    name: "Maria G.",
-    daysAgo: "5 months ago",
-    rating: 5,
-    serviceTag: "Flooring",
-    images: [],
-    text: "The new flooring looks incredible. Master Cabinets helped us choose the right material and the installation was clean and fast. I'm amazed at how much it changed the feel of our home.",
-  },
-  {
-    id: 7,
-    name: "Robert K.",
-    daysAgo: "7 months ago",
-    rating: 5,
-    serviceTag: "Walk-In Closets & Storage",
-    images: [],
-    text: "Our new walk-in closet is a dream. The custom storage solutions they designed make use of every square foot. The team was respectful, punctual, and truly skilled.",
-  },
-];
-
+// Reviews - Single Source of Truth
+//
+// These are the client's real Google reviews, transcribed from the Business
+// Profile (CID 7209192084505606319). Wording is kept as written; the only edits
+// are capitalisation, obvious typos ("definately" -> "definitely", "buisness"
+// -> "business", "fast paste" -> "fast paced") and terminal punctuation.
+//
+// Several reviews arrive from Google truncated with a "...More" link. Those are
+// cut at the last complete clause rather than being continued - the rest of the
+// sentence is not ours to write. Reviews with no substance beyond "great"
+// were left out.
+//
+// Tags are only populated where the reviewer actually says so. Most people do
+// not name the service or the city, so most cards carry Google's own attribute
+// chip ("Great price", "Reasonable price") and nothing else.
 // ---------------------------------------------------------------------------
-// Master Cabinets review cards — Figma nodes 17:2789 (home) / 60:18380 (reviews)
 // ---------------------------------------------------------------------------
 
 /** Filter chips shared by the Reviews and Gallery pages (Figma 60:18380 / 60:12187). */
@@ -100,133 +34,147 @@ export type McFilterCategory = (typeof MC_FILTER_CATEGORIES)[number];
 
 export interface McReview {
   authorName: string;
-  avatarSrc?: string;
   rating: number;
   quote: string;
-  serviceTag: string;
-  locationTag: string;
-  category: Exclude<McFilterCategory, "All">;
+  /**
+   * Up to two pills. Only ever what the review or the Google profile actually
+   * states: the work named by the reviewer, the city they mention, or Google's
+   * attribute chip.
+   */
+  tags: readonly string[];
+  /**
+   * Every trade the reviewer actually names. Several name more than one,
+   * so this is a list rather than a single bucket - and reviews that name
+   * nothing sit under the client's own umbrella term, Home remodel.
+   */
+  categories: readonly Exclude<McFilterCategory, "All">[];
 }
 
 export const MC_REVIEWS: McReview[] = [
   {
-    authorName: "Emily R.",
-    avatarSrc: "/images/avatars/maria-silva.jpg",
+    authorName: "Tay McAlevy",
     rating: 5,
     quote:
-      "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
-    serviceTag: "Kitchen Remodeling",
-    locationTag: "Bonita, FL",
-    category: "Kitchens",
+      "Great company and great quality work! Everything came out exactly how we wanted, and the cabinets look amazing. The team was professional, reliable, and easy to work with. Definitely recommend them to anyone looking for quality cabinet work!",
+    tags: ["Custom Cabinetry", "Great price"],
+    categories: ["Kitchens", "Carpentry"],
   },
   {
-    authorName: "Daniel M.",
+    authorName: "Ariana Asuaje",
     rating: 5,
     quote:
-      "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
-    serviceTag: "Bathroom Remodeling",
-    locationTag: "Bonita, FL",
-    category: "Bathrooms",
+      "I've had a great experience with Master Cabinets. Their service is excellent, they're professional and reliable, and they do beautiful work. I highly recommend them for kitchen cabinets, bathroom cabinets, and closets in the Naples area!",
+    tags: ["Kitchen & Bath Cabinets", "Naples, FL"],
+    categories: ["Kitchens", "Bathrooms", "Living spaces"],
   },
   {
-    authorName: "Michael A.",
-    avatarSrc: "/images/avatars/carlos-men.jpg",
+    authorName: "Leslie Babb",
     rating: 5,
     quote:
-      "The custom cabinets made a huge difference in both the appearance and functionality of our home. Master Cabinets listened to what we needed and delivered a solution that feels elegant, practical, and completely tailored to us.",
-    serviceTag: "Cabinetry",
-    locationTag: "Bonita, FL",
-    category: "Home remodel",
+      "We had Master Cabinets redo our floors, painting throughout, trim, refinish kitchen cabinets!! Did a great job throughout!!",
+    tags: ["Flooring & Painting", "Reasonable price"],
+    categories: ["Home remodel", "Kitchens", "Carpentry"],
   },
   {
-    authorName: "Sarah T.",
-    avatarSrc: "/images/avatars/avatar-1.jpg",
+    authorName: "Alexa M.",
     rating: 5,
     quote:
-      "We hired Master Cabinets for several areas of our home, including the kitchen, bathrooms, and custom storage. Everything feels cohesive, thoughtfully designed, and built to last. We are extremely happy with the final result.",
-    serviceTag: "Bathroom Remodeling",
-    locationTag: "Fort Myers, FL",
-    category: "Bathrooms",
+      "Nickolas is amazing. Nickolas helped me with picking out my floors and my cabinets to complement my house. His family business is amazing, everyone is so kind and helpful. Definitely recommend for next house upgrades or projects.",
+    tags: ["Flooring & Cabinets", "Great price"],
+    categories: ["Home remodel", "Kitchens"],
   },
   {
-    authorName: "Chris H.",
-    avatarSrc: "/images/avatars/jorge-santana.jpg",
+    authorName: "Sue B.",
     rating: 5,
     quote:
-      "Great craftsmanship on our custom deck framing. The crew was punctual and cleaned up after themselves every day. Only minor hiccup was a small delay in materials, but the end result was worth the wait.",
-    serviceTag: "Carpentry",
-    locationTag: "Miami, FL",
-    category: "Carpentry",
+      "We had been with three other builders before finding Joanna and Julio from Master Cabinets. As soon as we met them, our gut told us to go with them. From the very beginning, they got back to us immediately with our estimate and plans.",
+    tags: ["Full Remodel", "Great price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Sofia R.",
+    authorName: "Sebastian Esch",
     rating: 5,
     quote:
-      "We had our closets redone and it completely changed how we use the space. Everything is organized, custom fit, and beautifully built. You can tell these guys take real pride in their work.",
-    serviceTag: "Custom Closets",
-    locationTag: "Bonita, FL",
-    category: "Living spaces",
+      "Nick knows what he's doing, he's got great customer service and has knowledge about his business. Give him a try, you won't regret it.",
+    tags: [],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Robert C.",
-    avatarSrc: "/images/avatars/avatar-2.jpg",
+    authorName: "Gabriel Lopez",
     rating: 5,
     quote:
-      "From the first consultation to the final walkthrough, the team was professional and easy to work with. They remodeled our master bathroom and the craftsmanship on the vanity is next level. Highly recommend.",
-    serviceTag: "Bathroom Remodeling",
-    locationTag: "Fort Myers, FL",
-    category: "Bathrooms",
+      "Amazing company! Great communication throughout the entire process of my project. Thank you so much Master Cabinets!",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Amanda P.",
-    avatarSrc: "/images/avatars/ana-paula.jpg",
+    authorName: "Gigii",
     rating: 5,
     quote:
-      "Master Cabinets completely transformed our kitchen. The new cabinetry is beautiful, functional, and perfectly designed for our space. The team communicated clearly throughout the project and paid attention to every detail.",
-    serviceTag: "Cabinetry",
-    locationTag: "Bonita, FL",
-    category: "Kitchens",
+      "People are very good to work with, had no issues with them and very good pricing as well! Definitely would have them work on my house again.",
+    tags: ["Reasonable price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Iana M.",
-    avatarSrc: "/images/avatars/avatar-3.jpg",
+    authorName: "Alex Legra",
     rating: 5,
     quote:
-      "Our bathroom renovation turned out better than we imagined. Master Cabinets helped us create a modern, comfortable space with excellent storage and high quality finishes. The entire process felt organized and professional.",
-    serviceTag: "Bathroom Remodeling",
-    locationTag: "Bonita, FL",
-    category: "Bathrooms",
+      "Nick is a great worker, he worked diligently on my home, and at a below market average price. Would recommend to anyone looking to do some renovations to their home.",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Peter K.",
+    authorName: "Brian Tellez",
     rating: 5,
     quote:
-      "They handled flooring, painting, and the built-ins for our living room in one go. One contact for everything meant no finger-pointing and no wasted weeks between trades.",
-    serviceTag: "Home Remodeling",
-    locationTag: "Naples, FL",
-    category: "Home remodel",
+      "Definitely worth the company to touch base with. Fast paced work. Tremendous efficiency. Beautiful work!",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Laura B.",
-    avatarSrc: "/images/avatars/avatar-1.jpg",
+    authorName: "Anthony S.",
     rating: 5,
-    quote:
-      "The tile work in our guest bath is immaculate: perfectly level, tight joints, and they matched the pattern around every corner. Small details, big difference.",
-    serviceTag: "Tiling",
-    locationTag: "Estero, FL",
-    category: "Tiling",
+    quote: "Great team and amazing experience. Their work was phenomenal.",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
   },
   {
-    authorName: "Marcus D.",
-    avatarSrc: "/images/avatars/carlos-men.jpg",
+    authorName: "Jesus Gonzalez",
     rating: 5,
     quote:
-      "Our outdoor kitchen came out exactly as it was drawn. Materials hold up to the sun and salt air, and the install crew left the site spotless every evening.",
-    serviceTag: "Outdoor Living",
-    locationTag: "Marco Island, FL",
-    category: "Other",
+      "Fantastic team. I received amazing service, and I am super satisfied! Highly recommend!!!",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
+  },
+  {
+    authorName: "Anthony Trejo",
+    rating: 5,
+    quote: "Quality work every time. 2nd time using them!!",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
+  },
+  {
+    authorName: "Joselin Torres",
+    rating: 5,
+    quote: "Great service throughout my whole process. Good company.",
+    tags: ["Reasonable price"],
+    categories: ["Home remodel"],
+  },
+  {
+    authorName: "Jaylen Colon",
+    rating: 5,
+    quote: "Great customer service. Would definitely recommend.",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
+  },
+  {
+    authorName: "Ayden Young",
+    rating: 5,
+    quote: "Really happy with my experience with Master Cabinets.",
+    tags: ["Great price"],
+    categories: ["Home remodel"],
   },
 ];
 
-/** First four cards shown on the homepage rail. */
+/** First four cards shown on the homepage rail - the most substantial ones. */
 export const HOME_REVIEWS = MC_REVIEWS.slice(0, 4);

@@ -13,6 +13,7 @@ import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButt
 import GallerySection from "@/presentation/components/organisms/home-page-sections/mc/GallerySection";
 import FAQSection from "@/presentation/components/organisms/home-page-sections/mc/FAQSection";
 import PricingCTASection from "@/presentation/components/organisms/home-page-sections/mc/PricingCTASection";
+import HScroll from "@/presentation/components/atoms/ui/HScroll";
 
 const PRINCIPLES = [
   {
@@ -57,7 +58,7 @@ const PROCESS_STEPS = [
   {
     index: "01",
     title: "Consultation",
-    body: "We listen to what is not working and how you imagine the finished space — no pressure, no generic sales pitch.",
+    body: "We listen to what is not working and how you imagine the finished space - no pressure, no generic sales pitch.",
   },
   {
     index: "02",
@@ -77,7 +78,7 @@ const PROCESS_STEPS = [
 ] as const;
 
 /**
- * AboutPageView — Figma node 48:8801 (ABOUT US).
+ * AboutPageView - Figma node 48:8801 (ABOUT US).
  *
  * Brand card → "A Single Team…" lockup → Principles grid (6 bezelled cards) →
  * the shared Featured Work gallery → the taupe process panel → FAQ → CTA.
@@ -85,9 +86,9 @@ const PROCESS_STEPS = [
 export function AboutPageView() {
   return (
     <main className="w-full bg-white">
-      {/* 1 — Brand card + intro */}
+      {/* 1 - Brand card + intro */}
       <section
-        className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[100px] sm:px-8"
+        className="mx-auto w-full max-w-[1364px] px-4 pb-16 pt-[92px] sm:pt-[104px] lg:pt-[120px] sm:px-8"
         aria-label="About Master Cabinets"
       >
         <div className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
@@ -117,15 +118,15 @@ export function AboutPageView() {
         <div className="flex flex-col items-start justify-between gap-8 pt-10 lg:flex-row lg:items-end">
           <p className="max-w-[742px] font-sans text-[clamp(18px,1.7vw,24px)] font-light leading-[1.63] text-[#666666]">
             For more than 25 years, Master Cabinets has helped South Florida
-            homeowners remodel their homes end to end — cabinetry, flooring,
+            homeowners remodel their homes end to end - cabinetry, flooring,
             painting, electrical, and outdoor work, coordinated through one
             dedicated point of contact. Licensed &amp; Insured.
           </p>
-          <ActionButtonGroup stackOnMobile={false} className="shrink-0" />
+          <ActionButtonGroup className="sm:shrink-0" />
         </div>
       </section>
 
-      {/* 2 — Principles */}
+      {/* 2 - Principles */}
       <section
         className="mx-auto w-full max-w-[1364px] px-4 py-16 sm:px-8"
         aria-label="How we work"
@@ -141,11 +142,16 @@ export function AboutPageView() {
           />
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <HScroll
+          ariaLabel="Principles behind every project"
+          gapClassName="gap-8"
+          className="mt-8"
+          expandedClassName="md:mx-0 md:grid md:grid-cols-2 md:snap-none md:overflow-visible md:px-0 lg:grid-cols-3"
+        >
           {PRINCIPLES.map(({ index, title, body, Icon }) => (
             <div
               key={index}
-              className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]"
+              className="w-[84%] shrink-0 snap-start rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:w-auto md:shrink"
             >
               <div className="flex h-full flex-col rounded-[26px] bg-white p-10 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
                 <div className="flex items-center justify-between">
@@ -172,17 +178,17 @@ export function AboutPageView() {
               </div>
             </div>
           ))}
-        </div>
+        </HScroll>
 
         <div className="mt-8 flex justify-center">
           <ActionButtonGroup className="justify-center" />
         </div>
       </section>
 
-      {/* 3 — Featured work (shared with the homepage) */}
+      {/* 3 - Featured work (shared with the homepage) */}
       <GallerySection />
 
-      {/* 4 — Process */}
+      {/* 4 - Process */}
       <section
         className="mx-auto w-full max-w-[1364px] px-4 py-12 sm:px-8"
         aria-label="Our process"
@@ -226,7 +232,7 @@ export function AboutPageView() {
         </div>
       </section>
 
-      {/* 5 — FAQ + CTA */}
+      {/* 5 - FAQ + CTA */}
       <FAQSection />
       <PricingCTASection />
     </main>

@@ -28,7 +28,7 @@ export async function submitLeadAction(
     const headersList = await headers()
     const userAgent = headersList.get("user-agent") || undefined
     const forwardedFor = headersList.get("x-forwarded-for")
-    // Backend validates ipAddress with @IsIP() — omit the field entirely
+    // Backend validates ipAddress with @IsIP() - omit the field entirely
     // rather than send a placeholder, which fails validation.
     const ipAddress =
       forwardedFor?.split(",")[0]?.trim() ||

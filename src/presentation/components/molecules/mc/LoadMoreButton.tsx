@@ -10,7 +10,7 @@ interface LoadMoreButtonProps {
 }
 
 /**
- * LoadMoreButton — Figma "LOAD MORE" pill on Reviews (60:18380) and Blog (48:11240).
+ * LoadMoreButton - Figma "LOAD MORE" pill on Reviews (60:18380) and Blog (48:11240).
  * Espresso #403023 pill with a spinner chip on the right.
  */
 export default function LoadMoreButton({

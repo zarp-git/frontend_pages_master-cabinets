@@ -1,6 +1,7 @@
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import EyebrowPill from "@/presentation/components/atoms/ui/EyebrowPill";
 import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
+import HScroll from "@/presentation/components/atoms/ui/HScroll";
 
 const SCOPE_PILLARS = [
   {
@@ -29,7 +30,7 @@ interface PricingCTASectionProps {
 }
 
 /**
- * PricingCTASection — Figma node 48:9791 (CTA).
+ * PricingCTASection - Figma node 48:9791 (CTA).
  *
  * Two-column header (eyebrow + heading on the left, supporting copy on the
  * right), optional trio of bezelled pillar cards, and a taupe #968272 quote
@@ -44,7 +45,7 @@ export default function PricingCTASection({
       aria-label="Pricing and free quote"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col">
-        {/* Header — 2 columns */}
+        {/* Header - 2 columns */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-start gap-8">
             <EyebrowPill>Good to know</EyebrowPill>
@@ -57,7 +58,7 @@ export default function PricingCTASection({
           <div className="flex items-end">
             <p className="max-w-[576px] font-sans text-[clamp(16px,1.4vw,20px)] leading-[1.62] text-[#666666]">
               Custom work carries a real cost, and vague answers help nobody.
-              Here is what actually moves the number — and what you get for it,
+              Here is what actually moves the number - and what you get for it,
               before you ever commit to anything.
             </p>
           </div>
@@ -65,11 +66,15 @@ export default function PricingCTASection({
 
         {/* Scope pillars */}
         {showPillars && (
-          <div className="mt-16 grid grid-cols-1 gap-3 md:grid-cols-3">
+          <HScroll
+            ariaLabel="What moves the number"
+            className="mt-16"
+            expandedClassName="md:mx-0 md:grid md:grid-cols-3 md:snap-none md:overflow-visible md:px-0"
+          >
             {SCOPE_PILLARS.map((pillar) => (
               <div
                 key={pillar.number}
-                className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)]"
+                className="w-[84%] shrink-0 snap-start rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:w-auto md:shrink"
               >
                 <div className="flex h-full flex-col gap-4 rounded-[26px] bg-white p-10 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
                   <div className="flex items-center justify-between gap-3">
@@ -89,7 +94,7 @@ export default function PricingCTASection({
                 </div>
               </div>
             ))}
-          </div>
+          </HScroll>
         )}
 
         {/* Quote panel */}

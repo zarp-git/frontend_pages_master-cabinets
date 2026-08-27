@@ -12,10 +12,10 @@ import {
 import { HOME_REVIEWS } from "@/constants/testimonials";
 
 /**
- * ReviewsSection — Figma node 17:2789 (REVIEWS).
+ * ReviewsSection - Figma node 17:2789 (REVIEWS).
  *
  * Centered two-line heading with a Times-italic accent, then a 385px card rail
- * that is 1589px wide inside a 1376px container — i.e. it overflows and scrolls
+ * that is 1589px wide inside a 1376px container - i.e. it overflows and scrolls
  * horizontally by design. Mobile uses an autoplaying Embla carousel.
  */
 export default function ReviewsSection() {
@@ -36,13 +36,13 @@ export default function ReviewsSection() {
 
       {/* Desktop: horizontally scrollable card rail */}
       <div className="mx-auto mt-8 hidden w-full max-w-[1440px] lg:block">
-        <div className="overflow-x-auto overflow-y-hidden px-8 pb-3 [scrollbar-width:thin]">
+        <div className="-my-6 snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth px-8 py-6 [scrollbar-color:#E5DECD_transparent] [scrollbar-width:thin]">
           <div className="flex w-max gap-4">
             {HOME_REVIEWS.map((review) => (
               <ReviewCard
                 key={review.authorName}
                 {...review}
-                className="w-[385px] shrink-0"
+                className="w-[385px] shrink-0 snap-start"
               />
             ))}
           </div>
@@ -56,7 +56,7 @@ export default function ReviewsSection() {
           plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4 pl-4">
+          <CarouselContent className="-ml-4 pl-4" viewportClassName="-my-6 py-6">
             {HOME_REVIEWS.map((review) => (
               <CarouselItem
                 key={review.authorName}

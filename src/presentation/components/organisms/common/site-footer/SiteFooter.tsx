@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 const SERVICE_AREAS = [
@@ -28,9 +29,7 @@ const SERVICE_CITIES =
 
 const SOCIALS = [
   { href: SOCIAL_LINKS.instagram, src: "/images/brands/instagram-icon.svg", label: "Instagram" },
-  { href: SOCIAL_LINKS.whatsapp, src: "/images/brands/whatsapp-icon.svg", label: "WhatsApp" },
-  { href: SOCIAL_LINKS.facebook, src: "/images/brands/facebook-icon.svg", label: "Facebook" },
-  { href: SOCIAL_LINKS.googleMaps, src: "/images/brands/google-maps-icon.svg", label: "Google Maps" },
+  { href: SOCIAL_LINKS.googleMaps, src: "/images/brands/google-maps-icon.svg", label: "Google Business Profile" },
 ] as const;
 
 const LEGAL_LINKS = [
@@ -38,7 +37,7 @@ const LEGAL_LINKS = [
   { label: "Terms of Service", href: "/terms-of-use" },
 ] as const;
 
-/** Column label pill — Figma `Text` chip, bg rgba(0,0,0,.04), Segoe 10/15 ls 2. */
+/** Column label pill - Figma `Text` chip, bg rgba(0,0,0,.04), Segoe 10/15 ls 2. */
 function ColumnLabel({
   children,
   className,
@@ -61,7 +60,7 @@ function ColumnLabel({
 }
 
 /**
- * SiteFooter — Figma `FOOTER` component (17:1781 and every page instance).
+ * SiteFooter - Figma `FOOTER` component (17:1781 and every page instance).
  *
  * A #968272 taupe band (pad 96/64/48) wrapping a white radius-26 card
  * (pad 80/56). Inside: the espresso logo lockup, a four-column grid with
@@ -72,7 +71,7 @@ export default function SiteFooter() {
     <footer className="w-full bg-[#968272] px-4 pb-12 pt-16 sm:px-8 lg:px-16 lg:pt-24">
       <div className="mx-auto max-w-[1312px] rounded-[26px] bg-white px-6 py-12 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:px-10 lg:px-14 lg:py-20">
         {/* Logo lockup */}
-        <Link href="/" aria-label={`${COMPANY_NAME} — home`} className="block">
+        <Link href="/" aria-label={`${COMPANY_NAME} - home`} className="block">
           <Image
             src="/images/mc-logo.svg"
             alt={COMPANY_NAME}
@@ -83,7 +82,7 @@ export default function SiteFooter() {
         </Link>
 
         {/* Columns */}
-        <div className="grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-14 sm:gap-x-8 lg:grid-cols-4">
           {/* Navigation */}
           <nav aria-label="Footer navigation" className="flex flex-col">
             <ColumnLabel>Navigation</ColumnLabel>
@@ -105,7 +104,7 @@ export default function SiteFooter() {
           <div className="flex flex-col">
             <ColumnLabel>Contact</ColumnLabel>
 
-            <div className="flex items-center gap-6 pt-8">
+            <div className="flex flex-wrap items-center gap-4 pt-8 sm:gap-6">
               {SOCIALS.map((social) => (
                 <a
                   key={social.label}
@@ -130,7 +129,7 @@ export default function SiteFooter() {
               <li>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="font-sans text-[14px] leading-5 tracking-[0.3px] text-[#403023] transition-opacity hover:opacity-70"
+                  className="break-words font-sans text-[13px] leading-5 tracking-[0.3px] text-[#403023] transition-opacity hover:opacity-70 sm:text-[14px]"
                 >
                   {EMAIL}
                 </a>
@@ -167,12 +166,13 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          {/* Licence + blurb */}
+          {/* Licence + blurb. Sits beside Service Areas so the four columns
+              close a clean 2x2 on phones instead of leaving a dead half-row. */}
           <div className="flex flex-col gap-5">
             <span className="inline-flex w-fit items-center rounded-full bg-black/[0.04] px-4 py-2 font-sans text-[12px] leading-4 tracking-[0.3px] text-[#403023] shadow-[0_0_0_rgba(0,0,0,0.05)]">
               Licensed &amp; Insured
             </span>
-            <p className="font-sans text-[16px] leading-[26px] text-[#666666]">
+            <p className="font-sans text-[14px] leading-[22px] text-[#666666] sm:text-[16px] sm:leading-[26px]">
               Full home remodeling, architectural cabinetry, and custom
               interiors. Everything filtered into one expert team.
             </p>

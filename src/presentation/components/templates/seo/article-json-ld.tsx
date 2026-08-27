@@ -1,5 +1,3 @@
-"use client";
-
 import { JsonLd } from "./json-ld";
 import {
   SITE_URL,
@@ -57,7 +55,7 @@ export const ArticleJsonLd = () => {
   return <JsonLd data={articleData} id="article-json-ld" />;
 };
 
-// Local business structured data — Master Cabinets LLC
+// Local business structured data - Master Cabinets LLC
 export const LocalBusinessJsonLd = () => {
   const localBusinessData = {
     "@context": "https://schema.org",
@@ -78,7 +76,6 @@ export const LocalBusinessJsonLd = () => {
     currenciesAccepted: "USD",
     sameAs: [
       SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.facebook,
       SOCIAL_LINKS.googleMaps,
     ],
     areaServed: [
@@ -190,7 +187,7 @@ export const WebSiteJsonLd = () => {
       "@type": "Organization",
       name: COMPANY_NAME,
     },
-    // NOTE: potentialAction/SearchAction removed — only add back if a real /search route exists.
+    // NOTE: potentialAction/SearchAction removed - only add back if a real /search route exists.
     publisher: {
       "@type": "Organization",
       name: COMPANY_NAME,

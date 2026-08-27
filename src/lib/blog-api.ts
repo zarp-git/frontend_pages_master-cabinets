@@ -12,7 +12,7 @@ import { DEMO_ARTICLES } from "@/constants/blog-demo";
 const BLOG_API_BASE_URL = process.env.BLOG_API_BASE_URL || "";
 const BLOG_SECRET = process.env.BLOG_SECRET || "";
 
-/** True when no CMS endpoint is configured — the blog then serves demo content. */
+/** True when no CMS endpoint is configured - the blog then serves demo content. */
 const USE_DEMO_CONTENT = !BLOG_API_BASE_URL;
 
 function demoPage(page: number, limit: number): PaginatedArticles {

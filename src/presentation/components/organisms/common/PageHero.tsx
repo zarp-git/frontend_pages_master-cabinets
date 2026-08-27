@@ -23,7 +23,7 @@ export interface PageHeroProps {
   heading: string;
   /** Optional subheading below the main heading */
   subheading?: string;
-  /** Breadcrumb items — last item is always the current page (no link) */
+  /** Breadcrumb items - last item is always the current page (no link) */
   breadcrumbs?: BreadcrumbItem[];
   /** Optional CTA buttons rendered below the heading */
   cta?: React.ReactNode;

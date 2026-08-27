@@ -122,7 +122,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProp
               </button>
             </div>
 
-            {/* Content — animated panels */}
+            {/* Content - animated panels */}
             <div className="flex-1 overflow-hidden relative">
               <AnimatePresence mode="wait">
                 {!activeSection ? (

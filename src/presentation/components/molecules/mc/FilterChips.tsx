@@ -11,10 +11,10 @@ interface FilterChipsProps<T extends string> {
 }
 
 /**
- * FilterChips — Figma filter row on Gallery (60:12187) and Reviews (60:18380).
+ * FilterChips - Figma filter row on Gallery (60:12187) and Reviews (60:18380).
  *
  * pad 8/20 · radius full · Clash Display Medium 13/20 · centred.
- * Active: #042619 fill + matching border + white text.
+ * Active: #403023 espresso fill + matching border + white text.
  * Idle:   white fill + #E5DECD border + #5B4F45 text.
  */
 export default function FilterChips<T extends string>({
@@ -28,7 +28,14 @@ export default function FilterChips<T extends string>({
     <div
       role="group"
       aria-label={ariaLabel}
-      className={cn("flex flex-wrap items-center justify-center gap-2", className)}
+      className={cn(
+        // A snap rail on phones so eight chips never stack into three rows,
+        // then a centred wrapped row once there is space.
+        "flex w-full min-w-0 snap-x items-center gap-2 overflow-x-auto scroll-smooth",
+        "-mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+        "lg:mx-0 lg:w-auto lg:flex-wrap lg:justify-center lg:overflow-visible lg:px-0",
+        className,
+      )}
     >
       {options.map((option) => {
         const isActive = option.value === active;
@@ -39,9 +46,9 @@ export default function FilterChips<T extends string>({
             onClick={() => onChange(option.value)}
             aria-pressed={isActive}
             className={cn(
-              "rounded-full border px-5 py-2 font-clash text-[13px] font-medium leading-5 transition-colors",
+              "shrink-0 snap-start whitespace-nowrap rounded-full border px-5 py-2 font-clash text-[13px] font-medium leading-5 transition-colors",
               isActive
-                ? "border-[#042619] bg-[#042619] text-white"
+                ? "border-[#403023] bg-[#403023] text-white"
                 : "border-[#E5DECD] bg-white text-[#5B4F45] hover:border-[#958272]",
             )}
           >

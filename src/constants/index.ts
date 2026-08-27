@@ -1,3 +1,4 @@
+export * from "./services-offered";
 export * from "./faq";
 export * from "./footer";
 export * from "./navigation";

@@ -13,8 +13,10 @@
  */
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
-  "http://localhost:3000"
+  // Falls back to the real domain, not localhost: without the env var every
+  // canonical, OG url and sitemap entry would otherwise ship pointing at
+  // localhost (or at the throwaway *.vercel.app deployment host).
+  "https://www.mastercabinets.net"
 ).replace(/\/$/, "");
 
 /** Legal / display company name */
@@ -31,20 +33,23 @@ export const COMPANY_TAGLINE =
 // ---------------------------------------------------------------------------
 // NAP (Name, Address, Phone)
 // ---------------------------------------------------------------------------
-// TODO: Real street address needed — confirm with client before launch
+// Confirmed against the client's Google Business Profile
+// (CID 7209192084505606319). The previous ZIP, 34102, was a template guess.
 export const ADDRESS = {
   label: "Master Cabinets LLC",
-  street: "TODO: Real address needed",
-  fullStreet: "Naples, FL 34102, US",
+  street: "6289 Janes Ln",
+  fullStreet: "6289 Janes Ln, Naples, FL 34109, US",
   city: "Naples",
   region: "FL",
-  postalCode: "34102",
+  postalCode: "34109",
   country: "US",
 } as const;
 
+// Taken from the client's Google Business Profile (CID 7209192084505606319).
+// The previous pair sat 9.1 km south of the actual listing.
 export const GEO = {
-  latitude: 26.142,
-  longitude: -81.7948,
+  latitude: 26.2225616,
+  longitude: -81.7784059,
 } as const;
 
 export const PHONE = {
@@ -58,12 +63,12 @@ export const PHONE = {
   schema: "+1-239-255-2050",
 } as const;
 
-export const PHONE_SECONDARY = {
-  display: "+1 (772) 828-7875",
-  href: "tel:+17728287875",
-  raw: "+17728287875",
-  schema: "+1-772-828-7875",
-} as const;
+/**
+ * The briefing lists a single number, so the secondary pill points at the same
+ * line rather than a second one. Kept as a named export so the call sites do
+ * not have to change if the client supplies a real second number later.
+ */
+export const PHONE_SECONDARY = PHONE;
 
 export const EMAIL = "mastercabinetsllc@gmail.com" as const;
 
@@ -87,11 +92,12 @@ export const BUSINESS_HOURS = {
 // ---------------------------------------------------------------------------
 // Social & Maps
 // ---------------------------------------------------------------------------
+// Only the profiles the client actually confirmed in the briefing. The
+// previous Facebook and WhatsApp entries were placeholders, and the Instagram
+// handle was wrong (mastercabinetsllc vs the real master_cabinets_).
 export const SOCIAL_LINKS = {
-  whatsapp: `https://wa.me/${PHONE.raw}`,
-  instagram: "https://www.instagram.com/mastercabinetsllc/",
-  facebook: "https://www.facebook.com/mastercabinetsllc/",
-  googleMaps: "https://www.google.com/maps",
+  instagram: "https://www.instagram.com/master_cabinets_",
+  googleMaps: "https://maps.app.goo.gl/GAPj9f4XFaRrcZB46",
 } as const;
 
 export const GOOGLE_MAPS_EMBED_URL = "" as const;
@@ -101,7 +107,9 @@ export const GOOGLE_MAPS_EMBED_URL = "" as const;
 // ---------------------------------------------------------------------------
 export const SCHEMA_ADDRESS = {
   "@type": "PostalAddress" as const,
-  streetAddress: ADDRESS.street,
+  // streetAddress is intentionally absent while unknown: PostalAddress is valid
+  // without it, and a placeholder string is worse than no value.
+  ...(ADDRESS.street ? { streetAddress: ADDRESS.street } : {}),
   addressLocality: ADDRESS.city,
   addressRegion: ADDRESS.region,
   postalCode: ADDRESS.postalCode,
@@ -113,3 +121,20 @@ export const SCHEMA_GEO = {
   latitude: GEO.latitude,
   longitude: GEO.longitude,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Service-area cities - used by the footer copy and the contact wizard dropdown
+// ---------------------------------------------------------------------------
+
+export const SERVICE_CITIES = [
+  "Naples",
+  "Bonita Springs",
+  "Estero",
+  "Marco Island",
+  "Fort Myers",
+  "Lehigh Acres",
+  "Miami",
+  "Parkland",
+  "Southwest Ranches",
+  "Sea Ranch Lakes",
+] as const;

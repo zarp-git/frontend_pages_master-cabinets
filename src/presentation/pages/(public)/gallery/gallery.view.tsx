@@ -15,10 +15,10 @@ import PricingCTASection from "@/presentation/components/organisms/home-page-sec
 import type { GalleryCategory, GalleryItem } from "@/types/gallery.type";
 
 /**
- * GalleryPageView — Figma node 60:12187 (GALLERY).
+ * GalleryPageView - Figma node 60:12187 (GALLERY).
  *
  * Centered page lockup → filter chips → 3-column card grid (356×345 cards,
- * white, #E5DECD hairline, radius 24, green badge over the image) → the shared
+ * white, #E5DECD hairline, radius 24, espresso badge over the image) → the shared
  * "We Handle Everything" quote block.
  */
 export function GalleryPageView() {
@@ -41,7 +41,7 @@ export function GalleryPageView() {
   }, []);
 
   return (
-    <main className="w-full bg-white pt-[104px]">
+    <main className="w-full bg-white pt-[92px] sm:pt-[104px] lg:pt-[120px]">
       <section
         className="mx-auto flex max-w-[1360px] flex-col items-center px-4 pb-20 pt-16 sm:px-8"
         aria-label="Project gallery"
@@ -91,7 +91,7 @@ export function GalleryPageView() {
 }
 
 // ---------------------------------------------------------------------------
-// Card — Figma `Button` 356×345
+// Card - Figma `Button` 356×345
 // ---------------------------------------------------------------------------
 function GalleryCard({
   item,

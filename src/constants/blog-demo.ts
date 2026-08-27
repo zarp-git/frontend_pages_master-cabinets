@@ -1,7 +1,7 @@
 import type { BlogArticle } from "@/types/blog.type";
 
 // ---------------------------------------------------------------------------
-// Demo blog content — Figma nodes 48:11240 (BLOG) and 48:10112 (BLOG ARTICLE)
+// Demo blog content - Figma nodes 48:11240 (BLOG) and 48:10112 (BLOG ARTICLE)
 //
 // The live CMS is reached through BLOG_API_BASE_URL. When that variable is not
 // configured (local dev, previews) the blog falls back to this set so the page
@@ -34,13 +34,13 @@ const SEEDS: DemoSeed[] = [
     category: "Design Philosophy",
     readingMinutes: 6,
     excerpt:
-      "Why the best kitchens start with routines, not renderings — and how a single point of contact changes the entire remodel.",
+      "Why the best kitchens start with routines, not renderings - and how a single point of contact changes the entire remodel.",
     image: "/images/projects/dark-wood-flooring-installation.jpg",
     content: `The character of a space is shaped by the materials you see, the details you touch, and the decisions most people never notice. A finish that looks identical in a showroom can diverge dramatically after five years of sunlight, humidity, and daily use.
 
 ## Grain, tone, and movement
 
-White oak reads calm and architectural; walnut brings warmth and depth. Rift-cut veneers keep lines quiet and linear, while plain-sawn faces show more expressive figure. We match the cut to the room — busier grain for accent pieces, restrained grain for large expanses.
+White oak reads calm and architectural; walnut brings warmth and depth. Rift-cut veneers keep lines quiet and linear, while plain-sawn faces show more expressive figure. We match the cut to the room - busier grain for accent pieces, restrained grain for large expanses.
 
 ## Finishes built for Florida
 
@@ -70,7 +70,7 @@ Cabinet colour usually carries the most visual weight, so we resolve it first an
 
 ## Light the zones, not the room
 
-Layered lighting — task over the counters, ambient in the living zone, accent on the millwork — lets one space do several jobs without feeling like a showroom.`,
+Layered lighting - task over the counters, ambient in the living zone, accent on the millwork - lets one space do several jobs without feeling like a showroom.`,
   },
   {
     slug: "hiring-a-remodeler-in-southwest-florida",
@@ -148,7 +148,7 @@ If the island is where people gather, it should not also be the only prep surfac
     category: "Living spaces",
     readingMinutes: 5,
     excerpt:
-      "Custom storage is not about more shelving — it is about matching the build to what you own and how you get dressed.",
+      "Custom storage is not about more shelving - it is about matching the build to what you own and how you get dressed.",
     image: "/images/projects/custom-walk-in-closet-installation.jpg",
     content: `Closets fail when they are designed as generic shelving rather than around a real inventory.
 

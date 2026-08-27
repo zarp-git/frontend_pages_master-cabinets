@@ -5,7 +5,7 @@ import PricingCTASection from "@/presentation/components/organisms/home-page-sec
 import { SITE_URL, COMPANY_NAME } from "@/constants/business-info";
 
 const DESCRIPTION =
-  "Remodeling guides, material notes, and process explainers from the Master Cabinets studio — written for South Florida homeowners planning a renovation.";
+  "Remodeling guides, material notes, and process explainers from the Master Cabinets studio - written for South Florida homeowners planning a renovation.";
 
 export const metadata: Metadata = {
   title: `Blog | ${COMPANY_NAME}`,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Blog index — Figma node 48:11240.
+ * Blog index - Figma node 48:11240.
  * Page lockup → featured post bezel → 3-column card grid → Load More → CTA.
  */
 export default async function BlogPage() {

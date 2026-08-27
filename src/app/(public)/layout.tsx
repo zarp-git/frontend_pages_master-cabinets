@@ -33,7 +33,7 @@ const clashDisplay = localFont({
   variable: "--font-clash",
 });
 
-// NOTE: Do NOT add alternates.canonical here — canonicals belong only in leaf page.tsx files.
+// NOTE: Do NOT add alternates.canonical here - canonicals belong only in leaf page.tsx files.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -79,7 +79,7 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${hankenGrotesk.variable} ${clashDisplay.variable} antialiased`}
       >
-        {/* Global JSON-LD schemas — rendered on every page */}
+        {/* Global JSON-LD schemas - rendered on every page */}
         <LocalBusinessJsonLd />
         <OrganizationJsonLd />
         <WebSiteJsonLd />

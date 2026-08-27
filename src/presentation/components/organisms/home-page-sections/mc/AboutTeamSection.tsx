@@ -6,6 +6,7 @@ import {
 } from "@remixicon/react";
 import ActionButtonGroup from "@/presentation/components/molecules/mc/ActionButtonGroup";
 import SectionHeading from "@/presentation/components/molecules/mc/SectionHeading";
+import HScroll from "@/presentation/components/atoms/ui/HScroll";
 
 const VALUE_BLOCKS = [
   {
@@ -31,30 +32,30 @@ const VALUE_BLOCKS = [
 const MOSAIC = [
   {
     src: "/images/projects/custom-walk-in-closet-installation.jpg",
-    alt: "Custom walk-in closet installation — Master Cabinets",
+    alt: "Custom walk-in closet installation - Master Cabinets",
     span: "col-span-1",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_01.jpg",
-    alt: "Finished bathroom remodel — Master Cabinets",
+    alt: "Finished bathroom remodel - Master Cabinets",
     span: "col-span-1",
   },
   {
     src: "/images/projects/custom-kitchen-cabinetry-remodel.jpg",
-    alt: "Custom kitchen cabinetry remodel — Master Cabinets",
+    alt: "Custom kitchen cabinetry remodel - Master Cabinets",
     span: "col-span-2",
   },
   {
     src: "/images/projects/bathroom_remodel_finished_03.jpg",
-    alt: "Master bathroom with custom vanity — Master Cabinets",
+    alt: "Master bathroom with custom vanity - Master Cabinets",
     span: "col-span-2",
   },
 ] as const;
 
 /**
- * AboutTeamSection — Figma node 17:1855 (Who We Are / Single Team Advantage).
+ * AboutTeamSection - Figma node 17:1855 (Who We Are / Single Team Advantage).
  *
- * Left: 2×3 photo mosaic (622px, 16px gaps — two 303px tiles on top, two
+ * Left: 2×3 photo mosaic (622px, 16px gaps - two 303px tiles on top, two
  * full-width tiles below). Right: heading lockup, supporting copy and three
  * bezelled value cards (icon chip · title · Times-italic numeral · body).
  */
@@ -64,27 +65,27 @@ export default function AboutTeamSection() {
       className="w-full bg-white px-4 py-12 sm:px-8 lg:px-16"
       aria-label="About Master Cabinets"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 lg:flex-row lg:gap-20">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 xl:flex-row xl:gap-20">
         {/* Left: photo mosaic */}
-        <div className="grid w-full shrink-0 grid-cols-2 gap-4 lg:w-[622px]">
+        <div className="grid w-full min-w-0 grid-cols-2 gap-4 xl:w-[622px] xl:shrink-0">
           {MOSAIC.map((img) => (
             <div
               key={img.src}
-              className={`relative h-[160px] overflow-hidden rounded-[21px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] lg:h-[246px] ${img.span}`}
+              className={`relative h-[160px] overflow-hidden rounded-[21px] bg-[#E5DECD] shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:h-[220px] xl:h-[246px] ${img.span}`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
                 className="object-cover"
-                sizes="(min-width: 1024px) 622px, 100vw"
+                sizes="(min-width: 1280px) 622px, 100vw"
               />
             </div>
           ))}
         </div>
 
         {/* Right: value proposition */}
-        <div className="flex w-full flex-col gap-8 lg:max-w-[610px]">
+        <div className="flex w-full min-w-0 flex-col gap-8 xl:max-w-[610px]">
           <SectionHeading
             line1="Made for Your Space."
             line2="Built for"
@@ -92,13 +93,17 @@ export default function AboutTeamSection() {
             subtitle="Renovations shouldn't mean managing five different contractors, confusing timelines, and miscommunication."
           />
 
-          <div className="flex flex-col gap-4">
+          <HScroll
+            ariaLabel="What sets us apart"
+            gapClassName="gap-4"
+            expandedClassName="sm:mx-0 sm:flex-col sm:snap-none sm:overflow-visible sm:px-0"
+          >
             {VALUE_BLOCKS.map(({ index, title, body, Icon }) => (
               <div
                 key={index}
-                className="rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)]"
+                className="w-[88%] shrink-0 snap-start rounded-[32px] bg-black/[0.04] p-1.5 shadow-[0_0_0_rgba(0,0,0,0.05)] sm:w-auto sm:shrink"
               >
-                <div className="flex items-start gap-5 rounded-[26px] bg-white p-7 shadow-[0_1px_1px_rgba(255,255,255,0.60)]">
+                <div className="flex h-full items-start gap-4 rounded-[26px] bg-white p-5 shadow-[0_1px_1px_rgba(255,255,255,0.60)] sm:gap-5 sm:p-7">
                   <span
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black/[0.04]"
                     aria-hidden="true"
@@ -108,7 +113,7 @@ export default function AboutTeamSection() {
 
                   <div className="flex flex-1 flex-col gap-2">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="font-clash text-[16px] font-medium text-[#403023]">
+                      <span className="font-clash text-[15px] font-medium leading-snug text-[#403023] sm:text-[16px]">
                         {title}
                       </span>
                       <span
@@ -125,7 +130,7 @@ export default function AboutTeamSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </HScroll>
 
           <ActionButtonGroup />
         </div>

@@ -1,16 +1,16 @@
 import { cn } from "@/lib/utils";
 
 interface PageHeadingProps {
-  /** Small uppercase kicker line — Clash Display Medium 32. */
+  /** Small uppercase kicker line - Clash Display Medium 32. */
   kicker: string;
-  /** Display line — Times New Roman Italic 77. */
+  /** Display line - Times New Roman Italic 77. */
   display: string;
   className?: string;
   as?: "h1" | "h2";
 }
 
 /**
- * PageHeading — the page-level lockup used by Gallery (60:12187) and
+ * PageHeading - the page-level lockup used by Gallery (60:12187) and
  * Blog (48:11240).
  *
  * Line 1: Clash Display Medium 32/32, uppercase, #2C1F14, centered.

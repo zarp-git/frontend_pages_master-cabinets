@@ -29,10 +29,10 @@ interface BlogListProps {
 }
 
 /**
- * BlogList — Figma node 48:11240 (BLOG).
+ * BlogList - Figma node 48:11240 (BLOG).
  *
  * Page lockup → a raised bezel featuring the newest post (image left, copy
- * right) → a 3-column grid of #9FEACD-bordered cards → the Load More pill.
+ * right) → a 3-column grid of #E5DECD-bordered cards → the Load More pill.
  */
 export function BlogList({ articles }: BlogListProps) {
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -43,7 +43,7 @@ export function BlogList({ articles }: BlogListProps) {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="w-full px-4 pb-24 pt-[120px] sm:px-8">
+      <div className="w-full px-4 pb-24 pt-[92px] sm:pt-[104px] lg:pt-[120px] sm:px-8">
         <PageHeading
           kicker="Want to perfect your home remodel?"
           display="Get The Best Ideas Here"
@@ -66,7 +66,7 @@ export function BlogList({ articles }: BlogListProps) {
 
       {articles.length === 0 && (
         <p className="py-20 text-center font-sans text-lg text-[#666666]">
-          No articles published yet — check back soon.
+          No articles published yet - check back soon.
         </p>
       )}
     </div>
@@ -74,7 +74,7 @@ export function BlogList({ articles }: BlogListProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Featured card — Figma `Link` > `Bezel` 1300×495
+// Featured card - Figma `Link` > `Bezel` 1300×495
 // ---------------------------------------------------------------------------
 function FeaturedArticle({ article }: { article: BlogArticleSummary }) {
   const image = getPrimaryBlogImage(article.images);
@@ -135,7 +135,7 @@ function FeaturedArticle({ article }: { article: BlogArticleSummary }) {
 }
 
 // ---------------------------------------------------------------------------
-// Grid card — Figma `Link` 411×489
+// Grid card - Figma `Link` 411×489
 // ---------------------------------------------------------------------------
 function ArticleCard({ article }: { article: BlogArticleSummary }) {
   const image = getPrimaryBlogImage(article.images);
@@ -144,9 +144,9 @@ function ArticleCard({ article }: { article: BlogArticleSummary }) {
   return (
     <Link
       href={`/blog/${article.slug}`}
-      className="group flex flex-col overflow-hidden rounded-[28px] border border-[#9FEACD] bg-white transition-shadow hover:shadow-[0_9px_22px_rgba(40,31,19,0.08)]"
+      className="group flex flex-col overflow-hidden rounded-[28px] border border-[#E5DECD] bg-white transition-shadow hover:shadow-[0_9px_22px_rgba(40,31,19,0.08)]"
     >
-      <div className="relative h-[221px] w-full bg-[#9FEACD]">
+      <div className="relative h-[221px] w-full bg-[#E8DFC8]">
         {image && (
           <Image
             src={image.url}
@@ -160,7 +160,7 @@ function ArticleCard({ article }: { article: BlogArticleSummary }) {
 
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-center gap-2.5">
-          <span className="rounded-full bg-[#F0FFF9] px-2.5 py-1 font-clash text-[11px] font-medium uppercase leading-4 tracking-[0.7px] text-[#042619]">
+          <span className="rounded-full bg-black/[0.04] px-2.5 py-1 font-clash text-[11px] font-medium uppercase leading-4 tracking-[0.7px] text-[#403023]">
             {category}
           </span>
           <span className="font-clash text-[12px] font-medium leading-[18px] text-[#8A7D6F]">
@@ -177,10 +177,10 @@ function ArticleCard({ article }: { article: BlogArticleSummary }) {
         </p>
 
         <span className="mt-auto flex items-center gap-1.5 pt-1">
-          <span className="font-clash text-[13px] font-medium leading-5 text-[#042619]">
+          <span className="font-clash text-[13px] font-medium leading-5 text-[#403023]">
             Read more
           </span>
-          <RiArrowRightLine className="h-3.5 w-3.5 text-[#042619] transition-transform group-hover:translate-x-0.5" />
+          <RiArrowRightLine className="h-3.5 w-3.5 text-[#403023] transition-transform group-hover:translate-x-0.5" />
         </span>
       </div>
     </Link>

@@ -13,7 +13,7 @@ interface BezelProps {
 }
 
 /**
- * Bezel — the recurring "framed surface" primitive from the Master Cabinets
+ * Bezel - the recurring "framed surface" primitive from the Master Cabinets
  * design kit (Figma: every `Bezel` > `Container` pair).
  *
  * Outer:  padding 4/6px · bg rgba(0,0,0,.04) · radius 19/32 · soft drop shadow
